@@ -507,7 +507,32 @@
   
 <script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
 <script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({{ JSON.stringify(config) }});
@@ -527,18 +552,6 @@ MathJax.Hub.Config({{ JSON.stringify(config) }});
 
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   
