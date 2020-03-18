@@ -243,13 +243,25 @@
 
       
         <p>经常在公司听到有同事黑这脸说累死了，在电脑前坐了一整天了，事情还没有做完。要加班才能完成。电脑是个个工具，工具的使用本来提高了效率，但是很多人没有将这个工具用好，所以效率还是不够高。学到手一些CMD命令有些时候真的是你一分钟做完的事，别人可能要几天才完成，可能出错。下面介绍这个查找文件并复制或者做其他，举一反三，可以实现很多…<a id="more"></a></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">echo on</span><br><span class="line">echo 测试</span><br><span class="line">del <span class="number">123.</span>txt</span><br><span class="line">for %%a in (c d e f g ) do dir %%a:\*.pdf  /s/b &gt;&gt;123.txt </span><br><span class="line">::查找电脑硬盘中的C\D\E\F\G盘中的pdf文档,并将所有文档路径写入到<span class="number">123.</span>txt</span><br><span class="line">::<span class="keyword">for</span> %%a in （）<span class="keyword">do</span> 语句 括号内的内容=%%a，括号内的内容用空格隔开</span><br><span class="line"><span class="keyword">for</span> %%a in (c d e f g) <span class="keyword">do</span> dir %%a:\*.dwg /s/b &gt;&gt;<span class="number">123.</span>txt</span><br><span class="line">md h:\<span class="number">123</span></span><br><span class="line">::在h盘下创建目录，名称<span class="number">123</span></span><br><span class="line"><span class="keyword">for</span> /f <span class="string">"delims=="</span> %%a in (<span class="number">123.</span>txt) <span class="keyword">do</span> xcopy %%a /s/y h:\<span class="number">123</span>\</span><br><span class="line">::将前两步查找出来的符合搜索条件的文件复制到h盘下的<span class="number">123</span>目录。</span><br><span class="line">::<span class="keyword">for</span> /f <span class="string">"delims=="</span> %%a in （）<span class="keyword">do</span>  语句 括号内的为文件</span><br><span class="line">del <span class="number">123.</span>txt </span><br><span class="line">echo 测试完成！</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">echo on</span><br><span class="line">echo 测试</span><br><span class="line">del <span class="number">123.</span>txt</span><br><span class="line">for %%a in (c d e f g ) do dir %%a:\*.pdf  /s/b &gt;&gt;123.txt</span><br><span class="line">::查找电脑硬盘中的C\D\E\F\G盘中的pdf文档,并将所有文档路径写入到<span class="number">123.</span>txt</span><br><span class="line">::<span class="keyword">for</span> %%a in （）<span class="keyword">do</span> 语句 括号内的内容=%%a，括号内的内容用空格隔开</span><br><span class="line"><span class="keyword">for</span> %%a in (c d e f g) <span class="keyword">do</span> dir %%a:\*.dwg /s/b &gt;&gt;<span class="number">123.</span>txt</span><br><span class="line">md h:\<span class="number">123</span></span><br><span class="line">::在h盘下创建目录，名称<span class="number">123</span></span><br><span class="line"><span class="keyword">for</span> /f <span class="string">"delims=="</span> %%a in (<span class="number">123.</span>txt) <span class="keyword">do</span> xcopy %%a /s/y h:\<span class="number">123</span>\</span><br><span class="line">::将前两步查找出来的符合搜索条件的文件复制到h盘下的<span class="number">123</span>目录。</span><br><span class="line">::<span class="keyword">for</span> /f <span class="string">"delims=="</span> %%a in （）<span class="keyword">do</span>  语句 括号内的为文件</span><br><span class="line">del <span class="number">123.</span>txt</span><br><span class="line">echo 测试完成！</span><br></pre></td></tr></table></figure>
 
 <p>简化以上：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">echo on</span><br><span class="line">echo 测试</span><br><span class="line">del <span class="number">123.</span>txt</span><br><span class="line">for %%a in (c d e f g ) do dir %%a:\  /s/b &gt;&gt;123.txt </span><br><span class="line">findstr /i /l <span class="string">".dxf .dwg"</span> <span class="number">123.</span>txt &gt;<span class="number">234.</span>txt</span><br><span class="line">@ping -n <span class="number">3</span> <span class="number">127.1</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> exist h:\<span class="number">123</span> md h:\<span class="number">123</span></span><br><span class="line">for /f "delims==" %%a in (234.txt) do xcopy %%a /s/y h:\123\</span><br><span class="line">del <span class="number">123.</span>txt  <span class="number">234.</span>txt</span><br><span class="line">echo 测试完成！</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">echo on</span><br><span class="line">echo 测试</span><br><span class="line">del <span class="number">123.</span>txt</span><br><span class="line">for %%a in (c d e f g ) do dir %%a:\  /s/b &gt;&gt;123.txt</span><br><span class="line">findstr /i /l <span class="string">".dxf .dwg"</span> <span class="number">123.</span>txt &gt;<span class="number">234.</span>txt</span><br><span class="line">@ping -n <span class="number">3</span> <span class="number">127.1</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> exist h:\<span class="number">123</span> md h:\<span class="number">123</span></span><br><span class="line">for /f "delims==" %%a in (234.txt) do xcopy %%a /s/y h:\123\</span><br><span class="line">del <span class="number">123.</span>txt  <span class="number">234.</span>txt</span><br><span class="line">echo 测试完成！</span><br></pre></td></tr></table></figure>
 
-<p>​        </p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">echo on</span><br><span class="line">echo 测试</span><br><span class="line">del <span class="number">123.</span>txt</span><br><span class="line">for %%a in (c d e f g ) do dir %%a:\  /s/b &gt;&gt;123.txt </span><br><span class="line">findstr /i /l <span class="string">".dxf .dwg .doc .xls .ppt"</span> <span class="number">123.</span>txt &gt;<span class="number">234.</span>txt</span><br><span class="line">@ping -n <span class="number">3</span> <span class="number">127.1</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> exist h:\<span class="number">123</span> md h:\<span class="number">123</span></span><br><span class="line">for /f "delims==" %%b in (234.txt) do del %%b /f/q/s</span><br><span class="line">del <span class="number">123.</span>txt  <span class="number">234.</span>txt</span><br><span class="line">echo 测试完成！</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p><code>c
+echo on
+echo 测试
+del 123.txt
+for %%a in (c d e f g ) do dir %%a:\  /s/b &gt;&gt;123.txt
+findstr /i /l &quot;.dxf .dwg .doc .xls .ppt&quot; 123.txt &gt;234.txt
+@ping -n 3 127.1 &gt; nul
+if not exist h:\123 md h:\123
+for /f &quot;delims==&quot; %%b in (234.txt) do del %%b /f/q/s
+del 123.txt  234.txt
+echo 测试完成！
+[[</code>]]</p>
+
     </div>
 
     
@@ -346,14 +358,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
