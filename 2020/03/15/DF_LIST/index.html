@@ -20,17 +20,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="[toc] DataFrame to list方法1:将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist() 1234567891011121314df &#x3D; pd.read_excel(&#39;DHAC.xls&#39;, sheet_name&#x3D;&#39;销售单&#39;)  # 读文件a &#x3D; df[&#39;DHAC编号&#39;].values.tolist()#将DF的某列">
+  <meta name="description" content="DataFrame to list方法1:将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist() 1234567891011121314df &#x3D; pd.read_excel(&#39;DHAC.xls&#39;, sheet_name&#x3D;&#39;销售单&#39;)  # 读文件a &#x3D; df[&#39;DHAC编号&#39;].values.tolist()#将DF的某列的值转换成列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DF TO LIST">
+<meta property="og:title" content="DF TO LIST 表框、列表互转">
 <meta property="og:url" content="http://yoursite.com/2020/03/15/DF_LIST/index.html">
 <meta property="og:site_name" content="静水深流">
-<meta property="og:description" content="[toc] DataFrame to list方法1:将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist() 1234567891011121314df &#x3D; pd.read_excel(&#39;DHAC.xls&#39;, sheet_name&#x3D;&#39;销售单&#39;)  # 读文件a &#x3D; df[&#39;DHAC编号&#39;].values.tolist()#将DF的某列">
+<meta property="og:description" content="DataFrame to list方法1:将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist() 1234567891011121314df &#x3D; pd.read_excel(&#39;DHAC.xls&#39;, sheet_name&#x3D;&#39;销售单&#39;)  # 读文件a &#x3D; df[&#39;DHAC编号&#39;].values.tolist()#将DF的某列的值转换成列">
 <meta property="article:published_time" content="2020-03-14T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-03-14T16:00:00.000Z">
 <meta property="article:author" content="xiaoyaoxin">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/03/15/DF_LIST/">
@@ -45,7 +44,7 @@
   };
 </script>
 
-  <title>DF TO LIST | 静水深流</title>
+  <title>DF TO LIST 表框、列表互转 | 静水深流</title>
   
 
 
@@ -199,7 +198,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          DF TO LIST
+          DF TO LIST 表框、列表互转
         </h1>
 
         <div class="post-meta">
@@ -217,15 +216,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">计算机技术</span></a>
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
                 </span>
                   ， 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-                </span>
-                  ， 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/python/pandas/" itemprop="url" rel="index"><span itemprop="name">pandas</span></a>
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
                 </span>
             </span>
 
@@ -247,8 +242,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>[toc]</p>
-<h3 id="DataFrame-to-list"><a href="#DataFrame-to-list" class="headerlink" title="DataFrame to list"></a>DataFrame to list</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h4><p>将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist()</p>
+        <h3 id="DataFrame-to-list"><a href="#DataFrame-to-list" class="headerlink" title="DataFrame to list"></a>DataFrame to list</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h4><p>将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist()</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'DHAC.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">c = df[<span class="string">'订单号'</span>].drop_duplicates().values.tolist()<span class="comment"># 将某列的值去重并转成列表</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	a的类型是:&#123;&#125;</span></span><br><span class="line"><span class="string">	a的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	c的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	'''</span>.format(type(a), len(a), len(c)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">a的类型是:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">a</span>的序列有:</span><span class="number">1846</span> 个</span><br><span class="line">c的序列有:<span class="number">130</span> 个</span><br></pre></td></tr></table></figure>
 
 <h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h4><p>直接将整个DF转成列表. df1.values.tolist()</p>
@@ -283,7 +277,6 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/python/" rel="tag"># python</a>
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
           </div>
 
         
@@ -292,12 +285,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/12/DHAC%E6%9B%B2%E8%BD%B4%E5%88%80/" rel="prev" title="DHAC曲轴刀柄">
-      <i class="fa fa-chevron-left"></i> DHAC曲轴刀柄
+    <a href="/2020/03/11/%E6%A0%AA%E6%B4%B2%E9%92%BB%E7%9F%B3%E7%BA%BF%E4%B8%8A%E6%96%B0%E5%93%81%E6%8E%A8%E4%BB%8B%E5%92%8C%E5%9F%B9%E8%AE%AD/" rel="prev" title="株洲钻石线上新品推介和培训">
+      <i class="fa fa-chevron-left"></i> 株洲钻石线上新品推介和培训
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/03/15/pandas/" rel="next" title="pandas">
-      pandas <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/17/%E5%8E%BB%E9%87%8D/" rel="next" title="去重">
+      去重 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -372,20 +365,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
