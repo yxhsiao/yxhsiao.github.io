@@ -1,46 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DF TO LIST</title>
-    <url>/2020/03/17/DF_LIST/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h3 id="DataFrame-to-list"><a href="#DataFrame-to-list" class="headerlink" title="DataFrame to list"></a>DataFrame to list</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h4><p>将DF的某列转换成列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'DHAC.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">c = df[<span class="string">'订单号'</span>].drop_duplicates().values.tolist()<span class="comment"># 将某列的值去重并转成列表</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	a的类型是:&#123;&#125;</span></span><br><span class="line"><span class="string">	a的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	c的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	'''</span>.format(type(a), len(a), len(c)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">a的类型是:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">a</span>的序列有:</span><span class="number">1846</span> 个</span><br><span class="line">c的序列有:<span class="number">130</span> 个</span><br></pre></td></tr></table></figure>
-
-<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h4><p>直接将DF转成列表</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">a=df.values.tolist()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
-
-<h4 id="方法3"><a href="#方法3" class="headerlink" title="方法3:"></a>方法3:</h4><p>用list的函数list强制转换,只对单列有效.</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">a=list(df[<span class="string">'订单号'</span>])</span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
-
-<h3 id="list-to-DataFrme"><a href="#list-to-DataFrme" class="headerlink" title="list to DataFrme"></a>list to DataFrme</h3><h4 id="将1个列表转成DF-列表中没有子列表"><a href="#将1个列表转成DF-列表中没有子列表" class="headerlink" title="将1个列表转成DF,列表中没有子列表"></a>将1个列表转成DF,列表中没有子列表</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">df1=pd.DataFrame(a,columns=[<span class="string">'DHAC编号'</span>])<span class="comment">#将1个列表转换成DF,列表中没有子列表！</span></span><br><span class="line">print(<span class="string">'这里是列表的0序列:'</span>,<span class="string">'\n'</span>,a[<span class="number">0</span>])</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">这里是列表的<span class="number">0</span>序列:</span><br><span class="line"> DH5DS508</span><br><span class="line"></span><br><span class="line">这里是表框的头两行</span><br><span class="line">      DHAC编号</span><br><span class="line"><span class="number">0</span>  DH5DS508</span><br><span class="line"><span class="number">1</span>  DH5TP505</span><br></pre></td></tr></table></figure>
-
-<h4 id="将两个没有子列表的列表转换成DF"><a href="#将两个没有子列表的列表转换成DF" class="headerlink" title="将两个没有子列表的列表转换成DF."></a>将两个没有子列表的列表转换成DF.</h4><p>先将两个列表组成字典,并设置KEY. 然后转成DF,不再需要设置colums的值</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">k=&#123;<span class="string">'编号'</span>:a ,<span class="string">'订单'</span>:b&#125;</span><br><span class="line">df1=pd.DataFrame(k)</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">          编号       订单</span><br><span class="line"><span class="number">0</span>  DH5DS508  <span class="number">9J</span>D7113</span><br><span class="line"><span class="number">1</span>  DH5TP505  <span class="number">9J</span>D7113</span><br></pre></td></tr></table></figure>
-
-<h4 id="将由子列表组成的列表转换成DF"><a href="#将由子列表组成的列表转换成DF" class="headerlink" title="将由子列表组成的列表转换成DF."></a>将由子列表组成的列表转换成DF.</h4><p>输入的列标题个数必须与子列表中的元素个数匹配。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">c= df.values.tolist()<span class="comment">#将DF转成list</span></span><br><span class="line">df2=pd.DataFrame(c,columns=[<span class="string">'日期'</span>,<span class="string">'编号'</span>,<span class="string">'订单'</span>, <span class="string">'规格'</span> , <span class="string">'数量'</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df2.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">           日期       编号        订单         规格    数量</span><br><span class="line"><span class="number">0</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5DS508  D3<span class="number">.95</span>*<span class="number">100</span>   <span class="number">6.0</span></span><br><span class="line"><span class="number">1</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5TP505  <span class="number">302822841</span>  <span class="number">10.0</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>计算机技术</category>
-        <category>python</category>
-        <category>pandas</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>学习笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>去重</title>
     <url>/2020/03/17/%E5%8E%BB%E9%87%8D/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -123,137 +83,66 @@
       </tags>
   </entry>
   <entry>
-    <title>DHAC王浩配曲轴刀柄</title>
-    <url>/2020/03/12/DHAC%E7%8E%8B%E6%B5%A9%E9%85%8D%E6%9B%B2%E8%BD%B4%E5%88%80%E6%9F%84/</url>
-    <content><![CDATA[<p>刀柄清单：</p>
-<table>
-<thead>
-<tr>
-<th>安装刃具</th>
-<th>接口类型</th>
-<th>夹紧方式</th>
-<th>刀柄规格</th>
-<th>刀柄订货号</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>倒角钻：$\phi$ 4$\times$40F<del>L</del> -SD8.0L<del>0</del></td>
-<td>HSK 63A</td>
-<td>液压</td>
-<td>HSK 63A  8$\times$150L</td>
-<td></td>
-<td>MQL</td>
-</tr>
-<tr>
-<td>斜油孔钻：$\phi$6.2$\times$200F<del>L</del>-SD238L<del>0</del></td>
-<td>HSK 63A</td>
-<td>液压</td>
-<td>HSK 63A  8$\times$200L</td>
-<td></td>
-<td>MQL</td>
-</tr>
-<tr>
-<td>斜油孔预钻：$\phi$6.2$\times$34F<del>L</del>-SD8$\times$78L<del>0</del></td>
-<td>HSK 63A</td>
-<td>液压</td>
-<td>HSK 63A  8$\times$320L</td>
-<td></td>
-<td>MQL</td>
-</tr>
-<tr>
-<td>直油孔钻：$\phi$5.1$\times$65F<del>L</del>-SD6$\times$103L<del>0</del></td>
-<td>HSK 63A</td>
-<td>液压</td>
-<td>HSK 63A  8$\times$170L</td>
-<td></td>
-<td>MQL</td>
-</tr>
-<tr>
-<td>沟槽：R2.5$\times$8F<del>L</del>-SD8$\times$60L<del>0</del></td>
-<td>HSK 63A</td>
-<td>侧固</td>
-<td>HSK 63A  8$\times$150L</td>
-<td></td>
-<td>外径24长36</td>
-</tr>
-</tbody></table>
+    <title>DF TO LIST</title>
+    <url>/2020/03/15/DF_LIST/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h3 id="DataFrame-to-list"><a href="#DataFrame-to-list" class="headerlink" title="DataFrame to list"></a>DataFrame to list</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h4><p>将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist()</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'DHAC.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">c = df[<span class="string">'订单号'</span>].drop_duplicates().values.tolist()<span class="comment"># 将某列的值去重并转成列表</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	a的类型是:&#123;&#125;</span></span><br><span class="line"><span class="string">	a的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	c的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	'''</span>.format(type(a), len(a), len(c)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">a的类型是:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">a</span>的序列有:</span><span class="number">1846</span> 个</span><br><span class="line">c的序列有:<span class="number">130</span> 个</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h4><p>直接将整个DF转成列表. df1.values.tolist()</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">a=df.values.tolist()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法3"><a href="#方法3" class="headerlink" title="方法3:"></a>方法3:</h4><p>用list的函数list强制转换,只对单列有效. list(df1[‘columns_name’])</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">a=list(df[<span class="string">'订单号'</span>])</span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
+
+<h3 id="list-to-DataFrme"><a href="#list-to-DataFrme" class="headerlink" title="list to DataFrme"></a>list to DataFrme</h3><h4 id="将1个列表转成DF-列表中没有子列表"><a href="#将1个列表转成DF-列表中没有子列表" class="headerlink" title="将1个列表转成DF,列表中没有子列表"></a>将1个列表转成DF,列表中没有子列表</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">df1=pd.DataFrame(a,columns=[<span class="string">'DHAC编号'</span>])<span class="comment">#将1个列表转换成DF,列表中没有子列表！</span></span><br><span class="line">print(<span class="string">'这里是列表的0序列:'</span>,<span class="string">'\n'</span>,a[<span class="number">0</span>])</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">这里是列表的<span class="number">0</span>序列:</span><br><span class="line"> DH5DS508</span><br><span class="line"></span><br><span class="line">这里是表框的头两行</span><br><span class="line">      DHAC编号</span><br><span class="line"><span class="number">0</span>  DH5DS508</span><br><span class="line"><span class="number">1</span>  DH5TP505</span><br></pre></td></tr></table></figure>
+
+<h4 id="将两个没有子列表的列表转换成DF"><a href="#将两个没有子列表的列表转换成DF" class="headerlink" title="将两个没有子列表的列表转换成DF."></a>将两个没有子列表的列表转换成DF.</h4><p>先将两个列表组成字典,并设置KEY. 然后转成DF,不再需要设置colums的值</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">k=&#123;<span class="string">'编号'</span>:a ,<span class="string">'订单'</span>:b&#125;</span><br><span class="line">df1=pd.DataFrame(k)</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">          编号       订单</span><br><span class="line"><span class="number">0</span>  DH5DS508  <span class="number">9J</span>D7113</span><br><span class="line"><span class="number">1</span>  DH5TP505  <span class="number">9J</span>D7113</span><br></pre></td></tr></table></figure>
+
+<h4 id="将由子列表组成的列表转换成DF"><a href="#将由子列表组成的列表转换成DF" class="headerlink" title="将由子列表组成的列表转换成DF."></a>将由子列表组成的列表转换成DF.</h4><p>输入的列标题个数必须与子列表中的元素个数匹配。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">c= df.values.tolist()<span class="comment">#将DF转成list</span></span><br><span class="line">df2=pd.DataFrame(c,columns=[<span class="string">'日期'</span>,<span class="string">'编号'</span>,<span class="string">'订单'</span>, <span class="string">'规格'</span> , <span class="string">'数量'</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df2.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">           日期       编号        订单         规格    数量</span><br><span class="line"><span class="number">0</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5DS508  D3<span class="number">.95</span>*<span class="number">100</span>   <span class="number">6.0</span></span><br><span class="line"><span class="number">1</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5TP505  <span class="number">302822841</span>  <span class="number">10.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
 ]]></content>
+      <categories>
+        <category>计算机技术</category>
+        <category>python</category>
+        <category>pandas</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DHAC曲轴刀柄</title>
+    <url>/2020/03/12/DHAC%E6%9B%B2%E8%BD%B4%E5%88%80/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好! 这里需要密码." /><label>您好! 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="50beb1ef9aad1cc73a847dae0e4e1950b07b36a2c95800c94accfbb68deffe9e">f8dc3117e7e8dac631fd211478d3fa65f97fa07a8869d1e68a45817a2c21baf932e9249fbe829f3d3ded1348ccc445457430fc4cf2cb91bbb4485de779f7a8a4885d8a5e38259f61fe60a9d782710e3e0365786f56c504bd7e841bf2db92da0bf11f283337e001a46994e812f35ee0d0d95ab05a901213f397109ce9dfc806df14c322c781a032dea85923e3a7691bbc3d1d024cf37eb9006d9d0a3813cefe07a02ad52197bdf0f85a082e9f2182a9a9858a03add3f69365600c160097c89270176813dfad02b676a7d3c8a9e8f4e1027df91a4d6371fefffe0b2c079906d25e9bfb30ba9aebb723eede96710358faf1372b32929a7574a6d248c75c7f4adf5f0df4742dece64d3b204b134afcbfd3bccd4c4ecca17c7d33574471e54165021b37b976ebb4840918581c536b863884196b443668e0074ac5b5ca1278f77cc086d796e21e02b692b1eacf74b8804052308918e4a317001fbe3b56aa9bb517411b293e5365918039d02e4a68f1777587ca1e6ef71f4dfe5b5d77b79a006d459893e924981e6c8bd3228e8113f3028e6dd5512114a629a5f59bc1184fa205bba53f288ec137db810ab698b39bd1f99561602fa65f31598e75889352ff32ead62858892e0b158ed1b2ea2226f477309d6c27ab6c2b235d8bc50b0bc36265134b76bb8c5ae99abb593ae2e65a44fb9c4c03e400b8d205e7d615a27167c581d2ff00aaacd5264800596215bb427b75781c434b57308eab8c611a7fe1de66d545dab5ac13a428251b50a50639c0971701ce0cf92a300f6942e0729658f733a73437d92b09e166c2097c759b597ab787e0c91b6b1369ec11dfeb0f4d44d1b39141aa71aeb07f19e307a1d627001921f10b526bc7715bd5cd0c2b49d70b1bdf7487a5d77a399a99afcbdfa8dd7621e7be8c85bb6a92c742b88149c7c8a68bb7030127f838eb6235da5f047ef7ccdb2db8bcbe9f7f954790cf680910dfc01828bb1ee5c0a98e29c06f42c9f05ee3dcd24b14a19def4fe4294d8b4c1a57cdb6973358abb03cea6c247b922323e8fbd98a6ab9f6981cb2b77a46e76b968d4d18234ea2a8909ccc26ef2dc96e0e5387c7a14805ce6f8ce76110c49770b24ccee78d5565ed504a58c1972c67b00c0c6e6281a5528af375c985c13d987ee278b8c4ccc0f0a258c464755d6b581510b08eb3a85f045ab63e1de825ef37b2a18939b17b76dbe6bb4400ee59c0e053d800de163333b89bad999d9992276927ed6cd18ccc3a0c833cd7cbc554750292ad429a0708d457c3f6acabe2991cf93a3dd66020d5117b3798c3fa0b0292a4165c2b7b7e5dba678ec1a8a1becdf651c843f6c99d76b5baea906c83bbd28a2e2acc7affdb739f9b15322977c875ec32f6a34112752a64a60f1ba28bee0025085424ebd5d77554f2be937cd5a3ad9599172e0ebf28edde442f98e0069e10381143e8fb99c76e52d27fa4f61eec346418a85af0f18c2f6514250d0dff5a2f39401d11a3fdfa106e35be34b028aee3a44705af88010a16cc68e63266a18398c4ec508af853740f13ae2f52c3c9a2cf9ad2d7db5e2d5e989aa439ef4f</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>工作笔记</category>
+      </categories>
+      <tags>
+        <tag>曲轴刀具清单</tag>
+      </tags>
   </entry>
   <entry>
     <title>株洲钻石线上新品推介和培训</title>
     <url>/2020/03/11/%E6%A0%AA%E6%B4%B2%E9%92%BB%E7%9F%B3%E7%BA%BF%E4%B8%8A%E6%96%B0%E5%93%81%E6%8E%A8%E4%BB%8B%E5%92%8C%E5%9F%B9%E8%AE%AD/</url>
-    <content><![CDATA[<h1 id="株洲钻石线上新品推介与交流"><a href="#株洲钻石线上新品推介与交流" class="headerlink" title="株洲钻石线上新品推介与交流"></a>株洲钻石线上新品推介与交流</h1><p>[toc]</p>
-<h3 id="戴总发言："><a href="#戴总发言：" class="headerlink" title="戴总发言："></a>戴总发言：</h3><h3 id="技术经理陈帅做讲解"><a href="#技术经理陈帅做讲解" class="headerlink" title="技术经理陈帅做讲解"></a>技术经理陈帅做讲解</h3><h4 id="播放PPT-株洲钻石"><a href="#播放PPT-株洲钻石" class="headerlink" title="播放PPT 株洲钻石"></a>播放PPT 株洲钻石</h4><h5 id="铣削刀具的介绍-尹工"><a href="#铣削刀具的介绍-尹工" class="headerlink" title="铣削刀具的介绍  尹工"></a>铣削刀具的介绍  尹工</h5><h6 id="以山特的产品为蓝本，可以和山特的通装。因为山特的铣削产品即将退出中国市场。"><a href="#以山特的产品为蓝本，可以和山特的通装。因为山特的铣削产品即将退出中国市场。" class="headerlink" title="以山特的产品为蓝本，可以和山特的通装。因为山特的铣削产品即将退出中国市场。"></a>以山特的产品为蓝本，可以和山特的通装。因为山特的铣削产品即将退出中国市场。</h6><ol>
-<li>齿轮的粗铣、精铣</li>
-<li>MO12 ，～MO18的齿轮加工刀片</li>
-<li>YBM253、</li>
-<li>一般使用环境都是干铣。少数的有油雾冷却</li>
-</ol>
-<h6 id="风电：汽轮机的铣削，异形件的加工。"><a href="#风电：汽轮机的铣削，异形件的加工。" class="headerlink" title="风电：汽轮机的铣削，异形件的加工。"></a>风电：汽轮机的铣削，异形件的加工。</h6><ol>
-<li>叶片加工 哈电 上电，东电</li>
-<li>YBM303在印度市场反响不错。需要再降低成本。</li>
-</ol>
-<h5 id="汽车行业"><a href="#汽车行业" class="headerlink" title="汽车行业"></a>汽车行业</h5><ol>
-<li>缸体的面铣</li>
-<li>曲轴的车拉刀  已经在船用曲轴上得到验证。</li>
-<li>铣刀杆方面 补全EM系列 ，FM系列刀片降低成本。</li>
-</ol>
-<h5 id="新开发代通装系列"><a href="#新开发代通装系列" class="headerlink" title="新开发代通装系列"></a>新开发代通装系列</h5><ol>
-<li>刀片可与竞争对手通装。 不做OEM，提供技术服务。竞争WALTE  金鹭、奥克泰。 <ol>
-<li>45、75、88度双面四边形刀片  </li>
-<li>45度的双面六边形</li>
-<li>43度 45度八边形</li>
-<li>园刀片</li>
-</ol>
-</li>
-<li>非模具行业，毛利高。 OEM，不标刻牌号，<ol>
-<li>45D度双面七边形刀片主要针对walte 奥克泰</li>
-<li>山特390 490 290系列，京瓷的双面槽</li>
-<li>深孔钻刀片</li>
-</ol>
-</li>
-<li>圆刀片。模具行业 全国统一价格销售。<ol>
-<li>只要有量，价格商谈</li>
-<li></li>
-</ol>
-</li>
-<li>其他刀片<ol>
-<li>有些还在专利期，不刻印，注意销售中的问题</li>
-<li>中性包装。客户可定制</li>
-<li>A型刀片  杜龙卡普</li>
-<li>桃型  黛杰</li>
-</ol>
-</li>
-</ol>
-<h5 id="小零件产品加工-吕工"><a href="#小零件产品加工-吕工" class="headerlink" title="小零件产品加工  吕工"></a>小零件产品加工  吕工</h5><ol>
-<li><p>精密小零件</p>
-<ol>
-<li>SSF槽型 大前角 大切深</li>
-<li>FSF槽型 排屑畅，与京瓷相=Y当，表面质量高于住友FX 泰珂洛 JP</li>
-<li>FF槽型：超精加工 小切深，小进给 稳定的切屑流向。配合多种涂层 案例：替换住友的FY 京瓷的F、S 泰珂洛的JRP。</li>
-</ol>
-</li>
-<li><p>3C产品 </p>
-<p>降成本需求大，国产化空间大</p>
-<p>高效稳定，一致性好 精度高</p>
-</li>
-</ol>
-<h5 id="车削刀片新品"><a href="#车削刀片新品" class="headerlink" title="车削刀片新品"></a>车削刀片新品</h5><ol>
-<li>不锈钢 YB9315 EG槽型 类似京瓷的MU槽 适用半精、精加工。已经可以订货了</li>
-<li>不锈钢 ES槽型，更锋利，主打精加工。三菱的MS  </li>
-<li>类似三菱的VP15TF MA槽。oem</li>
-<li>金属陶瓷 YNT251   FLF槽，另一GM槽类京瓷的HQ槽</li>
-<li>汽车零件 钢和铸铁。ZMA、ZM、TM槽。针对泰珂洛的TM槽。YB6315C，是YBC103的升级。一个牌号代表的是材质和涂层。铸铁是YBD152，专门做了优化。</li>
-<li>重力切削。重工行业。大尺寸刀片 HDR槽 、ZR槽。新槽：LR 、ZG控制切屑的流向，避免伤人。</li>
-</ol>
-<h5 id="2020年的推广活动申请表"><a href="#2020年的推广活动申请表" class="headerlink" title="2020年的推广活动申请表"></a>2020年的推广活动申请表</h5><ol>
-<li><p>需要展会推广</p>
-</li>
-<li><p>客户推广的都可以</p>
-</li>
-</ol>
-]]></content>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好! 这里需要密码." /><label>您好! 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="f152f797ec6d9a7cc83a07ea1efa3d9f2f37a2e300d49b36144d8d21a96e67ff">7002c509a1dd99866abb7d859046ed6e395276099e6304cb34882833226bc86d9b83f6fc86f952f78d5feb5ba0a31b59fc4b325e4eb9290fba0813803d6311d30e5ab1ab8829b02f4b3af6eb1c3ec79a2fedbc5193d4638feb2fa1a54c6058e9364a84b0e19a6d003a651ae44b75b0bf828b50244e6f192cff17703a60f352397b42311714840e98007929b11f61dfc40534a26e09833bdf74a384d4ac32bae96a53995eea06ae9d0568735e7e6362eac7d85461d68699e1bf7d7e911e1e3d8545ec80b325830f5d4e525f16d24a0dccc9865c125486a25e7ddb780d490ad4f1dc5f35d4a6da6970661aa91d87e128859e17b3b73637d0894e8c94bfe5d9131ef891000c68fa685ed70c90c22ad4c134c9ed46e0153feecd9dfa57d4090e3fa708816f63431cffd858caedeccae19309eb2a111c21062384f7d34f2c839bc6fb502fa65f78ec3fc47baefdd7351fe46a6d6f237ab431eface7b21408c8d44298eac913a632974471441fe519a3694886ef3542cf131c5208176e157266308ee480a0e804a541aa416ebc47330a2becb63e7d237ba1eae05a7c69d25278ac163ce173c490082d9abc77978f887cd1afef33a32d2733c6289b3f325a863f4f29f694a79396ec1ee295c3ca2522e8d0e24f67ed63a647e30941044614a64e3c512901d16c0ed855ef8a8cce79b57eb48a0d9ceddecd101fd662157eb974c7d5b91c1cfd6bb096606024f27afa56fefc205f0001f9d851ff498cd775410fb833ec3670b1a9443c009c84e1517fd2e41be9277d3c3278578b6ab4e7695e6f4a681ab50e7d33627f9a7a81d31c32b13c3bf6b36f6c6b874f6671729c993695f9986d45a743c38d58666be4d880c307bea3a37120b679d4ab2a9f7a68212f3f023977f665741e2cf0104aeeb780c2043fd30c4fef1a2cd76987817f0da7c52926818e595a617bcf59f1ae09485d88e70806f4eaef8e9b834ef0ad533b6a16abb0f1b74369afa907ed2cc63dbb52a9c08fbdf639aa3e0eb5b9063d281e7d9c81c26580c3d6bc5dd57ed813e1c7dfcc2b9996dccd214c160e828b19619041556cd83bc9262f9757874b20986ecd4d4004bc030a05ace4c3394c306d2a59dd553f5651519c1b512a0746c3977dd850635ba10a68d28035303753408ed35621e9614870e17d9028dfe40d1441cb7e12137f2dec7f14709ff9310b7a6a6a154add18f8eb3772cf05ade38282c17e99effe5b227c5a52353c4f4db6e2ce31b6ae3352484cbc4c910e86ebcdc7e6f9b7068b69eca735367555c93fb4e5949ea6bee860f702ae2cd31acda9e5ece6374a1042e8eb595cee6e1a91df433ebcb5add6ef74aed34b3d38653e580335bfaebf6b01cdaf0f686a9e8c8412b12af390a05e473c2083ecc2de8c58ac68a24043af0862fabb743298f3dfca0436a6e60a4ee9a076db50ca84b72029a3b984f8f0564ccb4f71c959176156849f690b3ebacb9f4b39007de36fda0bb6868932db6be305df159bc05b0211257b30cfec8f72110de84a994d4938daee309ec02d21fe1935184139fc3e03304f7e4f3ecaf5d7b3d74c76c5c54ffaa535e5d47d1f8b8eaa85a7d0ba63a61a9872c7992d816c42ba7d82b19a12d934e4e228b25067851436077c3c83eee1007c119932b56fbf9b7661a2561358b10ae8e47b6998809e144628c3415fd1d7bfbe27861b01b196c473acba1e2b6f9659f949bb85dcb0a4066f4ffbe272b8262490369ad3cedcccf47d253a48d6850b814c2347fb09ef84b5a56694f05888da5600a16d2df8bf4f65e2912b201ffa573554ce95e4736b7a258ca27acb70c037082746cbb02fb8dfdb91d0ce291dda7ed14dca1a40bf44c63d0bd589757b0b9fbfb3be97a6673c1e670915597b209644464c6e5add86523a756a79caaec7634c0536b7044ee1064c8e040eadab50fbf220ebd7aa5386e66d870d4d82a41e81a1da3d144ca269b9083ae30592b9d06dbf305880ed230fdb663ad118aedd1cd166aed00e069a64786f92c65405cc30e0300f4f8e56cf7e96a11c1de595baed62817718da1a7a4f134888f9aa89af4099567d1e21f15e75670ab0c0c21073ab0124f65f602216d5692334be997b5b9a729e1538d316ea3d35197614654e2df9d4aa2ca3380568abeff14282638053fd1749d7a78d4125cf6fbed633db727eaea8131c91dc48c6479df7e051c5efced329d59cb39b7871764fd9ae08fcedd8fa3c279298f5edeb0a2271a3d019c5e9b02778d9c84fb8e00849c586bda4ca03c50babd3fa166222788d18bdc2b9983d6381740d946017b097bc3f6ffc35d00eebecc0c3a2e78df8641cdf31ad713f62d6f9b37b96aefb48566ec5016e74e45c1b49772d4e670af08a33e890d5312efcaf583479f59139eec3e906bb85f7e71bcad33432259cd563ffb61368d7c751602dd955c568cf52eac21c68247bf5298ffb00000ef3b83e4bd6ebdc82093ad6f75ea08ce8abf00f53bbe3bc57d5e64c17d032a26aec968ea7e0b0f36b79f9d5e9683c0a776561206a982a668663c6f571e0417cad30425b967d4a5b19391c683446bc1d6bc5fe0075de706b4536c00a7a6e1c504eeefabec6dc1ba7b6a6a051e51051625a53c674ef1174cbd42e7de6e371837ae6eda43175db5057736250f6c998fe85f0f70e9617107668c34e674a261adcc685ce5501c8aed757fcc664b2f29d4c979072b640baec42ec5cae1f8bad9271ab7fd2bf801b2209b7adf90c58dc87471ccfa27a6be01792b162769cfeb9689967b102b3da894420100aeccd066b1219fea55a9d72e66740c39dc04fe40562c2a1d05b7ab80f14e103ccf4867dc686a1fb31a0f9157c492197ca3e9e2ce32a036d2c6a2f6bc744f36bc91f544a7ad8de8795a71708e2b2ab192d87044c9b86910b10a5ea79376eed1d2f65633a1649793783c54d4f76fa5d6d714b241468bc73ce7e392aaa72fbf7c6debace419afa5bf0c9f06692a69a9746847338fe06127e0a57bca1771542df0ce3eba1bb4738a31de997c0f36e52c83557b6ae7add22ca7a8a0e0cb79dac7bce12074131b72b6640fc10b43f918324f389e6bee5bfd37f54ef3c1f40c4a29d8f385aa26bdf1ccf8b126b27618ce92f520fab13fe679525ce74e1a8f69cabf9b313f6b5507671ebd7caa0c0efd04ad22a4fcb9b0be34fd80bad9e0b6c6c0b902186838d9013512e8fa1580007d68672de8355138b994a927db86706846a9c27a7b7f6845d1c30e785f9c690154acb5729eaefa6456c42f7be9224c0aa08a7693032a48bfb9680dd2d20e51faa974e70034c912219cb8915e9653438670ab842869f15d52146437c1635c59971698c4fda2f6c4c25ee761409ce581ea43914196d5b52ab1d636500ee0a368ba5d2d22d0a7e665b882a0d799a7fbf2e9599f4ae6ce04e7ee8a899e264bdbdc4aa65942314d32d860655030a7ec13e9cb65e36eb9638bc720ec6475788d2df2943fe6dcd1ff65c2f316ac41a562a5602a127b7c5998204073e7e198c498a5396cf0b79b6af70ff68104e5190be74f3686815e574b19c71bb505f612ab2be46d01509d046e3fc5feaf91502ab565f3c4befa352bb767a25535217c43c18a032fb0f439b69d91a1d456ac3e623483de3cf9e20d16d46603eab667de730dfeaacd261adc8d903c7f2d872dea905a1ab6b617878f24b041cb4c3fd9bb50cc9e1616aea6f96eb2dd7ab53735bf39f1b2ce3395aa2209a10101a54f1c490e81a02833853ed17c051c2d6fdc907458face90f0ea89d7754212044cce306ca2ebd816464ad60f370d594d376d35198d41dc669a559286af4757701b6ef730fbaf1e487647a4e50701c429836b133f58b8080dfa1dc60c44ef6151954e79cfa9569d9980e22099b6cf9e8ff54b52cfeb631a7742d253293c2251d762ae5e79a1e5942d2df6112392b8e63f64af4e9e2c8ae9dd61ecbd482613914e4f0308441569ceda5ebe358cec329573e6cb1657d315309c3db3b114c914eaa515d742c3587c9820806563cce5fb2bd19e89236f773e4802ce8d03d6346d41ca53aa28ff17b78adb0df5d9ba47be150e80045038eb45ee80ec4f1f350c47e0900e90316427314da22844fc06f8f739ee22f8bbac0fe22c4401f1670c060b9ffd6216975686502b6390c86c64c17554aa9d2b99eefc910d847d5bdd9f05fea4922a694f79f5cefadfd4fefad0f701f67d7cd533cbc295b232cd5e754b5913cfd2c29b81bd2d9df61aa443c2e2ad4f66219058192080cbec0ddaf2652a6b9fa28aaad8e86d5241f859ba055acaf071e30dc7411263a5149e629afc4cd5341a4a5fd3353ad460e82755fbae53a8ba563efa615ecbdc6c1ea346f6b81ae0ac35af8cb2bbcea9d840b8d8ff0b7eaef03a606e848ecf243a976cd2006c0e73478c7ee15caaaa6494d41de33e35963ac21e2475920675a73dbc5e94ed348515fc1043dc8f3dd62e4d99248dbfed9ea66b02cf880a6516ee8e9d9ce85e9553b79e39fee0ec2dcd5dbd13a7beb26bfd026fd9f1e68def332064b2104f33cb99e785277aab97483dd502ff02b7bd369cd9b289b80a46e06b32de3dddba718aff1c655cb093abac4858e98a1320cb24abe510a8aaee5698bc2299cfc89bc6555b4ded8baadf0526d5cc75196461491641a85dd68842b8a774d31302698952424db332e85aec263995757d14df1c10f71b374f214b861c5369a8827534d6dec810110f0b41e22c06645e17527972d8b797ecfd39a307f20f96cfbc56c993464e555f651d2e615eaa8a02e7505070fb68518a4521f33c6e0311122b8b690c4310e94670e88308cf7e6c5e5b38105f38f79575104cb57d2ae6ea078703c2aecdcbe73880b732a022d5739a86ea114ed0c4b98443b606c7f81824053716ac5351af8524d662c1f3bceb4bc34699fd236df939b1e4003c79ba0f7de862f5160aaa52528adeac1b479043e97304265aff4d873e0fc85c8d81cda592fc80120123cb74aee1da1b812d925f0297adc2e8e8b081c0bc007b1578cf8fc4bf73fae12f27edeb3489a6b67bf6d45317dafed1906c96850439bfdcc38f5c1d3681dae6449043827ac1751a7f6c83823277422e19c8bd239bee8a1dd76e8088820d7aedc4aec91958a1a534b1a4a725da04d19bd9f65b2f19974b6b76fb3a7173cfa08691edf65c116b266a6b8ab3806c4f38cffe8cfc1b5e42fd06bb6aaff0c185792b51d69e14bfb230c315b6f6fdf82ef132f4ebd0f0b45011b93a846a285c749fb3fed65edd812ffea35285a0be53f8a594074a5aa84803a59c92ce86434e12a7d806def52f55c03809d799cd808c066d80b2ede391f5f85d1aff49e37aea08c0c5519ee543b97a32ed30f004d1ad39d3af1b7e816a25b1e77ba3ec368bd24eda0a2f29d0a25796727c05b81fd449efcd2bff89fca6c78f0c5e028d7ff3a9c70a6832a6918fe59d11a631297f3bb8d7137815e00aac3cf7904b58a01beba0113f6f7e20430fd2cc690e57704ac6ff9282f44d5489df1afe16c5abdc89b3bd6eaccb43f8884715e0978a4db9a09fc0f437f9be35b2ab55c42eb710e8f2c2cbf2f78eb64d3d6f80ea1c4ba00dd759e4d8a76ee2490e9281582af1ddff58180928f2f82dc5182469be53aa6de31325d8002be753f1088944e6afcea57e3af765849419cae6fb045bb85351da46ec2f5459c8b5a612c5464407ee0f7a1870e547bff62b078198cf514b6f6ddce39e2c748247466c9cb35672436efabb544db4b073a5d4cdd20ce5d9ced86e1a5a37b507915ef3c899cf0d0f77476dfd9bde6c2594487eab69a711ba837f1066049988a17140cf6279000999e5a353fd30439b45bc337500ced2605aacf94675fa8c7704ae445b9a2e3adf7af461a351ce06ec7d9c8a4e79e77e70aa101b0f244bb68837f6362271bd4eb4219ca7a63df205b763fd42dead89f12f61c08e9a90fb019a485e1967dec5146f179a4e05fc2b10fa49d725308369e7a93ae031b0d931846f8fb72ac1af25b156f5fc8329dc8cbc76cd4bd8019261ad8e489b0529dfcd047c4e91fa4f0b88949d2b848050594ecce73fdc9cec8d3c7ecb221f2f451c63b3046b1d30bcea89984e2673f0d49c137368ce04fa4df6e9387a3cd070c9056fd783bcdfe8322f4c9db8a3fe30c9dbb663ea00a6406ccd5b0258f8f746c8ec7bfe2b032abd1bf960df4a66d49ea5d997ad22d4a022cec9ec553a84966b156bfb21f0360c23a61780682003b2185a44eec058b98758f9c82d77ebd208cbf3ee5341c4ed9b07e2f5759d02a0912ed6433cb794bdf3970716283cea6475e01f55a91efd31b505e9756ce00f7a179193ea3f3e9312231e8e6598e2478219cc221701ceaac9a9448892a3c5b15f147ced81b58eb362b55b3b6048cb9407c567f55aac741f801123e5b3619368cab61714e851a49e89547ccc5572264e1b95f1e5278b6c779566d5ecd124a95e28593f0267fa5ea6ff51067f8578a9832783776199d2daecac6b85fb4b0f70d0967d9a5372f2bdbc35f95ee46f34c76c80fbb2cf9c24f9cc7547f8de5300a5dcb6ae1cf05dd5e47a1ef8b6fc79d3e9be6e7ab0080e9bd36aafc8f4703c9a8e9e5ad40ea8203e5188900b7dd4cf6b3184823be4736f9e9115f3dae103aadac852a5051836e5b832af353e1e6cdb57afb31b90dac1d59dfb900b73367f8707fbcd6c47e170b212d3977a8aebfe55dbf50d6300b86710bf685ad82e33102dba37fe249b8fde5b97ebd949279b208b70f43321257787cd32d3f46c7607cc5266efcf3c61b7851a05a9bd16b6fe446</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>工作笔记</category>
+      </categories>
+      <tags>
+        <tag>会议记录</tag>
+      </tags>
   </entry>
   <entry>
     <title>python</title>
@@ -566,14 +455,51 @@
 
 
 
-<h4 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h4><h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><h4 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h4><ol>
+<h4 id="dict字典"><a href="#dict字典" class="headerlink" title="dict字典"></a>dict字典</h4><p><strong>dict()</strong> 函数用于创建一个字典。字典中key 与value成对出现</p>
+<h5 id="字典的创建"><a href="#字典的创建" class="headerlink" title="字典的创建:"></a>字典的创建:</h5><ol>
+<li>创建空字典 a={} 或者 a=dict()</li>
+<li>给写入数据:a={‘key1’:value1 , ‘key2’:value2 , …ext}</li>
+<li>用两个列表分别导入key 和 value. d=dict(zip(lst1,lst2)</li>
+<li>两个列表长度可以不相等,创建时自动删掉多余的不成对的key或者value</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = &#123;&#125;</span><br><span class="line">b=&#123;<span class="string">'a'</span>:<span class="number">123</span>,<span class="string">'b'</span>:<span class="number">234</span>,<span class="string">'c'</span>:<span class="number">345</span>&#125;</span><br><span class="line">c=dict(a=<span class="number">123</span>,b=<span class="number">234</span>,c=<span class="number">345</span>)</span><br><span class="line"><span class="comment"># 用两个列表创建字典</span></span><br><span class="line">x = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>]</span><br><span class="line">y = [<span class="number">121</span>, <span class="number">597</span>, <span class="number">971</span>, <span class="number">278</span>, <span class="number">396</span>, <span class="number">451</span>]</span><br><span class="line">d = dict(zip(x, y))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">''' a的类型是:&#123;&#125;</span></span><br><span class="line"><span class="string">a的数据包含:&#123;&#125;</span></span><br><span class="line"><span class="string">b的数据包含:&#123;&#125;</span></span><br><span class="line"><span class="string">c的数据包含:&#123;&#125;</span></span><br><span class="line"><span class="string">d的数据包含:&#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(a), a, b, c,d))</span><br><span class="line">---&gt;</span><br><span class="line">a的类型是:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">dict</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">a</span>的数据包含:</span>&#123;&#125;</span><br><span class="line">b的数据包含:&#123;<span class="string">'a'</span>: <span class="number">123</span>, <span class="string">'b'</span>: <span class="number">234</span>, <span class="string">'c'</span>: <span class="number">345</span>&#125;</span><br><span class="line">c的数据包含:&#123;<span class="string">'a'</span>: <span class="number">123</span>, <span class="string">'b'</span>: <span class="number">234</span>, <span class="string">'c'</span>: <span class="number">345</span>&#125;</span><br><span class="line">d的数据包含:&#123;<span class="string">'A'</span>: <span class="number">121</span>, <span class="string">'B'</span>: <span class="number">597</span>, <span class="string">'C'</span>: <span class="number">971</span>, <span class="string">'D'</span>: <span class="number">278</span>, <span class="string">'E'</span>: <span class="number">396</span>, <span class="string">'F'</span>: <span class="number">451</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="读取字典的key或者value"><a href="#读取字典的key或者value" class="headerlink" title="读取字典的key或者value"></a>读取字典的key或者value</h5><p>keys():返回字典的key</p>
+<p>values():返回字典的value</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">x = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, ]</span><br><span class="line">y = [<span class="number">121</span>, <span class="number">597</span>, <span class="number">971</span>, <span class="number">278</span>, <span class="number">396</span>, <span class="number">451</span>]</span><br><span class="line">d = dict(zip(x, y))</span><br><span class="line"></span><br><span class="line">a=[]</span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> d.items():</span><br><span class="line">	a.append([i,j])</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line">---&gt;[['A', 121], ['B', 597], ['C', 971], ['D', 278], ['E', 396]]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="set-集合"><a href="#set-集合" class="headerlink" title="set 集合"></a>set 集合</h4><p><strong>set()</strong> 函数创建一个无序<strong>不重复</strong>元素<strong>集</strong>，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。</p>
+<p>set 语法：class set([iterable])     iterable – 可迭代对象</p>
+<ol>
+<li>set 可以对单个元素或者列表去重</li>
+<li>set后的列表类型变成集合.</li>
+<li>做交集,并集,差集运算必须是集合</li>
+<li>set做运算用到的是符号 &amp;, /,  -</li>
+<li>集合本身不支持索引,要读取集合的元素,先将其转成列表.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = set(<span class="string">'runoob'</span>)</span><br><span class="line">y = set(<span class="string">'google'</span>)</span><br><span class="line">a = x &amp; y         <span class="comment"># 交集</span></span><br><span class="line">b = x | y         <span class="comment"># 并集</span></span><br><span class="line">c = x - y         <span class="comment"># 差集</span></span><br><span class="line">print(<span class="string">'''x的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	y的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x和y的交集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x和y的并集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x和y的差集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(x, y, a, b, c))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">x的集合是:&#123;<span class="string">'u'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'r'</span>, <span class="string">'b'</span>&#125;</span><br><span class="line">	y的集合是:&#123;<span class="string">'e'</span>, <span class="string">'g'</span>, <span class="string">'o'</span>, <span class="string">'l'</span>&#125;</span><br><span class="line">	x和y的交集是:&#123;<span class="string">'o'</span>&#125;</span><br><span class="line">	x和y的并集是:&#123;<span class="string">'u'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'g'</span>, <span class="string">'e'</span>, <span class="string">'r'</span>, <span class="string">'b'</span>, <span class="string">'l'</span>&#125;</span><br><span class="line">	x和y的差集是:&#123;<span class="string">'u'</span>, <span class="string">'n'</span>, <span class="string">'r'</span>, <span class="string">'b'</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="intersection-交集"><a href="#intersection-交集" class="headerlink" title="intersection() 交集"></a>intersection() 交集</h4><p>intersection() 方法用于返回两个或更多集合中都包含的元素，即交集</p>
+<p>intersection() 方法语法：set0.intersection(set1, set2 … etc)   </p>
+<p>intersection针对的对象必须是集合,如果是列表,必须先用set转换成集合</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">k = set([x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)])</span><br><span class="line">x = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)&#125;</span><br><span class="line">y = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span>&#125;</span><br><span class="line">z = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>) <span class="keyword">if</span> x &gt; <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">a = k.intersection(y)</span><br><span class="line">b = k.intersection(x, y, z)</span><br><span class="line">print(<span class="string">'''	k的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	y的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	z的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	k和y的交集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	k和x,y,z的交集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(k, x, y, z, a, b))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">	k的集合是:&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;</span><br><span class="line">	x的集合是:&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;</span><br><span class="line">	y的集合是:&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line">	z的集合是:&#123;<span class="number">8</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">7</span>&#125;</span><br><span class="line">    k和y的交集是:&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line">	k和x,y,z的交集是:&#123;<span class="number">9</span>, <span class="number">7</span>&#125;</span><br><span class="line">	</span><br><span class="line">[Finished <span class="keyword">in</span> <span class="number">1.2</span>s]</span><br></pre></td></tr></table></figure>
+
+<h4 id="difference-差集"><a href="#difference-差集" class="headerlink" title="difference() 差集"></a>difference() 差集</h4><p>difference() 方法语法：set0.difference(set1)</p>
+<p>只针对集合的运算.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)&#125;</span><br><span class="line">y = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">a = x.difference(y)</span><br><span class="line">print(<span class="string">'''	x的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	y的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x和y的差集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(x, y, a))</span><br><span class="line">---&gt;</span><br><span class="line">	x的集合是:&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;</span><br><span class="line">	y的集合是:&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line">	x和y的差集是:&#123;<span class="number">8</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h4><ol>
 <li>单行注释。<code>#</code>开头。</li>
 <li>多行注释。</li>
 </ol>
 <p><code>&#39;&#39;&#39;</code></p>
 <p>……</p>
 <p><code>&#39;&#39;’</code></p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h3 id="常见的报错"><a href="#常见的报错" class="headerlink" title="常见的报错"></a>常见的报错</h3><h4 id="SyntaxError：语法无效"><a href="#SyntaxError：语法无效" class="headerlink" title="SyntaxError：语法无效"></a>SyntaxError：语法无效</h4><p>语言的语法是一组规则，这些规则定义了语言的哪些部分可以出现在哪个位置。可以这么说，如果将选项卡A插入插槽B，则将创建一个语法无效的语句。由于Python中有很多不接受大多数制表符的插槽，因此生成语法错误并不难。</p>
+<h3 id="常见的报错"><a href="#常见的报错" class="headerlink" title="常见的报错"></a>常见的报错</h3><h4 id="SyntaxError：语法无效"><a href="#SyntaxError：语法无效" class="headerlink" title="SyntaxError：语法无效"></a>SyntaxError：语法无效</h4><p>语言的语法是一组规则，这些规则定义了语言的哪些部分可以出现在哪个位置。可以这么说，如果将选项卡A插入插槽B，则将创建一个语法无效的语句。由于Python中有很多不接受大多数制表符的插槽，因此生成语法错误并不难。</p>
 <p>这是导致此消息的一些常见错误：</p>
 <ul>
 <li>忘记要<code>打印</code>的参数周围的括号``</li>
@@ -2966,6 +2892,81 @@ echo 测试完成！
       </tags>
   </entry>
   <entry>
+    <title>一生最后悔的是什么</title>
+    <url>/2020/03/03/%E4%B8%80%E7%94%9F%E6%9C%80%E5%90%8E%E6%82%94%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88/</url>
+    <content><![CDATA[<p>这是一篇网文，我觉得有些说法和观点还是很有意思的，所以摘抄下来并整理成笔记了。</p>
+<blockquote>
+<p>在《水浒传》第四十一回，施耐庵说了一句这样的话：「早知今日，悔不当初。人这一辈子，总有一些遗憾和后悔确实存在。</p>
+</blockquote>
+<a id="more"></a>
+
+<p>我们经常听到或者遇到以下这些情形，比如：</p>
+<ul>
+<li><p>家里被盗了，才后悔自己没有随手关门。</p>
+</li>
+<li><p>考试落榜了，才后悔自己没有努力学习。</p>
+</li>
+<li><p>爱情失去了，才后悔自己没有细心呵护。</p>
+</li>
+<li><p>亲人离开了，才后悔自己没有好好陪伴。……</p>
+</li>
+</ul>
+<p>当初那些没有握住的幸福，等你回过头来再想拥有的时候，它们只会如指间沙，随风飘散，无影无踪。</p>
+<p>千金真的难买回头看，当你老了，回忆青春时，<strong>有哪些事是你未尽的遗憾？最后悔的又是什么？</strong></p>
+<p><strong>92% 的人后悔没有善待自己的身体</strong></p>
+<p>年轻的时候，每天有使不完的劲，熬不完的夜。等年纪大了，才发现所有命运赠送的礼物，早已在暗中标好了价格。那些年轻时透支的债，都要等到年老时来偿还。病这种东西，年轻的时候它不找你，老了以后会扎堆来，三天两头往医院跑，让你毫无招架之力。</p>
+<p><q>身体是革命的本钱</q>q&gt;这句话任何时候都不会过时。</p>
+<p>在这个世界上，没有什么东西能比得上自己的健康，没有一个好的身体，一切都是白搭。人生短暂，要善待自己！累了，别逞强，歇一会；烦了，别闷着，找些乐；困了，别硬撑，早点睡。没病也要体检，不渴也要喝水，再烦也要想通，不疲劳也要休息，再忙也要锻炼……不要在年轻时用身体去换取一切，年纪大了又用一切去换取身体的健康。<strong>善待自己的身体，它才会善待你。所有梦想，从自己的健康生活开始。</strong></p>
+<p><strong>73% 的人后悔在年轻的时候选错了职业</strong></p>
+<p>俗话说，<q>女怕嫁错郎，男怕入错行</q>q&gt;，从某种意义上来说，你今天的选择，将决定你以后的生活状态。</p>
+<blockquote>
+<p>曾看过这样一个故事：有两个热爱绘画的知青下放到农村，每当农闲，他们都会架起画框，面朝原野，尽情挥洒自己的画笔。回到城市后，他们被编排进机关零配件车间工作。面对枯燥乏味的流水线，两人都非常头疼。</p>
+<p>一年之后，其中一个毅然辞职，背起了画框，成为一名流浪画师；剩一个虽也动摇，但面对朝九晚五的安稳日子，最终没能跨出这一步。看着兄弟风餐露宿漂泊无定，他心里窃喜。</p>
+<p>过了几年，兄弟俩相聚，都已两鬓斑白。谈起各自的生活，一个早已成为著名画家，盛名在外；另一个因为工厂倒闭，早早地下了岗，想重操旧业，怎奈年老力衰，在流水线上消磨得老眼昏花。</p>
+</blockquote>
+<p>有压力，才有动力；有动力，才能激发潜力。很多时候，不是因为有了好工作才付出，而是付出了才有好工作。<strong>一个人不成功，往往不是没有梦想，而是一直没有方向，横冲直撞永远无法到达终点。</strong>耐得住考验，方撑得起繁华；选对了职业，方能前路一片敞亮。</p>
+<p><strong>62% 的人后悔对子女教育不当</strong></p>
+<blockquote>
+<p>「望子成龙，望女成凤」，很多父母为了孩子的成长，可以付出所有，承受一切压力，甚至在所不惜。电视剧《夺子战争》中，赵友亮饰演的儿子喜欢捣鼓机械工具，立志当一名工程师，可是白穆饰演的父亲喜爱京剧，便逼迫儿子从小学习京剧唱腔。他处处约束儿子的兴趣发展，最终导致儿子毫无建树。</p>
+</blockquote>
+<p>孩子是你生命的延续，但不该是你梦想的延续。对于孩子而言，他们有自己想要的生活，有自己想要追求的人生方向。</p>
+<p>你按照自己设计的线路来逼迫孩子发展，到最后只会在现实面前败下阵来。</p>
+<blockquote>
+<p>龙应台在《目送》中说道：「我慢慢地、慢慢地了解到，所谓父女母子一场，只不过意味着，你和他的缘分就是今生今世不断地在目送他的背影渐行渐远。」</p>
+</blockquote>
+<p>父母和孩子，终究还是相互独立的个体。曾经彼此依赖，共同前行过一段路程，为的是在生命中彼此成全，各自绽放，然后，远远的欣赏。</p>
+<p><strong>有些事，只能一个人做。有些关，只能一个人过。有些路啊，只能一个人走。</strong>作为父母，在教育孩子时，该放手的时候就要坦然的放手。父母之爱，到最后，是一场得体的退出。</p>
+<p><strong>57% 的人后悔没有好好珍惜自己的伴侣**</strong></p>
+<blockquote>
+<p>电影《大话西游》中，至尊宝说了一句很经典的台词：曾经有一份真诚的爱情放在我面前，我没有珍惜，等我失去的时候我才后悔莫及，人世间最痛苦的事莫过于此。如果上天能够给我一个再来一次的机会，我会对那个女孩子说三个字：我爱你。 如果非要在这份爱上加上一个期限，我希望是……一万年」</p>
+</blockquote>
+<p>醉过方知酒浓，爱过方知情重；痛过方知后悔，错过方知珍惜。</p>
+<p>很多时候，我们都以为来日方长，但是生命来来往往，太多事情在无常中就可能永远消逝了，有些事情一旦错过就再无可能。别等伤了再去安慰，忽冷忽热谁受得起；别等离开了才知道珍惜，这世界没有后悔药；别等人都不在了才知道对方的好，错过了终究只能叹一句「为时已晚」；…….房子再大，装修再豪华，没有爱人的陪伴，都不能称之为「家」。<strong>懂得珍惜，是收获幸福的根源。</strong></p>
+<p><strong>45% 的人后悔年轻时努力不够导致一事无成</strong></p>
+<blockquote>
+<p>「少壮不努力，老大徒伤悲」。年轻的时候不努力奋斗，等老了，看着同龄人依然过得风生水起，你悔不当初，却发现一切都无济于事。网络上有篇文章，叫《如果你 40 岁还很穷》，里面有句话很惊心：二三十岁没钱，很正常。但如果你二三十岁时，都没有拼命赚钱的冲动，你的四十岁就会很穷，你的人生，就会格外艰难。</p>
+</blockquote>
+<p>因为，当你为了孩子学费一筹莫展的时候，没有人会帮助你；当你生病没钱医治的时候，没有人会可怜你。当你被另一半抛弃的时候，没有人会同情你。没有人可以和生活讨价还价，你年轻时不努力，时间给你的，只有苦和难。著名主持人杨澜曾经说过：「二十岁是投资和储蓄的时候，要养足未来的资本。魅力的三十，不会从天而降，如果之前的 29 年不够努力，那么过了 30 岁也不会有奇迹出现。」</p>
+<p>所以，趁着你还有时间和精力，多读几本好书，多交几个好朋友，养成几个好习惯，甚至制定几个切实可行的计划，然后按照这个计划坚定不移的努力下去。<em>在精力最旺盛的二三十岁，就应该拼命努力，加油工作</em>。只有把命运掌握在自己手中，才能寻找到生命的闪光。</p>
+<blockquote>
+<p>《后会无期》中有这样一句台词：「不是所有的债，都可以还的。」</p>
+</blockquote>
+<p>不是所有事都能在后悔后弥补，眼角的皱纹不易抚平，愁白的头发难以再黑。有些人，有些事，过去了就是过去了，再也回不来。</p>
+<blockquote>
+<p>新东方创始人俞敏洪说：「为了不让生活留下遗憾和后悔，我们应该尽可能抓住一切改变生活的机会。」</p>
+</blockquote>
+<p>年轻的时候任时间消磨自己的青春，等年老了，最后只会后悔当初的放荡。因此，该珍惜时候的要好好珍惜，该努力时候的要拼命努力。千万不要给自己后悔的机会，任何事，都请全力以赴。<strong>人生短暂，不要虚度光阴。</strong></p>
+<p>愿你在未来的日子，眼眸有星辰，心中有山海。 从此以梦为马，不负韶华。</p>
+]]></content>
+      <categories>
+        <category>网摘</category>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何正确的养成一个习惯？</title>
     <url>/2020/03/03/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%85%BB%E6%88%90%E4%B8%80%E4%B8%AA%E4%B9%A0%E6%83%AF/</url>
     <content><![CDATA[<h3 id="如何正确的养成一个习惯？"><a href="#如何正确的养成一个习惯？" class="headerlink" title="如何正确的养成一个习惯？"></a>如何正确的养成一个习惯？</h3><blockquote>我曾近立志要学英语，于是每天花好几个小时背单词，可是在一个星期之后，我就坚持不下去，感觉太累了；我曾经夸下海口，要坚持每天跑步，跑了几天之后，我发现这个时间不好控制，经常会有别的事情耽搁了，于是也不了了之。</blockquote>
@@ -3056,81 +3057,6 @@ echo 测试完成！
       </tags>
   </entry>
   <entry>
-    <title>一生最后悔的是什么</title>
-    <url>/2020/03/03/%E4%B8%80%E7%94%9F%E6%9C%80%E5%90%8E%E6%82%94%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88/</url>
-    <content><![CDATA[<p>这是一篇网文，我觉得有些说法和观点还是很有意思的，所以摘抄下来并整理成笔记了。</p>
-<blockquote>
-<p>在《水浒传》第四十一回，施耐庵说了一句这样的话：「早知今日，悔不当初。人这一辈子，总有一些遗憾和后悔确实存在。</p>
-</blockquote>
-<a id="more"></a>
-
-<p>我们经常听到或者遇到以下这些情形，比如：</p>
-<ul>
-<li><p>家里被盗了，才后悔自己没有随手关门。</p>
-</li>
-<li><p>考试落榜了，才后悔自己没有努力学习。</p>
-</li>
-<li><p>爱情失去了，才后悔自己没有细心呵护。</p>
-</li>
-<li><p>亲人离开了，才后悔自己没有好好陪伴。……</p>
-</li>
-</ul>
-<p>当初那些没有握住的幸福，等你回过头来再想拥有的时候，它们只会如指间沙，随风飘散，无影无踪。</p>
-<p>千金真的难买回头看，当你老了，回忆青春时，<strong>有哪些事是你未尽的遗憾？最后悔的又是什么？</strong></p>
-<p><strong>92% 的人后悔没有善待自己的身体</strong></p>
-<p>年轻的时候，每天有使不完的劲，熬不完的夜。等年纪大了，才发现所有命运赠送的礼物，早已在暗中标好了价格。那些年轻时透支的债，都要等到年老时来偿还。病这种东西，年轻的时候它不找你，老了以后会扎堆来，三天两头往医院跑，让你毫无招架之力。</p>
-<p><q>身体是革命的本钱</q>q&gt;这句话任何时候都不会过时。</p>
-<p>在这个世界上，没有什么东西能比得上自己的健康，没有一个好的身体，一切都是白搭。人生短暂，要善待自己！累了，别逞强，歇一会；烦了，别闷着，找些乐；困了，别硬撑，早点睡。没病也要体检，不渴也要喝水，再烦也要想通，不疲劳也要休息，再忙也要锻炼……不要在年轻时用身体去换取一切，年纪大了又用一切去换取身体的健康。<strong>善待自己的身体，它才会善待你。所有梦想，从自己的健康生活开始。</strong></p>
-<p><strong>73% 的人后悔在年轻的时候选错了职业</strong></p>
-<p>俗话说，<q>女怕嫁错郎，男怕入错行</q>q&gt;，从某种意义上来说，你今天的选择，将决定你以后的生活状态。</p>
-<blockquote>
-<p>曾看过这样一个故事：有两个热爱绘画的知青下放到农村，每当农闲，他们都会架起画框，面朝原野，尽情挥洒自己的画笔。回到城市后，他们被编排进机关零配件车间工作。面对枯燥乏味的流水线，两人都非常头疼。</p>
-<p>一年之后，其中一个毅然辞职，背起了画框，成为一名流浪画师；剩一个虽也动摇，但面对朝九晚五的安稳日子，最终没能跨出这一步。看着兄弟风餐露宿漂泊无定，他心里窃喜。</p>
-<p>过了几年，兄弟俩相聚，都已两鬓斑白。谈起各自的生活，一个早已成为著名画家，盛名在外；另一个因为工厂倒闭，早早地下了岗，想重操旧业，怎奈年老力衰，在流水线上消磨得老眼昏花。</p>
-</blockquote>
-<p>有压力，才有动力；有动力，才能激发潜力。很多时候，不是因为有了好工作才付出，而是付出了才有好工作。<strong>一个人不成功，往往不是没有梦想，而是一直没有方向，横冲直撞永远无法到达终点。</strong>耐得住考验，方撑得起繁华；选对了职业，方能前路一片敞亮。</p>
-<p><strong>62% 的人后悔对子女教育不当</strong></p>
-<blockquote>
-<p>「望子成龙，望女成凤」，很多父母为了孩子的成长，可以付出所有，承受一切压力，甚至在所不惜。电视剧《夺子战争》中，赵友亮饰演的儿子喜欢捣鼓机械工具，立志当一名工程师，可是白穆饰演的父亲喜爱京剧，便逼迫儿子从小学习京剧唱腔。他处处约束儿子的兴趣发展，最终导致儿子毫无建树。</p>
-</blockquote>
-<p>孩子是你生命的延续，但不该是你梦想的延续。对于孩子而言，他们有自己想要的生活，有自己想要追求的人生方向。</p>
-<p>你按照自己设计的线路来逼迫孩子发展，到最后只会在现实面前败下阵来。</p>
-<blockquote>
-<p>龙应台在《目送》中说道：「我慢慢地、慢慢地了解到，所谓父女母子一场，只不过意味着，你和他的缘分就是今生今世不断地在目送他的背影渐行渐远。」</p>
-</blockquote>
-<p>父母和孩子，终究还是相互独立的个体。曾经彼此依赖，共同前行过一段路程，为的是在生命中彼此成全，各自绽放，然后，远远的欣赏。</p>
-<p><strong>有些事，只能一个人做。有些关，只能一个人过。有些路啊，只能一个人走。</strong>作为父母，在教育孩子时，该放手的时候就要坦然的放手。父母之爱，到最后，是一场得体的退出。</p>
-<p><strong>57% 的人后悔没有好好珍惜自己的伴侣**</strong></p>
-<blockquote>
-<p>电影《大话西游》中，至尊宝说了一句很经典的台词：曾经有一份真诚的爱情放在我面前，我没有珍惜，等我失去的时候我才后悔莫及，人世间最痛苦的事莫过于此。如果上天能够给我一个再来一次的机会，我会对那个女孩子说三个字：我爱你。 如果非要在这份爱上加上一个期限，我希望是……一万年」</p>
-</blockquote>
-<p>醉过方知酒浓，爱过方知情重；痛过方知后悔，错过方知珍惜。</p>
-<p>很多时候，我们都以为来日方长，但是生命来来往往，太多事情在无常中就可能永远消逝了，有些事情一旦错过就再无可能。别等伤了再去安慰，忽冷忽热谁受得起；别等离开了才知道珍惜，这世界没有后悔药；别等人都不在了才知道对方的好，错过了终究只能叹一句「为时已晚」；…….房子再大，装修再豪华，没有爱人的陪伴，都不能称之为「家」。<strong>懂得珍惜，是收获幸福的根源。</strong></p>
-<p><strong>45% 的人后悔年轻时努力不够导致一事无成</strong></p>
-<blockquote>
-<p>「少壮不努力，老大徒伤悲」。年轻的时候不努力奋斗，等老了，看着同龄人依然过得风生水起，你悔不当初，却发现一切都无济于事。网络上有篇文章，叫《如果你 40 岁还很穷》，里面有句话很惊心：二三十岁没钱，很正常。但如果你二三十岁时，都没有拼命赚钱的冲动，你的四十岁就会很穷，你的人生，就会格外艰难。</p>
-</blockquote>
-<p>因为，当你为了孩子学费一筹莫展的时候，没有人会帮助你；当你生病没钱医治的时候，没有人会可怜你。当你被另一半抛弃的时候，没有人会同情你。没有人可以和生活讨价还价，你年轻时不努力，时间给你的，只有苦和难。著名主持人杨澜曾经说过：「二十岁是投资和储蓄的时候，要养足未来的资本。魅力的三十，不会从天而降，如果之前的 29 年不够努力，那么过了 30 岁也不会有奇迹出现。」</p>
-<p>所以，趁着你还有时间和精力，多读几本好书，多交几个好朋友，养成几个好习惯，甚至制定几个切实可行的计划，然后按照这个计划坚定不移的努力下去。<em>在精力最旺盛的二三十岁，就应该拼命努力，加油工作</em>。只有把命运掌握在自己手中，才能寻找到生命的闪光。</p>
-<blockquote>
-<p>《后会无期》中有这样一句台词：「不是所有的债，都可以还的。」</p>
-</blockquote>
-<p>不是所有事都能在后悔后弥补，眼角的皱纹不易抚平，愁白的头发难以再黑。有些人，有些事，过去了就是过去了，再也回不来。</p>
-<blockquote>
-<p>新东方创始人俞敏洪说：「为了不让生活留下遗憾和后悔，我们应该尽可能抓住一切改变生活的机会。」</p>
-</blockquote>
-<p>年轻的时候任时间消磨自己的青春，等年老了，最后只会后悔当初的放荡。因此，该珍惜时候的要好好珍惜，该努力时候的要拼命努力。千万不要给自己后悔的机会，任何事，都请全力以赴。<strong>人生短暂，不要虚度光阴。</strong></p>
-<p>愿你在未来的日子，眼眸有星辰，心中有山海。 从此以梦为马，不负韶华。</p>
-]]></content>
-      <categories>
-        <category>网摘</category>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>献给作销售的人们</title>
     <url>/2020/03/03/%E7%8C%AE%E7%BB%99%E4%BD%9C%E9%94%80%E5%94%AE%E7%9A%84%E4%BA%BA/</url>
     <content><![CDATA[<p>因为自己作为一名销售人，网络上看到这篇文章就收藏了，整理后分享出来<br><strong>献给作销售的人</strong></p>
@@ -3163,72 +3089,6 @@ echo 测试完成！
         <category>网摘</category>
         <category>工作</category>
       </categories>
-  </entry>
-  <entry>
-    <title>金属材料重量简算</title>
-    <url>/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/</url>
-    <content><![CDATA[<p><strong>金属材料重量计算</strong></p>
-<p><em>公式中长度单位为米，面积单位为平方米，其余单位均为毫米</em>。</p>
-<p>圆钢重量$（Kg）= 0.00617 \times d^2 \times l$                            <code>d:直径mm</code>，<code>l:长度m</code></p>
-<p>方钢重量$（Kg）=0.00785 \times a^2 \times l$                              <code>a:边长mm</code>，<code>l:长度m</code></p>
-<p>六角钢重量$（Kg）=0.0068 \times c^2\times l  $                             <code>c:对边宽mm</code>，<code>l:长度m</code>  <a id="more"></a></p>
-<p>八角钢重量=$（Kg）= 0.0065 \times c^2 \times l$                             <code>c:对边宽mm</code>，<code>l:长度m</code></p>
-<p>螺纹钢重量$（Kg）= 0.00617\times d^2 \times l$                            <code>d:直径mm</code>，<code>l:长度m</code></p>
-<p>角钢重量$（Kg）= 0.00785\times （a+b-c）\times c\times l$        <code>a:边宽、b：边宽、c:边厚 mm</code>，<code>l:长度m</code></p>
-<p>扁钢重量$（Kg）= 0.00785\times a\times c\times l$            <code>a:边宽、c:边厚 mm</code>，<code>l:长度m</code></p>
-<p>钢管重量$（Kg）=0.02466\times c\times（d-c）\times l $        <code>c:边厚、d:外径 mm</code>，<code>l:长度m</code></p>
-<p><strong>各种钢管(材)重量换算公式</strong></p>
-<p><strong>圆钢 盘条（kg/m）</strong></p>
-<blockquote>
-<p>W= 0.006165$\times d^2$<br>d = 直径mm<br>直径100 mm 的圆钢，求每m 重量.<br>每m 重量= 0.006165 ×1002=61.65kg</p>
-</blockquote>
-<p><strong>螺纹钢（kg/m）</strong></p>
-<blockquote>
-<p>W= $0.00617 \times d^2$<br>d= 断面直径mm<br>断面直径为12 mm 的螺纹钢，求每m 重量.<br>每m 重量=0.00617 $\times 12^2=$0.89kg</p>
-</blockquote>
-<p><strong>方钢（kg/m）</strong></p>
-<blockquote>
-<p>W= 0.00785$\times a^2$<br>a= 边宽mm<br>边宽20 mm 的方钢，求每m 重量<br>每m 重量= 0.00785$\times 20^2$=3.14kg</p>
-</blockquote>
-<p><strong>扁钢 （kg/m）</strong></p>
-<blockquote>
-<p>W= 0.00785$ \times b\times d $<br>b= 边宽mm<br>d= 厚mm<br>边宽40 mm ，厚5mm 的扁钢，求每m 重量。<br>每m 重量= 0.00785$ \times 40\times5$= 1.57kg</p>
-</blockquote>
-<p><strong>六角钢 （kg/m）</strong></p>
-<blockquote>
-<p>W= 0.006798$\times s^2$<br>s= 对边距离mm<br>对边距离50 mm 的六角钢，求每m 重量。<br>每m 重量= 0.006798$ \times 50^2$=17kg</p>
-</blockquote>
-<p><strong>八角钢（kg/m）</strong></p>
-<blockquote>
-<p>W= 0.0065 $\times s^2$<br>s= 对边距离mm<br>对边距离80 mm 的八角钢，求每m 重量。<br>每m 重量= 0.0065 $\times 80^2$=41.62kg</p>
-</blockquote>
-<p><strong>等边角钢（kg/m）</strong></p>
-<blockquote>
-<p>w= 0.00785 ×[d （2b – d ）+0.215$\times$（$R^2$ – 2$r^ 2$ ）]<br>b= 边宽<br>d= 边厚<br>R= 内弧半径<br>r= 端弧半径<br>求20 mm ×4mm 等边角钢的每m 重量。<br>从冶金产品目录中查出4mm ×20 mm 等边角钢的R 为3.5 ，r 为1.2 ，则每m 重量= 0.00785 ×[4 ×（2 ×20 – 4 ）+0.215 ×（$3.5^2 $– 2 $\times 1.2^2 $）]=1.15kg</p>
-</blockquote>
-<p><strong>不等边角钢（kg/m）</strong></p>
-<blockquote>
-<p>W= 0.00785 ×[d （B+b – d ）+0.215$\times$（$R^2$ – 2$r^ 2$ ）]<br>B= 长边宽<br>b= 短边宽<br>d= 边厚<br>R= 内弧半径<br>r= 端弧半径<br>求30 mm ×20mm ×4mm 不等边角钢的每m 重量。<br>从冶金产品目录中查出30 ×20 ×4 不等边角钢的R 为3.5 ，r 为1.2 ，则每m 重量= 0.00785 ×[4 ×（30+20 – 4 ）+0.215 ×（$3.5^2$ – 2$\times 1.2^ 2$ ）]=1.46kg</p>
-</blockquote>
-<p><strong>常用数据</strong></p>
-<blockquote>
-<p>1 米(m)＝ 3.281 英尺<br>1 英寸＝ 25.4 毫米<br>1 磅＝ 0.4536 公斤<br>1 盎司＝ 28.3 克<br>1 公斤力＝ 9.81 牛顿<br>1 磅力＝4.45 牛顿<br>1 兆帕=145.161 磅 / 英寸<br>钢的比重(密度）： 7.8g/cm<br>不锈钢比重（密度）：7.78g/cm<br>铝的比重（密度）： 2.7g/cm<br>锌比重（密度）： 7.05g/cm</p>
-</blockquote>
-<p>工字钢 ：每米重量=0.00785×腰厚[高+f（腿宽-腰厚）</p>
-<p>槽钢： 每米重量=0.00785×腰厚[高+e（腿宽-腰厚）</p>
-<p><code>备注：
-1、角钢、工字钢和槽钢的准确计算公式很繁，表列简式用于计算近似值。
-2、f值：一般型号及带a的为3.34，带b的为2.65，带c的为2.26。
-3、e值：一般型号及带a的为3.26，带b的为2.44，带c的为2.24。
-4、除长度以外各长度单位均为毫米（mm)</code></p>
-]]></content>
-      <categories>
-        <category>专业</category>
-        <category>机械</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>硬度换算</title>
@@ -4237,6 +4097,84 @@ echo 测试完成！
       </categories>
       <tags>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>金属材料重量简算</title>
+    <url>/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/</url>
+    <content><![CDATA[<p><strong>金属材料重量计算</strong></p>
+<p><em>公式中长度单位为米，面积单位为平方米，其余单位均为毫米</em>。</p>
+<p>圆钢重量$（Kg）= 0.00617 \times d^2 \times l$                            <code>d:直径mm</code>，<code>l:长度m</code></p>
+<p>方钢重量$（Kg）=0.00785 \times a^2 \times l$                              <code>a:边长mm</code>，<code>l:长度m</code></p>
+<p>六角钢重量$（Kg）=0.0068 \times c^2\times l  $                             <code>c:对边宽mm</code>，<code>l:长度m</code>  <a id="more"></a></p>
+<p>八角钢重量=$（Kg）= 0.0065 \times c^2 \times l$                             <code>c:对边宽mm</code>，<code>l:长度m</code></p>
+<p>螺纹钢重量$（Kg）= 0.00617\times d^2 \times l$                            <code>d:直径mm</code>，<code>l:长度m</code></p>
+<p>角钢重量$（Kg）= 0.00785\times （a+b-c）\times c\times l$        <code>a:边宽、b：边宽、c:边厚 mm</code>，<code>l:长度m</code></p>
+<p>扁钢重量$（Kg）= 0.00785\times a\times c\times l$            <code>a:边宽、c:边厚 mm</code>，<code>l:长度m</code></p>
+<p>钢管重量$（Kg）=0.02466\times c\times（d-c）\times l $        <code>c:边厚、d:外径 mm</code>，<code>l:长度m</code></p>
+<p><strong>各种钢管(材)重量换算公式</strong></p>
+<p><strong>圆钢 盘条（kg/m）</strong></p>
+<blockquote>
+<p>W= 0.006165$\times d^2$<br>d = 直径mm<br>直径100 mm 的圆钢，求每m 重量.<br>每m 重量= 0.006165 ×1002=61.65kg</p>
+</blockquote>
+<p><strong>螺纹钢（kg/m）</strong></p>
+<blockquote>
+<p>W= $0.00617 \times d^2$<br>d= 断面直径mm<br>断面直径为12 mm 的螺纹钢，求每m 重量.<br>每m 重量=0.00617 $\times 12^2=$0.89kg</p>
+</blockquote>
+<p><strong>方钢（kg/m）</strong></p>
+<blockquote>
+<p>W= 0.00785$\times a^2$<br>a= 边宽mm<br>边宽20 mm 的方钢，求每m 重量<br>每m 重量= 0.00785$\times 20^2$=3.14kg</p>
+</blockquote>
+<p><strong>扁钢 （kg/m）</strong></p>
+<blockquote>
+<p>W= 0.00785$ \times b\times d $<br>b= 边宽mm<br>d= 厚mm<br>边宽40 mm ，厚5mm 的扁钢，求每m 重量。<br>每m 重量= 0.00785$ \times 40\times5$= 1.57kg</p>
+</blockquote>
+<p><strong>六角钢 （kg/m）</strong></p>
+<blockquote>
+<p>W= 0.006798$\times s^2$<br>s= 对边距离mm<br>对边距离50 mm 的六角钢，求每m 重量。<br>每m 重量= 0.006798$ \times 50^2$=17kg</p>
+</blockquote>
+<p><strong>八角钢（kg/m）</strong></p>
+<blockquote>
+<p>W= 0.0065 $\times s^2$<br>s= 对边距离mm<br>对边距离80 mm 的八角钢，求每m 重量。<br>每m 重量= 0.0065 $\times 80^2$=41.62kg</p>
+</blockquote>
+<p><strong>等边角钢（kg/m）</strong></p>
+<blockquote>
+<p>w= 0.00785 ×[d （2b – d ）+0.215$\times$（$R^2$ – 2$r^ 2$ ）]<br>b= 边宽<br>d= 边厚<br>R= 内弧半径<br>r= 端弧半径<br>求20 mm ×4mm 等边角钢的每m 重量。<br>从冶金产品目录中查出4mm ×20 mm 等边角钢的R 为3.5 ，r 为1.2 ，则每m 重量= 0.00785 ×[4 ×（2 ×20 – 4 ）+0.215 ×（$3.5^2 $– 2 $\times 1.2^2 $）]=1.15kg</p>
+</blockquote>
+<p><strong>不等边角钢（kg/m）</strong></p>
+<blockquote>
+<p>W= 0.00785 ×[d （B+b – d ）+0.215$\times$（$R^2$ – 2$r^ 2$ ）]<br>B= 长边宽<br>b= 短边宽<br>d= 边厚<br>R= 内弧半径<br>r= 端弧半径<br>求30 mm ×20mm ×4mm 不等边角钢的每m 重量。<br>从冶金产品目录中查出30 ×20 ×4 不等边角钢的R 为3.5 ，r 为1.2 ，则每m 重量= 0.00785 ×[4 ×（30+20 – 4 ）+0.215 ×（$3.5^2$ – 2$\times 1.2^ 2$ ）]=1.46kg</p>
+</blockquote>
+<p><strong>常用数据</strong></p>
+<blockquote>
+<p>1 米(m)＝ 3.281 英尺<br>1 英寸＝ 25.4 毫米<br>1 磅＝ 0.4536 公斤<br>1 盎司＝ 28.3 克<br>1 公斤力＝ 9.81 牛顿<br>1 磅力＝4.45 牛顿<br>1 兆帕=145.161 磅 / 英寸<br>钢的比重(密度）： 7.8g/cm<br>不锈钢比重（密度）：7.78g/cm<br>铝的比重（密度）： 2.7g/cm<br>锌比重（密度）： 7.05g/cm</p>
+</blockquote>
+<p>工字钢 ：每米重量=0.00785×腰厚[高+f（腿宽-腰厚）</p>
+<p>槽钢： 每米重量=0.00785×腰厚[高+e（腿宽-腰厚）</p>
+<p><code>备注：
+1、角钢、工字钢和槽钢的准确计算公式很繁，表列简式用于计算近似值。
+2、f值：一般型号及带a的为3.34，带b的为2.65，带c的为2.26。
+3、e值：一般型号及带a的为3.26，带b的为2.44，带c的为2.24。
+4、除长度以外各长度单位均为毫米（mm)</code></p>
+]]></content>
+      <categories>
+        <category>专业</category>
+        <category>机械</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刀具清单</title>
+    <url>/2020/03/03/%E5%88%80%E5%85%B7%E6%B8%85%E5%8D%95/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好! 这里需要密码." /><label>您好! 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="70132a99267d0a63c98ddf41bca54c659397f0913ea7a90ee6f31f00bc450f94">8f4138c162f03b4f14387c07b3f1bd06e0cd4fea59bc6936755f3d85f1d7d93ea69dc239d3029026db972bba5b84a8e1d362bd04536e9be0809a40b01924e3d005e9ed96304fc4569bf071d87f134b59b4a9eda366e3360de54d69c86f059c2cf3919b6c2a54b39b0cad9a16ce8ae774dc9083735200d1376dd5fe3db2dcf28ef978e708e1744d3fc7fff63eda1e7c460d48af91425027f3df36eb2c18c473dd5190e793da892d5b2950c20445de0f78281e113d23478e01f5ecad9542a0168a85e0ad8185e8228cc084702efd52f715b8af4ab542be6a421a350b7c442f4df6eb795276f9cf6fa2abe280208d811796043fb3aa990ba2164fb650b41b23341aa5e6d689c56a5994e19839cf7b01333e17d75607728bf47f3f3ce5b9165a387f141e9197698ab92e8254b7456cf203ba54c12cb96bdd070ae213872489aee6bd993efd42dcba4498f6f2f1103274534f6f63033bf2bb5c56c345f43cbbd283f5d434f84de0bbce900156b6a99101a49a712cc58f52a8b27a1294ad25db690ef3e564a3276c295ccc4307d83586d1e62b2155980ca5e6d96c7ec4dcac0986b63acac506213e29104cee7fe5a414f7c3049ddf8719e5a80f0d44721b48b812cb05982f35f1a1bc465ac1f245f6e1bf24183415107ddb6ea3fe35f588a0fc464a93c1adad3376c4e3c526204f43d97d9b52f27afacea7ebb0570d93f0294746de5ce8b82f4f2e6ed740dd40fdf6de5841f28f3e17708ba9b212c04d4a82d00ac977aa8e996066d1969a93ee4918b7bd897ce09468024a988f0510b8d6e99b8eb088147f59244378a2be4d639f77b701d37d288add71ab5fc876cb8d9cf00b42103270c11de06f1ed4a6394347e444bb7437d66d5b4db3538010474a0f05a17534796c223857265cd4b959dd5e6c02c0a1fc6761bc6ad3c6a9a93e3afc7c67c4486100428b4cdcbea4fc52d31a182e83e5da9c347fc34ff2fa71ef3d337cf89a37304f45d686bf659fb7c093c71481c50d1edb748963a39b497c39e4a512b76d4b839c0af2d3fea8c4bc8e0e671f555cb47daba4535a180fb368f721de1e41788ab4bad2d8f2d78410f983e9389ee03abee08b53243a17bef7addd356a9f9c261f1b3c485b7856b38504cc950987b112b625ed41d02caefce05821df2a389b0f7d786fc2a081eb6973e25a8a0204d3deeaf400523872564919eb1b1a21f7df999359f787574772aa49fb0be24e6ac80b01292ecb31dddeccc0576f25f9231e574b377d99bcc63f7484d65da3493161b7fa197622ea97950bb493e8b537f530137be1666265322cd3e0401b37f86c0f0243ea44b3efb0c875759994400553ce2b314bc2c5bd111cb9680afc3ace146231a5be9acf5deaf441c873dffb7435f8642641042125172ef364b0db86953be7f88118d9e29fdaf99f2542835346034128beff06f72e4590c8f92da757ea9a5ef33f5e44a343a5a102666bbadd1113590e8f4410a60e0d20fbff68f163139643c3600ed2e087b8cf7cc3ad7902a430f745a3130377ea38336c3890373dbe0fbbff77a5c0050b05101da6c159ce79f9a39881160468d547a2adf30a50958b1a4fb20e75adbe34550a842190400e91c6637050206d83ec32cba0576d247d84796c8293e09123c7b80e729690575fb1a13754078b07b0a64bbcd12c2b3e35329161931599cf42f7c2292e31c7b73965681c28ee8aa14c62042385733f1f480ac21a72f788463d8e06c044791b6d6b92ec726eb77175c2a01da7416a9455f5b1e0d98a400c823c593113acabb403c9d8b55151a258afab840b5ff5ae6c8fa75a93507208f900262b92e1274b48b5a5f189c2a6001a765aeefdac557e8750f9cbae3407b7cba16340e2425e578654ae9b71de2a76a2ade595b24194e14e46139999ff4b79f7781b44c544f0faddb3841200ebe5a1d6f42d475733dcd0439bb6d0441ee446e3e35b00fbbffc069b1f7396e0eb63ab97b587e1aef4758283086652c8381182601f8c47adb45a6d6b2e6fc3d0cb151ec4b73686c756ecdf8580c590d4675be7d76b60ba5fabcabdffd56fc930a22a5762f71bfd7038f6d5ed23a42d7d4df09c801ecd646469359870339a4965d6488cdf8f6da431dc3060ac5cabcb22c53739bb96dae58a1de604a33092981a488572fe4f1ddbd806b3b78f2301dbffc6dd1b97e25382820dfbfb6899a77d989c48eba18798b43792a22f68590cb710b64cff848a59ddf171239569397f05259d359a0ab69d25b6be351844853644ef64ebc1962cbf7dcbaee898cd341a9a5aadf0fb27371a57c394f37fc90a6fed0567e2b24da669d2cbc827cd1f79a52f7bf674b00dc3b387a56d047c63a62af02050f5a837085bb4c4e271cf7287ecec465f1e34c2e21e4e25cc78a8d287483b035d353f7a5e30f7835a7a06a5e07d864a81e3cfed1536aa863bc236cb7db3976689b322671706b486b28e36f07eb248254dcbdffaaf3a5b5170c73b7e41313ab2f152e88998125d3ef9ad3e80b62506d3dec065b738c1b97f4dd5ebec07f14c7695dbf6c78556618c4d18727013803dffaf3eb69745a66a8d77f01a18b77ecab38512f4fba80a9230444238ccb4b117d52187fdaf683718ddafb96afa2627a6bf334b840d5c71db4891caa4055b17acc6aa10094b2d94756d9e50501127040e119f306a4cce5ea17505fd3d9be728813f0a79e0bdd901d8e1c421018607c728f60658d6e3e02a89dcf8633621de7b02c77aa334349d94076986d14620e26aa0c9255ef43fbbc5d8ef8ef039b060ff127fa4615c01ee0eeff216d980dc411e587069e2c0736876923e87e1741c0724c5ee3dd2e3f2bb0f26287048bcb891bec04969562c74215f3979a51e81ffb57d10bcb80087ab1bec4a910401b1fd111fd2e19e8faeba0d5c1f6d93ddb62c0245ca6551b49fe4a2ec33689f9d30226a54bd26ecb0b1716dfd6079ebc1f192668dc1c249f26f830d6a37d9bad40d0dccfaf2899662afcd38f518fcbc1c7a5d04e3cc824b41f586a38dc4647791fdc23c95ff1394ff13d53d75ffee6e93f51417639ab2d7820371f83750a5bec167e85afcbdf23773e0a215c5ef59059f7825d1fda43ef3bb445ace59032fbf807917381bcee9070fedcd218e95258cf902eaa88baa0170efdf572b436ec95d8b8d87964dc4e3ad11cd96f5a1a6144b56ffea7840f23a562e7cc19af801b11e20ae8fb2f638d1a51e60a7d39b98693b9fe5e71fbd92e59927f3ae9538143d0ed0f43e1ff0e5eceea35ff37546df1c964b764d7f8b675980076195a01c3df7c311b165ae15743b0a318eec15066e815500b0980fcc4c29239ccea28885af31551beb7b45c6f2e960170f82f1cce6e71251cba7938a82ee07d8b638e1dfbf008d148f197ae6b517694345db201613abd963ac34712cdf66a1a38119b30b8655b12edb6760136dd6a7212611c69e29b4d78902c657f7b0adf5059f1e7ca8165bab183bf076b6ea35da0ebe17a5ab9145631a0e574e6c8ea63fae9846c7966daef3775c309a8a8225644799b036f99ddc7d68c933e481b72b3ee1850571821eac3b57f92e127080f162ac2e54376c6d07e707aa403cfacebbbd565904d8ebe1c1937624d8a979d7d84870cc41b2e541efb42e42452052bc028431a933d56c08c158d5eb73258e932079014774867c43f3964ede606c7f8e9a8469d46515ee5bf10cb5b895c4c75afd557f045349e690d255857ffe02d4425c11a3b28b9b8a756ac253feae453c3ca1b2b3b1843d3c74943deed9ee60a5cc780ba87aacdb6c80e0118922070049e74c317e78ab5ba63b04050c1120f72a9f03c74f02ad2888b6da57d56d4b55232003e4d88bb80d3015944d2b2f332ba674b7b47f5f97848a3661f1bac9773436999d84bd23a1b9857b33f1db238a88eda16f177ec4f711762cc95a7b43ca44a4a95c0b19044663b693aff7e7c630394f6fc3eb8478bc6cfcd723dc23422dd949089b45a335fc907be6b4f1511242f62129b4f9468af32c697b542f81b05e6e07265aa06a8f22c54cb858c42008a3100ee4add3acb1ab8d82e26f8b11f73469d48db7f3216a9dcb04713924a4d82fdf00aeafe611b35af0ddd35fad3e0a99ec7850bcfac759aaed4fc3c71bfd60e4e083168a8fe8b36641ef6eff55088502a8c54a8ad932d08e6218c0c2afa886c6d4ee690a6347356f1f09c6e46ebaaa74d835b5d08cc74322dce2336679af6da56918bbe0efe54a15f1d0074c982a5049573b97db20e8634ddc8651e8d795e2d15b6c3586b5fd64551d07a182cd5be3fc5dfc3e4107a116ff4c2954d023ca16c44b99053d883f4b533508adbc124277c69b46ece473418edebda0dc7dd602e45c3118129543f8fcba1f6e480300d9208e76a9be0ca6f1f0b187e61c258f2d01e06a01ad1b09c3888271d2ee45d2aaa2434179a6c972524c1eb0863b37c7e7ce2874e427a79fa97097d152e15482ac46bf4568c62698d66819b59e71b1d7b21bf8bce790763802ef8ab19dfa4ccfc50c4d2379e570b82aec74b56d8834ab3adc25c1d0a036e1ec44356ab5e1309c56ee2fb2114016241692ba304bd9b5537c934e0adafd49dbec3f28c0e3e7f2b92415f98c6c40d8ff239276a466d2dae40c6beaab4e612bdded76f1eb8956a0fbbd9dc00351f5aea75b98f90264444093b5ca3b2a29fbc644eec96cc0eb1ce7e6b9013917c715d6a0a8517edc9e9e6e534c307ffef2d1841f6b337ed9c1004203b612fc1613f3b509734867a9612ea0c698b768caf83e891f97a23a2018c13747432944c5bddf73af79f464454dbc8209c003cb59c8b6abbf8f3d1a961006c5ad46bc7de5d7ac56fd96b077f91f6f6b6589c18688c12e4b0e16a6afe5529832d88b70e3a62d4fcd17c78c98cc50d2d5bf6a72c583c183d0e39ded0cf1451fdaeda8ea471b8f33620bf154604922e4237a0d7cc468b6d94efbc194cb3178033c9284500b51f01c2a4167d4ef37399406f34a52f75e5b5916a5c3d6a11f5e40fa95ac2e9e4bee2d413b6593e9aafcbb55db4823d7e100fcd3d4acef16840d30ac74ec60b2659d1d657b075ce8b18cb917839854d0d45e3fe5b70645176c630e9346fbdae2dc7a272b415cf76762545e588c0fd565ddb31f7f778de3ff3c9dd6ef4f49c6b21a52ee57ac79f5888a0e718b9c44bd8c9f7263633c979286e9c8f14101b9333e3f2deaa0b3bd934c4d8943e43bfaa9fd9ec01f0441d679e6aedc1d4da9c1df1cb5e07633a485dca884c32bca2d14520311fc5f2e49d79fb6e9f2fd921bcc602e84584602ed72d4d461d0904b563b131639c542923e53955ac4483cf9262a9275f23d67aab778f976d3026b9a300a28481eb83905be15e627e8021577f7ba8388e621a48d9ef1dc7b4a84850cd029c9d0362e5de92d2f1f33030fa88953dcf3346eb468bbc9327162541b0577ef728e9d0a75cbb087b1ab81f2afa84299564b6f9f69369df6244e523a6927b91b0afddb32cfdfbf2f291ddee2d859200e155101e719c5324d0149fc80960219d12a9497fe98db12c5ac338cbdda126300521bdc31a1e8fb0173242097f2f668db61be304cf9a3c3fcbcca52e381338ca9b6c4a5a5cac2467bdea4ec06f40da836b6e472872e16b4fa6d6490b95636519a5e4050f97ebe06fb5cc86b26ac7bae76575f611232e6363672eaabd5fb6e379c58a30b0ca14efa79d50cb1d23932e4a644c1333a24a40659e2ef67910d8c0d702a2e37276d45713f906e916ca258b509855f42b433357a1e38da69397e2f24ea67b2e0d588605ae3986f10ad7eafe9dd74fd5476b527f55d731beae1043371b312b57307abc813b7af9363f3b1b94c0eb34f846dce121db54307191cd5f5ad34375abfa76171e6669cc94f3a2ca04db0b77b596296c955cf652efe98999aafe1fc8a6b356ca026b9713b0814012d1deeacfc77f931b24edf69b3ae26829383507778f012a3a5a751989cc85d8b85e110edec09dbce5239ae987b404bcfa3b72b7b4ea37c5b4a8926874bcbea0b6d76367fe8c1033a7955294c91044ddb7918230fa89ef8e407d5188ef372f10620a97391a3702ab89b27f8d3fa4fd6688d70c32861bf809fcf5f2bf80c6e8d0880a7900db6761c1736912b5dd82c9f21d9aacad2821aa50a4e3c2cd157dd0aaf1f4bdda6212145c26b120742b771e8d05d2b80ced1bba9affebad5bd8e2934848a80b04b8f9a774bea4feff6544d8f52388c441516f34f53b2523bf996b135f02d858ecb5d70a49776e887ceb47126e29c8f603e424f617c65209a16fb1dc847ae9e97a49e7df315d4651e2b17c5146060e2b8421919cac146480990c5754ef21eec60f356ee4204cac948a2133e6e835bdc908db663ddea75fdc1aa52b12aa5e2b927a9ed9dd581f765727b0abad4965e98e94777a8af29dd520b0947b203fda70d7554e06d3cf7e3f4cfbeabd99da70de575b2b0a392bc9d0a67d07eeb2d2753fc89b5b12abb4273f2b1e948f14b986e3f90e8a3ff7d444a8104ce62640f0f4e86b4508d989d55c1f10646510c9b7159c2a9f40209986feb0ddae51e2b67b2400834f2c74746a07bfec85070a04f0a90d7f96a7b593d9de31c77a22f87bc33d420e407c7d80c318c5f496fb01511d7eb8930043b633097386c7a728f2864810e5e5e50015a8c7c26c06de5e7e1986db4f02bf953dde74ccc6ad30af055d63c53e948ad31efd11001ce4b2c9b9ef1c53c03544d21082c4f0b8f2e6e01776e5942329d382bad11c6a8b6b0e9d48e65bdf89c584019d88cd93a64938cbf547be000fbb5fb215f2ef6972ad84202cc98b2860ed72a9c59dbe48bf11ceae40f182a52924c8c59fc41d5354abe5eb20499732ff7bf9d8d0131262a4e964ce3bd8db85af092441d11a51d975eae43472f8197b7b63da66ee6d4bfdae0551cee05d053750acabc5445f98f446817887306b2564df6077386b4c85c42a15f5a9e149c3e8efe154272ce827ab607a8ae8592ae8a6fa90cbc6e0085471aa23693ea3422073f6377e65678c0c1c6d70afa2d696a1fd12c80b0f0c17a74382f4af94cd996368ee4d44852a92781d4fd357d1f451b61d90d54871fe5c61a2d80317c57c4add05fe08fe055a7fb7d2c48bf907761e96512f07b05a9e5feb7289184a2bc4b4085c75581e5de229cfa5bbe65057d2c46fbf41408cd3e609fc46db46d8ba03858af7bbf676c4e73e1de995219db15af1dd44bc211097c30725d00eba56c5476f1d31e2154b582bc7b17301e792ae9a75e6b49e4232fa0841d88fe45b3bb7373518c28aabdee45c7264d3b38d27d482531aaa2a713230cba5c996bde1394d2915dfddbf026022b99c8b08aae0ee0a6d3c64b838b78f784c1d8eaf1c5d278aac7717b0732e70075d74bfe20f8b8d141e3ec114b0bd4e57f5f20a8764dc3410c7f508b5ba4d95033971184d3f69a437b032de0e689e5f06938c2cddba9ab422e869b32c4c0bc0adf972bc429697a4f424b73aa4363485928555d701fe6c3706737b2878a8367ffd345716f76ce1e43fbe1c991a431153540c3a61fca03719fb94bc8a5ea635690a6bbd05e36cc0b24c49e334afab5ac1b7a42f789762ad2d1c8b7b2ecff99615364e8e51e4cf6af0ce5e1c1f300bbfde94d6d8772c16e63d73da305d94c8eb406ea4ff3caaeabaf57d873c8b1fe4a9e9ac7b29c5f9e13bff2fe08231d540ca8e9ca4d4f5559733fde7ba36f765532132179064cef1e0ab36db57124bbeb2788d7f625f432759c543a922dd46ee270cab93f0d6737f7f74a0e207cfc5b89221e234b4400a2ba0e5df0dd59be4b2fb71e5c6238460fc9e739030afb5aa2898a3d2982e0bdb49c636eea77cf5d17450ed3651e990d05f7d5fde51d99bade898b9629a3d37b503e4e276cb79a1c625fadb9336e39d50200349011482bb8d507afab9e167d0435b0f6dd99f966edcefc2c974e96c26fb2f1348245b90f68368b88de79a91742ea732d995e1f296638b0f208010ba105862d1ff04a2f3382f10e9509c9d8880420e4f63b327e312db498a07b814cdc746eb91e6afadc4255f6705147723dbf4b4d8ddcab09ec300bc298529a3a31c81c9af619f3548be9e73c3b1b5358c6804d2dc94a45e42b2543c011ade369ac572770112fc7e7e5d5ba22df9e104aaf9fdcd09703a881d6a1c87930f4b9104f0224218272c4aa516b964a77609037f09268a4120114155cf4df45f26893128a240089e705f9036f1619852a7a9af5e25b0da5320a0b364210572721a21f40b9821fc937a5adacf6887cb878dd4999ae399003c060736bd8b7eb0d3e137b8219e7639ba36540396b457cbff8160b43f22ad568a84ab66f1cbfa8a789dd35657142dee27ea42dfa13314e385f51ba13005aa6d6560a1269731ec44e93ddac783d39efeab4b77c3c602c69e820ca4800c23b62c856e9627c8b83664b19f300535a85cf60e956305cd5fd66b207d15847a71b02f9911cd8488272142157762cd09738a4d87520419633bfeb13828a5f290db8fc8f157fd50629c6ceb1073673890854a018f8ca064a1fb88e52201f5cb8a2275c70893eac9f2cfa02382f9539a3613f358798096f1c941bf5cb13157e47f40928365902298a31b231c48134ce619879c3b853942d5498b7754564d1fe5623bedd4ac77a40783e9ffec8e75860c5d857ac267578e1142de3ef1f0da5b46d3d8917acd1ccd10eebce2493454bb60fd4167ea0b8f8969cda57e849e12ed58209732a54f47e05c89ebd4da4beec746d20a9617fa4598344c34fdf34b08745206c37e68c9fe31280b0ae4402f95cd98ae8214505c28a39394e63659cedd29c0104b62b3018ed5a52888ef18e4058712fd63b3cc58ef7267c6185be3e28629cbc5d3213b09e51e4db10908e9b8b1dee279fc823cf5621ed722bfdadeaa2963142e021ea62e4a40cafda6807c1d3823e33f73c33138e9a832e3cd700f512b61addf760b1a0f4affbb3fe6a6d4a2f5bf2b1423f771193f40a1320ea5e5e0997ec84d2784b9388a763ff0b74f8bd14b66b8d7ceba9e0eb287df0e75c91c9f6969e61a1894bdb462f67459fc6cf2c2cdad5d97de489bfacaa218a6698fb579b878af36511af8608e13b870d3741d68105ca0af22f99b523c1b8b20c4fc04d58d73f006c058b4f2be467c6a52f8517754e1bdc6fad5d5e2d4a167b8fb55bc2a335d75845ec3fd01228f07b8fca5807d6f4ad3e08ac675915928c909f5f0899bd774c69c3b529668d947727041a638c090acace2761796575c81fff8abb6cf971304968b8e3504ccc45b66d4f17aa45a6a96e8cba8664fc4ba3b3acf6affe45b4399f4ae9aae9d213793fafec60e49ea0fea1ef9ae3282cb3d0f60c6d6051a3b210da617df585e0762bf06ecee35f5af68577cc70782b432a3f6043023cbe5480347853bc39c8b3caf349f210cc55af2cecadb594c59fe1a485f95d6e17c211be23fad4ac9031dcd7bb6d53081d64974d42d90e70fd52422ec47b78bd6acaad6202e125e5a6037b0b91d22cd55f53e1c583073dbf0064abc9ead4eb812aa1c7b8804d15273ab207e7e18bac6fc39d879487cdca1eb88c9ee3f3457a3a075c49487daa16d6489a373d06d76adc8792eaaaa354ead0d565cec8ad1c6e6ab8452780fd18a17fdc0b3ec8b100e859ea13b129c8fcf30a22be9904b96d8a095bcaa6844196753b36e1bd16d8af1b6fd54e4f3542f856e7b51c5ff3936f6c8e14c9eefdef4eac558e04decc3f27cbdbd419323c7424e34d4f2a20af0946251920b57ae72bd4be20ff5c9bd1b3cc538d2042fcc3deddc4d0c7ce2931b4c44bb568516d1dce419da5698c4afd38b7fa8777778390a3d39a3012885a5f3e9205d7d4d3873069e00cb930e673ba984bd8224ba0a7f0e15705f3b22c2da4ddeaa4f8350c418ecac026caf3be5a91da29509370f0ab05edc407c40d188cd2f57f34eb03e354d2617a43f4caf97743e68d2078f94209b3f809455c8dca12e0be447f31c4bf0471c7f95dde9d5a70d07f3f534bb3e5f2deda2c3d44bc938cac5d4e435a16dbed5970325624055737bc6ef2025b91ad9903e9398641f45480079a912fec37b0efc2e6b9deede9b98a34be62d1ce1670cf8e4ccac04dfa2908014ebd8fd5d12df38cca3445e8285588087f7470132bc7a7a98067b02f75925a3322ffc9d5b5cd634df0290737146534fe40a042ac2092d3641b66c3d6961bd167afb7435e49a2c3aa3c9d19d362fbc0e8e3bd9cd16f707c9f96817b89f5ac6ed3c6dcd134e424608d1aa01c8da16fd2bd50be67b1dec7b490c5eb68573217f6e21765c64bdfe6cc1130117e8970f7073ca212f429f7cf53ead4be5f165459fe61c72c89b759fe199763b13c3a1c099015114d7e74aecb1f52573f825db86c1a4f81c8677abc6d517bd1b506733349d7c24440eac7cb8ec6481f9f4fafbc4d64d2b0535427c54e92fc2095fca946161cca296ba2c1fca31d40d30ea7c26401a50ad562bd2720b73ebbe888ecaed2c86323815b5b583b4569edabcdaa51154a67f4d079ef103f88f96822380b4c99710ab4ba4fdb7d2b6b13bab1e7ed9016c7b260de4631c5f70395e54edc03fbcbe0b7364372225ba13b995c95669c757cd96b86a0bcd6974db04dfca6536beb4254e77c9bc0a0ede5b81d7c397360cd4f46f52bd347d8bf7e612b22e29b3c47f8729029ed2c26cfaf988051fa9af0e121bc8dd43151e0f409f4d5ca71c8e61d1b8e1bc74900b33cfe62232d3393ba410eae8e257af558d4802174d2b12c739800de1d7bee1e1e92fa52986f6dcaab80f3e90b92a2034cb0a73564659ee69f4a429d3cc83c50b74be02e1908710ef4cc3ed89103792407146e3408f292007ba5883c23df93b9d1d5b95180a8672a09aadbdf801d6e8486f99787d359440a1ab433246150042aeb3a5567bb2d75a6f12f45a42086eed14ea8cc5141a1aa584315b3e7792a3418b94357b79deed7ffbff5736986aad1a5bdbb29a634f685e192d1dff057aa822bf96e75aa1dddcd9d0a55488c6c5920581a38a31be48bf13f48043fe1c0bc364840e0c954f9eee5245d1a633db21e5f9fcd8a3d643182e4fe7da0e81b6cc22b58eef387c3685a42868fb41c081898f1422cdf64f1489592fe50ce31eb8555e08ed39f969653768867e9472978bfba998cac8ec24db70e6c525131d8769265dda6273304eac22a184ae74d803d83c09356659cb3c08aa64dc2207b3e0c5d60b661abea2a77edf2c478ab53d0f96a83fc8f2cbedea4012fd49236bf897d3c19888753bf4cbea1304833e61298f350aeee0e500e9ff7e4b8a0c19d61458ebf80e06ec0d1325fc4414cdb64a70c3ea9c6961e63a0a2d2841f788786870c44345c16f967f778ef614d910b9ca569e31eb6fcef5907e5625dcf0787c8d6ffc6bb6654dec279284db25ee04c1ae345b24f5ba7a3d7f856421220102c0019c6294d3c560f4a9dc7715882bffd80185c9a91b8638858008781b575f5031daa9b93590eeaaf839751c787da116d96956b375241ad0bb10b69e458b704300675883caf648c3820ad42e4b155528389c89a5cb8e2c305427a5edc5382c6b6aa0bb89b52b07e23c4bba39e50f76cf02d9070254e2c2cb0fe31ccdf71ce66f17410a5c72eef6088acd6675c481082eaa7331f11d0ab9932920146f1cf8182c6ceb0880dead45f44d2b2ef19725ca0a1599f92ac08772e51e13ee95445536a0dc880894ce8b75fc91c7e330f5422de39cea69f9de5ffff0c82732da164adf9313f48a3dd4516d9303f5b1eefbdce89e570868cf7207f76e6338002597aabeec9440c9fa1f7a49b6e8df6806ba46bd17b4a05d283a0f5c7a5a1ed71fd65c443f2c7ee777c5e21a2f632b7ff29d087bba7d6ba372931b28941b44a1b08a75125c1d719737790e523a03a2045681a37081cfcd514cb066e3e1f7ba8e174911d17d74e63b50445b2505c9ffc0acc8d9adad9536d3d218da5dd33482d8d9ec14245a674070bb4431fb9c28dedc6a5b485677b2f86a2f3fbae819f1b9191d60ab5e950290467427546c935b9e07019c2584b6133859d658b8b75e4347836c057cb95904961f1fd960d75d38bee18385a531339a036add3dc840bf7b56f94683cff70ebd010f50b6689e1244da78dfcb78b805c4e740a81e8ae1c4974185c2963251fd231bacbe1a158f118c578443997b7cda2113452aa3921958352bba59e89eb37af1009138a0678b4095aa436ff81eb7c3f73d157b024c8c2c418748a7393b52eae541c8815948a8dfff7e3682eccd70a6549e73e19900959521d87a8e68a35bdd9a3593586f30d9a71024571b8a8016cec2956e24712b223686ad88b880602f3c4f30b5b06cf6914153c5f6cab172a9847cc9a0b86eb05b8cdcddf66d93e282f5aece301cbd86e5472ea7d6bd9796924cbe2756cdd0a566425adc9b1d650924ffbf336fc27d796bcccb34af7bc7c4bff2cbfe6f90478368e040d73649ff50c208633e281c9c595e11b27a24f691bd646c82743403f048ae5ece96b702fae1d09f157db73c7be585b5a7ba1d2d569642ee97e8240a87498a164e3f1ed088970e94d391e274433b3ac68dc52ca97f8ba6f12cd13fdf8842cbf1db1a3f6926b4adf2ecd003b725672e62ea211fcdb4d99dd56afc2a3390b5e1a6f74a51538e386360338b3b54d81c058d648d50f14e667f0a44e626e82965f2962f027afbae434e5799254a3700de1cfb75d76f3f122514bd5989eb8a0720bff2197473d2e7330261b865775e0d3f1ab335ff18632323cff6ba39bfe9c2c574079c732fb58a79b172f140a04cacdfb67800e333ea4fe2e39dd2c487db5011a8386275d1ceea6dc52b9ccbd4c6ef2a1bd13d532bc2c89be40dcd7da6431d7a1fb838ed8a29accc49d67aeac45f9fe60ff10ea80cda5cbc57c3cb189fc5e81f10b71d0cba28a3f104810c959277f5168c32751d0369a1e2a12f8fe8ec156c992f433290b96d2e44f9cb31495b942a89cb130f2142e86e16e761f2a590d9edc73010ae50848774c8498709cd31d6dca49b97e3d4b7d14df3e6fc258f839a2c359241abbada25c1d0e52f0e6b1512afb94e084e339fcb3f5946761c738446a0a222de4f6949ec952b91df1c5644ccf11a481da5df1158901f299eee662cb9eaf28b46cb06584c3ac0a85cad8828b060ae465f2174c4b0bb968f6ff777490904ad769a99d9b6256cf9cae65c1ee0b3ce497433d0f60c519a42423627baf9b4592c0d7e10c9990ef915fb03d5f6702cf53c362cfca7a822016ab196b92f980cc3d02cdb6b4a0df8a38d3b9ab7a7b71d4020b0fca4df640b8c7342e2bd096239ce8af9ced8f5aaa21a00291b00e34471d3cb7bea8e2e75e7fdd095c6c6640e566be1eb07b376aaebb3ce16b3e0f812063797d70e36c6a5ff0f58411c3734275b2b4e62177be4f24323c33599b01b9019fffe92396354970b4df83e705c3211bc658d564d4b603bd52a79aa40eac4abe2493e7219c31a7996bc393e2df30270c71467f6cb5e86139233ce3bd9da44c6bac6257f6be45270e72878ff2b469d5d92b3805f609a676edab80b3c97b896aeac1c0ee3baa819003161e61de55e0d48eedaca300b12a9835e970fe64de30e5752e0567b5ab9c4c8c3d29b7c6fffa900a09c4ee25ae4af2344177d935105c5f4eb25b9712c69f8c82d73223cd7fae516cdce763c3c2202269ea0dae445b6b2da295e873a49ebeaa5f648d63799f92420b5ec4e147054779619b7cb94484ce603fa179a6e46ef3138bfc93d96b6ff5edb4549ba8cf15311b44df454a344d9e3022873e0a8d19870562f9b835d0a3caa7bafc2dddb6b6fd6e9915c24f24fd9090c5362e5842c9811cec1ec7da103ce5e996a79018de19e80fc7b1f647ed754f4a6856fae1b16361ce2e691af47bdac9cd758af47e39e36191c108edd03eecdd86e8b61ff63baa7a21aa77583c0ecf130480e5d57dbebe3813c5ecf0643415161eddb6b3fb78bb014d99e2a8c7d84f1caa6bc4d5ecd85d647dcdb613238f9ecab85bdabafe2923aa68631bec40a161a2a3d228b8c3b8a644365f0c2a61ddfecb0f0210709c86855ced2fda05b21f4639f387b754983346a51def51877762430ac603b90204a29fcefdf3e81c09d0a6509ef9eff81330c36ccffa70c5b42bbcfa5147df652b0b9fa62f315207c8dd4855c88dce53273c7db59216a336abb8eb2d6401ee759827c22a14d15724ba2ac2317b6ff97f897c8158f96627936e9435d7eeba2cca27947150745924786ddbb6c1f74abc6f2fada1d7406c166d5a245af4fd65bfb086b3c95c87ffe4d417be673c0bee04760e9185fcd254f8ca19bf243687d177e21072a0d071bc8218b6d85415f67bbbdc0cd3f49312166418f9668ddc9549101b628ff567b5558d2a33f86a4b5ab9c1a1356f98d26b6317f126dce4162ae387fd26c333f07456860b120e0cbbc0926059b2fa394090d764606c38ca6357dff611fb6a252c28118516771bc1688f221011c6410b2cbec5bfefdc998deabd808e99607b6c8d99780b48109c85e56801981f1848852a6838617d610da535c4e45f97bb547c72fe4a373628ea3798e416ad1d42c28ae64ff80c3a52d0dca713663bdc625c35679139d7a3958d80dfe1127c58f6e1aaf81bff686d1bd74061bf735392c6c29375154b1cf1957b9283e046d0901b5357a0c09d30abdc3f33ee8eb1b6b1e84d2c81af0c5aa873f81c3a0ebf425872450301235d08dd34238d0f6b3a7f5bb25d98fdd921c3a360ff9fddef2ad3f2039148b0e5df60b1a453cedd53b28e69c929c3406405c4f9dbe423e45ee6ca07e7d2fd819ae0cbcd7f0dc460ccb26ea43f531be4f6f9f0eec0e19ac09f94d0ead9e7252225aa2df1384f6269a53702fbfcaee8c2c7381701beb9ad41ad9a953d3f266c7f9844008c305792327dbd438c65d5e498d7edfacd4a52f9aea585ee517b2257f0e16db806255fac533dc2c89fc0c825027b7558e2ca0d29d74c105569ddd625a40aea67245422b26ea8003a8f520600b1e18d609cec31ba40b43a19168385871d7f1363a68f8a58a054bc9cf366792fd93d8c0abb5177fc3afa4a59638b50462d50c6684ac6608d9670c202abdf0d291d1ae53b44632bd54e72eb05b88471e6e89121dd1bdf02e3e8556a94870e38ccaf95be7c0f9a508608329fd0e97d1b0ec70a950cca05cf5c5411396d2859465c9a0550fb2a9bf8b3221a2341326a69328bed4979677092db805db51967f4bf88534b919fe19de19a759a3afa4949bebf6ab3274bfe21eaadb1388916b32eac7c71d27296d9d5cbfc18f2b6be521ea6c204bd1d73e0fea23e2cf6baf47790d8463cb42581366c9d013d887d69a4d6aa8d9dbfa617c7a7f4640de96d2e828f625ce41eb35c318ef9cb6770ccc903ac382df3878777512e474977e195c05ab3a412e78b599409517dd86620a99abbd18605a39670f78afa7d12afa47cf19542cdb03b2820ad5000c547926e933517f71dfe3676c5381de62e70e514e30da0d932935d3f5f1f9b33065e737785959e1b2ee4e733d43049d074dc9d86aaac96e5d5937c675137fbf508b2608399e15c789d98b2f69ba8e44dccb9fb1b207a418325bb89d43ed7c62e4ad2b33eb5b1b1b4e375fab5989189c489240a1755c3f849d8e68629bd2e291f65642aa2d81906a2bdc44d2a345096bc608bcb117e02c803d3d105238858679f62d81df51ad4cf20b8cbe41398ffbabe0084f9711ceeddd41d4ec4a10224d3c33559d591173a749ba190ccf95f62162911a06e9569618371f9b23686d3f4add5e686c1736ca0066b49ad11f34db5978bb57ee2be018cccb912a3d297c990558fa3bf0c1b2638be6a0d28974ae2f76c1352351ef8fa6a4a38d1c87b487d666ebc6786174cb116651db1766e7931827c93d2fd5732b9d4b295262e4ce367e7905f53b050a13352d34dc24811963b0a232020d950d088e92dad3b4ff4ea67b1c9299a55892b2247a7f12e139ad909e90b2b3aceeb2309a6816df1e4077409ce57b16fcfbffd0275b897d12b1fc1a49fb96d551b0937d8d2dffc7a1868b81ac7ed438954ccca61502b4c4b50bd6ca4878aafc8629e97acbdae96eae7e211b64a97710bd3e2abcf8115fa07c0b521b7092aabb63f64e19cb53bbc3b56bdd47ca2380a4734667cc4cd15f30f60312dec7d6d4452a81ed51deb71c69e692edb2d035b9b8ed4002f5c3eca6996db169b5724e72bcb385b97c968089f5beb5394b4103d87e4f18cbf4138d6da98a7f4e5a8682143779e7b2e24824f5a1e1e892bcb3fb58d4e4be6f2188e6bb5fd0fd42c32d40a82ce5d89279537a3386c8e5c4221ec475ddf9831ae5deda5e819d37f8ef5514cd47a4cedf2b3ea2e947af289098cf49fb880b2cc974053fccf1f365b1756bbfcd5718eb513a9aa95ff39a8fbd71f3e9234cce9a6f34f80dd505e57cdf574daa12a8f2d3a85d45f8174ce2c451f2bb397389a00ec1035317ae72b3e76b0ebfe33b6b49d82ca171445aed11ed72989494bad27d8095208c910051f7d6d0b2fa5f74631e1c1692d118463cfef0e84b82fa01afbcf56a9de69a5bde992a18bbc1230af4763daf69745445f3f51af644db2919b7e9f651086db1163d732e0e1057a61853bb2840de9c090dccc8157a539b0bb562bbe692b4b3bf4c41956c3fc5811b0128a44b8c395389ffa3dea3a9202ffcfd18bcae90692e9ec1841eba4c31bea25f71ae016a1951c2a45f93525ca3b3695e15fbe14f9bd6a0faf78093ddd58144a9f463e964aac100ea2c72d74e66f71e61f2c16c54f763dbf866cb11995ed35a3a33d87f27fb4cc45a707d82f3815cbd6b3733cac6f8d259e31077a01d85cf25e44c10360843d3a0943895721bd08de0cc8754fc877929c3d6766e6f8ab3e906d229927e4bf44d0c187051966c1dca955058ddb33c95fef90f6956fe83bd5eef0204592f334c5d329570ec85c0251489bbae054b59eb1d75dec3e5bde87060f7287070ae129bc690895ffa546d5798e5ba6039a05f094952c9b9d9df41707b867649b151032a240a27a2cda4d27b1129cddaa91fd1b307cde103f17561db4851b8432ec9ed15b091fb778d13c2eccf7cc52dda01665c0d946c05c8bf600e4b6e5f6a001ac02fe23468b3d02cc1f8d3e1313681bf4f4cb0bb32292ef4b618708aee4c2f8ae56aeb1ac258480f42af653555f90a342b873996403e34a759f38d2406a4a2ad97079de713a4de11c0207d40033b7f01f85b9dd349e40be8aadb1749c6044ca0b60d859ca7671ce1e72f8c114c67aa46a61cae1028cee3c32ba622aaedcee45e9faf2ed1b7b7a71a0eb0ab9dc9990743c44749cc71b88313e2c56e4196ea73dc5d263e74fe4eee845ba4593b6285692b6e2537c6b7294cecd44ea8b4af09161711ecf5b6fb6ff1a85fe697eb65edff9a7219e6ef61c4ebd2630aa5c8015ed9f99e63283201137c387a5172c1a55121d2914b0d087765fbc0fe885cdbbb7063490a8e29c5fde5c0734fde2d3dd30c077c7e85f59647681408a71b0347c36c6bf80f5d38b996d13cc733fa4a6d695a226a6776739756b42aa4eece0e346803c4694214db5762569eefe7bba0037789018693914599455bc589ef4ecb90e6cb96a49f7349f36fd1ceb3acfef3ab545b4adac4587854afcb519a885a2565e07fc0060ea17efe68237e3d1dad428d2d6f05942c590ddb489ca4da886c37fa14d34747de278a12438024b178a18c0b5a644f827646267b23b2a739285eb4d7166d281996b026c69172f0e76f8ea31ca3d656aaf888fbb8c6ab029f66ad210ce625176e47235e34dc59c7319feef5a08e94c3618686c3fe55d60df9a87aea21ab848ded1af48b7a5eccb431bce992d318c481d7b6e11da94fd8b7fa3fce686d0fb4359ec37e834e4cbc060b1f921b7bbd26d994acbc250749a547ef6a94d370bc37f3e64d9c009c3ac708f725ba95f51b3b3bdd23956c316e9e02a48fe00ea107cdc063dda8fd8d51d7c73c725f645b8ab483cff4e3fad3d2356c69ff831f2bce0a7ecdabcdc0a32940023cb6357308e74c4a7132d361dcc22b6aa2abe882ff2b1806ad4972e8c17656e6d330c93a9892c39b0e14fe5e0767f5052b803dd4b38e40f2c57fbcd4dadca73c00704700e6a3104af324a2809ece73b59311846fce43e842c8ec6d05dd4655522354abaf065c0406972e25d0748ae3e17c3417bc35a6f453afd5c1618159b34c0e3717485762cd7b20253061fe4789195625d7680506617ce766f8bc99487af5960f125f7d47eb0ddbc7a640cdc9f70416261868b7c63f58bfd175deb3257d37523c1cf3fb5b84aa0fdf35d8892391a2e82ed99d249e326bd67c9c353be3c3577b4871e7b699e2d0f45436553d45d0e9c00a2817ee2839542a131856559a16746f4e2544be7e2f11c8758862cd4d29347bf36de96c270ac10b1e83791377361e93768c64747393ea5ad57ee21c335174b6e8d3e37de81387a562632de69b309bb0644b952d6c722271793e7fb49c887bbe68fe981dea7d58f268ca9564e709c8962993755bac71382e3067f163f62dc5344307f977f454971a96a14ed77044360c53e615eab6d0af9defe1ea8da36ec72427641bdae9fd515d79d8ccf3d480e5103707cd7a57b0b90c862de18de326a5f7d944120a1b61f9261665755647d3fcd994ce3095298aaa28a3b3d6322dc32c267e6b117651506ad23f6c43af89eae307467f77ccaa4c957342401a9b64aea36e69fa0f2702f79d6b96cf9bd2d233cfc80c07e3291167fedd052e001e8a406285e666fabbc3463bd784bac48382e66c1532345f4edbd8a07377776c42d757625fb657dd9a1cb481c844b6ed8c93d23634174b7a5d03ccd7f53c88dee2dddae9fa436d1866fd93ec8e697bc12e2f9be80364fee34ae9f9048ac81b4a30dda2b4bdb942ea7b3a5e20d64d01a606f70bd459e0d50d60c028d4185b7cc39fd8250debdd2bd62c05b2af409d11134a20ae2b2521aa2853bc491b0e4fdd49cef3233c51afb5a0c96c48f1021dcb70de5594439d62d616f61a954dd7f56ff5ce5cb380ac12b538e9777687df26ff62ee423cac5e02d1aa35e19e08fc1bf9020cbea1c9065e2b750cf51c922075d14fc95a1767c7f48fe763ae83dca32011a2335ca2e451270288b37a447f8a5a7186f97631011de62c0d3277f4894729a65b8f1bc237df4a05ed22b55e3552e351a3f2cad525160181da16a8b10816f7eddc29f3c88d7fb6026d4e08c48fa8654349a768ed5d637347d2e6e3b79b80de9a433dcedd86a61de68159dc293fd4f6274d301c4845755c093238290821e219974f0139cf723a91ad59956b1922dc028255acfbf18e62a6d72ccdd873b9433e8b96a3ba41a49c75057147ef134b01bd16377453befcde03e1eca0c079d3858c52d1bd73bc029827f44606efc80fd961bf4d0181989c61c1c1e89caf8b107078b3a7246ba2abf3671e472e694551d5b6295ac7cca517667675c7beb54c637ec6f643c1b5ad7aaf6bb0150a0a204a57f361a88d29496b2a95bd8a63b48b182142b81b83cbf0ba2fdd8e3c90ca90d527c7e87aad44f9abf52d0998cc946b9571ae9ba0f5efeebc897537e7a91038c89079a2814280d6e71db8cf95d5770f4d768488efd98453e04655fe9d884d33634c793e53a6a725a97bce7beec73b0eee4c3db0e045910775a73144498c04e1e9f781afddfd86622a954769e56f84b3048094b6e5f0bd2c16ba2871cfdbcbe9127ae9ae671985e96b901b2c4bbf89acd3d51f9432ac68ec615249b6c22e25ccf286be5040f683483619247fe9aa38bbdf14661213919faa30ec4297971044e259adac770fd769b6c7f3ee2ecaabec32021b1d6832be528e6f4fc35ca1663ace998571892c571f754287e08d7982d668422333bbe33467e1fe67ea5ee990316f7218e933ba41f0a892f87964f4ee969b2b6e115d950a7081c1fa41fd5e72a9328efcd8ea184620f6d718b38dddee7fd02a083ad26e70a66b517fb1d61</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>工作</category>
+        <category>刀具</category>
+      </categories>
+      <tags>
+        <tag>清单</tag>
       </tags>
   </entry>
 </search>

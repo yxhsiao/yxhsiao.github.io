@@ -290,106 +290,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/17/DF_LIST/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/17/DF_LIST/" class="post-title-link" itemprop="url">DF TO LIST</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-17T00:00:00+08:00">2020-03-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">计算机技术</span></a>
-                </span>
-                  ， 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-                </span>
-                  ， 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/python/pandas/" itemprop="url" rel="index"><span itemprop="name">pandas</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h3 id="DataFrame-to-list"><a href="#DataFrame-to-list" class="headerlink" title="DataFrame to list"></a>DataFrame to list</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h4><p>将DF的某列转换成列表</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'DHAC.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">c = df[<span class="string">'订单号'</span>].drop_duplicates().values.tolist()<span class="comment"># 将某列的值去重并转成列表</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	a的类型是:&#123;&#125;</span></span><br><span class="line"><span class="string">	a的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	c的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	'''</span>.format(type(a), len(a), len(c)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">a的类型是:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">a</span>的序列有:</span><span class="number">1846</span> 个</span><br><span class="line">c的序列有:<span class="number">130</span> 个</span><br></pre></td></tr></table></figure>
-
-<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h4><p>直接将DF转成列表</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=df.values.tolist()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
-
-<h4 id="方法3"><a href="#方法3" class="headerlink" title="方法3:"></a>方法3:</h4><p>用list的函数list强制转换,只对单列有效.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=list(df[<span class="string">'订单号'</span>])</span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
-
-<h3 id="list-to-DataFrme"><a href="#list-to-DataFrme" class="headerlink" title="list to DataFrme"></a>list to DataFrme</h3><h4 id="将1个列表转成DF-列表中没有子列表"><a href="#将1个列表转成DF-列表中没有子列表" class="headerlink" title="将1个列表转成DF,列表中没有子列表"></a>将1个列表转成DF,列表中没有子列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">df1=pd.DataFrame(a,columns=[<span class="string">'DHAC编号'</span>])<span class="comment">#将1个列表转换成DF,列表中没有子列表！</span></span><br><span class="line">print(<span class="string">'这里是列表的0序列:'</span>,<span class="string">'\n'</span>,a[<span class="number">0</span>])</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">这里是列表的<span class="number">0</span>序列:</span><br><span class="line"> DH5DS508</span><br><span class="line"></span><br><span class="line">这里是表框的头两行</span><br><span class="line">      DHAC编号</span><br><span class="line"><span class="number">0</span>  DH5DS508</span><br><span class="line"><span class="number">1</span>  DH5TP505</span><br></pre></td></tr></table></figure>
-
-<h4 id="将两个没有子列表的列表转换成DF"><a href="#将两个没有子列表的列表转换成DF" class="headerlink" title="将两个没有子列表的列表转换成DF."></a>将两个没有子列表的列表转换成DF.</h4><p>先将两个列表组成字典,并设置KEY. 然后转成DF,不再需要设置colums的值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">k=&#123;<span class="string">'编号'</span>:a ,<span class="string">'订单'</span>:b&#125;</span><br><span class="line">df1=pd.DataFrame(k)</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">          编号       订单</span><br><span class="line"><span class="number">0</span>  DH5DS508  <span class="number">9J</span>D7113</span><br><span class="line"><span class="number">1</span>  DH5TP505  <span class="number">9J</span>D7113</span><br></pre></td></tr></table></figure>
-
-<h4 id="将由子列表组成的列表转换成DF"><a href="#将由子列表组成的列表转换成DF" class="headerlink" title="将由子列表组成的列表转换成DF."></a>将由子列表组成的列表转换成DF.</h4><p>输入的列标题个数必须与子列表中的元素个数匹配。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">c= df.values.tolist()<span class="comment">#将DF转成list</span></span><br><span class="line">df2=pd.DataFrame(c,columns=[<span class="string">'日期'</span>,<span class="string">'编号'</span>,<span class="string">'订单'</span>, <span class="string">'规格'</span> , <span class="string">'数量'</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df2.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">           日期       编号        订单         规格    数量</span><br><span class="line"><span class="number">0</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5DS508  D3<span class="number">.95</span>*<span class="number">100</span>   <span class="number">6.0</span></span><br><span class="line"><span class="number">1</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5TP505  <span class="number">302822841</span>  <span class="number">10.0</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/17/%E5%8E%BB%E9%87%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -454,6 +354,106 @@
 
 
 <h3 id="DataFrame去重"><a href="#DataFrame去重" class="headerlink" title="DataFrame去重"></a>DataFrame去重</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">a=pd.DataFrame(&#123;<span class="string">'A'</span>: [<span class="string">'TP512'</span>,<span class="string">'TP601'</span>,<span class="string">'TP108'</span>,<span class="string">'TP509'</span>,<span class="string">'TP601'</span>],<span class="string">'B'</span>:[<span class="string">'M7'</span>,<span class="string">'M5'</span>,<span class="string">'M6'</span>,<span class="string">'M5'</span>,<span class="string">'M10'</span>]&#125;)</span><br><span class="line">b = a.drop_duplicates()</span><br><span class="line">c = a.drop_duplicates(subset=<span class="string">'B'</span>,keep=<span class="string">"first"</span>,inplace = <span class="literal">False</span>)</span><br><span class="line">d = a.drop_duplicates(subset=<span class="string">'B'</span>,keep=<span class="string">"last"</span>,inplace = <span class="literal">False</span>)</span><br><span class="line">e = a.drop_duplicates(subset=<span class="string">'A'</span>,keep=<span class="string">"first"</span>,inplace = <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'没有去重前:'</span>,<span class="string">'\n'</span>,a)</span><br><span class="line">print(<span class="string">'全部列去重,删除重复保留首先出现的:'</span>,<span class="string">'\n'</span>,b)</span><br><span class="line">print(<span class="string">'B列去重,删除重复保留首先出现的:'</span>,<span class="string">'\n'</span>,c)</span><br><span class="line">print(<span class="string">'B列去重,删除重复保留最后出现的:'</span>,<span class="string">'\n'</span>,d)</span><br><span class="line">print(<span class="string">'A列去重,删除重复保留最后出现的:'</span>,<span class="string">'\n'</span>,e)</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">没有去重前: </span><br><span class="line">        A    B</span><br><span class="line"><span class="number">0</span>  TP512   M7</span><br><span class="line"><span class="number">1</span>  TP601   M5</span><br><span class="line"><span class="number">2</span>  TP108   M6</span><br><span class="line"><span class="number">3</span>  TP509   M5</span><br><span class="line"><span class="number">4</span>  TP601  M10</span><br><span class="line">全部列去重,删除重复保留首先出现的: </span><br><span class="line">        A    B</span><br><span class="line"><span class="number">0</span>  TP512   M7</span><br><span class="line"><span class="number">1</span>  TP601   M5</span><br><span class="line"><span class="number">2</span>  TP108   M6</span><br><span class="line"><span class="number">3</span>  TP509   M5</span><br><span class="line"><span class="number">4</span>  TP601  M10</span><br><span class="line">B列去重,删除重复保留首先出现的: </span><br><span class="line">        A    B</span><br><span class="line"><span class="number">0</span>  TP512   M7</span><br><span class="line"><span class="number">1</span>  TP601   M5</span><br><span class="line"><span class="number">2</span>  TP108   M6</span><br><span class="line"><span class="number">4</span>  TP601  M10</span><br><span class="line">B列去重,删除重复保留最后出现的: </span><br><span class="line">        A    B</span><br><span class="line"><span class="number">0</span>  TP512   M7</span><br><span class="line"><span class="number">2</span>  TP108   M6</span><br><span class="line"><span class="number">3</span>  TP509   M5</span><br><span class="line"><span class="number">4</span>  TP601  M10</span><br><span class="line">A列去重,删除重复保留最后出现的: </span><br><span class="line">        A   B</span><br><span class="line"><span class="number">0</span>  TP512  M7</span><br><span class="line"><span class="number">1</span>  TP601  M5</span><br><span class="line"><span class="number">2</span>  TP108  M6</span><br><span class="line"><span class="number">3</span>  TP509  M5</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/DF_LIST/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/15/DF_LIST/" class="post-title-link" itemprop="url">DF TO LIST</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Erstellt: 2020-03-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-15T00:00:00+08:00">2020-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">计算机技术</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/python/pandas/" itemprop="url" rel="index"><span itemprop="name">pandas</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[toc]</p>
+<h3 id="DataFrame-to-list"><a href="#DataFrame-to-list" class="headerlink" title="DataFrame to list"></a>DataFrame to list</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h4><p>将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'DHAC.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">c = df[<span class="string">'订单号'</span>].drop_duplicates().values.tolist()<span class="comment"># 将某列的值去重并转成列表</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	a的类型是:&#123;&#125;</span></span><br><span class="line"><span class="string">	a的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	c的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	'''</span>.format(type(a), len(a), len(c)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">a的类型是:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">a</span>的序列有:</span><span class="number">1846</span> 个</span><br><span class="line">c的序列有:<span class="number">130</span> 个</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h4><p>直接将整个DF转成列表. df1.values.tolist()</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=df.values.tolist()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法3"><a href="#方法3" class="headerlink" title="方法3:"></a>方法3:</h4><p>用list的函数list强制转换,只对单列有效. list(df1[‘columns_name’])</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=list(df[<span class="string">'订单号'</span>])</span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
+
+<h3 id="list-to-DataFrme"><a href="#list-to-DataFrme" class="headerlink" title="list to DataFrme"></a>list to DataFrme</h3><h4 id="将1个列表转成DF-列表中没有子列表"><a href="#将1个列表转成DF-列表中没有子列表" class="headerlink" title="将1个列表转成DF,列表中没有子列表"></a>将1个列表转成DF,列表中没有子列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">df1=pd.DataFrame(a,columns=[<span class="string">'DHAC编号'</span>])<span class="comment">#将1个列表转换成DF,列表中没有子列表！</span></span><br><span class="line">print(<span class="string">'这里是列表的0序列:'</span>,<span class="string">'\n'</span>,a[<span class="number">0</span>])</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">这里是列表的<span class="number">0</span>序列:</span><br><span class="line"> DH5DS508</span><br><span class="line"></span><br><span class="line">这里是表框的头两行</span><br><span class="line">      DHAC编号</span><br><span class="line"><span class="number">0</span>  DH5DS508</span><br><span class="line"><span class="number">1</span>  DH5TP505</span><br></pre></td></tr></table></figure>
+
+<h4 id="将两个没有子列表的列表转换成DF"><a href="#将两个没有子列表的列表转换成DF" class="headerlink" title="将两个没有子列表的列表转换成DF."></a>将两个没有子列表的列表转换成DF.</h4><p>先将两个列表组成字典,并设置KEY. 然后转成DF,不再需要设置colums的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">k=&#123;<span class="string">'编号'</span>:a ,<span class="string">'订单'</span>:b&#125;</span><br><span class="line">df1=pd.DataFrame(k)</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">          编号       订单</span><br><span class="line"><span class="number">0</span>  DH5DS508  <span class="number">9J</span>D7113</span><br><span class="line"><span class="number">1</span>  DH5TP505  <span class="number">9J</span>D7113</span><br></pre></td></tr></table></figure>
+
+<h4 id="将由子列表组成的列表转换成DF"><a href="#将由子列表组成的列表转换成DF" class="headerlink" title="将由子列表组成的列表转换成DF."></a>将由子列表组成的列表转换成DF.</h4><p>输入的列标题个数必须与子列表中的元素个数匹配。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">c= df.values.tolist()<span class="comment">#将DF转成list</span></span><br><span class="line">df2=pd.DataFrame(c,columns=[<span class="string">'日期'</span>,<span class="string">'编号'</span>,<span class="string">'订单'</span>, <span class="string">'规格'</span> , <span class="string">'数量'</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df2.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">           日期       编号        订单         规格    数量</span><br><span class="line"><span class="number">0</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5DS508  D3<span class="number">.95</span>*<span class="number">100</span>   <span class="number">6.0</span></span><br><span class="line"><span class="number">1</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5TP505  <span class="number">302822841</span>  <span class="number">10.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
 
 
       
@@ -833,14 +833,51 @@
 
 
 
-<h4 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h4><h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><h4 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h4><ol>
+<h4 id="dict字典"><a href="#dict字典" class="headerlink" title="dict字典"></a>dict字典</h4><p><strong>dict()</strong> 函数用于创建一个字典。字典中key 与value成对出现</p>
+<h5 id="字典的创建"><a href="#字典的创建" class="headerlink" title="字典的创建:"></a>字典的创建:</h5><ol>
+<li>创建空字典 a={} 或者 a=dict()</li>
+<li>给写入数据:a={‘key1’:value1 , ‘key2’:value2 , …ext}</li>
+<li>用两个列表分别导入key 和 value. d=dict(zip(lst1,lst2)</li>
+<li>两个列表长度可以不相等,创建时自动删掉多余的不成对的key或者value</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;&#125;</span><br><span class="line">b=&#123;<span class="string">'a'</span>:<span class="number">123</span>,<span class="string">'b'</span>:<span class="number">234</span>,<span class="string">'c'</span>:<span class="number">345</span>&#125;</span><br><span class="line">c=dict(a=<span class="number">123</span>,b=<span class="number">234</span>,c=<span class="number">345</span>)</span><br><span class="line"><span class="comment"># 用两个列表创建字典</span></span><br><span class="line">x = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>]</span><br><span class="line">y = [<span class="number">121</span>, <span class="number">597</span>, <span class="number">971</span>, <span class="number">278</span>, <span class="number">396</span>, <span class="number">451</span>]</span><br><span class="line">d = dict(zip(x, y))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">''' a的类型是:&#123;&#125;</span></span><br><span class="line"><span class="string">a的数据包含:&#123;&#125;</span></span><br><span class="line"><span class="string">b的数据包含:&#123;&#125;</span></span><br><span class="line"><span class="string">c的数据包含:&#123;&#125;</span></span><br><span class="line"><span class="string">d的数据包含:&#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(a), a, b, c,d))</span><br><span class="line">---&gt;</span><br><span class="line">a的类型是:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">dict</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">a</span>的数据包含:</span>&#123;&#125;</span><br><span class="line">b的数据包含:&#123;<span class="string">'a'</span>: <span class="number">123</span>, <span class="string">'b'</span>: <span class="number">234</span>, <span class="string">'c'</span>: <span class="number">345</span>&#125;</span><br><span class="line">c的数据包含:&#123;<span class="string">'a'</span>: <span class="number">123</span>, <span class="string">'b'</span>: <span class="number">234</span>, <span class="string">'c'</span>: <span class="number">345</span>&#125;</span><br><span class="line">d的数据包含:&#123;<span class="string">'A'</span>: <span class="number">121</span>, <span class="string">'B'</span>: <span class="number">597</span>, <span class="string">'C'</span>: <span class="number">971</span>, <span class="string">'D'</span>: <span class="number">278</span>, <span class="string">'E'</span>: <span class="number">396</span>, <span class="string">'F'</span>: <span class="number">451</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="读取字典的key或者value"><a href="#读取字典的key或者value" class="headerlink" title="读取字典的key或者value"></a>读取字典的key或者value</h5><p>keys():返回字典的key</p>
+<p>values():返回字典的value</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, ]</span><br><span class="line">y = [<span class="number">121</span>, <span class="number">597</span>, <span class="number">971</span>, <span class="number">278</span>, <span class="number">396</span>, <span class="number">451</span>]</span><br><span class="line">d = dict(zip(x, y))</span><br><span class="line"></span><br><span class="line">a=[]</span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> d.items():</span><br><span class="line">	a.append([i,j])</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line">---&gt;[['A', 121], ['B', 597], ['C', 971], ['D', 278], ['E', 396]]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="set-集合"><a href="#set-集合" class="headerlink" title="set 集合"></a>set 集合</h4><p><strong>set()</strong> 函数创建一个无序<strong>不重复</strong>元素<strong>集</strong>，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。</p>
+<p>set 语法：class set([iterable])     iterable – 可迭代对象</p>
+<ol>
+<li>set 可以对单个元素或者列表去重</li>
+<li>set后的列表类型变成集合.</li>
+<li>做交集,并集,差集运算必须是集合</li>
+<li>set做运算用到的是符号 &amp;, /,  -</li>
+<li>集合本身不支持索引,要读取集合的元素,先将其转成列表.</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">x = set(<span class="string">'runoob'</span>)</span><br><span class="line">y = set(<span class="string">'google'</span>)</span><br><span class="line">a = x &amp; y         <span class="comment"># 交集</span></span><br><span class="line">b = x | y         <span class="comment"># 并集</span></span><br><span class="line">c = x - y         <span class="comment"># 差集</span></span><br><span class="line">print(<span class="string">'''x的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	y的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x和y的交集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x和y的并集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x和y的差集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(x, y, a, b, c))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">x的集合是:&#123;<span class="string">'u'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'r'</span>, <span class="string">'b'</span>&#125;</span><br><span class="line">	y的集合是:&#123;<span class="string">'e'</span>, <span class="string">'g'</span>, <span class="string">'o'</span>, <span class="string">'l'</span>&#125;</span><br><span class="line">	x和y的交集是:&#123;<span class="string">'o'</span>&#125;</span><br><span class="line">	x和y的并集是:&#123;<span class="string">'u'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'g'</span>, <span class="string">'e'</span>, <span class="string">'r'</span>, <span class="string">'b'</span>, <span class="string">'l'</span>&#125;</span><br><span class="line">	x和y的差集是:&#123;<span class="string">'u'</span>, <span class="string">'n'</span>, <span class="string">'r'</span>, <span class="string">'b'</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="intersection-交集"><a href="#intersection-交集" class="headerlink" title="intersection() 交集"></a>intersection() 交集</h4><p>intersection() 方法用于返回两个或更多集合中都包含的元素，即交集</p>
+<p>intersection() 方法语法：set0.intersection(set1, set2 … etc)   </p>
+<p>intersection针对的对象必须是集合,如果是列表,必须先用set转换成集合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">k = set([x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)])</span><br><span class="line">x = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)&#125;</span><br><span class="line">y = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span>&#125;</span><br><span class="line">z = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>) <span class="keyword">if</span> x &gt; <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">a = k.intersection(y)</span><br><span class="line">b = k.intersection(x, y, z)</span><br><span class="line">print(<span class="string">'''	k的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	y的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	z的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	k和y的交集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	k和x,y,z的交集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(k, x, y, z, a, b))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">	k的集合是:&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;</span><br><span class="line">	x的集合是:&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;</span><br><span class="line">	y的集合是:&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line">	z的集合是:&#123;<span class="number">8</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">7</span>&#125;</span><br><span class="line">    k和y的交集是:&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line">	k和x,y,z的交集是:&#123;<span class="number">9</span>, <span class="number">7</span>&#125;</span><br><span class="line">	</span><br><span class="line">[Finished <span class="keyword">in</span> <span class="number">1.2</span>s]</span><br></pre></td></tr></table></figure>
+
+<h4 id="difference-差集"><a href="#difference-差集" class="headerlink" title="difference() 差集"></a>difference() 差集</h4><p>difference() 方法语法：set0.difference(set1)</p>
+<p>只针对集合的运算.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>)&#125;</span><br><span class="line">y = &#123;x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>) <span class="keyword">if</span> x % <span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line">a = x.difference(y)</span><br><span class="line">print(<span class="string">'''	x的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	y的集合是:&#123;&#125;</span></span><br><span class="line"><span class="string">	x和y的差集是:&#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(x, y, a))</span><br><span class="line">---&gt;</span><br><span class="line">	x的集合是:&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;</span><br><span class="line">	y的集合是:&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line">	x和y的差集是:&#123;<span class="number">8</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="注释："><a href="#注释：" class="headerlink" title="注释："></a>注释：</h4><ol>
 <li>单行注释。<code>#</code>开头。</li>
 <li>多行注释。</li>
 </ol>
 <p><code>&#39;&#39;&#39;</code></p>
 <p>……</p>
 <p><code>&#39;&#39;’</code></p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h3 id="常见的报错"><a href="#常见的报错" class="headerlink" title="常见的报错"></a>常见的报错</h3><h4 id="SyntaxError：语法无效"><a href="#SyntaxError：语法无效" class="headerlink" title="SyntaxError：语法无效"></a>SyntaxError：语法无效</h4><p>语言的语法是一组规则，这些规则定义了语言的哪些部分可以出现在哪个位置。可以这么说，如果将选项卡A插入插槽B，则将创建一个语法无效的语句。由于Python中有很多不接受大多数制表符的插槽，因此生成语法错误并不难。</p>
+<h3 id="常见的报错"><a href="#常见的报错" class="headerlink" title="常见的报错"></a>常见的报错</h3><h4 id="SyntaxError：语法无效"><a href="#SyntaxError：语法无效" class="headerlink" title="SyntaxError：语法无效"></a>SyntaxError：语法无效</h4><p>语言的语法是一组规则，这些规则定义了语言的哪些部分可以出现在哪个位置。可以这么说，如果将选项卡A插入插槽B，则将创建一个语法无效的语句。由于Python中有很多不接受大多数制表符的插槽，因此生成语法错误并不难。</p>
 <p>这是导致此消息的一些常见错误：</p>
 <ul>
 <li>忘记要<code>打印</code>的参数周围的括号``</li>
@@ -1030,20 +1067,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
