@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":8},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
@@ -79,7 +79,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -180,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/11/%E6%A0%AA%E6%B4%B2%E9%92%BB%E7%9F%B3%E7%BA%BF%E4%B8%8A%E6%96%B0%E5%93%81%E6%8E%A8%E4%BB%8B%E5%92%8C%E5%9F%B9%E8%AE%AD/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/26/next%E4%B8%BB%E9%A2%98%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -194,7 +194,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/11/%E6%A0%AA%E6%B4%B2%E9%92%BB%E7%9F%B3%E7%BA%BF%E4%B8%8A%E6%96%B0%E5%93%81%E6%8E%A8%E4%BB%8B%E5%92%8C%E5%9F%B9%E8%AE%AD/" class="post-title-link" itemprop="url">株洲钻石线上新品推介和培训</a>
+            <a href="/2020/02/26/next%E4%B8%BB%E9%A2%98%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9/" class="post-title-link" itemprop="url">next主题样式修改</a>
         </h1>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="Erstellt: 2020-03-11 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-11T00:00:00+08:00">2020-03-11</time>
+              <time title="Created: 2020-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-26T00:00:00+08:00">2020-02-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,7 +212,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
                 </span>
             </span>
 
@@ -227,10 +227,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          被加密了, 请输入密码查看.
+          <p>默认主题设置发表的博文可能外观并不一定适合每个人的要求。为了网页渲染更符合自己的要求，需要做一些定制。主要对3个样式文件修改。</p>
+<p>step1 修改base.style 。<code>\next\source\css\_variables\base.style</code></p>
+<p>这个style是基本的，里面的设置作为其他样式文件调用的基础变量数。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/11/%E6%A0%AA%E6%B4%B2%E9%92%BB%E7%9F%B3%E7%BA%BF%E4%B8%8A%E6%96%B0%E5%93%81%E6%8E%A8%E4%BB%8B%E5%92%8C%E5%9F%B9%E8%AE%AD/#more" rel="contents">
+              <a class="btn" href="/2020/02/26/next%E4%B8%BB%E9%A2%98%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -254,7 +256,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/%E6%96%87%E7%AB%A0%E5%A4%B4%E9%83%A8%E8%A7%84%E5%88%99/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/24/margin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -268,7 +270,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/07/%E6%96%87%E7%AB%A0%E5%A4%B4%E9%83%A8%E8%A7%84%E5%88%99/" class="post-title-link" itemprop="url">文章模板--front-matter</a>
+            <a href="/2020/02/24/margin/" class="post-title-link" itemprop="url">margin</a>
         </h1>
 
         <div class="post-meta">
@@ -278,104 +280,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="Erstellt: 2020-03-07 18:14:01" itemprop="dateCreated datePublished" datetime="2020-03-07T18:14:01+08:00">2020-03-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-                </span>
-                  ， 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/HEXO/" itemprop="url" rel="index"><span itemprop="name">HEXO</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>标签没有分类和层次</li>
-<li>标签可以同时设置多个标签</li>
-</ol>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">PS3</span>	<span class="string">/这是文章的第一个标签</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">Games</span>	<span class="string">/这是文章的第二个标签，并不像分类那样下面的就是上面的子分类。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>规范写法</strong></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">文章模板</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">[html,</span> <span class="string">css]</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">[hexo,</span> <span class="string">front-matter]</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">笔记</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">技巧</span></span><br><span class="line"><span class="attr">date:</span></span><br><span class="line"><span class="attr">updated:</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>title: 文章模板  //设置博客的标题</p>
-</li>
-<li><p>categories: //博文的分类</p>
-<p>- [html, css]    //括号内的两个是上下级关系。1: html，1.1: css。</p>
-<p>- [hexo, front-matter]    //有括号的两行内容之前是平行关系，如果没有括号时，则是上下级关系。</p>
-</li>
-<li><p>tags: //博文标签</p>
-<p>- 笔记     //博文的标签</p>
-<p>- 技巧    //博文的标签。多个标签没有上下级的关系。</p>
-</li>
-<li><p>date:   //博文创建时间，系统自动生成。</p>
-</li>
-<li><p>update: //博文更新时间，系统自动生成。</p>
-</li>
-<li><p>mathjax: true     //数学公式开关打开</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/padding/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/07/padding/" class="post-title-link" itemprop="url">padding</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-03-07 14:21:28" itemprop="dateCreated datePublished" datetime="2020-03-07T14:21:28+08:00">2020-03-07</time>
+              <time title="Created: 2020-02-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-24T00:00:00+08:00">2020-02-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -402,10 +307,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="padding属性"><a href="#padding属性" class="headerlink" title="padding属性"></a>padding属性</h4><p>padding值是元素的内容和边界之间的空间。与margin的区别在于一个是指定自己与外部其他元素之间的边距，一个是指定内部元素与边界之间的边距。 两者的属性值相同，只是对象不同。padding属性是以下内容的简写属性：
+          <h4>margin</h4>
+margin属性设置元素与其他外部元素之间的边距，并且是以下属性的简写属性：
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/07/padding/#more" rel="contents">
+              <a class="btn" href="/2020/02/24/margin/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -429,7 +335,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Hexo%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/23/HEXO+GITHUB%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -443,7 +349,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/07/Hexo%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91/" class="post-title-link" itemprop="url">Hexo配置</a>
+            <a href="/2020/02/23/HEXO+GITHUB%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">Hexo创建博客笔记</a>
         </h1>
 
         <div class="post-meta">
@@ -453,7 +359,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="Erstellt: 2020-03-07 14:21:28" itemprop="dateCreated datePublished" datetime="2020-03-07T14:21:28+08:00">2020-03-07</time>
+              <time title="Created: 2020-02-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-23T00:00:00+08:00">2020-02-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -462,6 +368,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/HEXO/" itemprop="url" rel="index"><span itemprop="name">HEXO</span></a>
                 </span>
             </span>
 
@@ -476,11 +386,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Hexo站点配置文件及主题配置文件编辑"><a href="#Hexo站点配置文件及主题配置文件编辑" class="headerlink" title="Hexo站点配置文件及主题配置文件编辑"></a>Hexo站点配置文件及主题配置文件编辑</h1><p>为了博客网页正常渲染和增减功能，需要对两个配置文件进行配置。</p>
-<h4 id="站点配置文件编辑：D-Blog-config-yml"><a href="#站点配置文件编辑：D-Blog-config-yml" class="headerlink" title="站点配置文件编辑：D:\Blog _config.yml"></a>站点配置文件编辑：D:\Blog <code>_config.yml</code></h4>
+          <p>因为在创建的过程之中频繁用到CMD命令的输入，有些人可能已经忘记了如何快速的打开CMD终端窗口，那么这先教你如何快速的打开CMD窗口。有时间的时候在多写一些关于CMD的常用命令如何使用来提高你的工作效率…..
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/07/Hexo%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91/#more" rel="contents">
+              <a class="btn" href="/2020/02/23/HEXO+GITHUB%E5%88%9B%E5%BB%BA%E5%8D%9A%E5%AE%A2/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -504,7 +413,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/Markdown%E5%85%AC%E5%BC%8F%E7%AC%A6%E5%8F%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -518,7 +427,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/" class="post-title-link" itemprop="url">Hexo发布博文</a>
+            <a href="/2020/02/20/Markdown%E5%85%AC%E5%BC%8F%E7%AC%A6%E5%8F%B7/" class="post-title-link" itemprop="url">Markdown公式符号书写规则</a>
         </h1>
 
         <div class="post-meta">
@@ -528,7 +437,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="Erstellt: 2020-03-07 14:21:28" itemprop="dateCreated datePublished" datetime="2020-03-07T14:21:28+08:00">2020-03-07</time>
+              <time title="Created: 2020-02-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-20T00:00:00+08:00">2020-02-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -537,6 +446,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
                 </span>
             </span>
 
@@ -551,15 +464,517 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="发布新博文"><a href="#发布新博文" class="headerlink" title="发布新博文"></a>发布新博文</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"博文名"</span></span><br></pre></td></tr></table></figure>
+          <p>有些时候需要在文档中输入一些数学公式，比如：$\pi\times r^2$、$\sqrt 2$ 等等，这个时候你就束手无策了，那么这就有你需要的方法了。当然这需要使用Markdown文档编辑了。以下就是数学公式及特殊符号等的列表。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/20/Markdown%E5%85%AC%E5%BC%8F%E7%AC%A6%E5%8F%B7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/font/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/20/font/" class="post-title-link" itemprop="url">FONT字体</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-02-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-20T00:00:00+08:00">2020-02-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Html/" itemprop="url" rel="index"><span itemprop="name">Html</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4>font </h4>
+
+<p>字体属性：设置字体的样式、粗细、大小、字体家族等。如果格式需要将一段文字设成想要的样子，<span style="font: italic 900 1.5em 隶书">我的样子变成这样了哦！和我前后的兄弟长的怎么不一样了呢？</span>这就需要通过font属性来指定其相应的属性值。</p>
+
+<p>上面这段文字的设置是这样的：
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/20/font/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/float/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/19/float/" class="post-title-link" itemprop="url">float</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-02-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-19T00:00:00+08:00">2020-02-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Html/" itemprop="url" rel="index"><span itemprop="name">Html</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4> float</h4>
+
+<p>float属性指定元素应如何浮动。float属性用于定位和格式化内容，例如让图像向左浮动到容器中的文本。块级元素指定了float属性后就像一个气球一样向上飘浮。<br>块元素本身具有独占一行的特性。但是可以被浮动元素往一边挤开。被浮动的元素下部的元素也会
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/19/float/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/text/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/19/text/" class="post-title-link" itemprop="url">text</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-02-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-19T00:00:00+08:00">2020-02-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Html/" itemprop="url" rel="index"><span itemprop="name">Html</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3>text</h3>
+
+<p>文字属性:对文字外观进行设置。主要用来美化和特殊需要。主要有以下这些属性：
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/19/text/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/columns/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/18/columns/" class="post-title-link" itemprop="url">columns页面分栏</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-02-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-18T00:00:00+08:00">2020-02-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Html/" itemprop="url" rel="index"><span itemprop="name">Html</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4> columns ：</h4>
+
+<p>列属性：将页面分为多列，对于新闻报纸比较适用。</p>
 <ul>
-<li>然后在<code>D:\Blog\yxhsiao.github.io\source\_posts</code>中找到对应名称的<code>.MD</code>文件编辑</li>
+<li>column-width 列宽 省略时按照指定的列数自动平均分配</li>
+<li>column-count 列数 将页面分为多列</li>
+<li>column-gap  列间距</li>
+<li>column-rule  列界线的宽度、样式，颜色</li>
 </ul>
-<p>文件抬头的编辑。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 如何养成一个好的习惯</span><br><span class="line">date: <span class="number">2020</span>-<span class="number">03</span>-<span class="number">03</span> <span class="number">20</span>:<span class="number">19</span>:<span class="number">28</span></span><br><span class="line">categories: 网摘</span><br><span class="line">tags: 笔记</span><br></pre></td></tr></table></figure>
+<p>column-width将定义每列的最小宽度，而column-count定义最大列数。 通过使用此属性，多列布局将自动以窄的浏览器宽度分解为单列，而无需媒体查询或其他规则。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/#more" rel="contents">
+              <a class="btn" href="/2020/02/18/columns/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">Markdown语法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-02-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-16T00:00:00+08:00">2020-02-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>快速的书写文档并编辑其格式和布局排版，省去了在office中先录入文字，再编辑格式的麻烦。有人可能会说，word中也有快速套用功能。但是我经过一段时间的使用对比，觉得还是Markdown更简单方便，容易上手。可以在打字的时候就敲入了一些格式设置的标记进去，格式设置已经完成了。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/border/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/12/border/" class="post-title-link" itemprop="url">border</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-02-12 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-12T00:00:00+08:00">2020-02-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Html/" itemprop="url" rel="index"><span itemprop="name">Html</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4>border</h4>
+边框属性：对块的边框进行设置。border属性值有：
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>border-width</td>
+<td align="left">边框的宽度,默认值为“midium”,用宽度值表示，如：5px</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td align="left">边框线的样式。默认为“none”。<br/>dotted:虚线<br/>dashed:点划线<br/>solid:实线<br/>double:双线<br/>groove:3D沟槽边框。效果取决于边框颜色值<br/>ridge:3D脊状边框。效果取决于边框颜色值<br/>inset:3D嵌入边框。效果取决于边框颜色值<br/>outset:3D起始边框。效果取决于边框颜色值</td>
+</tr>
+<tr>
+<td>border-color</td>
+<td align="left">边框线的颜色。默认为文本的颜色</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/12/border/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -583,7 +998,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -649,20 +1064,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -720,7 +1135,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="Alle Besucher">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -729,7 +1144,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="Alle Aufrufe">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>

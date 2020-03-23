@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":5},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":8},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta property="og:type" content="website">
@@ -79,7 +79,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -180,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/%E7%B2%97%E7%B3%99%E5%BA%A6%E5%AF%B9%E6%AF%94/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -194,7 +194,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/19/%E7%B2%97%E7%B3%99%E5%BA%A6%E5%AF%B9%E6%AF%94/" class="post-title-link" itemprop="url">粗糙度对比速查</a>
+            <a href="/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/" class="post-title-link" itemprop="url">Hexo发布博文</a>
         </h1>
 
         <div class="post-meta">
@@ -204,7 +204,583 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="Erstellt: 2020-03-19 20:51:18" itemprop="dateCreated datePublished" datetime="2020-03-19T20:51:18+08:00">2020-03-19</time>
+              <time title="Created: 2020-03-07 14:21:28" itemprop="dateCreated datePublished" datetime="2020-03-07T14:21:28+08:00">2020-03-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="发布新博文"><a href="#发布新博文" class="headerlink" title="发布新博文"></a>发布新博文</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"博文名"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后在<code>D:\Blog\yxhsiao.github.io\source\_posts</code>中找到对应名称的<code>.MD</code>文件编辑</li>
+</ul>
+<p>文件抬头的编辑。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 如何养成一个好的习惯</span><br><span class="line">date: <span class="number">2020</span>-<span class="number">03</span>-<span class="number">03</span> <span class="number">20</span>:<span class="number">19</span>:<span class="number">28</span></span><br><span class="line">categories: 网摘</span><br><span class="line">tags: 笔记</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/%E7%94%98%E7%89%B9%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/05/%E7%94%98%E7%89%B9%E5%9B%BE/" class="post-title-link" itemprop="url">甘特图</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-05T00:00:00+08:00">2020-03-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="进度表制作："><a href="#进度表制作：" class="headerlink" title="进度表制作："></a>进度表制作：</h3><pre class="mermaid">        gantt
+        dateFormat  YY-MM-DD
+        title 新规开发
+        section 争取测试机会
+        洽谈:crit,done,  des1, 20-03-17,20-03-20
+        了解工况:active, des2, 20-03-20,2d
+        section 技术消化
+        技术对策:crit,active,  des3, 20-03-22, 3d
+        申请样品:active, des4, after des3, 1d
+        section 样品制作
+        厂家制作:crit,         des5, after des3, 15d
+        section 测试
+        首次测试: active,des6,after des5, 7d</pre>
+
+<h4 id="主要标签"><a href="#主要标签" class="headerlink" title="主要标签"></a>主要标签</h4><p><strong>mermaid：</strong>表示当前使用的语言为mermaid。</p>
+<p><strong>gantt：</strong>表示图表类型为甘特图</p>
+<p><strong>dateFormat：</strong>指定日期格式（Y表示年，M表示月，D表示日）。YY-MM-DD</p>
+<p><strong>section：</strong> 项目关键字，空格之后输入项目名称。</p>
+<p><strong>任务行：</strong> section后每一行为一个任务。第一个字符串为任务名称，之后以:开头，添加任务属性。</p>
+<h4 id="任务状态："><a href="#任务状态：" class="headerlink" title="任务状态："></a>任务状态：</h4><ul>
+<li><strong>done</strong> 已完成</li>
+<li><strong>active</strong> 正在进行</li>
+<li><strong>crit</strong> 关键任务</li>
+<li><strong>默认任务都为待完成状态</strong></li>
+</ul>
+<p><strong>可以多选</strong></p>
+<h4 id="任务描述："><a href="#任务描述：" class="headerlink" title="任务描述："></a>任务描述：</h4><p>在des1、des2位置添加任务描述，其它任务引用时直接引用des1就可以。</p>
+<p><strong>任务时长有三种方式：</strong></p>
+<ul>
+<li><strong>时间范围</strong> 如：2014-01-06,2014-01-08</li>
+<li><strong>指定天数</strong> 如：5d</li>
+<li><strong>指定开始日期+天数</strong> 如：2014-01-06，5d</li>
+<li><strong>after:</strong> 描述任务时间关系。des3, after des2表示des3紧跟在des2之后。</li>
+</ul>
+<p>**PS:所有关键字之间用“,”分隔，关键字需要属性时用空格分隔(如：after des2,)。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E3%80%8A%E7%A9%B7%E7%88%B8%E7%88%B8%E5%AF%8C%E7%88%B8%E7%88%B8%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/%E3%80%8A%E7%A9%B7%E7%88%B8%E7%88%B8%E5%AF%8C%E7%88%B8%E7%88%B8%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《穷爸爸富爸爸》读书笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网摘</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>《富爸爸穷爸爸》这本数是 罗伯特清崎 的作品。我没有看过，但是我看了别人的读书笔记，已经归纳出来了，省去了从头到尾的阅读。现在整理后转载过来。</p>
+<h4 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h4><ol>
+<li>我有太多重要的事要做，不能浪费时间。 </li>
+<li>我想和勇者为伴，不希望与后进的人为伍。</li>
+<li>我从未遇见过喜欢亏钱的人，但在我的一生中，从未遇见一位没有亏过钱的富人，却遇见过许多从未亏掉一毛钱的穷人。</li>
+<li>我志在将每一次失败转化为机会，所以我每失败一次都往成功迈进一步。</li>
+<li>我不断学习和提高是因为我知道变化就要来临，我更欢迎变化而不是沉溺于过去。</li>
+<li>我痛恨“我们必须这么做，因为大多数人都这么做”这类话。</li>
+<li>我习惯于用消费的欲望来激发我的财务天赋。</li>
+<li>我是一个富人，富人不会这么做。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/%E3%80%8A%E7%A9%B7%E7%88%B8%E7%88%B8%E5%AF%8C%E7%88%B8%E7%88%B8%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E4%B8%80%E7%94%9F%E6%9C%80%E5%90%8E%E6%82%94%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/%E4%B8%80%E7%94%9F%E6%9C%80%E5%90%8E%E6%82%94%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">一生最后悔的是什么</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网摘</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%91%98/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这是一篇网文，我觉得有些说法和观点还是很有意思的，所以摘抄下来并整理成笔记了。</p>
+<blockquote>
+<p>在《水浒传》第四十一回，施耐庵说了一句这样的话：「早知今日，悔不当初。人这一辈子，总有一些遗憾和后悔确实存在。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/%E4%B8%80%E7%94%9F%E6%9C%80%E5%90%8E%E6%82%94%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%85%BB%E6%88%90%E4%B8%80%E4%B8%AA%E4%B9%A0%E6%83%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%85%BB%E6%88%90%E4%B8%80%E4%B8%AA%E4%B9%A0%E6%83%AF/" class="post-title-link" itemprop="url">如何正确的养成一个习惯？</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网摘</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%91%98/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index"><span itemprop="name">生活</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="如何正确的养成一个习惯？"><a href="#如何正确的养成一个习惯？" class="headerlink" title="如何正确的养成一个习惯？"></a>如何正确的养成一个习惯？</h3><blockquote>我曾近立志要学英语，于是每天花好几个小时背单词，可是在一个星期之后，我就坚持不下去，感觉太累了；我曾经夸下海口，要坚持每天跑步，跑了几天之后，我发现这个时间不好控制，经常会有别的事情耽搁了，于是也不了了之。</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%85%BB%E6%88%90%E4%B8%80%E4%B8%AA%E4%B9%A0%E6%83%AF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E5%B0%8F%E5%85%AC%E5%8F%B8%E7%9A%84%E5%9B%9B%E5%A4%A7%E6%AD%BB%E7%A9%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/%E5%B0%8F%E5%85%AC%E5%8F%B8%E7%9A%84%E5%9B%9B%E5%A4%A7%E6%AD%BB%E7%A9%B4/" class="post-title-link" itemprop="url">小公司的四大死穴</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网摘</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>不赚钱的员工太多</strong></p>
+<p><em>公司经营的最核心目的就是为了获取利益，保障公司的正常经营和长远发展；如果一个公司始终是亏损，或者不赚钱，那就与公司成立的初衷偏离了。</em>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/%E5%B0%8F%E5%85%AC%E5%8F%B8%E7%9A%84%E5%9B%9B%E5%A4%A7%E6%AD%BB%E7%A9%B4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E7%8C%AE%E7%BB%99%E4%BD%9C%E9%94%80%E5%94%AE%E7%9A%84%E4%BA%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/%E7%8C%AE%E7%BB%99%E4%BD%9C%E9%94%80%E5%94%AE%E7%9A%84%E4%BA%BA/" class="post-title-link" itemprop="url">献给作销售的人们</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E6%91%98/" itemprop="url" rel="index"><span itemprop="name">网摘</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>因为自己作为一名销售人，网络上看到这篇文章就收藏了，整理后分享出来<br><strong>献给作销售的人</strong></p>
+<p>销售最大的收获：不是提成多少，不是升职，不是增加了炫耀的资本，不是完成任务，销售最大的收获是：你生活中多了一个信任你的人！
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/%E7%8C%AE%E7%BB%99%E4%BD%9C%E9%94%80%E5%94%AE%E7%9A%84%E4%BA%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E7%A1%AC%E5%BA%A6%E6%8D%A2%E7%AE%97%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/%E7%A1%AC%E5%BA%A6%E6%8D%A2%E7%AE%97%E8%A1%A8/" class="post-title-link" itemprop="url">硬度换算</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,125 +790,9 @@
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E4%B8%93%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">专业</span></a>
                 </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Rz与Ra对比  Rz100时相当于Ra25    </p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Rz</td>
-<td>100</td>
-<td>50</td>
-<td>25</td>
-<td>12.5</td>
-<td>6.3</td>
-</tr>
-<tr>
-<td>Ra</td>
-<td>25</td>
-<td>12.5</td>
-<td>6.3</td>
-<td>3.2</td>
-<td>1.6</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Rz</td>
-<td>3.2</td>
-<td>1.6</td>
-<td>0.8</td>
-<td>0.4</td>
-<td>0.2</td>
-</tr>
-<tr>
-<td>Ra</td>
-<td>0.8</td>
-<td>0.4</td>
-<td>0.2</td>
-<td>0.1</td>
-<td>0.05</td>
-</tr>
-</tbody></table>
-<p>日本表面粗糙度的老标准。  <br>对应关系：<br>▽：Ra25～12.5<br>▽▽：Ra6.3～3.2<br>▽▽▽：Ra1.6～0.4<br>▽▽▽▽：Ra0.2～0.0013</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/%E9%92%B4%E9%A2%86%E5%88%80%E6%9F%84%E9%80%9F%E6%9F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/19/%E9%92%B4%E9%A2%86%E5%88%80%E6%9F%84%E9%80%9F%E6%9F%A5/" class="post-title-link" itemprop="url">钴领刀柄速查</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-03-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-19T00:00:00+08:00">2020-03-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
+                  ， 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                  <a href="/categories/%E4%B8%93%E4%B8%9A/%E6%9C%BA%E6%A2%B0/" itemprop="url" rel="index"><span itemprop="name">机械</span></a>
                 </span>
             </span>
 
@@ -347,89 +807,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="/images/gl.webp" alt=""></p>
-<p><img src="/images/gl01.webp" alt=""></p>
-<p><img src="/images/4299.webp" alt=""></p>
-<p><img src="/images/4299_01.webp" alt=""></p>
-<p><img src="/images/4368.webp" alt=""></p>
-<p><img src="/images/4618.webp" alt=""></p>
-<p><img src="/images/4601.webp" alt=""></p>
-<p><img src="/images/4605.webp" alt=""></p>
-<p><img src="/images/4605_01.webp" alt=""></p>
-<p><img src="/images/4324.webp" alt=""></p>
-<p><img src="/images/4308.webp" alt=""></p>
-<p><img src="/images/4335.webp" alt=""></p>
-<p>-1<img src="/images/4335_01.webp" alt=""></p>
+          <h3>硬度换算表</h3>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/17/DHAC%E6%9B%B2%E8%BD%B4%E5%88%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/17/DHAC%E6%9B%B2%E8%BD%B4%E5%88%80/" class="post-title-link" itemprop="url">DHAC曲轴刀柄报价清单</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-17T00:00:00+08:00">2020-03-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          被加密了, 请输入密码查看.
+<blockquote>
+<p>根据德国标准DIN50150，以下是常用范围的钢材抗拉强度与维氏硬度、布氏硬度、洛氏硬度的对照表。/</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/17/DHAC%E6%9B%B2%E8%BD%B4%E5%88%80/#more" rel="contents">
+              <a class="btn" href="/2020/03/03/%E7%A1%AC%E5%BA%A6%E6%8D%A2%E7%AE%97%E8%A1%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -453,7 +838,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/17/DR527%E6%94%B9%E6%AC%BE%E6%8A%A5%E4%BB%B7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -467,7 +852,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/17/DR527%E6%94%B9%E6%AC%BE%E6%8A%A5%E4%BB%B7/" class="post-title-link" itemprop="url">DR527设变图及报价</a>
+            <a href="/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/" class="post-title-link" itemprop="url">金属材料重量简算</a>
         </h1>
 
         <div class="post-meta">
@@ -477,7 +862,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="Erstellt: 2020-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-17T00:00:00+08:00">2020-03-17</time>
+              <time title="Created: 2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -485,7 +870,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                  <a href="/categories/%E4%B8%93%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">专业</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%93%E4%B8%9A/%E6%9C%BA%E6%A2%B0/" itemprop="url" rel="index"><span itemprop="name">机械</span></a>
                 </span>
             </span>
 
@@ -500,10 +889,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          被加密了, 请输入密码查看.
+          <p><strong>金属材料重量计算</strong></p>
+<p><em>公式中长度单位为米，面积单位为平方米，其余单位均为毫米</em>。</p>
+<p>圆钢重量$（Kg）= 0.00617 \times d^2 \times l$                            <code>d:直径mm</code>，<code>l:长度m</code></p>
+<p>方钢重量$（Kg）=0.00785 \times a^2 \times l$                              <code>a:边长mm</code>，<code>l:长度m</code></p>
+<p>六角钢重量$（Kg）=0.0068 \times c^2\times l  $                             <code>c:对边宽mm</code>，<code>l:长度m</code>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/17/DR527%E6%94%B9%E6%AC%BE%E6%8A%A5%E4%BB%B7/#more" rel="contents">
+              <a class="btn" href="/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -527,7 +920,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/17/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97%E6%A8%A1%E7%89%88/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E5%88%80%E5%85%B7%E6%B8%85%E5%8D%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -541,7 +934,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/17/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97%E6%A8%A1%E7%89%88/" class="post-title-link" itemprop="url">工作日志</a>
+            <a href="/2020/03/03/%E5%88%80%E5%85%B7%E6%B8%85%E5%8D%95/" class="post-title-link" itemprop="url">刀具清单</a>
         </h1>
 
         <div class="post-meta">
@@ -551,7 +944,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="Erstellt: 2020-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-17T00:00:00+08:00">2020-03-17</time>
+              <time title="Created: 2020-03-03 12:33:18" itemprop="dateCreated datePublished" datetime="2020-03-03T12:33:18+08:00">2020-03-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -560,6 +953,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/%E6%97%A5%E5%BF%97/" itemprop="url" rel="index"><span itemprop="name">日志</span></a>
                 </span>
             </span>
 
@@ -574,8 +971,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在这里开始记录你的工作!</p>
-
+          被加密了, 请输入密码查看.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/%E5%88%80%E5%85%B7%E6%B8%85%E5%8D%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -594,7 +998,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -660,20 +1064,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -731,7 +1135,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="Alle Besucher">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -740,7 +1144,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="Alle Aufrufe">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
