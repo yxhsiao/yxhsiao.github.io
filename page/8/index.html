@@ -180,6 +180,88 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/" class="post-title-link" itemprop="url">金属材料重量简算</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Erstellt: 2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%93%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">专业</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B8%93%E4%B8%9A/%E6%9C%BA%E6%A2%B0/" itemprop="url" rel="index"><span itemprop="name">机械</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>金属材料重量计算</strong></p>
+<p><em>公式中长度单位为米，面积单位为平方米，其余单位均为毫米</em>。</p>
+<p>圆钢重量$（Kg）= 0.00617 \times d^2 \times l$                            <code>d:直径mm</code>，<code>l:长度m</code></p>
+<p>方钢重量$（Kg）=0.00785 \times a^2 \times l$                              <code>a:边长mm</code>，<code>l:长度m</code></p>
+<p>六角钢重量$（Kg）=0.0068 \times c^2\times l  $                             <code>c:对边宽mm</code>，<code>l:长度m</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/03/%E5%88%80%E5%85%B7%E6%B8%85%E5%8D%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -655,28 +737,28 @@
 </thead>
 <tbody><tr>
 <td>格式</td>
-<td>list_name[value]<br/>1 .list_name:任意命名<br/>2 .方括号<br/>3 .value: 多种数据类型：str:带引号，num:数字 ，list:嵌套的列表</td>
-<td>tuple_name(value)<br/>区别：小括号<br/>元组内的元素ele不能增删改。</td>
+<td>list_name[value]<br>1 .list_name:任意命名<br>2 .方括号<br>3 .value: 多种数据类型：str:带引号，num:数字 ，list:嵌套的列表</td>
+<td>tuple_name(value)<br>区别：小括号<br>元组内的元素ele不能增删改。</td>
 </tr>
 <tr>
 <td>定义</td>
-<td>list_name=[]      定义一个空列表<br/>list_name=[‘abc’, ‘cbc’, 1860, [‘aaa’, ‘bbb’]]<br/>索引号index是从 0 开始的。</td>
-<td>tuple_name=() 空元组<br/>tuple_name=(‘aaa’,555)</td>
+<td>list_name=[]      定义一个空列表<br>list_name=[‘abc’, ‘cbc’, 1860, [‘aaa’, ‘bbb’]]<br>索引号index是从 0 开始的。</td>
+<td>tuple_name=() 空元组<br>tuple_name=(‘aaa’,555)</td>
 </tr>
 <tr>
 <td>运算符</td>
-<td>+ : 列表合并： l0=l1+l2, 合并了两个列表l1和l2<br/>* : 元素成倍数出现<br/>     l0[‘w’*3]—- ==lo[‘w’, ‘w’, ‘w’<br/>     l1=l0 — l1的结果相当于3个l0<br/>in :判断某个ele是否存在列表中，返回值True/False<br/>not in :与in 对立<br/>is : 判断两个列表的地址是否相同。<br/>       两个内容相同的列表不一定是is关系。<br/>       其中一个列表直接赋值给另一个列表的时候 才是is的关系了<br/>        两次赋相同的值则已经在内存中存储了两个地址，所以不是is<br/>not is : 与is对立</td>
+<td>+ : 列表合并： l0=l1+l2, 合并了两个列表l1和l2<br>* : 元素成倍数出现<br>     l0[‘w’*3]—- ==lo[‘w’, ‘w’, ‘w’<br>     l1=l0 — l1的结果相当于3个l0<br>in :判断某个ele是否存在列表中，返回值True/False<br>not in :与in 对立<br>is : 判断两个列表的地址是否相同。<br>       两个内容相同的列表不一定是is关系。<br>       其中一个列表直接赋值给另一个列表的时候 才是is的关系了<br>        两次赋相同的值则已经在内存中存储了两个地址，所以不是is<br>not is : 与is对立</td>
 <td></td>
 </tr>
 <tr>
 <td>函数</td>
-<td>1. len( list_name) :计算列表的长度<br/>2. sorted( list_name): 列表排序<br/>3. max( list_name) :列表最大值,列表内只能是数字。<br/>4.min( list_name): 列表最小值<br/>5. list(): 强制转换成列表类型。list( tuple_name)<br/>6. enumerate( list_name):枚举， index/ value</td>
-<td>len():<br/>sorted()<br/>max<br/>min<br/>tuple<br/></td>
+<td>1. len( list_name) :计算列表的长度<br>2. sorted( list_name): 列表排序<br>3. max( list_name) :列表最大值,列表内只能是数字。<br>4.min( list_name): 列表最小值<br>5. list(): 强制转换成列表类型。list( tuple_name)<br>6. enumerate( list_name):枚举， index/ value</td>
+<td>len():<br>sorted()<br>max<br>min<br>tuple<br></td>
 </tr>
 <tr>
 <td>增删改查</td>
-<td>1.添加元素elements :<br/>   1.1 list_name.append(add ele)—末尾添加1个ele<br/>   1.2 list_name.extend([])—末尾添加一组元素<br/>              append只能添加一个ele,或1个list<br/>                extend能添加一组ele，用[]括起来，其中可以包含多种数据类型<br/>   1.3  list_name.insert(index, ele)–指定位置调价元素<br/>2. 删除元素<br/>   2.1  del list_name[index]—删除第几个元素<br/>   2.2 list_n.remove(ele) —-删除列表中指定的obj <br/>   2.3 list_name.pop(index)— 不指定index则删除末尾<br/>   2.4 list_n.clear —清空列表中的所有ele(<br/>3.修改元素<br/>   list_name[index]=new value</td>
-<td>不能增删改。<br/>   如果元组中包含有一个列表，那么这个列表内的ele是可以修改的。<br/>   因为其实修改的是元组内这个列表的ele</td>
+<td>1.添加元素elements :<br>   1.1 list_name.append(add ele)—末尾添加1个ele<br>   1.2 list_name.extend([])—末尾添加一组元素<br>              append只能添加一个ele,或1个list<br>                extend能添加一组ele，用[]括起来，其中可以包含多种数据类型<br>   1.3  list_name.insert(index, ele)–指定位置调价元素<br>2. 删除元素<br>   2.1  del list_name[index]—删除第几个元素<br>   2.2 list_n.remove(ele) —-删除列表中指定的obj <br>   2.3 list_name.pop(index)— 不指定index则删除末尾<br>   2.4 list_n.clear —清空列表中的所有ele(<br>3.修改元素<br>   list_name[index]=new value</td>
+<td>不能增删改。<br>   如果元组中包含有一个列表，那么这个列表内的ele是可以修改的。<br>   因为其实修改的是元组内这个列表的ele</td>
 </tr>
 <tr>
 <td>其他</td>
@@ -868,89 +950,10 @@
       
           <p>默认主题设置发表的博文可能外观并不一定适合每个人的要求。为了网页渲染更符合自己的要求，需要做一些定制。主要对3个样式文件修改。</p>
 <p>step1 修改base.style 。<code>\next\source\css\_variables\base.style</code></p>
-<p>这个style是基本的，里面的设置作为其他样式文件调用的基础变量数。
+<p>这个style是基本的，里面的设置作为其他样式文件调用的基础变量数。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/26/next%E4%B8%BB%E9%A2%98%E6%A0%B7%E5%BC%8F%E4%BF%AE%E6%94%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/24/margin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/24/margin/" class="post-title-link" itemprop="url">margin</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-02-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-24T00:00:00+08:00">2020-02-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-                </span>
-                  ， 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Html/" itemprop="url" rel="index"><span itemprop="name">Html</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4>margin</h4>
-margin属性设置元素与其他外部元素之间的边距，并且是以下属性的简写属性：
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/24/margin/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -974,7 +977,7 @@ margin属性设置元素与其他外部元素之间的边距，并且是以下�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -1040,7 +1043,7 @@ margin属性设置元素与其他外部元素之间的边距，并且是以下�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1207,6 +1210,62 @@ if (document.querySelectorAll('pre.mermaid').length) {
     });
   }, window.mermaid);
 }
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
 </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 
 <script type="text/x-mathjax-config">
@@ -1228,10 +1287,7 @@ MathJax.Hub.Config({{ JSON.stringify(config) }});
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-
-  
-
-  
+    
 
   
 

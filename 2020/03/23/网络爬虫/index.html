@@ -291,14 +291,14 @@
 
 <p>BeautifulSoup的工作原理：</p>
 <ol>
-<li><p>读取这个网页信息, 我们将要加载进 BeautifulSoup, 以 lxml 的这种形式加载. 除了 lxml, 其实还有很多形式的解析器, 不过大家都推荐使用 lxml 的形式. 然后 soup 里面就有着这个 HTML 的所有信息. 如果你要输出 <h1> 标题, 可以就直接 soup.h1.</p>
-</li>
-<li><p>如果网页中有多个同样的 tag, 比如链接 <a>, 我们可以使用 find_all() 来找到所有的选项. 因为我们真正的 link 不是在 <a> 中间 </a>, 而是在 <a href="link"> 里面, 也可以看做是 <a> 的一个属性. 我们能用像 Python 字典的形式, 用 key 来读取 l[“href”].</p>
+<li><p>读取这个网页信息, 我们将要加载进 BeautifulSoup, 以 lxml 的这种形式加载. 除了 lxml, 其实还有很多形式的解析器, 不过大家都推荐使用 lxml 的形式. 然后 soup 里面就有着这个 HTML 的所有信息. 如果你要输出 </p><h1> 标题, 可以就直接 soup.h1.<p></p>
+</h1></li>
+<li><p>如果网页中有多个同样的 tag, 比如链接 <a>, 我们可以使用 find_all() 来找到所有的选项. 因为我们真正的 link 不是在 <a> 中间 </a>, 而是在 <a href="link"> 里面, 也可以看做是 <a> 的一个属性. 我们能用像 Python 字典的形式, 用 key 来读取 l[“href”].</a></a></a></p>
 </li>
 </ol>
 <p><strong>上面是用html的标签进行解析，也可以通过网页的css解析</strong></p>
 <h6 id="按-Class-匹配"><a href="#按-Class-匹配" class="headerlink" title="按 Class 匹配"></a>按 Class 匹配</h6><p>按 Class 匹配很简单. 比如我要找所有 class=month 的信息. 并打印出它们的 tag 内文字.</p>
-<p>或者找到 class=jan 的信息. 然后在 <ul> 下面继续找 <ul> 内部的 <li> 信息. 这样一层层嵌套的信息, 非常容易找到.</p>
+<p>或者找到 class=jan 的信息. 然后在 <ul> 下面继续找 <ul> 内部的 <li> 信息. 这样一层层嵌套的信息, 非常容易找到.</li></ul></ul></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">soup = BeautifulSoup(html, features=<span class="string">'lxml'</span>)</span><br><span class="line">month = soup.find_all(<span class="string">'li'</span>, &#123;<span class="string">"class"</span>: <span class="string">"month"</span>&#125;)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> month:</span><br><span class="line">    print(m.get_text())</span><br><span class="line"></span><br><span class="line">jan = soup.find(<span class="string">'ul'</span>, &#123;<span class="string">"class"</span>: <span class="string">'jan'</span>&#125;)</span><br><span class="line">d_jan = jan.find_all(<span class="string">'li'</span>)            </span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> d_jan:</span><br><span class="line">    print(d.get_text())</span><br></pre></td></tr></table></figure>
 
 <h6 id="正则匹配："><a href="#正则匹配：" class="headerlink" title="正则匹配："></a>正则匹配：</h6><p>我们先读取这个网页. 导入正则模块 re.</p>
@@ -433,7 +433,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
