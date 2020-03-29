@@ -3,7 +3,14 @@
   <entry>
     <title>钴领刀柄速查</title>
     <url>/2020/03/29/%E9%92%B4%E9%A2%86%E5%88%80%E6%9F%84%E9%80%9F%E6%9F%A5/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好! 这里需要密码." /><label>您好! 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="60acdabcaed90e1613e76cadec964a04469a5a796cbe634608fd1609a1bf772a">48a6ae053025a6eb9c81bf4567a9f5615f17f2c205cbd5a5bf4b894ff836a5675fa565531bdc90ac5b328f346a43eb0bd2b50c0040f1771f6488bfa6181ffed7</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content><![CDATA[<div class="pdf" target="钴领刀柄.pdf" height></div>]]></content>
+      <categories>
+        <category>专业</category>
+        <category>刀具</category>
+      </categories>
+      <tags>
+        <tag>刀具</tag>
+      </tags>
   </entry>
   <entry>
     <title>Html中图片并排</title>
