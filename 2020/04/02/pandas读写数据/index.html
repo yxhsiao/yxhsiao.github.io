@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":8},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="读取Excel文件解析表格：pd.read_excel  指向Excel文件的路径，而sheet_name指示哪个工作表 12＃返回一个DataFramepd.read_excel(&#39;path_to_file.x1s&#39;，sheet_name &#x3D;&#39;sheet1&#39;）  变形： 使用：ExcelFile一次将excel文件读入到内存中。对于有多个工作表的工作薄可以提高性能。 12xlsx &#x3D; pd. E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pandas读写Excel">
+<meta property="og:url" content="http://yoursite.com/2020/04/02/pandas%E8%AF%BB%E5%86%99%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="读取Excel文件解析表格：pd.read_excel  指向Excel文件的路径，而sheet_name指示哪个工作表 12＃返回一个DataFramepd.read_excel(&#39;path_to_file.x1s&#39;，sheet_name &#x3D;&#39;sheet1&#39;）  变形： 使用：ExcelFile一次将excel文件读入到内存中。对于有多个工作表的工作薄可以提高性能。 12xlsx &#x3D; pd. E">
+<meta property="article:published_time" content="2020-04-02T04:19:51.000Z">
+<meta property="article:modified_time" content="2020-04-02T04:19:51.000Z">
+<meta property="article:author" content="xiaoyaoxin">
+<meta property="article:tag" content="pandas">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/02/pandas%E8%AF%BB%E5%86%99%E6%95%B0%E6%8D%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>pandas读写Excel | 静水深流</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">静水深流</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/pandas%E8%AF%BB%E5%86%99%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          pandas读写Excel
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2020-04-02 12:19:51" itemprop="dateCreated datePublished" datetime="2020-04-02T12:19:51+08:00">2020-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="读取Excel文件"><a href="#读取Excel文件" class="headerlink" title="读取Excel文件"></a>读取Excel文件</h3><h5 id="解析表格："><a href="#解析表格：" class="headerlink" title="解析表格："></a>解析表格：</h5><p>pd.read_excel  指向Excel文件的路径，而sheet_name指示哪个工作表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">＃返回一个DataFrame</span><br><span class="line">pd.read_excel(<span class="string">'path_to_file.x1s'</span>，sheet_name =<span class="string">'sheet1'</span>）</span><br></pre></td></tr></table></figure>
+
+<p>变形：</p>
+<p>使用：ExcelFile一次将excel文件读入到内存中。对于有多个工作表的工作薄可以提高性能。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xlsx = pd. ExcelFile (<span class="string">'path_to_file. xls'</span>)</span><br><span class="line">df= pd. read_excel (xls, <span class="string">' Sheet1'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>也可以用上下文的方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> pd. ExcelFile (<span class="string">'path_to_file. xls'</span>) <span class="keyword">as</span> xls:</span><br><span class="line">df1 = pd. read_excel (xls, <span class="string">'Sheet1'</span>)</span><br><span class="line">df2 = pd. read_excel (xls, <span class="string">'Sheet2'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>将工作薄的多个表格写入到一个字典中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data= &#123;&#125;</span><br><span class="line"><span class="comment"># For when Sheet1's format differs from Sheet2</span></span><br><span class="line"><span class="keyword">with</span> pd. ExcelFile (<span class="string">' path_to_file. xls'</span>) <span class="keyword">as</span> xls:</span><br><span class="line">data [<span class="string">' Sheet1'</span>] = pd. read_excel (xls, <span class="string">'sheetl'</span>, index_col=<span class="literal">None</span>,na-values=<span class="string">'NA'</span>)</span><br><span class="line">data [<span class="string">' Sheet2'</span>] = pd. read_excel (xls, <span class="string">'sheet2'</span>, index_col=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果多个工作表的传递参数一致可以简单化写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;&#125;</span><br><span class="line"><span class="keyword">with</span> pd. ExcelFile (<span class="string">'DHAC.xls'</span>) <span class="keyword">as</span> xls:</span><br><span class="line">    data= pd.read_excel (xls,[<span class="string">'入库'</span>, <span class="string">'出库'</span>])</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+
+<p>指定工作表 Specifying sheets</p>
+<p>工作表的索引：可以达到与指定工作表名同样的效果，可以少写：sheet_name，直接用数字表示序号。</p>
+<p>默认是0，读取第一个sheet。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df=pd.read_excel(<span class="string">'DHAC.xls'</span>)	<span class="comment">#读取第一个工作表</span></span><br><span class="line">df=pd.read_excel(<span class="string">'DHAC.xls'</span>,<span class="number">0</span>)	<span class="comment">#读取第一个工作表</span></span><br><span class="line">df=pd.read_excel(<span class="string">'DHAC.xls'</span>,<span class="number">2</span>)	<span class="comment">#读取第三个工作表</span></span><br></pre></td></tr></table></figure>
+
+<p>指定工作表的列 Parsing specific columns</p>
+<p>读取特定的列：usecols参数。有三种方式：1、数字列序号    2、字母列序号   3、工作表的列名称</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df= pd.read_excel(<span class="string">'DHAC.xls'</span>, <span class="number">2</span>,usecols= [<span class="number">2</span>, <span class="number">3</span>])	<span class="comment">#读取第三个工作表的第3、4列。</span></span><br><span class="line">df= pd.read_excel(<span class="string">'DHAC.xls'</span>, <span class="number">3</span>,usecols= <span class="string">'B:C,E'</span>)	<span class="comment">#读取第四个工作表的B、C、E列</span></span><br><span class="line">df= pd.read_excel(<span class="string">'DHAC.xls'</span>, <span class="number">4</span>,usecols= [<span class="string">'订单号'</span>, <span class="string">'出库数量'</span>])	<span class="comment">#读取第五个工作表的列名为“订单号”和“出库数量”</span></span><br></pre></td></tr></table></figure>
+
+<p>解析日期：Parsing dates</p>
+<p>读取Excel文件时，通常将类似Datetime的值自动转换为适当的dtype。但是，如果您有一列看起来像日期的字符串（但在Excel中实际上未格式化为日期），则可以使用parse_dates关键字将这些字符串解析为datetimes：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd. read_excel (<span class="string">'path_to_file. xls'</span>, <span class="string">'Sheet1'</span>, parse_dates= [<span class="string">'date_strings'</span>])</span><br></pre></td></tr></table></figure>
+
+<p>Cell converters</p>
+<p>单元格转换器可以通过converters选项转换Excel单元格的内容。例如，要将列转换为布尔值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_excel(<span class="string">'path_to_file. xls'</span>, <span class="string">' Sheetl'</span>, converters=&#123; <span class="string">' MyBools'</span>: bool&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cfun</span> <span class="params">(x)</span> :</span></span><br><span class="line">	<span class="keyword">return</span> int (x) <span class="keyword">if</span> x <span class="keyword">else</span><span class="number">-1</span></span><br><span class="line">pd. read_excel (<span class="string">'path_to_file. xls'</span>, <span class="string">' Sheetl'</span>, converters=&#123;<span class="string">'MyInts'</span>: cfun&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Dtype specifications</p>
+<p>作为转换器的替代方法，可以使用dtype关键字指定整个列的类型，该关键字将字典名称映射到类型。要解释没有类型推断的数据，请使用类型str或object。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd. read_excel (<span class="string">'path_to_file. xls'</span>, dtype=&#123;<span class="string">'MyInts'</span>: <span class="string">'int64'</span>, <span class="string">'MyText'</span>: str&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="编写Excel文件"><a href="#编写Excel文件" class="headerlink" title="编写Excel文件"></a>编写Excel文件</h3><h5 id="将Excel文件写入磁盘"><a href="#将Excel文件写入磁盘" class="headerlink" title="将Excel文件写入磁盘"></a>将Excel文件写入磁盘</h5><p>要将DataFrame对象写入Excel文件的工作表，可以使用to _excel实例方法。这些参数与上述to_csv大致相同，第一个参数是excel文件的名称，第二个可选参数是应向其写入DataFrame的工作表的名称。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_excel(<span class="string">' path_to_file. xlsx'</span>, sheet_name= <span class="string">' Sheet1 '</span>)</span><br></pre></td></tr></table></figure>
+
+<p>xls扩展名将使用x1wt以 xlsx扩展名将使用xlsxwriter或openpyxl编写。<br>将以试图模仿REPL输出的方式编写DataFrame。 index_label将放置在第二行而不是第一行。您可以通过将to_excel（）中的merge_cells选项设置为False来将其放置在第一行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to excel (<span class="string">'path_to_file. xlsx'</span>, index label=<span class="string">'label'</span>, merge_cells-<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> pd. Excelwriter(<span class="string">'path_to_file. xlsx'</span>) <span class="keyword">as</span> writer: </span><br><span class="line">    dfl. to_excel (writer, sheet_name= <span class="string">' Sheet1'</span>)</span><br><span class="line">	df2. to_excel (writer, sheet_name=<span class="string">' Sheet2'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意：从read_excel中获得更多性能，在内部，Excel将所有数字数据存储为浮点数。<br>因为这会在读取数据时产生意外行为，所以pandas默认情况下会尝试在不丢失信息的情况下将整数转换为浮点数（1.0-&gt; 1）。您可以传递convert_float-False禁用此行为，这可能会稍微改善性能。</p>
+<h5 id="将Excel文件写入内存"><a href="#将Excel文件写入内存" class="headerlink" title="将Excel文件写入内存"></a>将Excel文件写入内存</h5><p>Pandas支持使用Excelwriter将Excel文件写入类似缓冲区的对象，例如stringIO或BytesIO。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>: </span><br><span class="line">    From io <span class="keyword">import</span> BytesIO </span><br><span class="line"><span class="keyword">except</span> ImportError: </span><br><span class="line">    <span class="keyword">from</span> cstringIo <span class="keyword">import</span> stringIo <span class="keyword">as</span> BytesIO </span><br><span class="line">bio = BytesIO()</span><br><span class="line"><span class="comment"># By setting the ' engine' in the ExcelWriterconstructor.</span></span><br><span class="line">writer = pd. ExcelWriter(bio, engine=<span class="string">'xlsxwriter'</span>)</span><br><span class="line">df. to_excel (writer, sheet_name=<span class="string">' Sheet1'</span>)</span><br><span class="line"><span class="comment"># Save the workbook </span></span><br><span class="line">writer. save()</span><br><span class="line"><span class="comment"># Seek to the beginning and read to copy the workbook to a variable in memory </span></span><br><span class="line">bio. seek (<span class="number">0</span>)</span><br><span class="line">workbook = bio. read()</span><br></pre></td></tr></table></figure>
+
+<p>注意：引擎是可选的，但建议使用。设置引擎确定生成的工作簿的版本。<br>设置engine =’xlrd’将产生一个Excel 2003格式的工作簿（xls）。使用’openpyxl’或’xlsxwriter’将产生一个Excel 2007格式的工作簿（xlsx）。如果省略，将生成Excel 2007格式的工作簿。</p>
+<p>Excel编写器引擎<br>Pandas通过两种方法选择Excel编写器：</p>
+<ol>
+<li>engine关键字参数</li>
+<li>文件名扩展名（通过配置选项中指定的默认值）</li>
+</ol>
+<p>默认情况下，pandas将XlsxWriter用于。 xlsx，针对.x1sm的openpyxl和针对.x1s文件的xlwt。如果安装了多个引擎，则可以通过设置配置选项io来设置默认引擎。优秀。 xlsx。作家和io。优秀。 xls。作家。熊猫将重新使用openpyxl。如果Xlsxwriter不可用，则为xlsx文件。若要指定要使用的编写器，可以将引擎关键字参数传递给to_excel和Excelwriter。内置引擎为：</p>
+<p>openpyxl：需要版本2.4或更高版本</p>
+<p>xIsxwriter </p>
+<p>xlwt</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># By setting the ' engine' in the DataFrame ' to_excel()' methods.</span></span><br><span class="line">df. to_excel (<span class="string">' path_to_file. xlsx'</span>, sheet_name=<span class="string">' Sheetl'</span>, engine=<span class="string">' xlsxwriter'</span>)</span><br><span class="line"><span class="comment"># By setting the ' engine' in the ExcelWriterconstructor writer = pd. Excelwriter(' path_to_file. xlsx', engine=' xlsxwriter')</span></span><br><span class="line"><span class="comment"># Or via pandas confiquration.</span></span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> options <span class="comment"># noga: E402</span></span><br><span class="line">options. io. excel. xlsx. writer = <span class="string">' xlsxwriter df. to_excel ('</span> path_to_file. xlsx<span class="string">', sheet_name= '</span> Sheet1<span class="string">')</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/pandas/" rel="tag"># pandas</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/31/DHEC%E4%B8%8B%E7%BC%B8%E4%BD%93%E9%9D%A2%E9%93%A3%E5%8A%A0%E5%B7%A5/" rel="prev" title="下缸体面铣加工">
+      <i class="fa fa-chevron-left"></i> 下缸体面铣加工
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取Excel文件"><span class="nav-number">1.</span> <span class="nav-text">读取Excel文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解析表格："><span class="nav-number">1.0.1.</span> <span class="nav-text">解析表格：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写Excel文件"><span class="nav-number">2.</span> <span class="nav-text">编写Excel文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#将Excel文件写入磁盘"><span class="nav-number">2.0.1.</span> <span class="nav-text">将Excel文件写入磁盘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将Excel文件写入内存"><span class="nav-number">2.0.2.</span> <span class="nav-text">将Excel文件写入内存</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">博主</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://photos.google.com/" title="Google → https:&#x2F;&#x2F;photos.google.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/?gl=JP&tab=r11" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;?gl&#x3D;JP&amp;tab&#x3D;r11" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">博主</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({{ JSON.stringify(config) }});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="{{ src }}">
+</script>
+
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+    
+
+  
+
+</body>
+</html>
