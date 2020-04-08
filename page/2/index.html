@@ -180,6 +180,317 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/pandas%E4%B9%8B%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/08/pandas%E4%B9%8B%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">pandas之表格操作</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Erstellt: 2020-04-08 15:31:11" itemprop="dateCreated datePublished" datetime="2020-04-08T15:31:11+08:00">2020-04-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="数据提取"><a href="#数据提取" class="headerlink" title="数据提取"></a>数据提取</h4><h5 id="直接用index或columns选择"><a href="#直接用index或columns选择" class="headerlink" title="直接用index或columns选择"></a>直接用index或columns选择</h5><p>注意：不能交叉选择。</p>
+<p>下面是选择单列：df[‘姓名’]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], nrows=<span class="number">5</span>)</span><br><span class="line">print(df[<span class="string">'姓名'</span>])</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>    钟定胜</span><br><span class="line"><span class="number">1</span>    马广弟</span><br><span class="line"><span class="number">2</span>    卢雨欣</span><br><span class="line"><span class="number">3</span>     黄璐</span><br><span class="line"><span class="number">4</span>    吴冠套</span><br></pre></td></tr></table></figure>
+<p>下面是选择多列：df[[‘姓名’,’语文’]]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], nrows=<span class="number">5</span>)</span><br><span class="line">print(df[[<span class="string">'姓名'</span>,<span class="string">'语文'</span>]])</span><br><span class="line"></span><br><span class="line">姓名   语文</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span></span><br></pre></td></tr></table></figure>
+
+<p>下面是选择行，用冒号表示起始和终止行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], nrows=<span class="number">5</span>)</span><br><span class="line">print(df[<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">  姓名   语文  数学   英语  物理</span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span> NaN</span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span> NaN</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="按标签提取-loc"><a href="#按标签提取-loc" class="headerlink" title="按标签提取(loc)"></a>按标签提取(loc)</h5><p>loc是基于标签的。与上面的直接用索引选择类似，但是可以交叉选取的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], nrows=<span class="number">5</span>)</span><br><span class="line">print(df.loc[<span class="number">0</span>:<span class="number">3</span>,[<span class="string">'姓名'</span>,<span class="string">'语文'</span>]])</span><br><span class="line"></span><br><span class="line"> 姓名   语文</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="按位置提取-iloc"><a href="#按位置提取-iloc" class="headerlink" title="按位置提取 iloc"></a>按位置提取 iloc</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], nrows=<span class="number">5</span>)</span><br><span class="line">print(df.iloc[<span class="number">1</span>:<span class="number">4</span>,[<span class="number">0</span>,<span class="number">2</span>,<span class="number">4</span>]])</span><br><span class="line"></span><br><span class="line">    姓名  数学    物理</span><br><span class="line"><span class="number">1</span>  马广弟  <span class="number">96</span>   NaN</span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">74</span>   NaN</span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">79</span>  <span class="number">73.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="数据的增删改查"><a href="#数据的增删改查" class="headerlink" title="数据的增删改查"></a>数据的增删改查</h4><h5 id="增加行或列"><a href="#增加行或列" class="headerlink" title="增加行或列"></a>增加行或列</h5><ol>
+<li><p>增加行  在最后一行添加新行。</p>
+<p>df.loc[5]=[20,30,35,40,45]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">5</span>)</span><br><span class="line">df.loc[<span class="number">5</span>] = [<span class="string">'AAA'</span>, <span class="number">30</span>, <span class="number">35</span>, <span class="number">40</span>]</span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line">姓名   语文  数学   英语</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span></span><br><span class="line"><span class="number">5</span>  AAA   <span class="number">30</span>  <span class="number">35</span>   <span class="number">40</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>增加列，在最后位置添加.指定的值给所有行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">5</span>)</span><br><span class="line">df[<span class="string">'计算机'</span>] = <span class="number">100</span></span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line">姓名   语文  数学   英语  计算机</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span>  <span class="number">100</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span>  <span class="number">100</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span>  <span class="number">100</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span>  <span class="number">100</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span>  <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">5</span>)</span><br><span class="line">df[<span class="string">'口语'</span>]=df[<span class="string">'英语'</span>]</span><br><span class="line"></span><br><span class="line"> 姓名   语文  数学   英语   口语</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span>   <span class="number">95</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span>  <span class="number">129</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span>  <span class="number">132</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span>  <span class="number">127</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span>  <span class="number">113</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>插入列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">5</span>)</span><br><span class="line">s = [a+c <span class="keyword">for</span> a, c <span class="keyword">in</span> zip(df[<span class="string">'英语'</span>], df[<span class="string">'数学'</span>])]  <span class="comment">#要插入的数据，通过遍历DF获取的</span></span><br><span class="line">df.insert(<span class="number">1</span>, <span class="string">'总分'</span>, s)</span><br><span class="line"></span><br><span class="line">   姓名   总分   语文  数学   英语</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">185</span>  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span></span><br><span class="line"><span class="number">1</span>  马广弟  <span class="number">225</span>   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">206</span>  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">206</span>  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span></span><br><span class="line"><span class="number">4</span>  吴冠套  <span class="number">203</span>   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h5 id="删除行或列"><a href="#删除行或列" class="headerlink" title="删除行或列"></a>删除行或列</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">5</span>)</span><br><span class="line">df.drop(df.index[<span class="number">0</span>],inplace=<span class="literal">True</span>)</span><br><span class="line">    姓名   语文  数学   英语</span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">5</span>)</span><br><span class="line">df.drop(df.columns[<span class="number">3</span>],axis=<span class="number">1</span>,inplace=<span class="literal">True</span>)</span><br><span class="line"> </span><br><span class="line">    姓名   语文  数学</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/08/pandas%E4%B9%8B%E6%B8%85%E6%B4%97%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/08/pandas%E4%B9%8B%E6%B8%85%E6%B4%97%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">pandas之清洗数据</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Erstellt: 2020-04-08 10:53:56" itemprop="dateCreated datePublished" datetime="2020-04-08T10:53:56+08:00">2020-04-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="处理缺失数据"><a href="#处理缺失数据" class="headerlink" title="处理缺失数据"></a>处理缺失数据</h5><p>只要有空白值得存在，就会引起后续的数据分析的错误。因为DataFrame中默认用“NAN”显示缺失值。那么就先处理表格中的这些空白的缺失值。</p>
+<ol>
+<li><p>首先是查看是否存在缺失数据</p>
+<ol>
+<li><p>.info()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>,usecols=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>],nrows=<span class="number">15</span>,skiprows=[<span class="number">12</span>])</span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>:</span> <span class="number">14</span> entries, <span class="number">0</span> to <span class="number">13</span></span><br><span class="line">Data columns (total <span class="number">11</span> columns):</span><br><span class="line"> <span class="comment">#   Column  Non-Null Count  Dtype  </span></span><br><span class="line">---  ------  --------------  -----  </span><br><span class="line"> <span class="number">0</span>   姓名      <span class="number">14</span> non-null     object </span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">14</span> non-null     int64  </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">14</span> non-null     int64  </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">14</span> non-null     int64  </span><br><span class="line"> <span class="number">4</span>   物理      <span class="number">3</span> non-null      float64</span><br><span class="line"> <span class="number">5</span>   化学      <span class="number">8</span> non-null      float64</span><br><span class="line"> <span class="number">6</span>   生物      <span class="number">12</span> non-null     float64</span><br><span class="line"> <span class="number">7</span>   政治      <span class="number">8</span> non-null      float64</span><br><span class="line"> <span class="number">8</span>   历史      <span class="number">8</span> non-null      float64</span><br><span class="line"> <span class="number">9</span>   地理      <span class="number">3</span> non-null      float64</span><br><span class="line"> <span class="number">10</span>  总分      <span class="number">14</span> non-null     int64  </span><br><span class="line">dtypes: float64(<span class="number">6</span>), int64(<span class="number">4</span>), object(<span class="number">1</span>)</span><br><span class="line">memory usage: <span class="number">1.2</span>+ KB</span><br><span class="line"><span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p>以上可以看出：</p>
+<ol>
+<li>共有14行11列数据</li>
+<li>前4列和最后一列没有空值，其余的都有空值。每列非空值的数量也显示了</li>
+<li>每列的数据类型。有6列是float,4列int,1列对象</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="2">
+<li><p>.isnull().any()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>)</span><br><span class="line">print(df.isnull().any())</span><br><span class="line"></span><br><span class="line">序号    <span class="literal">False</span></span><br><span class="line">姓名    <span class="literal">False</span></span><br><span class="line">语文    <span class="literal">False</span></span><br><span class="line">数学    <span class="literal">False</span></span><br><span class="line">英语    <span class="literal">False</span></span><br><span class="line">物理     <span class="literal">True</span></span><br><span class="line">化学     <span class="literal">True</span></span><br><span class="line">生物     <span class="literal">True</span></span><br><span class="line">政治     <span class="literal">True</span></span><br><span class="line">历史     <span class="literal">True</span></span><br><span class="line">地理     <span class="literal">True</span></span><br><span class="line">总分    <span class="literal">False</span></span><br><span class="line">dtype: bool</span><br></pre></td></tr></table></figure>
+
+<p>以上的返回值是bool值，分别判断了每列是否存在空值。</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>处理存在的缺失数据</p>
+<ol>
+<li><p>删除 .dropna()</p>
+<p>可选参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>意义</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>axis</td>
+<td>选择行或着列，axis=0表示行，axis=1表示列</td>
+<td>axis=0</td>
+</tr>
+<tr>
+<td>how</td>
+<td>how=‘any’表示包1个或多个空值的行或列；how=‘all’表示全部为空值的行或列</td>
+<td>how=‘any’</td>
+</tr>
+<tr>
+<td>thresh</td>
+<td>限制<strong>包含</strong>指定数字的空值,<strong>删除&gt;=指定数字空值数的行或列</strong></td>
+<td>thresh=None</td>
+</tr>
+<tr>
+<td>subset</td>
+<td>删除指定列含有空值的所有行</td>
+<td>subset=None</td>
+</tr>
+<tr>
+<td>inplace</td>
+<td>True：改变原数据，不可返回。False：不改变原数据</td>
+<td>inplace=False</td>
+</tr>
+</tbody></table>
+<ol>
+<li>删除有缺失的行</li>
+<li>删除有缺失的列</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>])</span><br><span class="line">df.dropna(axis=<span class="number">0</span>, how=<span class="string">'any'</span>, subset=[<span class="string">'化学'</span>, <span class="string">'地理'</span>, <span class="string">'物理'</span>], thresh=<span class="number">1</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">Int64Index</span>:</span> <span class="number">62</span> entries, <span class="number">1</span> to <span class="number">69</span></span><br><span class="line">Data columns (total <span class="number">11</span> columns):</span><br><span class="line"> <span class="comment">#   Column  Non-Null Count  Dtype  </span></span><br><span class="line">---  ------  --------------  -----  </span><br><span class="line"> <span class="number">0</span>   姓名      <span class="number">62</span> non-null     object </span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">62</span> non-null     int64  </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">62</span> non-null     int64  </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">62</span> non-null     int64  </span><br><span class="line"> <span class="number">4</span>   物理      <span class="number">16</span> non-null     float64</span><br><span class="line"> <span class="number">5</span>   化学      <span class="number">45</span> non-null     float64</span><br><span class="line"> <span class="number">6</span>   生物      <span class="number">45</span> non-null     object </span><br><span class="line"> <span class="number">7</span>   政治      <span class="number">17</span> non-null     float64</span><br><span class="line"> <span class="number">8</span>   历史      <span class="number">34</span> non-null     float64</span><br><span class="line"> <span class="number">9</span>   地理      <span class="number">29</span> non-null     float64</span><br><span class="line"> <span class="number">10</span>  总分      <span class="number">62</span> non-null     int64  </span><br><span class="line">dtypes: float64(<span class="number">5</span>), int64(<span class="number">4</span>), object(<span class="number">2</span>)</span><br><span class="line">memory usage: <span class="number">5.3</span>+ KB</span><br><span class="line"><span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>])</span><br><span class="line">df.dropna(axis=<span class="number">1</span>,how=<span class="string">'any'</span>,inplace=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># df.dropna(axis=0, how='any', subset=['化学', '地理', '物理'], thresh=1, inplace=True)</span></span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>:</span> <span class="number">70</span> entries, <span class="number">0</span> to <span class="number">69</span></span><br><span class="line">Data columns (total <span class="number">5</span> columns):</span><br><span class="line"> <span class="comment">#   Column  Non-Null Count  Dtype </span></span><br><span class="line">---  ------  --------------  ----- </span><br><span class="line"> <span class="number">0</span>   姓名      <span class="number">70</span> non-null     object</span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">70</span> non-null     int64 </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">70</span> non-null     int64 </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">70</span> non-null     int64 </span><br><span class="line"> <span class="number">4</span>   总分      <span class="number">70</span> non-null     int64 </span><br><span class="line">dtypes: int64(<span class="number">4</span>), object(<span class="number">1</span>)</span><br><span class="line">memory usage: <span class="number">2.5</span>+ KB</span><br><span class="line"><span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li><p>填充数据 .fillna(‘’)</p>
+<ol>
+<li>对于字符串类型的我们可以填充为指定的字符串文本 .fillna(‘文本’)</li>
+<li>对于数字类型的可以填充指定的数字 .fillna(value=999)</li>
+<li>对于日期类型的可以填充指定的日期</li>
+</ol>
+</li>
+</ol>
+<p><strong>未填充空值之前是这样的</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#未填充空值之前是这样的</span></span><br><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],nrows=<span class="number">20</span>)</span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line">---  ------  --------------  -----  </span><br><span class="line"> <span class="number">0</span>   姓名      <span class="number">20</span> non-null     object </span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">4</span>   物理      <span class="number">6</span> non-null      float64</span><br><span class="line"> <span class="number">5</span>   化学      <span class="number">10</span> non-null     float64</span><br><span class="line"> <span class="number">6</span>   生物      <span class="number">18</span> non-null     object </span><br><span class="line"> <span class="number">7</span>   政治      <span class="number">10</span> non-null     float64</span><br><span class="line"> <span class="number">8</span>   历史      <span class="number">11</span> non-null     float64</span><br><span class="line"> <span class="number">9</span>   地理      <span class="number">5</span> non-null      float64</span><br><span class="line"> <span class="number">10</span>  总分      <span class="number">20</span> non-null     int64</span><br></pre></td></tr></table></figure>
+
+<p><strong>填充之后是这样的</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用0值来填充地理列的空值</span></span><br><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>],nrows=<span class="number">20</span>)</span><br><span class="line">df[<span class="string">'地理'</span>]=df[<span class="string">'地理'</span>].fillna(value=<span class="number">0</span>)</span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>   姓名      <span class="number">20</span> non-null     object </span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">4</span>   物理      <span class="number">6</span> non-null      float64</span><br><span class="line"> <span class="number">5</span>   化学      <span class="number">10</span> non-null     float64</span><br><span class="line"> <span class="number">6</span>   生物      <span class="number">18</span> non-null     object </span><br><span class="line"> <span class="number">7</span>   政治      <span class="number">10</span> non-null     float64</span><br><span class="line"> <span class="number">8</span>   历史      <span class="number">11</span> non-null     float64</span><br><span class="line"> <span class="number">9</span>   地理      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">10</span>  总分      <span class="number">20</span> non-null     int64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用历史列的平均数来填充历史列的空值</span></span><br><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[</span><br><span class="line">                   <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], nrows=<span class="number">20</span>)</span><br><span class="line">df[<span class="string">'历史'</span>] = df[<span class="string">'历史'</span>].fillna(df[<span class="string">'历史'</span>].mean())</span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>   姓名      <span class="number">20</span> non-null     object </span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">4</span>   物理      <span class="number">6</span> non-null      float64</span><br><span class="line"> <span class="number">5</span>   化学      <span class="number">10</span> non-null     float64</span><br><span class="line"> <span class="number">6</span>   生物      <span class="number">18</span> non-null     object </span><br><span class="line"> <span class="number">7</span>   政治      <span class="number">10</span> non-null     float64</span><br><span class="line"> <span class="number">8</span>   历史      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">9</span>   地理      <span class="number">5</span> non-null      float64</span><br><span class="line"> <span class="number">10</span>  总分      <span class="number">20</span> non-null     int64</span><br></pre></td></tr></table></figure>
+
+<p><strong>一次将所有的空值用表格中数字的平均值填充</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[</span><br><span class="line">                   <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], nrows=<span class="number">20</span>)</span><br><span class="line">df = df.fillna(df.mean())</span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line">---  ------  --------------  -----  </span><br><span class="line"> <span class="number">0</span>   姓名      <span class="number">20</span> non-null     object </span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">4</span>   物理      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">5</span>   化学      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">6</span>   生物      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">7</span>   政治      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">8</span>   历史      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">9</span>   地理      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">10</span>  总分      <span class="number">20</span> non-null     int64</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="规范数据格式"><a href="#规范数据格式" class="headerlink" title="规范数据格式"></a>规范数据格式</h5><p><strong>不允许有空值NAN，所以转换数字类型前必须先填充或者删除空值。</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[</span><br><span class="line">                   <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], nrows=<span class="number">20</span>)</span><br><span class="line">df=df.fillna(df.mean())</span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line">RangeIndex: <span class="number">20</span> entries, <span class="number">0</span> to <span class="number">19</span></span><br><span class="line">Data columns (total <span class="number">11</span> columns):</span><br><span class="line"> <span class="comment">#   Column  Non-Null Count  Dtype  </span></span><br><span class="line">---  ------  --------------  -----  </span><br><span class="line"> <span class="number">0</span>   姓名      <span class="number">20</span> non-null     object </span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">20</span> non-null     int64  </span><br><span class="line"> <span class="number">4</span>   物理      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">5</span>   化学      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">6</span>   生物      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">7</span>   政治      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">8</span>   历史      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">9</span>   地理      <span class="number">20</span> non-null     float64</span><br><span class="line"> <span class="number">10</span>  总分      <span class="number">20</span> non-null     int64  </span><br><span class="line">dtypes: float64(<span class="number">6</span>), int64(<span class="number">4</span>), object(<span class="number">1</span>)</span><br><span class="line">memory usage: <span class="number">1.7</span>+ KB</span><br><span class="line"><span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p>转换后将之前的浮点数全部变成了整数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[</span><br><span class="line">                   <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], nrows=<span class="number">20</span>)</span><br><span class="line">df=df.fillna(df.mean())</span><br><span class="line">df[<span class="string">'物理'</span>]=df[<span class="string">'物理'</span>].astype(<span class="string">'int'</span>)</span><br><span class="line">df[<span class="string">'化学'</span>]=df[<span class="string">'化学'</span>].astype(<span class="string">'int'</span>)</span><br><span class="line">df[<span class="string">'历史'</span>]=df[<span class="string">'历史'</span>].astype(<span class="string">'int'</span>)</span><br><span class="line">df[<span class="string">'政治'</span>]=df[<span class="string">'政治'</span>].astype(<span class="string">'int'</span>)</span><br><span class="line">df[<span class="string">'生物'</span>]=df[<span class="string">'生物'</span>].astype(<span class="string">'int'</span>)</span><br><span class="line">df[<span class="string">'地理'</span>]=df[<span class="string">'地理'</span>].astype(<span class="string">'int'</span>)</span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line">RangeIndex: <span class="number">20</span> entries, <span class="number">0</span> to <span class="number">19</span></span><br><span class="line">Data columns (total <span class="number">11</span> columns):</span><br><span class="line"> <span class="comment">#   Column  Non-Null Count  Dtype </span></span><br><span class="line">---  ------  --------------  ----- </span><br><span class="line"> <span class="number">0</span>   姓名      <span class="number">20</span> non-null     object</span><br><span class="line"> <span class="number">1</span>   语文      <span class="number">20</span> non-null     int64 </span><br><span class="line"> <span class="number">2</span>   数学      <span class="number">20</span> non-null     int64 </span><br><span class="line"> <span class="number">3</span>   英语      <span class="number">20</span> non-null     int64 </span><br><span class="line"> <span class="number">4</span>   物理      <span class="number">20</span> non-null     int32 </span><br><span class="line"> <span class="number">5</span>   化学      <span class="number">20</span> non-null     int32 </span><br><span class="line"> <span class="number">6</span>   生物      <span class="number">20</span> non-null     int32 </span><br><span class="line"> <span class="number">7</span>   政治      <span class="number">20</span> non-null     int32 </span><br><span class="line"> <span class="number">8</span>   历史      <span class="number">20</span> non-null     int32 </span><br><span class="line"> <span class="number">9</span>   地理      <span class="number">20</span> non-null     int32 </span><br><span class="line"> <span class="number">10</span>  总分      <span class="number">20</span> non-null     int64 </span><br><span class="line">dtypes: int32(<span class="number">6</span>), int64(<span class="number">4</span>), object(<span class="number">1</span>)</span><br><span class="line">memory usage: <span class="number">1.2</span>+ KB</span><br><span class="line"><span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/pandas%E4%B9%8B%E6%B8%85%E6%B4%97%E6%95%B0%E6%8D%AE/1.jpg" alt="1"></p>
+<h5 id="删除头尾的空格-str-strip"><a href="#删除头尾的空格-str-strip" class="headerlink" title="删除头尾的空格.str.strip()"></a>删除头尾的空格.str.strip()</h5><p>这是python内置函数。用于移除字符串头尾指定的字符（默认为空格或换行符）或字符序列。</p>
+<p><strong>注意：</strong>该方法只能删除开头或是结尾的字符，不能删除中间部分的字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.strip([chars]);</span><br></pre></td></tr></table></figure>
+
+<p>.chars – 移除字符串头尾指定的字符序列。</p>
+<p>返回移除字符串头尾指定的字符生成的新字符串。</p>
+<p>在pandas<strong>中仅支持对单列操作</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[&#39;姓名&#39;].str.strip()</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除重复项"><a href="#删除重复项" class="headerlink" title="删除重复项"></a>删除重复项</h5><p><code>DataFrame.drop_duplicates(subset=None, keep=&#39;first&#39;, inplace=False)</code></p>
+<p>这个drop_duplicate方法是对DataFrame格式的数据，去除特定列下面的重复行。返回DataFrame格式的数据。</p>
+<p>subset : column label or sequence of labels, optional  用来指定特定的列，默认所有列<br>keep : {‘first’, ‘last’, False}, default ‘first’删除重复项并保留第一次出现的项<br>inplace : boolean, default False  是直接在原来数据上修改还是保留一个副本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[</span><br><span class="line">                   <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], nrows=<span class="number">8</span>)</span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line">   姓名   语文  数学   英语    物理    化学    生物    政治    历史    地理   总分</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span>   NaN   NaN  <span class="number">66.0</span>  <span class="number">64.0</span>  <span class="number">58.0</span>   NaN  <span class="number">479</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span>   NaN  <span class="number">59.0</span>  <span class="number">73.0</span>  <span class="number">61.0</span>   NaN   NaN  <span class="number">511</span></span><br><span class="line"><span class="number">2</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span>   NaN  <span class="number">59.0</span>  <span class="number">73.0</span>  <span class="number">61.0</span>   NaN   NaN  <span class="number">511</span></span><br><span class="line"><span class="number">3</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span>   NaN  <span class="number">72.0</span>   NaN  <span class="number">68.0</span>  <span class="number">74.0</span>   NaN  <span class="number">532</span></span><br><span class="line"><span class="number">4</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span>   NaN  <span class="number">72.0</span>  <span class="number">68.0</span>   NaN  <span class="number">74.0</span>   NaN  <span class="number">532</span></span><br><span class="line"><span class="number">5</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span>  <span class="number">73.0</span>   NaN  <span class="number">52.0</span>  <span class="number">57.0</span>   NaN   NaN  <span class="number">488</span></span><br><span class="line"><span class="number">6</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span>  <span class="number">68.0</span>   NaN   NaN  <span class="number">77.0</span>   NaN  <span class="number">63.0</span>  <span class="number">501</span></span><br><span class="line"><span class="number">7</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span>  <span class="number">68.0</span>   NaN  <span class="number">77.0</span>   NaN   NaN  <span class="number">63.0</span>  <span class="number">501</span></span><br></pre></td></tr></table></figure>
+
+<p>不指定参数时，比较整行的数据，默认保留第一个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[</span><br><span class="line">                   <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], nrows=<span class="number">8</span>)</span><br><span class="line">df.drop_duplicates(inplace=<span class="literal">True</span>)</span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line">Active code page: <span class="number">65001</span></span><br><span class="line">    姓名   语文  数学   英语    物理    化学    生物    政治    历史    地理   总分</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span>   NaN   NaN  <span class="number">66.0</span>  <span class="number">64.0</span>  <span class="number">58.0</span>   NaN  <span class="number">479</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span>   NaN  <span class="number">59.0</span>  <span class="number">73.0</span>  <span class="number">61.0</span>   NaN   NaN  <span class="number">511</span></span><br><span class="line"><span class="number">3</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span>   NaN  <span class="number">72.0</span>   NaN  <span class="number">68.0</span>  <span class="number">74.0</span>   NaN  <span class="number">532</span></span><br><span class="line"><span class="number">4</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span>   NaN  <span class="number">72.0</span>  <span class="number">68.0</span>   NaN  <span class="number">74.0</span>   NaN  <span class="number">532</span></span><br><span class="line"><span class="number">5</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span>  <span class="number">73.0</span>   NaN  <span class="number">52.0</span>  <span class="number">57.0</span>   NaN   NaN  <span class="number">488</span></span><br><span class="line"><span class="number">6</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span>  <span class="number">68.0</span>   NaN   NaN  <span class="number">77.0</span>   NaN  <span class="number">63.0</span>  <span class="number">501</span></span><br><span class="line"><span class="number">7</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span>  <span class="number">68.0</span>   NaN  <span class="number">77.0</span>   NaN   NaN  <span class="number">63.0</span>  <span class="number">501</span></span><br></pre></td></tr></table></figure>
+<p>对指定的列进行查重，并保留最后一个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[</span><br><span class="line">                   <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>], nrows=<span class="number">8</span>)</span><br><span class="line">df.drop_duplicates(subset=[<span class="string">'姓名'</span>],keep=<span class="string">'last'</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">print(df)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ve code page: <span class="number">65001</span></span><br><span class="line">    姓名   语文  数学   英语    物理    化学    生物    政治    历史    地理   总分</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span>   NaN   NaN  <span class="number">66.0</span>  <span class="number">64.0</span>  <span class="number">58.0</span>   NaN  <span class="number">479</span></span><br><span class="line"><span class="number">2</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span>   NaN  <span class="number">59.0</span>  <span class="number">73.0</span>  <span class="number">61.0</span>   NaN   NaN  <span class="number">511</span></span><br><span class="line"><span class="number">4</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span>   NaN  <span class="number">72.0</span>  <span class="number">68.0</span>   NaN  <span class="number">74.0</span>   NaN  <span class="number">532</span></span><br><span class="line"><span class="number">5</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span>  <span class="number">73.0</span>   NaN  <span class="number">52.0</span>  <span class="number">57.0</span>   NaN   NaN  <span class="number">488</span></span><br><span class="line"><span class="number">7</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span>  <span class="number">68.0</span>   NaN  <span class="number">77.0</span>   NaN   NaN  <span class="number">63.0</span>  <span class="number">501</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/pandas%E6%9F%A5%E7%9C%8B%E8%A1%A8%E6%A0%BC%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,7 +547,7 @@
 <h5 id="格式查看-df-info"><a href="#格式查看-df-info" class="headerlink" title="格式查看 df.info()"></a>格式查看 df.info()</h5><ol>
 <li>表格的行数</li>
 <li>表格的列数</li>
-<li>各列数据的类型，以及缺失情况</li>
+<li>各列数据的类型</li>
 <li>占用内存大小</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'DHAC.xls'</span>, <span class="number">3</span>, usecols=[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>], nrows=<span class="number">15</span>)</span><br><span class="line">print(df.info())</span><br><span class="line"></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">pandas</span>.<span class="title">core</span>.<span class="title">frame</span>.<span class="title">DataFrame</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">RangeIndex</span>:</span> <span class="number">15</span> entries, <span class="number">0</span> to <span class="number">14</span></span><br><span class="line">Data columns (total <span class="number">4</span> columns):</span><br><span class="line"> <span class="comment">#   Column  Non-Null Count  Dtype         </span></span><br><span class="line">---  ------  --------------  -----         </span><br><span class="line"> <span class="number">0</span>   订单日期    <span class="number">15</span> non-null     datetime64[ns]</span><br><span class="line"> <span class="number">1</span>   订单号     <span class="number">15</span> non-null     object        </span><br><span class="line"> <span class="number">2</span>   DHAC编号  <span class="number">15</span> non-null     object        </span><br><span class="line"> <span class="number">3</span>   订单数量    <span class="number">15</span> non-null     int64         </span><br><span class="line">dtypes: datetime64[ns](<span class="number">1</span>), int64(<span class="number">1</span>), object(<span class="number">2</span>)</span><br><span class="line">memory usage: <span class="number">424.0</span>+ bytes</span><br><span class="line"><span class="literal">None</span></span><br></pre></td></tr></table></figure>
@@ -258,7 +569,6 @@
 
 <h5 id="查看表格的空值-df-isnull"><a href="#查看表格的空值-df-isnull" class="headerlink" title="查看表格的空值  df.isnull()"></a>查看表格的空值  df.isnull()</h5><p>DataFrame中空值默认是用“NAN”表示的。</p>
 <p>也能单独查看某列的空值情况。</p>
-<p>这个在df.info()中有概览,用non_nullb表示没有空值。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'DHAC.xls'</span>, <span class="number">3</span>, usecols=[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>], nrows=<span class="number">15</span>)</span><br><span class="line">print(df.isnull())</span><br><span class="line">print(df[<span class="string">'订单号'</span>].isnull())</span><br><span class="line"></span><br><span class="line">订单日期    订单号  DHAC编号   订单数量</span><br><span class="line"><span class="number">0</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">1</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">2</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">3</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">4</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">5</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">6</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">7</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">8</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">9</span>   <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">10</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">11</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">12</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">13</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"><span class="number">14</span>  <span class="literal">False</span>  <span class="literal">False</span>   <span class="literal">False</span>  <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="number">0</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">1</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">2</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">3</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">4</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">5</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">6</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">7</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">8</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">9</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">10</span>    <span class="literal">False</span></span><br><span class="line"><span class="number">11</span>    <span class="literal">False</span></span><br><span class="line"><span class="number">12</span>    <span class="literal">False</span></span><br><span class="line"><span class="number">13</span>    <span class="literal">False</span></span><br><span class="line"><span class="number">14</span>    <span class="literal">False</span></span><br><span class="line">Name: 订单号, dtype: bool</span><br></pre></td></tr></table></figure>
 
 <p>以上这样总会展示全部表格或者整列，需要你去逐个浏览，数据多时一样难以发现。但是可以结合<code>.any()</code>就简单明了。</p>
@@ -612,431 +922,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/pandas%E8%AF%BB%E5%86%99%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/02/pandas%E8%AF%BB%E5%86%99%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">pandas读写Excel</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-04-02 12:19:51" itemprop="dateCreated datePublished" datetime="2020-04-02T12:19:51+08:00">2020-04-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-                </span>
-                  ， 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[toc]</p>
-<h2 id="读取Excel文件"><a href="#读取Excel文件" class="headerlink" title="读取Excel文件"></a>读取Excel文件</h2><h4 id="解析表格："><a href="#解析表格：" class="headerlink" title="解析表格："></a>解析表格：</h4><p>pd.read_excel  指向Excel文件的路径，而sheet_name指示哪个工作表</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">＃返回一个DataFrame</span><br><span class="line">pd.read_excel(<span class="string">'path_to_file.x1s'</span>，sheet_name =<span class="string">'sheet1'</span>）</span><br></pre></td></tr></table></figure>
-
-<p>使用：ExcelFile一次将excel文件读入到内存中。对于有多个工作表的工作薄可以提高性能。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xlsx = pd. ExcelFile (<span class="string">'path_to_file. xls'</span>)</span><br><span class="line">df= pd. read_excel (xls, <span class="string">' Sheet1'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>也可以用上下文的方式：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> pd. ExcelFile (<span class="string">'path_to_file. xls'</span>) <span class="keyword">as</span> xls:</span><br><span class="line">df1 = pd. read_excel (xls, <span class="string">'Sheet1'</span>)</span><br><span class="line">df2 = pd. read_excel (xls, <span class="string">'Sheet2'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>将工作薄的多个表格写入到一个字典中：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data= &#123;&#125;</span><br><span class="line"><span class="comment"># For when Sheet1's format differs from Sheet2</span></span><br><span class="line"><span class="keyword">with</span> pd. ExcelFile (<span class="string">' path_to_file. xls'</span>) <span class="keyword">as</span> xls:</span><br><span class="line">data [<span class="string">' Sheet1'</span>] = pd. read_excel (xls, <span class="string">'sheetl'</span>, index_col=<span class="literal">None</span>,na-values=<span class="string">'NA'</span>)</span><br><span class="line">data [<span class="string">' Sheet2'</span>] = pd. read_excel (xls, <span class="string">'sheet2'</span>, index_col=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p>如果多个工作表的传递参数一致可以简单化写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;&#125;</span><br><span class="line"><span class="keyword">with</span> pd. ExcelFile (<span class="string">'DHAC.xls'</span>) <span class="keyword">as</span> xls:</span><br><span class="line">    data= pd.read_excel (xls,[<span class="string">'入库'</span>, <span class="string">'出库'</span>])</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
-
-<p>指定工作表 Specifying sheets。可以是表格的名称sheet_name也可以是索引。工作表的索引：可以达到与指定工作表名同样的效果，可以少写：sheet_name，直接用数字表示序号。</p>
-<p>默认是索引0，读取第一个sheet。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df=pd.read_excel(<span class="string">'DHAC.xls'</span>)	<span class="comment">#读取第一个工作表</span></span><br><span class="line">df=pd.read_excel(<span class="string">'DHAC.xls'</span>,<span class="number">0</span>)	<span class="comment">#读取第一个工作表</span></span><br><span class="line">df=pd.read_excel(<span class="string">'DHAC.xls'</span>,<span class="number">2</span>)	<span class="comment">#读取第三个工作表</span></span><br></pre></td></tr></table></figure>
-
-<p>指定工作表的列 Parsing specific columns。</p>
-<p>读取特定的列：usecols参数。有三种方式：1、数字列序号    2、字母列序号   3、工作表的列名称</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df= pd.read_excel(<span class="string">'DHAC.xls'</span>, <span class="number">2</span>,usecols= [<span class="number">2</span>, <span class="number">3</span>])	<span class="comment">#读取第三个工作表的第3、4列。</span></span><br><span class="line">df= pd.read_excel(<span class="string">'DHAC.xls'</span>, <span class="number">3</span>,usecols= <span class="string">'B:C,E'</span>)	<span class="comment">#读取第四个工作表的B、C、E列</span></span><br><span class="line">df= pd.read_excel(<span class="string">'DHAC.xls'</span>, <span class="number">4</span>,usecols= [<span class="string">'订单号'</span>, <span class="string">'出库数量'</span>])	<span class="comment">#读取第五个工作表的列名为“订单号”和“出库数量”</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="解析日期：Parsing-dates"><a href="#解析日期：Parsing-dates" class="headerlink" title="解析日期：Parsing dates"></a>解析日期：Parsing dates</h4><p>读取Excel文件时，通常将类似Datetime的值自动转换为适当的dtype。但是，如果您有一列看起来像日期的字符串（但在Excel中实际上未格式化为日期），则可以使用parse_dates关键字将这些字符串解析为datetimes：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd. read_excel (<span class="string">'path_to_file. xls'</span>, <span class="string">'Sheet1'</span>, parse_dates= [<span class="string">'date_strings'</span>])</span><br></pre></td></tr></table></figure>
-
-<h4 id="Cell-converters"><a href="#Cell-converters" class="headerlink" title="Cell converters"></a>Cell converters</h4><p>单元格转换器可以通过converters选项转换Excel单元格的内容。例如，要将列转换为布尔值：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_excel(<span class="string">'path_to_file. xls'</span>, <span class="string">' Sheetl'</span>, converters=&#123; <span class="string">' MyBools'</span>: bool&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cfun</span> <span class="params">(x)</span> :</span></span><br><span class="line">	<span class="keyword">return</span> int (x) <span class="keyword">if</span> x <span class="keyword">else</span><span class="number">-1</span></span><br><span class="line">pd. read_excel (<span class="string">'path_to_file. xls'</span>, <span class="string">' Sheetl'</span>, converters=&#123;<span class="string">'MyInts'</span>: cfun&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Dtype-specifications"><a href="#Dtype-specifications" class="headerlink" title="Dtype specifications"></a>Dtype specifications</h4><p>作为转换器的替代方法，可以使用dtype关键字指定整个列的类型，该关键字将字典名称映射到类型。要解释没有类型推断的数据，请使用类型str或object。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd. read_excel (<span class="string">'path_to_file. xls'</span>, dtype=&#123;<span class="string">'MyInts'</span>: <span class="string">'int64'</span>, <span class="string">'MyText'</span>: str&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="知识点汇总："><a href="#知识点汇总：" class="headerlink" title="知识点汇总："></a>知识点汇总：</h2><h4 id="读取文件（工作薄）"><a href="#读取文件（工作薄）" class="headerlink" title="读取文件（工作薄）"></a>读取文件（工作薄）</h4><p>pd.ExcelFile()</p>
-<p>可选参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ExcelFile(self, io, engine&#x3D;None)</span><br><span class="line">Class for parsing tabular excel sheets into DataFrame objects.</span><br><span class="line">Uses xlrd. See read excel for more documentation Parameters io: str, path object (pathlib. Path or py._path. local. LocalPath), a file-like object, xlrd workbook or openpypl workbook.</span><br><span class="line">If a string or path object, expected to be a path to xls, xlsx or odf file.</span><br><span class="line">engine : str, default None</span><br><span class="line">If io is not a buffer or path, this must be set to identify io.</span><br><span class="line">Acceptable values are None, . &#39;xlrd&#39;, &#39;openpyxl&#39;, &#39;odf&#39;, or &#39; pyxlsb&#39; Note that odf reads tables out of OpenDocument formatted files.</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="读取表格："><a href="#读取表格：" class="headerlink" title="读取表格："></a>读取表格：</h4><p>pd.read_excel()</p>
-<p>可选参数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">read excel(io, sheet_name&#x3D;0, header&#x3D;0, names&#x3D;None,</span><br><span class="line">index_col&#x3D;None, usecols&#x3D;None, squeeze&#x3D;False, dtype&#x3D;None,</span><br><span class="line">engine&#x3D;None, converters&#x3D;None, true_values&#x3D;None,</span><br><span class="line">false_values&#x3D;None, skiprows&#x3D;None, nrow&#x3D;None,</span><br><span class="line">na_values&#x3D;None, keep_default_na&#x3D;True, verbose&#x3D;False,</span><br><span class="line">parse_dates&#x3D;False, date_parser&#x3D;None, thousands&#x3D;None,</span><br><span class="line">comment&#x3D;None, skipfooter&#x3D;0, convert_float&#x3D;True,</span><br><span class="line">mangle_dupe_cols&#x3D;True, ** kwds, )</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>源文件有列名</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df =pd.read_csv(<span class="string">r'E:\work\daima\python\forestfires.csv'</span>) <span class="comment">#打开文件</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>若源文件没有列名</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df=pd.read_csv(<span class="string">r'E:\work\daima\python\forestfires.csv'</span>,header=<span class="literal">None</span>)<span class="comment">#分配默认的列名</span></span><br><span class="line">df=pd.read_csv(<span class="string">r'E:\work\daima\python\forestfires.csv'</span> ,sep=<span class="string">','</span>,</span><br><span class="line">names=[<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'month'</span>,<span class="string">'day'</span>,<span class="string">'FFMC'</span>,<span class="string">'DMC'</span>,<span class="string">'DC'</span>,<span class="string">'ISI'</span>,<span class="string">'temp'</span>,<span class="string">'RH'</span>,<span class="string">'wind'</span>,<span class="string">'rain'</span>,<span class="string">'area'</span>]) <span class="comment">#自定义列名</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>读取文件某几列</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df=pd.read_csv(<span class="string">r'E:\work\daima\python\forestfires.csv'</span>,nrows=<span class="number">5</span>)  <span class="comment">#只读前5行</span></span><br><span class="line">df=pd.read_csv(<span class="string">r'E:\work\daima\python\forestfires.csv'</span>,skiprows=[<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>]) <span class="comment">#跳过第0,2,3行读取</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="查看读取的数据："><a href="#查看读取的数据：" class="headerlink" title="查看读取的数据："></a>查看读取的数据：</h4><ol>
-<li>df.head(3)查看表格框架的前3行，数字可以自己定义。查看前面的行。</li>
-<li>df.tail(5)查看表格框架的后5行，数字自定义。</li>
-</ol>
-<h4 id="查看数据分布。"><a href="#查看数据分布。" class="headerlink" title="查看数据分布。"></a>查看数据分布。</h4><p>df.describe()数据如何分布，最大值，最小值，均值……</p>
-<p>作用对象：<code>Series</code>和<code>DataFrame</code></p>
-<p>主要用途：生成描述性统计汇总，包括数据的计数和百分位数，有助于了解大致的数据分布</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">                Mes  data science  machine learning  deep learning  categorical</span><br><span class="line">count    194.000000    194.000000        194.000000     194.000000   194.000000</span><br><span class="line">mean   40923.902062     20.953608         27.396907      24.231959     0.257732</span><br><span class="line">std     1708.935837     23.951006         28.091490      34.476887     0.438517</span><br><span class="line">min    37987.000000      4.000000          7.000000       1.000000     0.000000</span><br><span class="line">25%    39455.750000      6.000000          9.000000       2.000000     0.000000</span><br><span class="line">50%    40924.500000      8.000000         13.000000       3.000000     0.000000</span><br><span class="line">75%    42393.250000     26.750000         31.500000      34.000000     1.000000</span><br><span class="line">max    43862.000000    100.000000        100.000000     100.000000     1.000000</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看数据类型"><a href="#查看数据类型" class="headerlink" title="查看数据类型"></a>查看数据类型</h4><p>df.info() 查看每列包含的数据类型</p>
-<p>作用对象：<code>Series</code>和<code>DataFrame</code></p>
-<p>主要用途：打印所用数据的一些基本信息，包括索引和列的数据类型和占用的内存大小</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span><br><span class="line">RangeIndex: 194 entries, 0 to 193</span><br><span class="line">Data columns (total 5 columns):</span><br><span class="line"> #   Column            Non-Null Count  Dtype</span><br><span class="line">---  ------            --------------  -----</span><br><span class="line"> 0   Mes               194 non-null    int64</span><br><span class="line"> 1   data science      194 non-null    int64</span><br><span class="line"> 2   machine learning  194 non-null    int64</span><br><span class="line"> 3   deep learning     194 non-null    int64</span><br><span class="line"> 4   categorical       194 non-null    int64</span><br><span class="line">dtypes: int64(5)</span><br><span class="line">memory usage: 7.6 KB</span><br><span class="line">None</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看维度"><a href="#查看维度" class="headerlink" title="查看维度"></a>查看维度</h4><p>df.shape 查看数据的维度（行和列）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(194, 5)</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看数据格式"><a href="#查看数据格式" class="headerlink" title="查看数据格式"></a>查看数据格式</h4><p>df.dtypes 查看数据格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Mes                 int64</span><br><span class="line">data science        int64</span><br><span class="line">machine learning    int64</span><br><span class="line">deep learning       int64</span><br><span class="line">categorical         int64</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看空值-df-isnull"><a href="#查看空值-df-isnull" class="headerlink" title="查看空值 df.isnull"></a>查看空值 df.isnull</h4><p>df[‘mes’].isnull查看指定列的空值。</p>
-<h4 id="查看某列的唯一值"><a href="#查看某列的唯一值" class="headerlink" title="查看某列的唯一值"></a>查看某列的唯一值</h4><p>df[‘mes’].unique() 查看某列的唯一值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(df[<span class="string">'month'</span>].unique())     <span class="comment">#输出month列唯一值</span></span><br><span class="line">print(df[<span class="string">'month'</span>].value_counts())   <span class="comment">#输出month列各变量出现频数</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="查看列名"><a href="#查看列名" class="headerlink" title="查看列名"></a>查看列名</h4><p>df.columns  查看列名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Index([&#39;Mes&#39;, &#39;data science&#39;, &#39;machine learning&#39;, &#39;deep learning&#39;,&#39;categorical&#39;],</span><br><span class="line">      dtype&#x3D;&#39;object&#39;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看表格数据"><a href="#查看表格数据" class="headerlink" title="查看表格数据"></a>查看表格数据</h4><p>df.values  查看表格的数据。打印出来是个列表</p>
-<h2 id="清洗表格"><a href="#清洗表格" class="headerlink" title="清洗表格"></a>清洗表格</h2><h4 id="处理空值-删除或填充"><a href="#处理空值-删除或填充" class="headerlink" title="处理空值(删除或填充)"></a>处理空值(删除或填充)</h4><ol>
-<li>df.dropna(how=’any’) 删除数据表中含有空值的行</li>
-<li>df.fillna(value=0)   使用数字0填充数据表中空值</li>
-<li>df[‘price’].fillna(df[‘price’].mean()) 使用price均值对NA进行填充</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df[df.isnull().values==<span class="literal">True</span>] 					<span class="comment">#显示有缺失值的行</span></span><br><span class="line">df[<span class="string">'month'</span>][df.month.isnull()]=<span class="string">'U0'</span> 			<span class="comment">#month缺失值填充为U0</span></span><br><span class="line">df[<span class="string">'DC'</span>][df.DC.isnull()]=df[<span class="string">'DC'</span>].median() 	   <span class="comment">#DC列缺失值填充为DC列的中位数</span></span><br><span class="line">df.dropna()									<span class="comment">#删除含有缺失值的行</span></span><br><span class="line">df.dropna(how=<span class="string">'all'</span>)						<span class="comment">#只丢弃全为NA的那些行</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="处理空格"><a href="#处理空格" class="headerlink" title="处理空格"></a>处理空格</h4><p>清理空格 字符中的空格也是数据清洗中一个常见的问题</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#清除city字段中的字符空格</span></span><br><span class="line">df[<span class="string">'city'</span>]=df[<span class="string">'city'</span>].map(str.strip)</span><br></pre></td></tr></table></figure>
-
-<h4 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h4><p>在英文字段中，字母的大小写不统一也是一个常见的问题。Excel中有UPPER，LOWER等函数，Python中也有同名函数用来解决 大小写的问题</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#city列大小写转换</span></span><br><span class="line">df[<span class="string">'city'</span>]=df[<span class="string">'city'</span>].str.lower()</span><br></pre></td></tr></table></figure>
-
-<h4 id="更改数据格式"><a href="#更改数据格式" class="headerlink" title="更改数据格式"></a>更改数据格式</h4><p>  Excel中通过“设置单元格格式”功能可以修改数据格式。Python中通过astyp</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更改数据格式</span></span><br><span class="line">df[<span class="string">'price'</span>].astype(<span class="string">'int'</span>)</span><br><span class="line"><span class="number">0</span> <span class="number">1200</span></span><br><span class="line"><span class="number">1</span> <span class="number">3299</span></span><br><span class="line"><span class="number">2</span> <span class="number">2133</span></span><br><span class="line"><span class="number">3</span> <span class="number">5433</span></span><br><span class="line"><span class="number">4</span> <span class="number">3299</span></span><br><span class="line"><span class="number">5</span> <span class="number">4432</span></span><br><span class="line">Name: price, dtype: int32</span><br></pre></td></tr></table></figure>
-
-<h4 id="更改列名称"><a href="#更改列名称" class="headerlink" title="更改列名称"></a>更改列名称</h4><p>Rename是更改列名称的函数，我们将来数据表中的category列更改为category-size</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更改列名称</span></span><br><span class="line">df.rename(columns=&#123;<span class="string">'category'</span>: <span class="string">'category-size'</span>&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="对列进行操作"><a href="#对列进行操作" class="headerlink" title="对列进行操作"></a>对列进行操作</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df.rename(columns=&#123;<span class="string">'category'</span>: <span class="string">'category-size'</span>&#125;) <span class="comment">#更改列名称</span></span><br><span class="line">print(df.columns)  <span class="comment">#查看列名</span></span><br><span class="line">print(df.dtypes)    <span class="comment">#查看各列数据类型</span></span><br><span class="line">df=df.loc[:,<span class="string">'FFMC'</span>:<span class="string">'rain'</span>]     		<span class="comment">#选择FFMC到rain列所有数据</span></span><br><span class="line">df=df[<span class="string">'new'</span>]=<span class="number">1.5</span>                   <span class="comment">#增加新列并赋值1.5</span></span><br><span class="line">df=df.drop([<span class="string">'wind'</span>, <span class="string">'rain'</span>, <span class="string">'area'</span>],axis=<span class="number">1</span>)           <span class="comment">#删除wind,rain和area三列</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="删除重复值"><a href="#删除重复值" class="headerlink" title="删除重复值"></a>删除重复值</h4><p>Excel的数据目录下有“删除重复项”的功能, Python中使用drop_duplicates函数删除重复值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_new=df.drop_duplicates([<span class="string">'month'</span>,<span class="string">'day'</span>])  			<span class="comment">#移除month和day列包含重复值得行，保留第一个</span></span><br><span class="line">df_new=df.drop_duplicates([<span class="string">'month'</span>],take_last=<span class="literal">True</span> )	<span class="comment">#移除month列包含重复值得行，保留最后一个</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'city'</span>]</span><br><span class="line"><span class="number">0</span> beijing</span><br><span class="line"><span class="number">1</span> sh</span><br><span class="line"><span class="number">2</span> guangzhou</span><br><span class="line"><span class="number">3</span> shenzhen</span><br><span class="line"><span class="number">4</span> shanghai</span><br><span class="line"><span class="number">5</span> beijing</span><br><span class="line">Name: city, dtype: object</span><br><span class="line"></span><br><span class="line"><span class="comment">#删除后出现的重复值</span></span><br><span class="line">df[<span class="string">'city'</span>].drop_duplicates()</span><br><span class="line"><span class="number">0</span> beijing</span><br><span class="line"><span class="number">1</span> sh</span><br><span class="line"><span class="number">2</span> guangzhou</span><br><span class="line"><span class="number">3</span> shenzhen</span><br><span class="line"><span class="number">4</span> shanghai</span><br><span class="line">Name: city, dtype: object</span><br></pre></td></tr></table></figure>
-
-<h4 id="数值修改及替换"><a href="#数值修改及替换" class="headerlink" title="数值修改及替换"></a>数值修改及替换</h4><p>Excel中使用“查找和替换”功能就可以实现数值的替换,Python中使用replace函数实现数据替换</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据替换</span></span><br><span class="line">df[<span class="string">'city'</span>].replace(<span class="string">'sh'</span>, <span class="string">'shanghai'</span>)</span><br><span class="line"><span class="number">0</span> beijing</span><br><span class="line"><span class="number">1</span> shanghai</span><br><span class="line"><span class="number">2</span> guangzhou</span><br><span class="line"><span class="number">3</span> shenzhen</span><br><span class="line"><span class="number">4</span> shanghai</span><br><span class="line"><span class="number">5</span> beijing</span><br><span class="line">Name: city, dtype: object</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>数据的预处理，对清洗完的数据进行整理以便后期的统计和分析工作。主要包括数据表的合并，排序，数值分列，数据分组及标记等工作。</p>
-<h4 id="数据匹配、表合并"><a href="#数据匹配、表合并" class="headerlink" title="数据匹配、表合并"></a>数据匹配、表合并</h4><p>在Excel中没有直接完成数据表合并的功能，可以通过VLOOKUP函数分步实现。在Python中可以通过merge函数一次性实现。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#建立df1数据表</span></span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">"id"</span>:[<span class="number">1001</span>,<span class="number">1002</span>,<span class="number">1003</span>,<span class="number">1004</span>,<span class="number">1005</span>,<span class="number">1006</span>],</span><br><span class="line">                <span class="string">"date"</span>:pd.date_range(<span class="string">'20130102'</span>, periods=<span class="number">6</span>),</span><br><span class="line">                <span class="string">"city"</span>:[<span class="string">'Beijing '</span>, <span class="string">'SH'</span>, <span class="string">' guangzhou '</span>, <span class="string">'Shenzhen'</span>, <span class="string">'shanghai'</span>, <span class="string">'BEIJING '</span>],</span><br><span class="line">                <span class="string">"age"</span>:[<span class="number">23</span>,<span class="number">44</span>,<span class="number">54</span>,<span class="number">32</span>,<span class="number">34</span>,<span class="number">32</span>],</span><br><span class="line">                <span class="string">"category"</span>:[<span class="string">'100-A'</span>,<span class="string">'100-B'</span>,<span class="string">'110-A'</span>,<span class="string">'110-C'</span>,<span class="string">'210-A'</span>,<span class="string">'130-F'</span>],</span><br><span class="line">                <span class="string">"price"</span>:[<span class="number">1200</span>,np.nan,<span class="number">2133</span>,<span class="number">5433</span>,np.nan,<span class="number">4432</span>]&#125;,</span><br><span class="line">                columns =[<span class="string">'id'</span>,<span class="string">'date'</span>,<span class="string">'city'</span>,<span class="string">'category'</span>,<span class="string">'age'</span>,<span class="string">'price'</span>])</span><br><span class="line"></span><br><span class="line">df1=pd.DataFrame(&#123;<span class="string">"id"</span>:[<span class="number">1001</span>,<span class="number">1002</span>,<span class="number">1003</span>,<span class="number">1004</span>,<span class="number">1005</span>,<span class="number">1006</span>,<span class="number">1007</span>,<span class="number">1008</span>],</span><br><span class="line">                  <span class="string">"gender"</span>:[<span class="string">'male'</span>,<span class="string">'female'</span>,<span class="string">'male'</span>,<span class="string">'female'</span>,<span class="string">'male'</span>,<span class="string">'female'</span>,<span class="string">'male'</span>,<span class="string">'female'</span>],</span><br><span class="line">                  <span class="string">"pay"</span>:[<span class="string">'Y'</span>,<span class="string">'N'</span>,<span class="string">'Y'</span>,<span class="string">'Y'</span>,<span class="string">'N'</span>,<span class="string">'Y'</span>,<span class="string">'N'</span>,<span class="string">'Y'</span>,],</span><br><span class="line">                  <span class="string">"m-point"</span>:[<span class="number">10</span>,<span class="number">12</span>,<span class="number">20</span>,<span class="number">40</span>,<span class="number">40</span>,<span class="number">40</span>,<span class="number">30</span>,<span class="number">20</span>]</span><br><span class="line">                 &#125;)</span><br></pre></td></tr></table></figure>
-
-<p>使用merge函数对两个数据表进行合并，合并的方式为inner，将 两个数据表中共有的数据匹配到一起生成新的数据表。并命名为 df_inner。merge的参数有：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">merge( left, right, how: str &#x3D; &quot;inner&quot;, on&#x3D;None, left_on&#x3D;None, right_on&#x3D;None, left_index: bool &#x3D; False, right_index: bool &#x3D; False, sort: bool &#x3D; False, suffixes&#x3D;(&quot;x&quot;,&quot;y&quot;), copy: bool &#x3D; True, indicator: bool &#x3D; False, validate&#x3D;Non</span><br></pre></td></tr></table></figure>
-
-<p><code>merge</code>的四种类型，分别为<code>&#39;inner&#39;</code>、<code>&#39;left&#39;</code>、<code>&#39;right&#39;</code>和<code>&#39;outer&#39;</code>。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据表匹配合并</span></span><br><span class="line">df_inner=pd.merge(df,df1,how=<span class="string">'inner'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>左关联</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_merge&#x3D;pd.merge(df1,df2,on&#x3D;&#39;customer_id&#39;,how&#x3D;&#39;left&#39;) #左关联</span><br><span class="line">print(df_merge)</span><br></pre></td></tr></table></figure>
-
-<p>根据多列进行左关联</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.merge(df1,df2,on&#x3D;[&#39;key1&#39;,&#39;key2&#39;],how&#x3D;&#39;left&#39;)#多键连接</span><br></pre></td></tr></table></figure>
-
-<h4 id="设置索引列"><a href="#设置索引列" class="headerlink" title="设置索引列"></a>设置索引列</h4><p>索引列可以进行数据提取，汇总，数据筛选</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置索引列</span></span><br><span class="line">df_inner.set_index(<span class="string">'id'</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="排序-按索引，按数值"><a href="#排序-按索引，按数值" class="headerlink" title="排序(按索引，按数值)"></a>排序(按索引，按数值)</h4><p>Excel中可以通过数据目录下的排序按钮直接对数据表进行排 序，Python中需要使用<strong>sort_values</strong>函数和<strong>sort_index</strong>函数完成排序</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按特定列的值排序</span></span><br><span class="line">df_inner.sort_values(by=[<span class="string">'age'</span>])</span><br></pre></td></tr></table></figure>
-
-<p>Sort_index函数用来将数据表按索引列的值进行排序。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按索引列排序</span></span><br><span class="line">df_inner.sort_index()</span><br></pre></td></tr></table></figure>
-
-<h4 id="数据分组"><a href="#数据分组" class="headerlink" title="数据分组"></a>数据分组</h4><p>Excel中可以通过VLOOKUP函数进行近似匹配来完成对数值的分组，或者使用“数据透视表”来完成分组,Python中使用<strong>Where</strong>函数用来对数据进行判断和分组</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果price列的值&gt;3000，group列显示high，否则显示low</span></span><br><span class="line">df_inner[<span class="string">'group'</span>] = np.where(df_inner[<span class="string">'price'</span>] &gt; <span class="number">3000</span>,<span class="string">'high'</span>,<span class="string">'low'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>还可以对多个字段的值进行判断后对数据进行分组，下面的代码中对city列等于beijing并且price列大于等于4000的数据标记为1。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对复合多个条件的数据进行分组标记</span></span><br><span class="line">df_inner.loc[(df_inner[<span class="string">'city'</span>] == <span class="string">'beijing'</span>) &amp; (df_inner[<span class="string">'price'</span>]&gt;= <span class="number">4000</span>), <span class="string">'sign'</span>]=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="数据分列"><a href="#数据分列" class="headerlink" title="数据分列"></a>数据分列</h4><p>Excel中的数据目录下提供“分列”功能。在Python中使用split函数实现分列在数据表中category列中的数据包含有两个信息，前面的数字为类别id，后面的字母为size值。中间以连字符进行连接。我们使用split函数对这个字段进行拆分，并将拆分后的数据表匹配回原数据表中。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对category字段的值依次进行分列，并创建数据表，索引值为df_inner的索引列，列名称为category和size</span></span><br><span class="line">pd.DataFrame((x.split(<span class="string">'-'</span>) <span class="keyword">for</span> x <span class="keyword">in</span> df_inner[<span class="string">'category'</span>]),index=d</span><br><span class="line">f_inner.index,columns=[<span class="string">'category'</span>,<span class="string">'size'</span>])</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将完成分列后的数据表与原df_inner数据表进行匹配</span></span><br><span class="line">df_inner=pd.merge(df_inner,split,right_index=<span class="literal">True</span>, left_index=Tru</span><br><span class="line">e)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="数据提取"><a href="#数据提取" class="headerlink" title="数据提取"></a>数据提取</h2><h4 id="按标签提取-loc"><a href="#按标签提取-loc" class="headerlink" title="按标签提取(loc)"></a>按标签提取(loc)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按索引提取单行的数值</span></span><br><span class="line">df_inner.loc[<span class="number">3</span>]</span><br><span class="line">id <span class="number">1004</span></span><br><span class="line">date <span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">city shenzhen</span><br><span class="line">category <span class="number">110</span>-C</span><br><span class="line">age <span class="number">32</span></span><br><span class="line">price <span class="number">5433</span></span><br><span class="line">gender female</span><br><span class="line">m-point <span class="number">40</span></span><br><span class="line">pay Y</span><br><span class="line">group high</span><br><span class="line">sign NaN</span><br><span class="line">category_1 <span class="number">110</span></span><br><span class="line">size C</span><br><span class="line">Name: <span class="number">3</span>, dtype: object</span><br></pre></td></tr></table></figure>
-
-<p>使用冒号可以限定提取数据的范围，冒号前面为开始的标签值后面为结束的标签值。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按索引提取区域行数值</span></span><br><span class="line">df_inner.loc[<span class="number">0</span>:<span class="number">5</span>]</span><br></pre></td></tr></table></figure>
-
-<p>Reset_index函数用于恢复索引，这里我们重新将date字段的日期 设置为数据表的索引，并按日期进行数据提取。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#重设索引</span></span><br><span class="line">df_inner.reset_index()</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置日期为索引</span></span><br><span class="line">df_inner=df_inner.set_index(<span class="string">'date'</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#提取4日之前的所有数据</span></span><br><span class="line">df_inner[:<span class="string">'2013-01-04'</span>]</span><br></pre></td></tr></table></figure>
-
-<h4 id="按位置提取-iloc"><a href="#按位置提取-iloc" class="headerlink" title="按位置提取(iloc)"></a>按位置提取(iloc)</h4><p>使用iloc函数按位置对数据表中的数据进行提取，这里冒号前后 的数字不再是索引的标签名称，而是数据所在的位置，从0开始。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用iloc按位置区域提取数据</span></span><br><span class="line">df_inner.iloc[:<span class="number">3</span>,:<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-
-<p>iloc函数除了可以按区域提取数据，还可以按位置逐条提取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用iloc按位置单独提取数据</span></span><br><span class="line">df_inner.iloc[[<span class="number">0</span>,<span class="number">2</span>,<span class="number">5</span>],[<span class="number">4</span>,<span class="number">5</span>]]</span><br></pre></td></tr></table></figure>
-
-<p>前面方括号中的0,2,5表示数据所在行的位置，后面方括号中的数表示所在列的位置。</p>
-<h4 id="按条件提取（区域和条件值）"><a href="#按条件提取（区域和条件值）" class="headerlink" title="按条件提取（区域和条件值）"></a>按条件提取（区域和条件值）</h4><p>使用loc和isin两个函数配合使用，按指定条件对数据进行提取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#判断city列的值是否为beijing</span></span><br><span class="line">df_inner[<span class="string">'city'</span>].isin([<span class="string">'beijing'</span>])</span><br><span class="line">date</span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-02</span> <span class="literal">True</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-05</span> <span class="literal">False</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-07</span> <span class="literal">True</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-06</span> <span class="literal">False</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-03</span> <span class="literal">False</span></span><br><span class="line"><span class="number">2013</span><span class="number">-01</span><span class="number">-04</span> <span class="literal">False</span></span><br><span class="line">Name: city, dtype: bool</span><br></pre></td></tr></table></figure>
-
-<p>将isin函数嵌套到loc的数据提取函数中，将判断结果为Ture数据 提取出来。这里我们把判断条件改为city值是否为beijing和shanghai。如果是就把这条数据提取出来。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#先判断city列里是否包含beijing和shanghai，然后将复合条件的数据提取出来。</span></span><br><span class="line">df_inner.loc[df_inner[<span class="string">'city'</span>].isin([<span class="string">'beijing'</span>,<span class="string">'shanghai'</span>])]</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><h4 id="模糊筛选-精确筛选：isin-contains"><a href="#模糊筛选-精确筛选：isin-contains" class="headerlink" title="模糊筛选/精确筛选：isin(),contains()"></a>模糊筛选/精确筛选：isin(),contains()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df_sel1=df[df[<span class="string">'day'</span>].str.contains(<span class="string">'fr'</span>)]   <span class="comment"># 筛选day列包含fr字符的行</span></span><br><span class="line">df_sel2=df[df[<span class="string">'day'</span>].isin([<span class="string">'fri'</span>,<span class="string">'mon'</span>])]   <span class="comment"># 筛选day列等于fri或mon的行</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="按条件筛选（与、或、非）"><a href="#按条件筛选（与、或、非）" class="headerlink" title="按条件筛选（与、或、非）"></a>按条件筛选（与、或、非）</h4><p>Excel数据目录下提供了“筛选”功能，用于对数据表按不同的条 件进行筛选。Python中使用loc函数配合筛选条件来完成筛选功能。配合sum和count函数还能实现Excel中sumif和countif函数的功能。使用“与”条件进行筛选，条件是年龄大于25岁，并且城市为 beijing。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用“与”条件进行筛选</span></span><br><span class="line">df_inner.loc[(df_inner[<span class="string">'age'</span>] &gt; <span class="number">25</span>) &amp; (df_inner[<span class="string">'city'</span>] == <span class="string">'beiji</span></span><br><span class="line"><span class="string">ng'</span>), [<span class="string">'id'</span>,<span class="string">'city'</span>,<span class="string">'age'</span>,<span class="string">'category'</span>,<span class="string">'gender'</span>]]/</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用“或”条件筛选</span></span><br><span class="line">df_inner.loc[(df_inner[<span class="string">'age'</span>] &gt; <span class="number">25</span>) | (df_inner[<span class="string">'city'</span>] == <span class="string">'beiji</span></span><br><span class="line"><span class="string">ng'</span>), [<span class="string">'id'</span>,<span class="string">'city'</span>,<span class="string">'age'</span>,<span class="string">'category'</span>,<span class="string">'gender'</span>]].sort([<span class="string">'age'</span>])</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用“非”条件进行筛选</span></span><br><span class="line">df_inner.loc[(df_inner[<span class="string">'city'</span>] != <span class="string">'beijing'</span>), [<span class="string">'id'</span>,<span class="string">'city'</span>,<span class="string">'age'</span>,</span><br><span class="line"><span class="string">'category'</span>,<span class="string">'gender'</span>]].sort([<span class="string">'id'</span>])</span><br></pre></td></tr></table></figure>
-
-<p>在前面的代码后面增加city列，并使用count函数进行计数。相当于Excel中的countifs函数的功能</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对筛选后的数据按city列进行计数</span></span><br><span class="line">df_inner.loc[(df_inner[<span class="string">'city'</span>] != <span class="string">'beijing'</span>), [<span class="string">'id'</span>,<span class="string">'city'</span>,<span class="string">'age'</span>,</span><br><span class="line"><span class="string">'category'</span>,<span class="string">'gender'</span>]].sort([<span class="string">'id'</span>]).city.count()</span><br></pre></td></tr></table></figure>
-
-<p>还有一种筛选的方式是用query函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用query函数进行筛选</span></span><br><span class="line">df_inner.query(<span class="string">'city == ["beijing", "shanghai"]'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>在前面的代码后增加price字段和sum函数。对筛选后的price字段 进行求和，相当于Excel中的sumifs函数的功能。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对筛选后的结果按price进行求和</span></span><br><span class="line">df_inner.query(<span class="string">'city == ["beijing", "shanghai"]'</span>).price.sum()</span><br><span class="line"><span class="number">12230</span></span><br></pre></td></tr></table></figure>
-
-<p>时间序列处理</p>
-<p>csv中的时间会被读取为字符串，需要批量处理为pandas可处理的时间类型</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'date'</span>]=pd.to_datetime(df[<span class="string">'createTime'</span>]) <span class="comment">#批量转换createTime中的时间，并赋值到date列</span></span><br><span class="line">df[(df[<span class="string">'date'</span>]&gt;=<span class="string">'20140701'</span>)&amp;(df[<span class="string">'date'</span>]&lt;=<span class="string">'20140715'</span>)]<span class="comment">#筛选指定时间段数据</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="数据汇总"><a href="#数据汇总" class="headerlink" title="数据汇总"></a>数据汇总</h2><p>Excel中使用分类汇总和数据透视可以按特定维度对数据进行汇总，Python中使用的主要函数是groupby和pivot_table。</p>
-<h4 id="value-counts"><a href="#value-counts" class="headerlink" title=".value_counts()"></a>.value_counts()</h4><p>作用对象：<code>Series</code></p>
-<p>主要用途：统计分类变量中每个类的数量，比如<code>company</code>中各个公司都有多少人</p>
-<p>主要参数：</p>
-<p>sort=True： 是否要进行排序；默认进行排序<br>ascending=False： 默认降序排列；<br>normalize=False： 是否要对计算结果进行标准化并显示标准化后的结果，默认是False。<br>bins=None： 可以自定义分组区间，默认是否；<br>dropna=True：是否删除缺失值nan，默认删除</p>
-<h4 id="分类汇总"><a href="#分类汇总" class="headerlink" title="分类汇总"></a>分类汇总</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对所有列进行计数汇总</span></span><br><span class="line">df_inner.groupby(<span class="string">'city'</span>).count()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对特定的ID列进行计数汇总</span></span><br><span class="line">df_inner.groupby(<span class="string">'city'</span>)[<span class="string">'id'</span>].count()</span><br><span class="line">city</span><br><span class="line">beijing <span class="number">2</span></span><br><span class="line">guangzhou <span class="number">1</span></span><br><span class="line">shanghai <span class="number">2</span></span><br><span class="line">shenzhen <span class="number">1</span></span><br><span class="line">Name: id, dtype: int64</span><br><span class="line"></span><br><span class="line"><span class="comment">#对两个字段进行汇总计数</span></span><br><span class="line">df_inner.groupby([<span class="string">'city'</span>,<span class="string">'size'</span>])[<span class="string">'id'</span>].count()</span><br><span class="line">city size</span><br><span class="line">beijing A <span class="number">1</span></span><br><span class="line">F <span class="number">1</span></span><br><span class="line">guangzhou A <span class="number">1</span></span><br><span class="line">shanghai A <span class="number">1</span></span><br><span class="line">B <span class="number">1</span></span><br><span class="line">shenzhen C <span class="number">1</span></span><br><span class="line">Name: id, dtype: int64</span><br></pre></td></tr></table></figure>
-
-<p>还可以对汇总后的数据同时按多个维度进行计算</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#对city字段进行汇总并计算price的合计和均值。</span></span><br><span class="line">df_inner.groupby(<span class="string">'city'</span>)[<span class="string">'price'</span>].agg([len,np.sum, np.mean])</span><br></pre></td></tr></table></figure>
-
-<h2 id="聚合（类似于EXCEL数据透视）"><a href="#聚合（类似于EXCEL数据透视）" class="headerlink" title="聚合（类似于EXCEL数据透视）"></a>聚合（类似于EXCEL数据透视）</h2><p>Python中通过pivot_table函数实现同样的</p>
-<p>Excel中可以这样，python中也可以这样。同时使用index行标签和columns列标签。</p>
-<p><img src="../images/pandas%E8%AF%BB%E5%86%99%E6%95%B0%E6%8D%AE/image-20200406223525162.png" alt="image-20200406223525162"></p>
-<p>这个函数比较难记，可以参考EXCEL数据透视表去理解，index代表列，columns代表行，values代表值，aggfunc代表要对值用什么函数，fil_value代表缺失值用0填充</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">df_toushi=pd.pivot_table(df,index=[<span class="string">'month'</span>],columns=[<span class="string">'day'</span>],</span><br><span class="line">         values=[<span class="string">'DC'</span>],aggfunc=[np.sum,np.mean],fill_value=<span class="number">0</span>)</span><br><span class="line">print(df_toushi)</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">pivot_table:</span><br><span class="line">pivot_table(data, values=<span class="literal">None</span>, index=<span class="literal">None</span>,</span><br><span class="line">columns=<span class="literal">None</span>, aggfunc=<span class="string">"mean"</span>, fill_value-<span class="literal">None</span>.</span><br><span class="line">margins=<span class="literal">False</span>, dropna=<span class="literal">True</span>, margins_name=<span class="string">"A11"</span></span><br><span class="line">observed=<span class="literal">False</span>,</span><br><span class="line"><span class="comment"># data 要操作的df</span></span><br><span class="line"><span class="comment"># index=['行标签']</span></span><br><span class="line"><span class="comment"># columns=['列标签']</span></span><br><span class="line"><span class="comment"># values=['要计算的值']</span></span><br><span class="line"><span class="comment"># aggfunc=[np.sum,np.mean，np.size]统计类型：求和、平均值、计数</span></span><br><span class="line"><span class="comment"># margins=True  显示计算结果</span></span><br><span class="line"><span class="comment"># fill_value=0 代表缺失值用0填充</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设定city为行字段，size为列字段，price为值字段。</span></span><br><span class="line">分别计算price的数量和金额并且按行与列进行汇总。</span><br><span class="line">pd.pivot_table(df_inner,index=[<span class="string">"city"</span>],values=[<span class="string">"price"</span>],columns=[</span><br><span class="line"><span class="string">"size"</span>],aggfunc=[len,np.sum],fill_value=<span class="number">0</span>,margins=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="编写Excel文件"><a href="#编写Excel文件" class="headerlink" title="编写Excel文件"></a>编写Excel文件</h2><h4 id="将Excel文件写入磁盘"><a href="#将Excel文件写入磁盘" class="headerlink" title="将Excel文件写入磁盘"></a>将Excel文件写入磁盘</h4><p>要将DataFrame对象写入Excel文件的工作表，可以使用to _excel实例方法。这些参数与上述to_csv大致相同，第一个参数是excel文件的名称，第二个可选参数是应向其写入DataFrame的工作表的名称。例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_excel(<span class="string">' path_to_file. xlsx'</span>, sheet_name= <span class="string">' Sheet1 '</span>)</span><br></pre></td></tr></table></figure>
-
-<p>xls扩展名将使用x1wt以 xlsx扩展名将使用xlsxwriter或openpyxl编写。<br>将以试图模仿REPL输出的方式编写DataFrame。 index_label将放置在第二行而不是第一行。您可以通过将to_excel（）中的merge_cells选项设置为False来将其放置在第一行：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to excel (<span class="string">'path_to_file. xlsx'</span>, index label=<span class="string">'label'</span>, merge_cells=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-
-<p>写入csv</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#输出到CSV格式</span></span><br><span class="line">df_inner.to_csv(<span class="string">'Excel_to_Python.csv'</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> pd. Excelwriter(<span class="string">'path_to_file. xlsx'</span>,engine=<span class="string">"xlsxwriter"</span>,datetime_format=<span class="string">"YY-MM-DD"</span>) <span class="keyword">as</span> writer: </span><br><span class="line">    dfl. to_excel (writer, sheet_name= <span class="string">' Sheet1'</span>)</span><br><span class="line">	df2. to_excel (writer, sheet_name=<span class="string">' Sheet2'</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Excelwriter(self, path, engine&#x3D;None, date_format&#x3D;None, datetime_format&#x3D;None, mode&#x3D;&quot;w</span><br><span class="line">** engine_kwargs,)</span><br><span class="line">Class for writing DataFrame objects into excel sheets.</span><br><span class="line">Default is to use xlwt for xls, openpyxl for xlsx.</span><br><span class="line">See DataFrame. to excel for typical usage.</span><br><span class="line"></span><br><span class="line">Parameters</span><br><span class="line">------------</span><br><span class="line">path: str</span><br><span class="line">Path to xls or xlsx file</span><br><span class="line">engine: str (optional)</span><br><span class="line">Engine to use for writing. If None, defaults to &quot;io. excel.&lt;extension&gt;. writer&quot;. </span><br><span class="line">NOTE: can only be passed as a keyword argument.</span><br><span class="line"></span><br><span class="line">date_format: str, default None</span><br><span class="line">	Format string for dates written into Excel files (e.g. &#39; YYYY-MM-DD&#39;).</span><br><span class="line">datetime_format: str, default None </span><br><span class="line">	Format string for datetime objects written into Excel files.(e.g. &#39; YYYY-MM-DD HH:M: SS&#39;)</span><br><span class="line">mode : &#123;&#39;w&#39;, &#39;a&#39;&#125;, default &#39;w&#39;</span><br><span class="line">	File mode to use (write or append)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>注意：从read_excel中获得更多性能，在内部，Excel将所有数字数据存储为浮点数。<br>因为这会在读取数据时产生意外行为，所以pandas默认情况下会尝试在不丢失信息的情况下将整数转换为浮点数（1.0-&gt; 1）。您可以传递convert_float-False禁用此行为，这可能会稍微改善性能。</p>
-<h4 id="将Excel文件写入内存"><a href="#将Excel文件写入内存" class="headerlink" title="将Excel文件写入内存"></a>将Excel文件写入内存</h4><p>Pandas支持使用Excelwriter将Excel文件写入类似缓冲区的对象，例如stringIO或BytesIO。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>: </span><br><span class="line">    From io <span class="keyword">import</span> BytesIO </span><br><span class="line"><span class="keyword">except</span> ImportError: </span><br><span class="line">    <span class="keyword">from</span> cstringIo <span class="keyword">import</span> stringIo <span class="keyword">as</span> BytesIO </span><br><span class="line">bio = BytesIO()</span><br><span class="line"><span class="comment"># By setting the ' engine' in the ExcelWriterconstructor.</span></span><br><span class="line">writer = pd. ExcelWriter(bio, engine=<span class="string">'xlsxwriter'</span>)</span><br><span class="line">df. to_excel (writer, sheet_name=<span class="string">' Sheet1'</span>)</span><br><span class="line"><span class="comment"># Save the workbook </span></span><br><span class="line">writer. save()</span><br><span class="line"><span class="comment"># Seek to the beginning and read to copy the workbook to a variable in memory </span></span><br><span class="line">bio. seek (<span class="number">0</span>)</span><br><span class="line">workbook = bio. read()</span><br></pre></td></tr></table></figure>
-
-<p>注意：引擎是可选的，但建议使用。设置引擎确定生成的工作簿的版本。<br>设置engine =’xlrd’将产生一个Excel 2003格式的工作簿（xls）。使用’openpyxl’或’xlsxwriter’将产生一个Excel 2007格式的工作簿（xlsx）。如果省略，将生成Excel 2007格式的工作簿。</p>
-<h4 id="Excel编写器引擎"><a href="#Excel编写器引擎" class="headerlink" title="Excel编写器引擎"></a>Excel编写器引擎</h4><h5 id="Pandas通过两种方法选择Excel编写器："><a href="#Pandas通过两种方法选择Excel编写器：" class="headerlink" title="Pandas通过两种方法选择Excel编写器："></a>Pandas通过两种方法选择Excel编写器：</h5><ol>
-<li>engine关键字参数</li>
-<li>文件名扩展名（通过配置选项中指定的默认值）</li>
-</ol>
-<p>默认情况下，pandas将XlsxWriter用于。 xlsx，针对.x1sm的openpyxl和针对.x1s文件的xlwt。如果安装了多个引擎，则可以通过设置配置选项io来设置默认引擎。优秀。 xlsx。作家和io。优秀。 xls。作家。熊猫将重新使用openpyxl。如果Xlsxwriter不可用，则为xlsx文件。若要指定要使用的编写器，可以将引擎关键字参数传递给to_excel和Excelwriter。内置引擎为：</p>
-<p>openpyxl：需要版本2.4或更高版本</p>
-<p>xIsxwriter </p>
-<p>xlwt</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># By setting the ' engine' in the DataFrame ' to_excel()' methods.</span></span><br><span class="line">df. to_excel (<span class="string">' path_to_file. xlsx'</span>, sheet_name=<span class="string">' Sheetl'</span>, engine=<span class="string">' xlsxwriter'</span>)</span><br><span class="line"><span class="comment"># By setting the ' engine' in the ExcelWriterconstructor writer = pd. Excelwriter(' path_to_file. xlsx', engine=' xlsxwriter')</span></span><br><span class="line"><span class="comment"># Or via pandas confiquration.</span></span><br><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> options <span class="comment"># noga: E402</span></span><br><span class="line">options. io. excel. xlsx. writer = <span class="string">' xlsxwriter df. to_excel ('</span> path_to_file. xlsx<span class="string">', sheet_name= '</span> Sheet1<span class="string">')</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/DHEC%E4%B8%8B%E7%BC%B8%E4%BD%93%E9%9D%A2%E9%93%A3%E5%8A%A0%E5%B7%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/31/DHEC%E4%B8%8B%E7%BC%B8%E4%BD%93%E9%9D%A2%E9%93%A3%E5%8A%A0%E5%B7%A5/" class="post-title-link" itemprop="url">下缸体面铣加工</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-03-31 12:12:37" itemprop="dateCreated datePublished" datetime="2020-03-31T12:12:37+08:00">2020-03-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-                </span>
-                  ， 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C/%E6%97%A5%E5%BF%97/" itemprop="url" rel="index"><span itemprop="name">日志</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          被加密了, 请输入密码查看.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/31/DHEC%E4%B8%8B%E7%BC%B8%E4%BD%93%E9%9D%A2%E9%93%A3%E5%8A%A0%E5%B7%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -1102,7 +992,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
