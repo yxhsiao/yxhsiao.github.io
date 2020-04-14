@@ -1,6 +1,1226 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>凸轮轴1#线OP10_丰田工机_5AF_6C4</title>
+    <url>/2020/04/14/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/</url>
+    <content><![CDATA[<h1 id="刀具技术要求"><a href="#刀具技术要求" class="headerlink" title="刀具技术要求"></a>刀具技术要求</h1><h2 id="一、总体要求"><a href="#一、总体要求" class="headerlink" title="一、总体要求"></a>一、总体要求</h2><ol>
+<li>本次订购的刀具为凸轮轴OP10工序立式加工中心所配套刀具，加工中心型号为：丰田工机e640；</li>
+<li>工装夹具为4工位/设备</li>
+<li>凸轮轴品种有5AF-IN、5AF-EX，6C4-IN、6C4-EX，工件材质：FCD700，硬度：HRB90~108；</li>
+<li>刀具配置要求纯加工时间（设备启动关门始至设备门完全打开）要求：&lt;45s/件</li>
+</ol>
+<h2 id="二、乙方提供内容"><a href="#二、乙方提供内容" class="headerlink" title="二、乙方提供内容"></a>二、乙方提供内容</h2><ol>
+<li>根据清单提供刀具方案图纸（刀具尺寸、材质、切削参数）及价格；</li>
+<li>乙方提供的刀柄刀具进行试加工，必须要满足节拍及刀具寿命要求；</li>
+<li>刀柄的品牌为肯纳、钴领或其他同等品质品牌；</li>
+<li>验证（第一期）试验的刀具费用由乙方免费提供；</li>
+<li>乙方需要配备工程师在现场进行试验加工全过程的1/1跟进；</li>
+</ol>
+<h2 id="三、清单"><a href="#三、清单" class="headerlink" title="三、清单"></a>三、清单</h2><table border="1" cellpadding="0" cellspacing="0">
+    <tr style="border:solid 1px">
+    <td colspan="4">
+      配置部品： 凸轮轴<br>配置产线：01#能扩线 OP10<br></td>
+    <td colspan="4">配置机种：5AF OP10<br>设备：丰田工机 CNC E640</td>    
+</tr>
+    <tr style="border:solid 1px">
+        <th colspan="2"><b>工位名称</b></th>
+        <th><b>刀具名称</b></th>
+        <th><b>参 考  规  格</b></th>
+        <th><b>技术要求</b></th>
+        <th><b>同时使<br>用数量</b></th>
+        <th><b>订购<br>数量</b></th>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="21">左端</th>
+        <th rowspan="4">铣端面</th>
+        <td>铣刀柄</td>
+        <td>HSK63A SMC22050M</td>
+        <td rowspan="4">    1.HSK  63A,含内冷,刀柄参考长度50mm<br>
+                        2.标准刀盘,八角刀片,总长≤90mm<br>
+                        3.刀片寿命≥640件/角<br>
+                        4.配置刀片刀盘拆卸工具一套</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀盘</td>
+        <td>KSHR063A08RS45HN06</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀片</td>
+        <td>HNPJ0604ANSNHD   KC520M</td>
+        <td>8</td>
+        <td>120</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="4">    钻中心孔<br>M12螺纹底孔<br>    Φ12.3孔</th>
+        <td>液压刀柄</td>
+        <td>HSK63A HC16095M</td>
+        <td rowspan="4">    
+        1.HSK 63A,液压,内冷,刀柄参考长度95mm<br>
+                2.阶梯钻,SD16,总长≤127mm,含刀柄总长≤180mm<br>
+                2.阶梯钻,SD16,总长≤127mm,含刀柄总长≤180mm<br>
+                3.新刀寿命≥1000件,重磨后寿命≥850件<br>
+                4.刀具重磨次数≥5次,每次重磨量≥1mm
+    </td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>阶梯钻</td>
+        <td>SP01/61549384<br>Ø10.8*47/Ø12.3*15.5/C</td>
+        <td>1</td>
+        <td>8</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>阶梯钻</td>
+        <td>SP101/61550249<br>Ø10.8*45/Ø12.3*15.5/C</td>
+        <td>1</td>
+        <td>8</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="4">    攻丝<br>
+                        M12 x 1.25</th>
+        <td>液压刀柄</td>
+        <td>9046010200630</td>
+        <td rowspan="4">    
+          1.HSK 63A,液压,内冷,刀柄参考长度123mm<br>
+                    2.丝锥柄径D9,丝锥总长≤120mm<br>优选标准品,材质推荐：硬质合金,<br>
+                    3.需要配置变径套,同步攻丝,含刀柄总长≤200mm<br>
+                    4.丝锥寿命新刀≥1200件,重磨刀寿命≥1000件,
+    </td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>变径套</td>
+        <td>9046060090200</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>丝锥</td>
+        <td>SP03/MM6709596<br>T331MF120X125R6H-D1</td>
+        <td>1</td>
+        <td>16</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3">    钻Φ4孔底孔<br>    4个Φ4孔-粗钻<br>销孔底孔<br></th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC06080M</td>
+        <td rowspan="3">    
+        1.HSK 63A,液压,内冷,刀柄参考长度80mm<br>
+                2.钻头SD6,总长≤70mm,含刀柄总长≤115mm,<br>
+                3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+                4.新刀寿命≥1200件,重磨后寿命≥1000件
+    </td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>钻头</td>
+        <td>SP04/61549410<br>Ø3.95*9.5/C0.8 SD6)</td>
+        <td>1</td>
+        <td>20</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+    <th rowspan="3" height="66">铰销孔<br>
+                            <br>
+    </th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC06080M</td>
+        <td rowspan="3">    
+        1.HSK 63A,液压,内冷,刀柄参考长度80mm<br>
+                2.钻头SD6,总长≤70mm,含刀柄总长≤115mm,<br>
+                3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+                4.新刀寿命≥2400件,重磨后寿命≥2000件
+    </td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>钻头</td>
+        <td>SP05/MM6733622<br>Ø4.2(-0.005/-0.023)<br>D6)</td>
+        <td>1</td>
+        <td>12</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>　</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3" height="66">钻Φ4孔<br>
+                                4个Φ4孔深孔</th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC06080M</td>
+        <td rowspan="3">    
+        1.HSK 63A,液压,内冷,刀柄参考长度80mm<br>
+                2.钻头SD6,总长≤110mm,含刀柄总长≤155mm,<br>
+                3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+                4.新刀寿命≥1200件,重磨后寿命≥1000件
+    </td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>钻头</td>
+        <td>SP06/61558091<br>Ø3.95*52 DHD<br>SHANK D4</td>
+        <td>1</td>
+        <td>16</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="14">右端</th>
+        <th rowspan="4">铣端面</th>
+        <td>铣刀柄</td>
+        <td>HSK63A SMC22050M</td>
+        <td rowspan="4">与左端面共用,不再单独计算采购</td>
+        <td>　</td>
+        <td>0</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀盘</td>
+        <td>KSHR063A08RS45HN06</td>
+        <td>　</td>
+        <td>0</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀片</td>
+        <td>HNPJ0604ANSNHD   KC520M</td>
+        <td>　</td>
+        <td>0</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>　</td>
+        <td>0</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="4">套车φ28外圆<br>外倒角<br>底部圆角</th>
+        <td>刀柄</td>
+        <td>SP07/MM6712131<br>Ø28/C<br>HSK63A</td>
+        <td rowspan="4">    
+        1.HSK  63A,含内冷,刀柄参考长度92mm<br>
+                2.套车刀片槽为2个,倒角刀片槽为2个<br>
+                3.刀片寿命≥560件/角</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>刀片倒角</td>
+        <td>SPGX060304RHP(KCU25)</td>
+        <td>2</td>
+        <td>80</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>刀片外圆</td>
+        <td>TCMT16T308LF(KCK20)</td>
+        <td>2</td>
+        <td>80</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3" height="66">钻中心底孔<br>
+                                Φ20.055</th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC20100M</td>
+        <td rowspan="3">    
+        1.HSK 63A,液压,内冷,刀柄参考长度100mm<br>
+                2.钻头SD20,总长≤100mm,含刀柄总长≤155mm,<br>
+                3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+                4.新刀寿命≥1500件,重磨后寿命≥1300件</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>钻头</td>
+        <td>SP09/61549436<br>Ø19.7*8.75/C,D20</td>
+        <td>1</td>
+        <td>16</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3" height="66">铰中心孔<br>
+                                Φ20.055</th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC20100M</td>
+        <td rowspan="3">    
+        1.HSK 63A,液压,内冷,刀柄参考长度100mm<br>
+                2.钻头SD20,总长≤100mm,含刀柄总长≤145mm,<br>
+                3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+                4.新刀寿命≥2400件,重磨后寿命≥2000件</td>
+        <td>1</td>
+        <td>4</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>钻头</td>
+        <td>SP10/MM6733632(Ø20.055/C,D20)</td>
+        <td>1</td>
+        <td>12</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63  193.160</td>
+        <td>1</td>
+        <td>4</td>
+    </tr> 
+</table>
+
+
+
+
+<table>
+<thead>
+<tr>
+<th>5AF-IN毛坯图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414205702412.png" alt="image-20200414205702412"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>5AF-IN加工图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414205909481.png" alt="image-20200414205909481"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>5AF-EX 毛坯图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="../images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414210005880.png" alt="image-20200414210005880"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>5AF-EX加工图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414210047290.png" alt="image-20200414210047290"></td>
+</tr>
+</tbody></table>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr style="border:solid 1px">
+  <td colspan="4">
+    配置部品： 凸轮轴<br>配置产线：01#能扩线 OP10<br></td>
+  <td colspan="4">配置机种：6C4-IN<br>设备：丰田工机 CNC E640</td>    
+</tr>
+<tr style="border:solid 1px">
+    <th colspan="2"><b>工位名称</b></th>
+    <th><b>刀具名称</b></th>
+    <th><b>参 考  规  格</b></th>
+    <th><b>技术要求</b></th>
+    <th><b>备注</b></th>
+    <th><b>同时使<br>用数量</b></th>
+    <th><b>订购<br>数量</b></th>
+  </tr>
+<tr style="border:solid 1px">
+  <th rowspan="27">左端</th>
+  <th rowspan="4">铣端面</th>
+  <td>铣刀柄</td>
+  <td>HSK63A SMC22050M</td>
+  <td rowspan="4">
+    1.HSK 63A,含内冷,刀柄参考长度50mm(装配面至夹持端端面)<br>
+    2.标准刀盘,八个刀片槽,含刀柄总长≤90mm<br>
+    3.刀片寿命≥400件/角<br>
+    4.配置刀片刀盘拆卸工具一套</td>
+  <td rowspan="4">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>铣刀盘</td>
+  <td> KSHR063A08RS45HN06</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>铣刀片</td>
+  <td> HNPJ0604ANSNHD  KC520M</td>
+  <td>0</td>
+  <td>8</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td> M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="3">钻中心孔<br>M12螺纹底孔<br>Φ12.3孔</th>
+  <td>液压刀柄</td>
+  <td>HSK63A HC16095M</td>
+  <td rowspan="3">
+    1.HSK 63A,液压夹紧,含内冷,刀柄参考长度95mm<br>
+    2.阶梯钻,SD16,总长≤117mm,含刀柄总长≤165mm<br>
+    3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+    4.新刀寿命≥1000件,重磨后寿命≥850件</td>
+  <td rowspan="3">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>阶梯钻</td>
+  <td>SP104/61550269<br>Ø10.8*38.5/Ø12.45*9.25/C</td>
+  <td>2</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63 193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="4">攻丝(VTC端)<br>M12 x 1.25</th>
+  <td>液压刀柄</td>
+  <td>9046010200630</td>
+  <td rowspan="4">
+    1.HSK 63A,液压,含内冷,刀柄参考长度123mm<br>
+    2.丝锥柄径D9,丝锥总长≤120mm,(优选标准品)材质推荐：硬质合金,<br>
+    3.需要配置变径套,同步攻丝,含刀柄总长≤200mm<br>
+    4.丝锥寿命新刀≥1200件,重磨刀寿命≥900件,</td>
+  <td rowspan="4">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>变径套</td>
+  <td>9046060090200</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>丝锥</td>
+  <td>SP03/MM6709596(T331MF120X125R6H-D1)</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="4">左端Φ34.35套镗</th>
+  <td>刀柄</td>
+  <td>SP105/MM6712134 Ø34.35*8/C,HSK63A</td>
+  <td rowspan="4">
+    1.HSK  63A,含内冷,刀柄参考长度95mm<br>
+    2.套车刀片槽为2个,倒角刀片槽为2个,<br>
+    3.刀片寿命≥500件/角</td>
+  <td rowspan="4">本次不订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>镗刀片</td>
+  <td>TCMT16T308LF ( KCK20)</td>
+  <td>40</td>
+  <td>2</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>倒角刀片</td>
+  <td>SPGX060304RHP(KCU25)</td>
+  <td>40</td>
+  <td>2</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td> M18X1 HSK63 193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="3">粗钻Φ3孔<br>1个Φ3孔-粗钻销孔底孔<br></th>
+  <td>液压刀柄</td>
+  <td> HSK63AHC06080M</td>
+  <td rowspan="3">
+    1.HSK 63A,液压,含内冷,刀柄参考长度80mm<br>
+    2.SD6,总长≤70mm,含刀柄总长≤115mm,<br>
+    3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+    4.新刀寿命≥1100件,重磨后寿命≥900件</td>
+  <td rowspan="3">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>钻头</td>
+  <td>61555577(Ø2.95/C,D6)</td>
+  <td>6</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="3">钻Φ3孔深孔<br>VTC端<br></th>
+  <td>液压刀柄</td>
+  <td>HSK63A(9046180040630)</td>
+  <td rowspan="3">
+    1.HSK 63A,液压,含内冷,刀柄参考长度74mm<br>
+    2.SD4,总长≤85mm,含刀柄总长≤125mm,<br>
+    3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+    4.新刀寿命≥1000件,重磨后寿命≥900件</td>
+  <td rowspan="3">本次不订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>钻头</td>
+  <td>SP107/61550286(Ø2.95*35, D4)</td>
+  <td>6</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="3">钻Φ6孔(VTC端)</th>
+  <td>液压刀柄</td>
+  <td>HSK63AHC06080M</td>
+  <td rowspan="3">
+    1.HSK 63A,液压,含内冷,刀柄参考长度80mm<br>
+    2.SD6,总长≤85mm,含刀柄总长≤100mm,<br>
+    3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+    4.新刀寿命≥1500件,重磨后寿命≥1300件</td>
+  <td rowspan="3">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>钻头</td>
+  <td>SP110/MM6712138(Ø5.95*L55* D6)</td>
+  <td>6</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="3">铰销孔Ø3.5</th>
+  <td>液压刀柄</td>
+  <td>HSK63AHC06080M</td>
+  <td rowspan="3">
+    1.HSK 63A,液压,含内冷,刀柄参考长度80mm<br>
+    2.钻头SD6,总长≤60mm,含刀柄总长≤100mm,<br>
+    3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+    4.新刀寿命≥2000件,重磨后寿命≥1800件</td>
+  <td rowspan="3">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>钻头</td>
+  <td>SP108/MM6735041(Ø3.5*L55* D6)</td>
+  <td>6</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63 193.160</td>
+  <td>0</td>
+  <td>　</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="23">右端</th>
+  <th rowspan="4">铣端面</th>
+  <td>铣刀柄</td>
+  <td>HSK63A SMC22050M</td>
+  <td rowspan="4">
+    1.HSK 63A,含内冷,刀柄参考长度50mm<br>
+    2.标准刀盘,八个刀片槽,含刀柄总长≤90mm<br>
+    3.刀片寿命≥400件/角<br>
+    4.配置刀片刀盘拆卸工具一套</td>
+  <td rowspan="4">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>铣刀盘</td>
+  <td>KSHR063A08RS45HN06</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>铣刀片</td>
+  <td>HNPJ0604ANSNHD     KC520M</td>
+  <td>0</td>
+  <td>8</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="4">套车Ø26外圆,外倒角、外径底部圆角</th>
+  <td>铣刀柄</td>
+  <td>SP109/MM6712135(Ø26.35*20/C Z=2+2,HSK63A)</td>
+  <td rowspan="4">
+    1.HSK 63A,含内冷,刀柄参考长度110mm<br>
+    2.套车刀片槽为2个,倒角刀片槽为2个,<br>
+    3.刀片寿命≥400件/角</td>
+  <td rowspan="4">本次不订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>铣刀片(外圆)</td>
+  <td>TCMT16T308LF(KCK20)</td>
+  <td>20</td>
+  <td>2</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>铣刀片(倒角)</td>
+  <td>SPGX060304RHP(KCU25)</td>
+  <td>20</td>
+  <td>2</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="3">中心孔阶梯钻<br>Φ12.4 Φ14.5</th>
+  <td>液压刀柄</td>
+  <td>HSK63AHC16095M</td>
+  <td rowspan="3">
+    1.HSK 63A,液压,含内冷,刀柄参考长度95mm<br>
+    2.SD16,总长≤100mm,含刀柄总长≤150mm,<br>
+    3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+    4.新刀寿命≥1500件,重磨后寿命≥1300件</td>
+  <td rowspan="3">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>钻头</td>
+  <td>SP17/61550213(Ø12.5*21.5/Ø14.5*3.5/C,D18)</td>
+  <td>4</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>　</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="4">攻丝<br>M14*1.5</th>
+  <td>液压刀柄</td>
+  <td>9046010200630(HSK63A)</td>
+  <td rowspan="4">
+    1.HSK 63A,液压,含内冷,刀柄参考长度123mm<br>
+    2.丝锥柄径D11,丝锥总长≤110mm,(优选标准品)材质推荐：硬质合金,<br>
+    3.需要配置变径套,同步攻丝,含刀柄总长≤190mm<br>
+    4.新刀寿命≥1200件,重磨后寿命≥900件</td>
+  <td rowspan="4">同5AF,不单独订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+  <tr style="border:solid 1px">
+  <td>变径套</td>
+  <td>9046060110200(D26→D11)</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>丝锥</td>
+  <td>SP18/MM6709598(T331MF140X150R6H-D1,D11,L=100)</td>
+  <td>4</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="4">铣键槽(粗)</th>
+  <td>液压刀柄</td>
+  <td>HSK63AHC20150M(D20, L150)</td>
+  <td rowspan="4">1.HSK
+  63A,液压夹紧,含内冷,刀柄参考长度150mm(装配面至夹持端端面)<br>
+  2.刀盘夹持直径为D20,总长≤90mm,配合刀盘内径为D6.3,<br>
+  3.铣刀盘刃数≥6刃<br>
+  4.铣刀盘可以重磨,次数≥5次,新新刀盘寿命≥900件,重磨铣刀盘≥700件</td>
+  <td rowspan="4">本次不订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>刀杆</td>
+  <td>SP19/MM6709948(Ø25.3W2.7槽铣刀,D20)</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>刀盘</td>
+  <td>SP20/MM6709949(Ø25.3W2.7,Z=6)</td>
+  <td>0</td>
+  <td>6</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <th rowspan="4">铣键槽(精)</th>
+  <td>液压刀柄</td>
+  <td>HSK63AHC20150M(D20, L150)</td>
+  <td rowspan="4">1.HSK
+  63A,液压夹紧,含内冷,刀柄参考长度150mm(装配面至夹持端端面)<br>
+  2.刀盘夹持直径为D20,总长≤90mm,配合刀盘内径为D6.3,<br>
+  3.铣刀盘刃数≥6刃<br>
+  4.铣刀盘可以重磨,次数≥5次,新新刀盘寿命≥900件,重磨铣刀盘≥700件</td>
+  <td rowspan="4">本次不订购</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>刀盘</td>
+  <td>SP19/MM6709948(Ø25.3W2.7槽铣刀,D20)</td>
+  <td>1</td>
+  <td>1</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>刀片</td>
+  <td>SP20/MM6709949(Ø25.3W2.7,Z=6)</td>
+  <td>0</td>
+  <td>6</td>
+</tr>
+<tr style="border:solid 1px">
+  <td>内冷管</td>
+  <td>M18X1 HSK63193.160</td>
+  <td>0</td>
+  <td>1</td>
+</tr>
+</table>
+
+
+<table>
+<thead>
+<tr>
+<th>6C4-IN毛坯图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414210147003.png" alt="image-20200414210147003"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>6C4-IN加工图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414210232972.png" alt="image-20200414210232972"></td>
+</tr>
+</tbody></table>
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr style="border:solid 1px">
+      <td colspan="4">
+        配置部品： 凸轮轴<br>配置产线：01#能扩线 OP10<br></td>
+      <td colspan="4">配置机种：6C4-EX<br>设备：丰田工机 CNC E640</td>    
+  </tr>
+    <tr style="border:solid 1px">
+      <th colspan="2"><b>工位名称</b></th>
+      <th><b>刀具名称</b></th>
+      <th><b>参 考  规  格</b></th>
+      <th><b>技术要求</b></th>
+      <th><b>备注</b></th>
+      <th><b>同时使<br>用数量</b></th>
+      <th><b>订购<br>数量</b></th>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="20">左端<br>VTC</th>
+        <th rowspan="4">铣端面</th>
+        <td>铣刀柄</td>
+        <td>HSK63A SMC22050M</td>
+        <td rowspan="4">    1.HSK 63A,含内冷,刀柄参考长度50mm
+                        2.标准刀盘,八个刀片槽,含刀柄总长≤90mm
+                        3.刀片寿命≥400件/角
+                        4.配置刀片刀盘拆卸工具一套</td>
+        <td rowspan="4">同5AF,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀盘</td>
+        <td>KSHR063A08RS45HN06</td>
+        <td>0</td>
+        <td>1</td>
+     </tr><tr style="border:solid 1px">
+        <td>铣刀片</td>
+        <td>HNPJ0604ANSNHD  C520M</td>
+        <td>0</td>
+        <td>8</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3">钻中心孔<br>M10*1.25螺纹底孔<br>Φ8.7孔】</th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC14090M</td>
+        <td rowspan="3">
+          1.HSK 63A,液压,含内冷,刀柄参考长度90mm<br>
+          2.阶梯钻,SD14,钻头总长≤117mm,含刀柄总长≤165mm<br>
+          3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+          4.新刀寿命≥1000件,重磨后寿命≥850件</td>
+        <td rowspan="3">本次暂不订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>阶梯钻</td>
+        <td>SP12/61550165<br>Ø8.8*29/Ø10.65*4.15/C,D14</td>
+        <td>6</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3">Φ16.3套车</th>
+        <td>刀柄</td>  
+        <td>HSK63A SP10-2/MM6712132<br>Ø16.3*5/C,Z=1+1</td>
+        <td rowspan="3">
+          1.HSK 63A,含内冷,刀柄参考长度85mm<br>
+          2.套车刀片槽为2个,倒角刀片槽为2个,<br>
+          3.刀片寿命≥700件/角</td>
+        <td rowspan="3">本次暂不订购　</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>刀片(倒角)</td>
+        <td>SPGX060304RHP(KCU25)</td>
+        <td>40</td>
+        <td>2</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>刀片(套车)</td>
+        <td>CDE322R05(KCPK30)</td>
+        <td>40</td>
+        <td>2</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="4">攻丝VTC端<br>M10 x 1.25</th>
+        <td>液压刀柄</td>
+        <td>9046010200630</td>
+        <td rowspan="4">
+          1.HSK 63A,液压,含内冷,刀柄参考长度123mm<br>
+          2.丝锥柄径D7,丝锥总长≤110mm,(优选标准品)材质推荐：硬质合金,<br>
+          3.需要配置变径套,同步攻丝,含刀柄总长≤200mm<br>
+          4.丝锥寿命新刀≥1200件,重磨刀寿命≥900件,</td>
+        <td rowspan="4">同5AF,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>变径套</td>
+        <td>9046060090200</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>丝锥</td>
+        <td>SP03/MM6709596<br>T331MF120X125R6H-D1</td>
+        <td>6</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3">钻销孔底孔<br>Φ2.3</th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC06080M</td>
+        <td rowspan="3">
+          1.HSK 63A,液压,含内冷,刀柄参考长度80mm<br>
+          2.阶梯钻,SD6,钻头总长≤70mm,含刀柄总长≤110mm<br>
+          3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+          4.新刀寿命≥1500件,重磨后寿命≥1200件</td>
+        <td rowspan="3">同5AF,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>钻头</td>
+        <td>SP14/61550189(Ø2.35*7/C, D6)</td>
+        <td>6</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>　</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3">铰销孔<br> Φ2.5<br></th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC06080M</td>
+        <td rowspan="3">
+          1.HSK 63A,液压夹紧,含内冷,刀柄参考长度80mm<br>
+          2.阶梯钻,SD6,钻头总长≤60mm,含刀柄总长≤100mm<br>
+          3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+          4.新刀寿命≥1800件,重磨后寿命≥1500件</td>
+        <td rowspan="3">同5AF,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>钻头</td>
+        <td>SP15/MM6733632(Ø2.5*L55* D6)</td>
+        <td>6</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="23">右端</th>
+        <th rowspan="4">铣端面</th>
+        <td>铣刀柄</td>
+        <td>HSK63A SMC22050M</td>
+        <td rowspan="4">    
+            1.HSK  63A,含内冷,刀柄参考长度50mm<br>
+            2.标准刀盘,八个刀片槽,含刀柄总长≤90mm<br>
+            3.刀片寿命≥400件/角<br>
+            4.配置刀片刀盘拆卸工具一套</td>
+        <td rowspan="4">同5AF,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀盘</td>
+        <td>KSHR063A08RS45HN06</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀片</td>
+        <td>HNPJ0604ANSNHD KC520M</td>
+        <td>0</td>
+        <td>8</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="4">套车Ø28<br>外倒角</th>
+        <td>铣刀柄</td>
+        <td>SP16/MM6712133<br>Ø28.35/C,Z=2+2,HSK63A</td>
+        <td rowspan="4">
+          1.HSK 63A,含内冷,刀柄参考长度88mm<br>
+          2.套车刀片槽为2个,倒角刀片槽为2个,<br>
+          3.刀片寿命≥700件/角</td>
+        <td rowspan="4">　</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀片(外圆)</td>
+        <td>TCMT16T308LF(KCK20)</td>
+        <td>20</td>
+        <td>2</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>铣刀片(倒角)</td>
+        <td>SPGX060304RHP(KCU25)</td>
+        <td>20</td>
+        <td>2</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="3">中心孔<br>Φ12.4-Φ14.5</th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC16095M</td>
+        <td rowspan="3">
+          1.HSK 63A,液压夹紧,含内冷,刀柄参考长度95mm<br>
+          2.SD16,总长≤100mm,含刀柄总长≤150mm,<br>
+          3.刀具重磨次数≥5次,每次重磨量≥1mm<br>
+          4.新刀寿命≥1000件,重磨后寿命≥800件</td>
+        <td>同5AF,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>钻头</td>
+        <td>SP17/61550213<br>Ø12.5*21.5/Ø14.5*3.5/C,D18</td>
+        <td>同6C4-IN,不单独订购</td>
+        <td>4</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>　</td>
+        <td>0</td>
+        <td>　</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="4">攻丝<br>M14*1.5</th>
+        <td>液压刀柄</td>
+        <td>9046010200630</td>
+        <td rowspan="4">
+          1.HSK 63A,液压,含内冷,刀柄参考长度123mm<br>
+          2.丝锥柄径D11,总长≤110mm,(优选标准品)材质推荐：硬质合金<br>
+          3.需要配置变径套,同步攻丝,含刀柄总长≤190mm<br>
+          4.新刀寿命≥1200件,重磨后寿命≥900件</td>
+        <td>同5AF,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>变径套</td>
+        <td>9046060110200<br>(D26→D11)</td>
+        <td>　</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>丝锥</td>
+        <td>SP18/MM6709598<br>T331MF140X150R6H-D1, D11,L=100</td>
+        <td>　</td>
+        <td>4</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>锁紧螺钉</td>
+        <td>　</td>
+        <td>　</td>
+        <td>0</td>
+        <td>　</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="4">铣键槽(粗)</th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC20150M<br>D20, L150</td>
+        <td rowspan="4">
+          1.HSK  63A,液压夹紧,含内冷,刀柄参考长度150mm<br>
+          2.刀盘夹持直径为D20,总长≤90mm,配合刀盘内径为D6.3,<br>
+          3.铣刀盘刃数≥6刃<br>
+          4.铣刀盘可以重磨,次数≥5次,新新刀盘寿命≥900件,重磨铣刀盘≥700件</td>
+        <td rowspan="4">同6C4-IN,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>刀盘</td>
+        <td>SP19/MM6709948<br>Ø25.3W2.7槽铣刀,D20</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>刀片</td>
+        <td>SP20/MM6709949<br>Ø25.3W2.7,Z=6</td>
+        <td>0</td>
+        <td>6</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <th rowspan="4">铣键槽(精)</th>
+        <td>液压刀柄</td>
+        <td>HSK63AHC20150M<br>D20, L150</td>
+        <td rowspan="4">
+          1.HSK 63A,液压夹紧,含内冷,刀柄参考长度150mm<br>
+          2.刀盘夹持直径为D20,总长≤90mm,配合刀盘内径为D6.3,<br>
+          3.铣刀盘刃数≥6刃<br>
+          4.铣刀盘可以重磨,次数≥5次,新新刀盘寿命≥900件,重磨铣刀盘≥700件</td>
+        <td rowspan="4">同6C4-IN,不单独订购</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>刀盘</td>
+        <td>SP19/MM6709948<br>Ø25.3W2.7槽铣刀,D20</td>
+        <td>0</td>
+        <td>1</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>刀片</td>
+        <td>SP20/MM6709949<br>Ø25.3W2.7,Z=6</td>
+        <td>0</td>
+        <td>6</td>
+    </tr>
+    <tr style="border:solid 1px">
+        <td>内冷管</td>
+        <td>M18X1 HSK63193.160</td>
+        <td>0</td>
+        <td>1</td>
+    </tr> 
+</table>
+
+
+<table>
+<thead>
+<tr>
+<th>6C4-EX毛坯图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414210702199.png" alt="image-20200414210702199"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>6C4-EX加工图</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414210718032.png" alt="image-20200414210718032"></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>工作</category>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pandas筛选排序</title>
+    <url>/2020/04/12/pandas%E7%AD%9B%E9%80%89%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<h3 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h3><h5 id="单条件df-df-col-gt-100"><a href="#单条件df-df-col-gt-100" class="headerlink" title="单条件df[df[col] &gt; 100]"></a>单条件<code>df[df[col] &gt; 100]</code></h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">print(df[df[<span class="string">'语文'</span>] &gt;<span class="number">100</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">姓名   语文  数学   英语</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br><span class="line"><span class="number">7</span>  黄远彤  <span class="number">103</span>  <span class="number">79</span>  <span class="number">115</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="多条件df-df-col-gt-96-amp-df-col-gt-96"><a href="#多条件df-df-col-gt-96-amp-df-col-gt-96" class="headerlink" title="多条件df[(df[col] &gt; 96) &amp; (df[col] &gt; 96)]"></a>多条件<code>df[(df[col] &gt; 96) &amp; (df[col] &gt; 96)]</code></h5><p>两个条件分别用括号包含起来</p>
+<p>&amp;：表示两个条件同时满足</p>
+<p>|：表示两个条件满足其中任意一个</p>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><p>ascending属性 </p>
+<p>ascending=True：升序</p>
+<p>ascending=False：降序</p>
+<p>单列值的大小</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">print(df.sort_values(<span class="string">'语文'</span>))</span><br><span class="line"></span><br><span class="line">姓名   语文  数学   英语</span><br><span class="line"><span class="number">6</span>  符星海   <span class="number">84</span>  <span class="number">86</span>  <span class="number">113</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span></span><br><span class="line"><span class="number">5</span>   王娜   <span class="number">90</span>  <span class="number">76</span>  <span class="number">117</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span></span><br><span class="line"><span class="number">7</span>  黄远彤  <span class="number">103</span>  <span class="number">79</span>  <span class="number">115</span></span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br></pre></td></tr></table></figure>
+
+<p>多列值</p>
+<p>多列的值进行排序时，将各列用[ ]包含，中间用逗号分隔</p>
+<p>各列的排序方式可以单独设定，ascending的值同样用[ ]包含，中间用逗号分隔</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">print(df.sort_values([<span class="string">'语文'</span>, <span class="string">'数学'</span>], ascending=[<span class="literal">True</span>, <span class="literal">False</span>]))</span><br><span class="line"></span><br><span class="line">姓名   语文  数学   英语</span><br><span class="line"><span class="number">6</span>  符星海   <span class="number">84</span>  <span class="number">86</span>  <span class="number">113</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span></span><br><span class="line"><span class="number">5</span>   王娜   <span class="number">90</span>  <span class="number">76</span>  <span class="number">117</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span></span><br><span class="line"><span class="number">7</span>  黄远彤  <span class="number">103</span>  <span class="number">79</span>  <span class="number">115</span></span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4><p><code>df.groupby(col)</code>  返回一个groupby对象以获取一列中的值</p>
+<p><code>df.groupby([col1,col2])</code></p>
+<p><code>df.groupby(col1)[col2]</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">a = df.groupby(<span class="string">'语文'</span>)</span><br><span class="line">b = df.groupby([<span class="string">'语文'</span>, <span class="string">'数学'</span>])</span><br><span class="line">c = df.groupby(<span class="string">'语文'</span>)[<span class="string">'英语'</span>]</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line">&lt;pandas.core.groupby.generic.DataFrameGroupBy object at <span class="number">0x033AFF88</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">a = df.groupby(<span class="string">'语文'</span>)</span><br><span class="line">b = df.groupby([<span class="string">'语文'</span>, <span class="string">'数学'</span>])</span><br><span class="line">c = df.groupby(<span class="string">'语文'</span>)[<span class="string">'英语'</span>]</span><br><span class="line">print(list(a))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>计算机应用</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>轴承座刀柄配置表</title>
     <url>/2020/04/09/%E8%BD%B4%E6%89%BF%E5%BA%A7%E5%88%80%E6%9F%84%E9%85%8D%E7%BD%AE%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="刀柄配置表："><a href="#刀柄配置表：" class="headerlink" title="刀柄配置表："></a>刀柄配置表：</h2><table>
@@ -149,6 +1369,70 @@
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">5</span>)</span><br><span class="line">df.drop(df.columns[<span class="number">3</span>],axis=<span class="number">1</span>,inplace=<span class="literal">True</span>)</span><br><span class="line"> </span><br><span class="line">    姓名   语文  数学</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span></span><br></pre></td></tr></table></figure>
 
+<table>
+<thead>
+<tr>
+<th>用法</th>
+<th>示例</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>删除行</td>
+<td>df.drop([‘index_num1’, ‘index_num2’])</td>
+<td>直接指定索引的行</td>
+</tr>
+<tr>
+<td></td>
+<td>df.drop(df.index[num])</td>
+<td>用index[]指定索引的行</td>
+</tr>
+<tr>
+<td></td>
+<td>df.drop(df.index[[num1,num2]])</td>
+<td>用index[[]]指定多个索引的多行，可以同时删除多行，注意增加的中括号</td>
+</tr>
+<tr>
+<td>删除列</td>
+<td>df.drop(‘column_lable’, axis=1)</td>
+<td>直接输入列名称</td>
+</tr>
+<tr>
+<td></td>
+<td>df.drop([‘col_lable1’,col_lable2], axis=1)</td>
+<td>直接输入多列的名称，注意增加指定轴名axis=1</td>
+</tr>
+<tr>
+<td></td>
+<td>df.drop(df.columns[[1,3]],axis=1)</td>
+<td>用df.columns[[]]输入多列名称</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>df[:3]</td>
+<td>保留前3行</td>
+</tr>
+<tr>
+<td></td>
+<td>df[:-3]</td>
+<td>删除末3行</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.pop()方法</td>
+<td>df1=df.pop(‘col_lable’)</td>
+<td>将所选列从原数据块中弹出，原数据块不再保留该列</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>计算机应用</category>
@@ -841,7 +2125,7 @@
   <entry>
     <title>下缸体面铣加工</title>
     <url>/2020/03/31/DHEC%E4%B8%8B%E7%BC%B8%E4%BD%93%E9%9D%A2%E9%93%A3%E5%8A%A0%E5%B7%A5/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好! 这里需要密码." /><label>您好! 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="df238564ca35a797104c09b0c0558094127e2e0175acaac8ca92003afa472dce">970c1b399827ae04003f87f207b96b3ac1c711052f076c5e368616507bf817160e59f81916c863bed9a6574444e0dd463a089fc9f8bf8bda777c5bc58d4ae43b21329a31a910a642d7105a33551adb9201c3d198682cf8ff9e8a48f08ed407dddd5d58e5776301a8c5897f922df4ad219d648ed6a4fa7d6936c4fc4208e78bb6db1e03d25694ce8b95b4fd54c52b0eff18121edef1b9d7ee25f9454a231388137f0d4a9c4335b22e51caad1aaddcb9f24e9f115a42a712529b9055e81e657f790d52dc0e7782b8127598ded58069313bcae70436c4f1071bd7a2577646a9dec8978a247c48a92b76fee7fee4e3a58ec8ed77b00bbb974d9c9443a060f12ae906e9f0a43c3fb048a5b8cb1ab0ba29fcaf3d8f52b09cfcfdae8cb37f7b62a5f8c9f43ce085c233b4c7b62780fba975acebe59d3940b2382cb6b5bb7c95e4e8fe402228a861e570c1022aa434e406b4f1496628b06e4f13df7a428a1d4c25874e93124b03d91520bb72f1d9041a2645b28b0a1978379d321d02a1d98bb2e1fb006fc8a420bce8babd968992e2b8a596dd00b3fa8c35d2d8b502c79f1bb2677de969d9b9ac1f506dd2ee55ea02439884851da1425a8d4553adf3a47f1837c10362a482989ef04568a5677bce0669b8a60881135df1fc942ab75afe5d2cf1dea4a13548b5a30ce6ff2ab5f23768e207da14d5f6576b921bd301a7c7150d5b011a1e58048686e19fd657966e758d3d59b0d4fe120a09debbd176c908e7119652bbfd399511098b51168f50f1e0a8a7c30f5549e2def270c41ebb4b4918b7bd9c14a253bd6c0e5804655f58572670cc0d483ae6613250ab8cabb53467b4bfc7a0f16fbb68b7da811d22a4a227d10706f579894e225244c89a58b9148f4abcbaae5d4159d5aac9785ba42bf10991d6aa6097a12eeb9a966d43e5f132bef3370f60d485edb88b3c0348f232385d9040c4c56b0ac3609996dad231afb7dec02217d19763fce53c21cf8738533cdd20c6840a33960905167d3ffa4a9ea10db6c2f30efa5825fd9d79861dda6115154324633cfb8c869aac3b98bcacc1b145de6b73b66a1359fe940262d57e3ff1b18b9e41ac7544413ce749b5fcf4d7cc0b16d6eb96292301657ea56a32be549aeb2bfbb7fed1a18e4bd3f5408b3729752fb32a7d21042fa38eba20355acc41d9f95d5b7cc56549bd53dd81effa7beb818cff15ef14d8b369bdee2654ba54695de12344043d7dbfdf6c8312a0b7181b5516280798b1755d8f2a787fcc214c615afb65e9fe8551ced31c3de385f714b783f7a5d57539f52e4cfe4da4b6200d4d8f77e5f0263d017eeddebcb3cd98f91b15496987c94b531e7145203e7399da4978fe4892495911e8839a4e6097f024ad7070d5682a1c5cbe44c08f2bf095ad7398152f1ebdd1b13291466826f273d17f988e971b55451bba82b864611dd7d8672c494c975dc1ea8c7fb8d9d77c15e4bfd8fe1c4a83b3f18554f2959c0890a9078237af7a86ad344842f06e9731108a9ac07c95de9af32385d686c701f01960ac1b244b253c44059db58e07e4dba57274d22a2e77723dba7639fb480dd829d5b0a5f79507d0e1af6b5e6d9271159fe9978e4e751773ae94fbd9290d8d958e65e484925cba5f3b44b77bbf8ca93cdeaa9c16a565f2d49d8755096f853686891a7b8d67aded244bec45dd81bf8b3dea8d170a07c19fc42891cc3bc7e7ad682f7ee5844e3f7c8d7d102c0041c2fe0311e751ea339b3be84e2525a400ddccd2ec0b71b8159a910e9ee1c8032ed93e929b31752ca543a8cb56d587b975041ca828c9aa41d419cd3268f6402c2fcaa4ed2339c170c7f05869cbbd1b398c6a163c0b27f26406b220e5f2b63d9f26a20ac2c0468499f6735309a460ec3eb6945139d2397a7fd17c71d81154aa6a8aed7a8681e97585c3df7d6a2cafc7d42f3c4d2e934b14997b009224a134825d90e051ceb522bac3315897dc00e144e3a9beda9cef76caeebc3216afaa9b55d8727d088ca8ceb96c1ab45271ff1ddff60de863dd6c44c9ad8f48f6d188fc8337d9d62a88754ddac60c63d4488d636a6f6984b0abc6729cba128317994d45a235602af800ca8bfb32469034d7d6c979ee633814e1a94d22ab65d230eefdee64692cf92a837eee52bef5aced00ccf9240bbb2ba7a4cbd14b7a58db46ad64bb97d579274cd9235dfdf3a85f946ace30e6954a9c576087c1334950a5d2537cf3636e34608c17e001b0c5933670ce78e6d5d80e4610e1f4619af4ebf915d13dca7720ab217d6bcc2e665b77e0ed1ea8128f3fa02eb419fe493cf3e5cbd84307a9b7e4f36d792bfa7203427a247ef2707a86fd60f5b70c07f5cd6c50b08e922fdd040d28a29324062e933b5f1eb5de2ef09eaf6f0177b3380f0ee9468e2f306350c31fadac09a4e96f08c164db2cb55f4d059e5c0dea24e4fc462c9f767ebcf7771c9125cc7ff2414b058806b84cd949094b1e7527358325a944fa4422b967c95c161e5ab8018cbc31a13fa24ca5131b11b142a64f7ef673e6d629939c6005d6d8d519af94ee510bf74c8ea21680d5354b4f88a3c55e0351fd1fc3a1e15398667a715d3a939ebb816bab3cf079b26a15556c056bb4aab27f7fc4886011ea6eadbf7b74a142ee9053dec5db501fae3c3d9ca5ee5c4fc6e53a4d88f6ac74abfcd6d702825fe759f8187b5d37c2b5ee4a3fe97d79b7ae7416f579e3563d8e73609097fe719a5fbaaf1c11e1a08a5f6291da5cedd7392bd868b549d2c93848ba1505883968fd89be357233c9d694736ee37f28086325e93dbe5c1b7e6bef9ec096e7ab3e0f20993b357ddb16ed6f18a14af41200c9a548d57894e9cc428b0346fe7130a215699454f43f12d2f18028b6de579dbbd79ff13beaecadd692fcbd0c6f5bbc694b408a7c77d6e89cde56a742a29be19a4f0ab4cb46fb8dd0c73b8354f468a70f5d8ea81afa45d8dca8b3f1653b17fdc9e1b1a939c574d191b9634e1c8b9814b109104e926fc18fae0203b3bbc80a429c1be69722c5e4085626d57a07788ca7845501e85e3a9ef61cd36ea6816f01caf6b224f6dd253ea04e7a7bde2c66f8b6f3e709770d104438b8a9f340cfc85b57c0f22705592f7235880134422295eeefc632ad85c1e095f317ac2e14aa59f6839f9775eae03d59c028c74c9142a2392353e35e608f6082458fc334dcb11001302efae8c671832f834dd3fdc737d4e0db5f2739b1e70b2bd806e52259aa4e8491f091ebad2d1af2fdeb72b5f15722494dd716f40927e9edb3914a7c6e4cd2d29bdf63bfe84038eb659049d962d9753f856bb8cf247caba6363f34693e36b082dcfc797165ec764032ac4e15e54f82c24a95021ce7863a5196fe8c28c8d01a687818807e1dd1eff0617da88d396e7a1ef1ca50764cf419ffcebd1486d544d0fac7aefc7e0e56a5c16b61756613105380f1112d557163d55c70e83fe054038a27fd1582d1a19b95524defc9b872bd2db0770863d7b61e0c466809ba85df1396507e5176e025e73b415f9b014a502482f8818978c939c5fedc00eaab7c98d3ee39aa3de447f066e6b15d3bfe63f9616b1a07f3c4a9ecb7f3c0c05ef656193408090fcbdf52de5c31d0d9949f373965304d3905ab9eca44e17d0b8418a92e13eaca7e9e27a9f324dad5955c2ca52419b51ae01abaabb5cd8e4ff5bf87cbc544ed58c246d343ecb4c4cad957bc95a17a204f1e0c8521ec5c41a7560ba037eada960a1e32f865fd6d6ffe1451b34665da9803c04fc83aa011592adb13f1200e424b852865ac8325c0e90763e0d149adeec02c5bb2703ef4ec7c382cae7d36065192928f4954060aaacad05017bf6dbccbe66868447cc0588247ff240cd72ca35c66c418613177d292da03af816fbaaa1c782e3b61c92047e3b4c000aaafd624bc7c014524f9d482c64ed168bd43b61aa1d6331fa96d7bed4be40797a65001ea7157fea66d06d3153b363050f735d201f8b9f8159d6440e018dd0f879cb196e71cbaef43ae70f22663a61878e2745c3c83ee6f0df57a654387b9a7a3a84c9463d28377336c1a2b7feeace5cfda898c9f9a292662b311ada7e3452d5b752e692b1ef3207846e93357df42e265bee605cebcdb7f623bf7e617b6f700452bd57c1250f8fac7529e667a19b15fdcc339d3d05bbbbfac7f69914f33383e90596a0fae7eada8360060c839f09547989c5b43154a4c45f83a54837906862fbbbbbe546e55497c6973205378911897dd2a2947624cc0cc9a304d534b5ac1b448e10f8ebc12254910287a6013126bae4e0a556a88e9b5fde63d36771666ff25d8dc68f53cfbce86dc115546e398fb6ec0358171ca8341881c7d40e61311cf1d7920241c0facbde457427c8652ae97e4e4b6ccaaf8e94f526093e5be88da3a8e3ba94767a9498d4c2bfc06ae4bfed5fe3eac3717cb23847874b48487afacd8c3b97557053e3e53499f9fee3ab91527a00ff2da9b44d07cd31b319a9ac9e9c8196da14c218df2ee36423dfabfdd85da07911a0f0fc73e5406a80c8e9cc3673d3894a6709a489657b58273c60b40d9db7764925072c801e05396d5b7a2683011a531ed5243f7877a3de43728e4122dd7ef5db6ea9f780e9b747a754c591c7f60227cfbe60ee77869613d8f5e49649821533d916684d670ae065a7d1cace9d730c553820a3f9c22cf74bfd55372dbcf48c7ca8a06754de84e0b8ce870ed16d0dc8f261628969e6853ee59f4f16b655e310782d7d2fd844ba8f9f0135e0a164b23e105856d26406b7343c382cf4aa85ef2dbae3d47e23c5678aa0a2137e3956e899032d62cb24002d0d8e7d653b4e759d7b19ebee7ed7f30e1324d13887e6049df7718f20bc0950a7782645f17c09189387fa81aa1e4201033bafef41358a0af72c509ed4d94dd14661bbf83414d8d39b6f9c8d85577f475018f686b2ad3054cf04894e3b56029961a1180519436df6876be15742e3c762b014f394c1d28762c0b5bfb13e34a38a270c785f28ca7dde86554f78345670384fe6430f16c377a0aa20f6c428d1c4a94d12915ec176452ca4d06c96c256619f7da9e94cabdaae8daab2d0c23ee3f2a08f3bdbc4d303fc033a69e3c09498e9ede5918eb3e5c29e01c9fa46e3c03cbb1977482ed9ce59a26690459c895b315aad87d7a263a263e56f326877e639b50b21096d52154de4d02fd025371cb33ac9a45bf6e58f0559860dd95949fc157956490d03a273b71b74c988bfb403b112684e65a97d7f2d375d49b8e21d51ebf4fcfeb21ae46f02e4702ef82d8e5d48b503cac6028771b6c25ba4b43c7644425e4a0adcaec290190</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="您好! 这里需要密码." /><label>您好! 这里需要密码.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="de4000d9e984942daf7005cb0faa10d1a80550c0b9a21efed2982fd43886830c">970c1b399827ae04003f87f207b96b3ac1c711052f076c5e368616507bf817160e59f81916c863bed9a6574444e0dd463a089fc9f8bf8bda777c5bc58d4ae43b21329a31a910a642d7105a33551adb9201c3d198682cf8ff9e8a48f08ed407dddd5d58e5776301a8c5897f922df4ad219d648ed6a4fa7d6936c4fc4208e78bb6db1e03d25694ce8b95b4fd54c52b0eff18121edef1b9d7ee25f9454a231388137f0d4a9c4335b22e51caad1aaddcb9f24e9f115a42a712529b9055e81e657f79b00cdb744566bc743ecbc6e95e50f60d31df6af27a9f348c5d1bb8d0196fd651e6659c0d9a63ced4bd3d3caa14547cc17ec0569e1418a95a78595e6872598b5681e4131e42bbacd4bbcc1416b52dbae5c6dc7bb70e9703a333ffd859efb1c895f95ec4624a1179fb219cd21074a5f58d21819c08b3694b12e949071684832943fb14753fa3370dec75ff6907ba1093809cf248be63d95d4ecd3d74d86b0a8dc3075036460d03e23a3ecb8d6b040a8b2e27b70ed335d0b66ffb45965a33aaec1ed0743629fa047ae2810930aaa70e7123329d5f95ed8c411f3cf05d8b9adb2545fff6658a036b751a9624b2ec0cab8a110f47f32094b45f96030058d05fd355c7fe211638362a8f076c3b1d1332b73ea53158de1e92426cc49d4e752ace4d6558fab5915177e539b0a505b8303d751714c8e378a7ebf166dec446f11803a8df2e67e97e067b44f36dfd4fc5adfcbe8fd2233611394e2946f68b3e6ed30c8229db4ecc3ccd7e9288681ee4017afb05e35c250cb54f696ca5647b4810ab53f3be20db855cac04ea041b3151d90964beafb1db067c0ab455612d3e77abc48a643a50709de023c3b0895c257b586c1ccf50748f02ccb9b003cfff8953ccf838efc1b66fc3040ab85d9dd3da964c5c699b16a2b906064e1c8327900382cdf3a190be39a0b64389fc13f9ad5fe9edfeb1bc27d35e2a694f48db6194fdddc6cdffeeb720d8eda47a1478d267e2be6455e41a5d9596eaaa7e3ebd580b5b1a5c7e7e7e3371ad501afbb6359f63369e3365cb11ac32cd7fc18af447f8ad3e8c8e37a51cbcf0b8651aa497263519c0e6bc5d68a4bc343b09257f5de48cf9be9303be5140f8914df326f98847ad833cc2c4b036b2225ee3f3deaa8fa663433a482649a8c31beeba353a6ed82f28468f48bd581575198312722635e9fe5db958c211b58f4251f3d9d7a27b66c6a63efdc23e748ea1887f76897946074ebe359fbc87ed1c09ec2000fc1fa07e24800cc40e5ccf90979c8ed2eef66c057fbb71dfa2926b8506658d1ff6cb7097d27447a238d13dee21f2468237ac943754a03c20a3a6b2d67a7dfacd19823ab19196a86316f6e0b647eba03c304696db2f580c63edd38f9fe4f77bd9c3e155b5e2db437ec2158befd2f18a2eef08700df9bc76d106f0427e77fcd119746318493ac135190dbdedcadbaf0066e39c4a3e025d681eb103ff3a97aa867d80df41b07a6c2b9dccc6267b1f76312debe835e15a5bd3f9a6ba32bb9f88fb1afc195416d7dad525d69ef8352dad1f50ea690c7e19c6a4fea135d4ae4e0ed2299e5fcb8d677e66842a8ac22007b36951d1120eb73997422c05e07116d387243fc66f0fe587174c4a32a396d53b8c7ee0f01178f0ee68c0913d6dd786d6f79be089af0b8cbe5b1c9654a1bd16125023f12fa028209ebb58188ce5789e5983786df0083fa17e18f00514a5ff103cc7ec9e576017163161ed3026310045922ea459381132ce740204937b0e874465d02594ed243a0b946dc1bd1f0ee663584fd3d044dea645ed81af101dbf6ba9f0bc95bf5b58e42257eb6e012bf3d8bfd6a1e30e39b1dc97bdc50568c313e0e4c2229a7780479c5360187e0d27952b2ca20c0a938b15bd54f6bffb5854e8e19e7b219d21129791fcc1e660c9bd61e29ce3ba9793cefafa86fe1d21c532b9cc3b2c3b5647569427fa53fb978bb87eac9eada274f8ab5d41d123f82b38dc0929cd2f81c9f96d120df86a3c6dc71e1ac9d33e09187d82952b68da3128e9b757d78d46b2d84f1bdd5dc3aba63b502421025a1d31c7a60454d472d077a7645af869f7571d4de09fdc5ed2e035bd85e5409f97257af1a858b01001e3c949c608bf507dfc22b6fe59b22021c0588d4474f863cace4e93fde426fa54ab329d44c106b155f0b551ccfd160f3c733819eb09b23302760ed044278563d199eaf417f8be703c2f6afad0fbdd4acfa2549fef70adf5e39e4d7830ae46a6880eab84978f13b81e1ae604bd950d7b4508a37c1ef86da05b956dc36e074e433875fb53671aac321993c41caa5e0afdb5b70502bb4a9ac0b6ccdf547b80af6e1033ceaf9baf334d6aa3bede36b9a83e51fd102bdcf0036c82e4357f1279f55d95fbc1ef0b8533aa5c17727272acb9692c5493260d86657c2d3adab8c4c1c7ec07c880125584b868f4197a8da685ed4678cebea8c63c6e7fd5741c6a3f81196b56257b405bb5e7ceafea5e773bbaa99158dde396439d077eaa192d87a223dd716552d40321d9c03ebbdf5e7af9f4ea3b0a76c5762f1ebe3636dc3beeafee87df34d8e740d0b52b11de9c9bb9ca4a2e21ca9a9b712b58f5d27952b0573a465bf2067af0cb925ffe2071c8e85fadd1b7f18e544c3fd587f7f1eba99764de42cff2fc7baa811b8e1c06018925ba9824bd9023235f41def4bf77260893e12dbe8147e0e558a0bb109bd286f3f1b0245ea7a2823e48a36450a41e20c947560cdda7a11c9345cbeee71264548b35d6d19b30b268e8d8a440a271ea5e14aa5b17a2815f05558fea3ae71889e7c9fc23e315def0f7680e6bfd79cdd894910f40e7515182b2db6edcbf2ccecda6f2d0d203be15721b4f5c45c3bc74fc73e3faa4435c66bdd9828025e8b9c6bcb4e138aef7e6d9f914ee17574fc482a877026945eeec4f8314239127893ec83c20c2c3e82840d80cfc528d733671aa1875c4c0001865721084fd256f3e7266731b860aac1e769573e1c6b3e79727b35c584a36f8bd4ef3762f588a2c7f88f9965063af326eed1f23070ab4003237fc19e1a5d4078454f37900ea846338ef498eafc8ce702de7a14f2d70b23a800aa5e87bd2f3087888c17927df8f36c3902a47fef0e097cca9fabc95c1826172dae52f8d59182042036534f612f89abc21afb480f71a2af58a9ce27bf4dd4a00ed2f374c657e470e5c514c63f2596e34d19b79c48a0f02d3870029a43f9e830e53a7b0978db9ace55811f559982e990edea73e2e31b7888cf26892f2c200c562224501f493b926f5f4f2350c08ba215200ef49bc90438b098babd23972843d7edaf59d95efcaf81f4a6c8ee4227e2e02e4488eb495744099f2bcc76f3a85b8efa286a16b75dde09a6b1fa40a6d8ec928433fbfb2a66624a34a00a42d59aec643772ebdeaeb2f4420927c7035c7c435298c70e2097387dab8e84e329bf743935b92cfba664d4e43a767e44a3eb4af6dc4441d6a6fe6a1f1694641cc1b29d5583244130520039c00ae10549832911be6e434eb9abbcf47dd6d16c88f31d81add191da79325a6a14c5d24447cde7d0934a2337bacceee8333a1eff9e73be1ad589b697df6b259e0345ea14a77bee81dfbcadb9c621043279209a773bcbee7adeb7a03256040d09aa48832a74d6c6ea59737a5bb847c78e87c23d6df91af9d107ad16234b4c1bf25c242d4dccadf615bbb5991a1748634c1c106d89b936d857c8f320bfa298ae8f5e00f3eeca253b5ba7f1c607183f7f5dfe9c9812aafe030b504d2d11c8ec36c120ac2c2dc431e982e7fa3549d6fcfe1376bf8d5068ff8f9e6408ec3e65685afcc4209a18d69d8df0a478d134c6410c4a8782b09741f74fcabf2fcc231c10bf48ac0d0c465768f789bd42eedb633e4bb84d3f5ac46e5414911c71d0cc60219d8c2964b496421390133a5d862d3670d2f8e67608911372ce42e20b3f7a24a8711bfd8f5034e21d5e2fed045399831afc2f42214a61056ae4c20c7d3c08a68c0d9837915fa0a35ce212d0ad5cf68e696934dac18618ecd4433967f0a9c16ef2f3572b798cf8d73623f32e41e3dd3c13d513ca9e2a1eb2c89593452a1b927eb0d61db8cc0352ad54887c19eb8321c7feafdfbd422bfdc5100090943e5964a1975f0c25bb0b41ac1827a31083f0d170c19cc8d010846bf6e029aa848811ef4264ce293d7f43b2d3ba3dfe1ccde232bcd5d57cbd943d0e1fcc1f07bd50d745449e3498d9fff16fba45d3dc02c214a9ea84b7e309523a77292e140f66b999576e9b14b864c72ae3c4f0e99de72e502d35dab4675243b84d7be3aa19536312d3cd1f846bd09ab03691aaf73845564c90ba06c782a9a6468bde8eac294430b3ac9cd12911a392bd9d2bd40d1aab2a6d7e97afdc83cad92ceab6d91cbb469bb76c1a8e09b9158238d3f53810e25f3669d5458734f378419862c7eefe0d51f2e3fd586a4c089dbf71ebdb7b1b793429007614e604fcedfc0178f0073be951751e5fe52d87746e66a959ba9471fe2e4f425eb3f4ce01cb7b5c59229c08d65414a752153fde5d0a3f0bbc369c2e8a3da5fbfefb4bcb3cf8ae59c3bb35ddeb3f717cc9b4f2c8126d76abef214fc89c6a5a1e91f4fa217ffc7df6dc88a9a30abd1f9b995d61fdce803f2cca1a82ff5c8aa3473b7396f1ba2eb7b7dab645cef866fda500b533c460c663bd7f72bed7e96b9db41ba2a69f6a5e6c179296b108f95a8d77e25e921554969298f115523db805eecb01c7816e5a5b9f9ef59050ee99ef117115cea546e806d714c235e7814d7d24196b81d2d9952da1b1c6303532f1551af87566ff09d4dd89f4a58a4954a5d31492c6bf2a51a10617fd868467a08751f996c72fdcc8eccea667af5505d485278ea32ede203d1eb506417543966f989643fe52a7b5f50ae65b760c730314910018f70f58c3a30d8e1f9c8ff5cb022d2df3f6ce9a8ea700169e7b106a57ffe71d58790f66b727ccd740af8a894e6c620d9cd6cc8f1aadfd3a3ac6d077e3b0b829a794df4d25f667ea9</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>工作</category>
         <category>日志</category>
