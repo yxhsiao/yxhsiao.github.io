@@ -1,6 +1,3668 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>实例_中国大学分析</title>
+    <url>/2020/05/01/%E5%AE%9E%E4%BE%8B_%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h1 id="实例：中国大学数据分析"><a href="#实例：中国大学数据分析" class="headerlink" title="实例：中国大学数据分析"></a>实例：中国大学数据分析</h1><h2 id="本部分按照大学2019年招收生源质量的评分"><a href="#本部分按照大学2019年招收生源质量的评分" class="headerlink" title="本部分按照大学2019年招收生源质量的评分"></a>本部分按照大学2019年招收生源质量的评分</h2><ul>
+<li><strong>生源质量即招收新生的高考分数指标</strong></li>
+</ul>
+<h3 id="从网页提取原始数据"><a href="#从网页提取原始数据" class="headerlink" title="从网页提取原始数据"></a>从网页提取原始数据</h3><ul>
+<li><strong>数据来源于  软科中国最好大学网</strong></li>
+<li><strong>将网页数据获取后存入到桌面的EXCEL文件 “大学列表_生源.xlsx”</strong></li>
+<li>使用pandas模块</li>
+<li>ExcelWriter()函数</li>
+<li>.to_excel()函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># url="http://www.zuihaodaxue.cn/shengyuanzhiliangpaiming2019.html"</span></span><br><span class="line"><span class="comment"># url1="https://www.dxsbb.com/news/1591.html"</span></span><br><span class="line"><span class="comment"># url2="https://www.dxsbb.com/news/2799.html"</span></span><br><span class="line"><span class="comment"># import pandas as pd</span></span><br><span class="line"><span class="comment"># df=pd.read_html(url,index_col=0)[0]</span></span><br><span class="line"><span class="comment"># df_985=pd.read_html(url1,index_col=0,header=0)[1]</span></span><br><span class="line"><span class="comment"># df_211=pd.read_html(url2,index_col=0,header=0)[1]</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># file_path=r"C:\Users\yxhsi\Desktop\大学列表_生源.xlsx"</span></span><br><span class="line"><span class="comment"># writer=pd.ExcelWriter(file_path,engine="xlsxwriter")</span></span><br><span class="line"><span class="comment"># df.to_excel(writer,"生源质量")</span></span><br><span class="line"><span class="comment"># df_985.to_excel(writer,"985")</span></span><br><span class="line"><span class="comment"># df_211.to_excel(writer,"211")</span></span><br><span class="line"><span class="comment"># writer.save()</span></span><br></pre></td></tr></table></figure>
+
+<hr>  
+
+<h2 id="从存贮好的数据源中读入数据"><a href="#从存贮好的数据源中读入数据" class="headerlink" title="从存贮好的数据源中读入数据"></a>从存贮好的数据源中读入数据</h2><ul>
+<li>避免每次执行代码时从网页爬取数据，浪费流量占用网站带宽资源</li>
+<li>加快响应速度</li>
+<li>注释掉前部分的代码,后续运行避免重复运行。<br>  
+### 读取桌面EXCEL文件,为数据整理分析作准备</li>
+<li>pandas模块</li>
+<li>read_excel()函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">file_path=<span class="string">r"C:\Users\yxhsi\Desktop\大学列表_生源.xlsx"</span></span><br><span class="line">df=pd.read_excel(file_path,index_col=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="读取excel文件并赋值给变量df后，查看这个DataFrame的信息"><a href="#读取excel文件并赋值给变量df后，查看这个DataFrame的信息" class="headerlink" title="读取excel文件并赋值给变量df后，查看这个DataFrame的信息"></a>读取excel文件并赋值给变量df后，查看这个DataFrame的信息</h3><ul>
+<li>查看头部信息，可以看到行列的索引信息，行索引为排名，列名有“学校名称、省市…”  </li>
+<li>查看数据表的大小，有多少行列  </li>
+<li>查看数据格式  <br>  </li>
+</ul>
+<p><strong>查看数据表的头5行</strong></p>
+<ul>
+<li>.head()函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>1</th>
+  <td>清华大学</td>
+  <td>北京</td>
+  <td>100.0</td>
+  <td>1</td>
+</tr>
+<tr>
+  <th>2</th>
+  <td>北京大学</td>
+  <td>北京</td>
+  <td>95.2</td>
+  <td>2</td>
+</tr>
+<tr>
+  <th>3</th>
+  <td>中国科学院大学</td>
+  <td>北京</td>
+  <td>93.8</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>4</th>
+  <td>复旦大学</td>
+  <td>上海</td>
+  <td>91.6</td>
+  <td>5</td>
+</tr>
+<tr>
+  <th>5</th>
+  <td>上海交通大学</td>
+  <td>上海</td>
+  <td>91.1</td>
+  <td>4</td>
+</tr>
+  </tbody>
+</table>
+
+
+<p><strong>查看数据表的维度</strong>  </p>
+<ul>
+<li>.shape 查看行列统计数</li>
+<li>.也可以用 .info()函数查看表格的信息概览</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.shape</span><br></pre></td></tr></table></figure>
+
+
+<p>(1003, 4)</p>
+<p><strong>info函数看到</strong></p>
+<ul>
+<li>总共1003行4列数据</li>
+<li>学校名称和所属省市都有完整信息，但是综合排名列中有空值</li>
+<li>618行是非空的，没有综合排名的学校有385</li>
+<li>高考成绩得分列的数据格式是浮点数，其余列的数据格式都是对象</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.info()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span><br><span class="line">Int64Index: 1003 entries, 1 to 1000</span><br><span class="line">Data columns (total 4 columns):</span><br><span class="line"> #ColumnNon-Null Count  Dtype</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0学校名称  1003 non-nullobject </span><br><span class="line">1省市1003 non-nullobject </span><br><span class="line">2新生高考成绩得分  1003 non-nullfloat64</span><br><span class="line">3综合排名  618 non-nullobject </span><br><span class="line">dtypes: float64(1), object(3)</span><br><span class="line">memory usage: 27.4+ KB</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><strong>查看表格内各列数据的格式</strong></p>
+<ul>
+<li>.dtypes函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.dtypes</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">学校名称 object</span><br><span class="line">省市object</span><br><span class="line">新生高考成绩得分float64</span><br><span class="line">综合排名 object</span><br><span class="line">dtype: object</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p><strong>发现的问题：</strong>  </p>
+<ol>
+<li>通过以上函数查看后，综合排名列的数据格式为什么不是整型？ </li>
+<li>综合排名列有385个空值，具体是哪些？<br>  </li>
+</ol>
+<ul>
+<li>先看看有那些是空值</li>
+<li>用 isnull()函数</li>
+<li>得到的数据为函数判断结果为True的列表数据</li>
+<li>从列出的数据中大概可以看出：</li>
+<li>特殊类大学 如：中国科学院大学和中国社会科学院大学等</li>
+<li>二类本科等</li>
+</ul>
+<ol>
+<li>未参加综合排名的学校</li>
+</ol>
+<ul>
+<li>共385所学校</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df[<span class="string">"综合排名"</span>].isnull()]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>3</th>
+  <td>中国科学院大学</td>
+  <td>北京</td>
+  <td>93.8</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>19</th>
+  <td>中国社会科学院大学</td>
+  <td>北京</td>
+  <td>80.9</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>27</th>
+  <td>外交学院</td>
+  <td>北京</td>
+  <td>79.0</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>28</th>
+  <td>香港中文大学（深圳）</td>
+  <td>广东</td>
+  <td>78.1</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>30</th>
+  <td>上海科技大学</td>
+  <td>上海</td>
+  <td>77.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>...</th>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+</tr>
+<tr>
+  <th>997</th>
+  <td>遵义医学院医学与科技学院</td>
+  <td>贵州</td>
+  <td>11.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>昆明医科大学海源学院</td>
+  <td>云南</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>六盘水师范学院</td>
+  <td>贵州</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>四川外国语大学重庆南方翻译学院</td>
+  <td>重庆</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>武汉生物工程学院</td>
+  <td>湖北</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+  </tbody>
+</table>
+<p>385 rows × 4 columns</p>
+
+
+
+<ol start="2">
+<li>未参加综合排名的学校且排名在倒数50内的 </li>
+</ol>
+<ul>
+<li>可以看出普遍录取的学生成绩评分低于13</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df[<span class="string">"综合排名"</span>].isnull()][<span class="number">-50</span>:]</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>951</th>
+  <td>景德镇学院</td>
+  <td>江西</td>
+  <td>12.8</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>951</th>
+  <td>辽宁对外经贸学院</td>
+  <td>辽宁</td>
+  <td>12.8</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>955</th>
+  <td>大连科技学院</td>
+  <td>辽宁</td>
+  <td>12.7</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>955</th>
+  <td>中南林业科技大学涉外学院</td>
+  <td>湖南</td>
+  <td>12.7</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>957</th>
+  <td>大连东软信息学院</td>
+  <td>辽宁</td>
+  <td>12.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>957</th>
+  <td>兰州财经大学长青学院</td>
+  <td>甘肃</td>
+  <td>12.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>957</th>
+  <td>内蒙古大学创业学院</td>
+  <td>内蒙古</td>
+  <td>12.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>957</th>
+  <td>郑州工业应用技术学院</td>
+  <td>河南</td>
+  <td>12.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>961</th>
+  <td>山东农业工程学院</td>
+  <td>山东</td>
+  <td>12.5</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>961</th>
+  <td>温州大学瓯江学院</td>
+  <td>浙江</td>
+  <td>12.5</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>963</th>
+  <td>菏泽学院</td>
+  <td>山东</td>
+  <td>12.4</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>963</th>
+  <td>陕西国际商贸学院</td>
+  <td>陕西</td>
+  <td>12.4</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>963</th>
+  <td>云南艺术学院</td>
+  <td>云南</td>
+  <td>12.4</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>966</th>
+  <td>广州大学松田学院</td>
+  <td>广东</td>
+  <td>12.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>966</th>
+  <td>哈尔滨信息工程学院</td>
+  <td>黑龙江</td>
+  <td>12.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>966</th>
+  <td>凯里学院</td>
+  <td>贵州</td>
+  <td>12.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>966</th>
+  <td>萍乡学院</td>
+  <td>江西</td>
+  <td>12.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>970</th>
+  <td>常州大学怀德学院</td>
+  <td>江苏</td>
+  <td>12.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>970</th>
+  <td>大连艺术学院</td>
+  <td>辽宁</td>
+  <td>12.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>970</th>
+  <td>哈尔滨华德学院</td>
+  <td>黑龙江</td>
+  <td>12.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>973</th>
+  <td>湖北工业大学工程技术学院</td>
+  <td>湖北</td>
+  <td>12.1</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>974</th>
+  <td>长春科技学院</td>
+  <td>吉林</td>
+  <td>12.0</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>974</th>
+  <td>吉林建筑大学城建学院</td>
+  <td>吉林</td>
+  <td>12.0</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>974</th>
+  <td>郑州工商学院</td>
+  <td>河南</td>
+  <td>12.0</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>977</th>
+  <td>贵州工程应用技术学院</td>
+  <td>贵州</td>
+  <td>11.9</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>977</th>
+  <td>青岛农业大学海都学院</td>
+  <td>山东</td>
+  <td>11.9</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>977</th>
+  <td>四川工商学院</td>
+  <td>四川</td>
+  <td>11.9</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>980</th>
+  <td>兰州交通大学博文学院</td>
+  <td>甘肃</td>
+  <td>11.8</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>980</th>
+  <td>沈阳城市学院</td>
+  <td>辽宁</td>
+  <td>11.8</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>980</th>
+  <td>四川电影电视学院</td>
+  <td>四川</td>
+  <td>11.8</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>984</th>
+  <td>安顺学院</td>
+  <td>贵州</td>
+  <td>11.7</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>984</th>
+  <td>长春工业大学人文信息学院</td>
+  <td>吉林</td>
+  <td>11.7</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>984</th>
+  <td>琼台师范学院</td>
+  <td>海南</td>
+  <td>11.7</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>984</th>
+  <td>山东财经大学燕山学院</td>
+  <td>山东</td>
+  <td>11.7</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>988</th>
+  <td>成都理工大学工程技术学院</td>
+  <td>四川</td>
+  <td>11.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>988</th>
+  <td>湖南理工学院南湖学院</td>
+  <td>湖南</td>
+  <td>11.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>988</th>
+  <td>南华大学船山学院</td>
+  <td>湖南</td>
+  <td>11.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>988</th>
+  <td>上海师范大学天华学院</td>
+  <td>上海</td>
+  <td>11.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>988</th>
+  <td>西安交通工程学院</td>
+  <td>陕西</td>
+  <td>11.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>993</th>
+  <td>太原理工大学现代科技学院</td>
+  <td>山西</td>
+  <td>11.5</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>993</th>
+  <td>浙江海洋大学东海科学技术学院</td>
+  <td>浙江</td>
+  <td>11.5</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>995</th>
+  <td>天津商业大学宝德学院</td>
+  <td>天津</td>
+  <td>11.4</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>995</th>
+  <td>西安思源学院</td>
+  <td>陕西</td>
+  <td>11.4</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>997</th>
+  <td>湖北商贸学院</td>
+  <td>湖北</td>
+  <td>11.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>997</th>
+  <td>嘉兴学院南湖学院</td>
+  <td>浙江</td>
+  <td>11.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>997</th>
+  <td>遵义医学院医学与科技学院</td>
+  <td>贵州</td>
+  <td>11.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>昆明医科大学海源学院</td>
+  <td>云南</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>六盘水师范学院</td>
+  <td>贵州</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>四川外国语大学重庆南方翻译学院</td>
+  <td>重庆</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>武汉生物工程学院</td>
+  <td>湖北</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+  </tbody>
+</table>
+
+
+
+
+<ol start="3">
+<li>为参加综合排名，但在150之前的（较385的总数而言）</li>
+</ol>
+<ul>
+<li>学生录取分数评分大于21</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[df[<span class="string">"综合排名"</span>].isnull()][<span class="number">80</span>:<span class="number">150</span>]</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>605</th>
+  <td>河北环境工程学院</td>
+  <td>河北</td>
+  <td>27.4</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>607</th>
+  <td>泰州学院</td>
+  <td>江苏</td>
+  <td>27.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>609</th>
+  <td>西北工业大学明德学院</td>
+  <td>陕西</td>
+  <td>27.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>612</th>
+  <td>吉林农业科技学院</td>
+  <td>吉林</td>
+  <td>27.1</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>612</th>
+  <td>上海健康医学院</td>
+  <td>上海</td>
+  <td>27.1</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>...</th>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+</tr>
+<tr>
+  <th>721</th>
+  <td>西北师范大学知行学院</td>
+  <td>甘肃</td>
+  <td>22.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>727</th>
+  <td>汉江师范学院</td>
+  <td>湖北</td>
+  <td>22.1</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>727</th>
+  <td>杭州医学院</td>
+  <td>浙江</td>
+  <td>22.1</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>729</th>
+  <td>南京理工大学紫金学院</td>
+  <td>江苏</td>
+  <td>22.0</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>730</th>
+  <td>集宁师范学院</td>
+  <td>内蒙古</td>
+  <td>21.9</td>
+  <td>NaN</td>
+</tr>
+  </tbody>
+</table>
+<p>70 rows × 4 columns</p>
+
+
+
+
+<p><strong>根据以上分析，可以对数据进行新的筛选了</strong>  </p>
+<ul>
+<li>未参加综合排名，且生源排名大于700的先排除掉</li>
+<li>设置条件进行筛选</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[(df.index&gt;<span class="number">600</span>) &amp; df[<span class="string">"综合排名"</span>].isnull() ]</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>602</th>
+  <td>河北大学工商学院</td>
+  <td>河北</td>
+  <td>27.6</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>603</th>
+  <td>广州体育学院</td>
+  <td>广东</td>
+  <td>27.5</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>603</th>
+  <td>南京特殊教育师范学院</td>
+  <td>江苏</td>
+  <td>27.5</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>605</th>
+  <td>河北环境工程学院</td>
+  <td>河北</td>
+  <td>27.4</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>607</th>
+  <td>泰州学院</td>
+  <td>江苏</td>
+  <td>27.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>...</th>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+  <td>...</td>
+</tr>
+<tr>
+  <th>997</th>
+  <td>遵义医学院医学与科技学院</td>
+  <td>贵州</td>
+  <td>11.3</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>昆明医科大学海源学院</td>
+  <td>云南</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>六盘水师范学院</td>
+  <td>贵州</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>四川外国语大学重庆南方翻译学院</td>
+  <td>重庆</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>1000</th>
+  <td>武汉生物工程学院</td>
+  <td>湖北</td>
+  <td>11.2</td>
+  <td>NaN</td>
+</tr>
+  </tbody>
+</table>
+<p>308 rows × 4 columns</p>
+
+
+
+
+<p><strong>按条件筛选后的数据有308</strong>  </p>
+<ul>
+<li>将这部分数据赋值给一个新的变量df_lower</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_lower=df[(df.index&gt;<span class="number">600</span>) &amp; df[<span class="string">"综合排名"</span>].isnull() ]</span><br></pre></td></tr></table></figure>
+
+<p><strong>将这部分数据从数据中删除掉</strong>  </p>
+<p><strong><em>思路：</em></strong> </p>
+<ul>
+<li>将这部分数据添加到原数据中，那么这部分数据就有重复值了</li>
+<li>然后删除重复数据就相当于删除掉了这部分数据。</li>
+<li>drop_duplicates(subset=[“学校名称”],keep=False)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df0=df.append(df_lower)</span><br><span class="line">df0.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1311, 4)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ul>
+<li>得出上面的表格可以看出有308个重复项。</li>
+<li>1003+308=1311</li>
+<li>下面将删除所有的重复项，用keep=False参数，不保留重复的数据</li>
+<li>1003-308=695</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df1=df0.drop_duplicates(subset=[<span class="string">"学校名称"</span>],keep=<span class="literal">False</span>)</span><br><span class="line">df1.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(695, 4)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>上面去除了未参加综合排名且生源排名大于600的学校</li>
+<li>现在继续排除学院类的学校。此类包含“学院”的大学</li>
+<li>二类本科 </li>
+<li>医学类</li>
+<li>科学院大学</li>
+<li>关系学院</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df2=df1[df1[<span class="string">"学校名称"</span>].str.contains(<span class="string">"学院"</span>)]</span><br><span class="line">df3=df1.append(df2)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df4=df3.drop_duplicates(subset=[<span class="string">"学校名称"</span>],keep=<span class="literal">False</span>)</span><br><span class="line">df4.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(423, 4)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df4[:<span class="number">50</span>]</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>1</th>
+  <td>清华大学</td>
+  <td>北京</td>
+  <td>100.0</td>
+  <td>1</td>
+</tr>
+<tr>
+  <th>2</th>
+  <td>北京大学</td>
+  <td>北京</td>
+  <td>95.2</td>
+  <td>2</td>
+</tr>
+<tr>
+  <th>4</th>
+  <td>复旦大学</td>
+  <td>上海</td>
+  <td>91.6</td>
+  <td>5</td>
+</tr>
+<tr>
+  <th>5</th>
+  <td>上海交通大学</td>
+  <td>上海</td>
+  <td>91.1</td>
+  <td>4</td>
+</tr>
+<tr>
+  <th>5</th>
+  <td>中国科学技术大学</td>
+  <td>安徽</td>
+  <td>91.1</td>
+  <td>6</td>
+</tr>
+<tr>
+  <th>7</th>
+  <td>中国人民大学</td>
+  <td>北京</td>
+  <td>87.8</td>
+  <td>31</td>
+</tr>
+<tr>
+  <th>8</th>
+  <td>北京航空航天大学</td>
+  <td>北京</td>
+  <td>86.9</td>
+  <td>11</td>
+</tr>
+<tr>
+  <th>9</th>
+  <td>南京大学</td>
+  <td>江苏</td>
+  <td>86.2</td>
+  <td>7</td>
+</tr>
+<tr>
+  <th>10</th>
+  <td>上海财经大学</td>
+  <td>上海</td>
+  <td>85.3</td>
+  <td>42</td>
+</tr>
+<tr>
+  <th>11</th>
+  <td>同济大学</td>
+  <td>上海</td>
+  <td>85.2</td>
+  <td>13</td>
+</tr>
+<tr>
+  <th>12</th>
+  <td>浙江大学</td>
+  <td>浙江</td>
+  <td>84.2</td>
+  <td>3</td>
+</tr>
+<tr>
+  <th>13</th>
+  <td>南开大学</td>
+  <td>天津</td>
+  <td>83.9</td>
+  <td>18</td>
+</tr>
+<tr>
+  <th>14</th>
+  <td>中央财经大学</td>
+  <td>北京</td>
+  <td>82.9</td>
+  <td>49</td>
+</tr>
+<tr>
+  <th>15</th>
+  <td>北京师范大学</td>
+  <td>北京</td>
+  <td>82.7</td>
+  <td>22</td>
+</tr>
+<tr>
+  <th>16</th>
+  <td>武汉大学</td>
+  <td>湖北</td>
+  <td>82.4</td>
+  <td>12</td>
+</tr>
+<tr>
+  <th>17</th>
+  <td>西安交通大学</td>
+  <td>陕西</td>
+  <td>82.0</td>
+  <td>14</td>
+</tr>
+<tr>
+  <th>18</th>
+  <td>对外经济贸易大学</td>
+  <td>北京</td>
+  <td>81.9</td>
+  <td>34</td>
+</tr>
+<tr>
+  <th>20</th>
+  <td>华中科技大学</td>
+  <td>湖北</td>
+  <td>80.1</td>
+  <td>7</td>
+</tr>
+<tr>
+  <th>20</th>
+  <td>天津大学</td>
+  <td>天津</td>
+  <td>80.1</td>
+  <td>19</td>
+</tr>
+<tr>
+  <th>22</th>
+  <td>北京外国语大学</td>
+  <td>北京</td>
+  <td>79.9</td>
+  <td>63</td>
+</tr>
+<tr>
+  <th>23</th>
+  <td>中国政法大学</td>
+  <td>北京</td>
+  <td>79.8</td>
+  <td>76</td>
+</tr>
+<tr>
+  <th>24</th>
+  <td>北京理工大学</td>
+  <td>北京</td>
+  <td>79.7</td>
+  <td>16</td>
+</tr>
+<tr>
+  <th>24</th>
+  <td>中山大学</td>
+  <td>广东</td>
+  <td>79.7</td>
+  <td>9</td>
+</tr>
+<tr>
+  <th>26</th>
+  <td>东南大学</td>
+  <td>江苏</td>
+  <td>79.4</td>
+  <td>17</td>
+</tr>
+<tr>
+  <th>28</th>
+  <td>香港中文大学（深圳）</td>
+  <td>广东</td>
+  <td>78.1</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>29</th>
+  <td>华东师范大学</td>
+  <td>上海</td>
+  <td>77.9</td>
+  <td>32</td>
+</tr>
+<tr>
+  <th>30</th>
+  <td>上海科技大学</td>
+  <td>上海</td>
+  <td>77.2</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>31</th>
+  <td>南方科技大学</td>
+  <td>广东</td>
+  <td>77.0</td>
+  <td>35</td>
+</tr>
+<tr>
+  <th>32</th>
+  <td>哈尔滨工业大学</td>
+  <td>黑龙江</td>
+  <td>76.6</td>
+  <td>10</td>
+</tr>
+<tr>
+  <th>32</th>
+  <td>上海外国语大学</td>
+  <td>上海</td>
+  <td>76.6</td>
+  <td>70</td>
+</tr>
+<tr>
+  <th>34</th>
+  <td>北京邮电大学</td>
+  <td>北京</td>
+  <td>76.1</td>
+  <td>42</td>
+</tr>
+<tr>
+  <th>35</th>
+  <td>厦门大学</td>
+  <td>福建</td>
+  <td>75.3</td>
+  <td>23</td>
+</tr>
+<tr>
+  <th>36</th>
+  <td>中国传媒大学</td>
+  <td>北京</td>
+  <td>74.1</td>
+  <td>96</td>
+</tr>
+<tr>
+  <th>37</th>
+  <td>四川大学</td>
+  <td>四川</td>
+  <td>74.0</td>
+  <td>15</td>
+</tr>
+<tr>
+  <th>37</th>
+  <td>西北工业大学</td>
+  <td>陕西</td>
+  <td>74.0</td>
+  <td>30</td>
+</tr>
+<tr>
+  <th>39</th>
+  <td>电子科技大学</td>
+  <td>四川</td>
+  <td>73.8</td>
+  <td>27</td>
+</tr>
+<tr>
+  <th>40</th>
+  <td>华南理工大学</td>
+  <td>广东</td>
+  <td>73.4</td>
+  <td>20</td>
+</tr>
+<tr>
+  <th>41</th>
+  <td>西南财经大学</td>
+  <td>四川</td>
+  <td>73.3</td>
+  <td>73</td>
+</tr>
+<tr>
+  <th>42</th>
+  <td>中南大学</td>
+  <td>湖南</td>
+  <td>73.2</td>
+  <td>21</td>
+</tr>
+<tr>
+  <th>43</th>
+  <td>大连理工大学</td>
+  <td>辽宁</td>
+  <td>72.9</td>
+  <td>26</td>
+</tr>
+<tr>
+  <th>44</th>
+  <td>中南财经政法大学</td>
+  <td>湖北</td>
+  <td>72.2</td>
+  <td>52</td>
+</tr>
+<tr>
+  <th>45</th>
+  <td>吉林大学</td>
+  <td>吉林</td>
+  <td>71.9</td>
+  <td>25</td>
+</tr>
+<tr>
+  <th>46</th>
+  <td>湖南大学</td>
+  <td>湖南</td>
+  <td>71.7</td>
+  <td>28</td>
+</tr>
+<tr>
+  <th>47</th>
+  <td>华东理工大学</td>
+  <td>上海</td>
+  <td>71.4</td>
+  <td>36</td>
+</tr>
+<tr>
+  <th>47</th>
+  <td>南京航空航天大学</td>
+  <td>江苏</td>
+  <td>71.4</td>
+  <td>33</td>
+</tr>
+<tr>
+  <th>49</th>
+  <td>山东大学</td>
+  <td>山东</td>
+  <td>71.3</td>
+  <td>23</td>
+</tr>
+<tr>
+  <th>50</th>
+  <td>北京科技大学</td>
+  <td>北京</td>
+  <td>71.1</td>
+  <td>39</td>
+</tr>
+<tr>
+  <th>51</th>
+  <td>首都医科大学</td>
+  <td>北京</td>
+  <td>71.0</td>
+  <td>医2</td>
+</tr>
+<tr>
+  <th>52</th>
+  <td>北京交通大学</td>
+  <td>北京</td>
+  <td>70.8</td>
+  <td>46</td>
+</tr>
+<tr>
+  <th>53</th>
+  <td>重庆大学</td>
+  <td>重庆</td>
+  <td>70.7</td>
+  <td>37</td>
+</tr>
+  </tbody>
+</table>
+***到此，将学校基本筛选掉特殊类和较差的大学了***  
+**现在将是否属于985或211级别的大学信息写入**  
+
+<ul>
+<li>先读取985、211大学的名单</li>
+<li>合并表格的方式将信息写入</li>
+</ul>
+<br>  
+
+<ul>
+<li>读取数据表</li>
+<li>转成数据集</li>
+<li>.values函数</li>
+<li>转成list</li>
+<li>.tolist()函数</li>
+<li>二维列表转成一维列表</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f=<span class="string">r"C:\Users\yxhsi\Desktop\大学列表_生源.xlsx"</span></span><br><span class="line">df_985=pd.read_excel(f,<span class="number">1</span>,index_col=<span class="number">0</span>)</span><br><span class="line">df_211=pd.read_excel(f,<span class="number">2</span>,index_col=<span class="number">0</span>)</span><br><span class="line">a_985=pd.read_excel(f,<span class="number">1</span>,usecols=[<span class="number">1</span>]).values</span><br><span class="line">a_211=pd.read_excel(f,<span class="number">2</span>,usecols=[<span class="number">1</span>]).values</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_985[:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>所在地</th>
+  <th>生源质量分</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>1</th>
+  <td>清华大学</td>
+  <td>北京</td>
+  <td>100</td>
+</tr>
+<tr>
+  <th>2</th>
+  <td>北京大学</td>
+  <td>北京</td>
+  <td>95.2</td>
+</tr>
+<tr>
+  <th>3</th>
+  <td>复旦大学</td>
+  <td>上海</td>
+  <td>91.6</td>
+</tr>
+<tr>
+  <th>4</th>
+  <td>上海交通大学</td>
+  <td>上海</td>
+  <td>91.1</td>
+</tr>
+<tr>
+  <th>5</th>
+  <td>中国科学技术大学</td>
+  <td>安徽</td>
+  <td>91.1</td>
+</tr>
+<tr>
+  <th>6</th>
+  <td>中国人民大学</td>
+  <td>北京</td>
+  <td>87.8</td>
+</tr>
+<tr>
+  <th>7</th>
+  <td>北京航空航天大学</td>
+  <td>北京</td>
+  <td>86.9</td>
+</tr>
+<tr>
+  <th>8</th>
+  <td>南京大学</td>
+  <td>江苏</td>
+  <td>86.2</td>
+</tr>
+<tr>
+  <th>9</th>
+  <td>同济大学</td>
+  <td>上海</td>
+  <td>85.2</td>
+</tr>
+<tr>
+  <th>10</th>
+  <td>浙江大学</td>
+  <td>浙江</td>
+  <td>84.2</td>
+</tr>
+  </tbody>
+</table>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a_985[<span class="number">0</span>:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">array([[&#39;清华大学&#39;],</span><br><span class="line">[&#39;北京大学&#39;],</span><br><span class="line">[&#39;复旦大学&#39;],</span><br><span class="line">[&#39;上海交通大学&#39;],</span><br><span class="line">[&#39;中国科学技术大学&#39;],</span><br><span class="line">[&#39;中国人民大学&#39;],</span><br><span class="line">[&#39;北京航空航天大学&#39;],</span><br><span class="line">[&#39;南京大学&#39;],</span><br><span class="line">[&#39;同济大学&#39;],</span><br><span class="line">[&#39;浙江大学&#39;]], dtype&#x3D;object)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">l985= a_985.tolist()</span><br><span class="line">l211=a_211.tolist()</span><br><span class="line">l985[<span class="number">0</span>:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[[&#39;清华大学&#39;],</span><br><span class="line"> [&#39;北京大学&#39;],</span><br><span class="line"> [&#39;复旦大学&#39;],</span><br><span class="line"> [&#39;上海交通大学&#39;],</span><br><span class="line"> [&#39;中国科学技术大学&#39;],</span><br><span class="line"> [&#39;中国人民大学&#39;],</span><br><span class="line"> [&#39;北京航空航天大学&#39;],</span><br><span class="line"> [&#39;南京大学&#39;],</span><br><span class="line"> [&#39;同济大学&#39;],</span><br><span class="line"> [&#39;浙江大学&#39;]]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>二维列表转成一维列表</strong>  </p>
+<ul>
+<li>i for item in l985 for i in item</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">l9=[i <span class="keyword">for</span> item <span class="keyword">in</span> l985 <span class="keyword">for</span> i <span class="keyword">in</span> item]</span><br><span class="line">l2=[i <span class="keyword">for</span> item <span class="keyword">in</span> l211 <span class="keyword">for</span> i <span class="keyword">in</span> item]</span><br><span class="line">l9[:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[&#39;清华大学&#39;,</span><br><span class="line"> &#39;北京大学&#39;,</span><br><span class="line"> &#39;复旦大学&#39;,</span><br><span class="line"> &#39;上海交通大学&#39;,</span><br><span class="line"> &#39;中国科学技术大学&#39;,</span><br><span class="line"> &#39;中国人民大学&#39;,</span><br><span class="line"> &#39;北京航空航天大学&#39;,</span><br><span class="line"> &#39;南京大学&#39;,</span><br><span class="line"> &#39;同济大学&#39;,</span><br><span class="line"> &#39;浙江大学&#39;]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df4[<span class="string">"985"</span>]=df4[<span class="string">"学校名称"</span>].apply(<span class="keyword">lambda</span> x: <span class="string">"985"</span> <span class="keyword">if</span> x <span class="keyword">in</span> l9 <span class="keyword">else</span> <span class="string">""</span>)</span><br><span class="line">df4[<span class="string">"211"</span>]=df4[<span class="string">"学校名称"</span>].apply(<span class="keyword">lambda</span> x: <span class="string">"211"</span> <span class="keyword">if</span> x <span class="keyword">in</span> l2 <span class="keyword">else</span> <span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ipython-input-334-7cda56afb1e4&gt;:1: SettingWithCopyWarning: </span><br><span class="line">A value is trying to be set on a copy of a slice from a DataFrame.</span><br><span class="line">Try using .loc[row_indexer,col_indexer] &#x3D; value instead</span><br><span class="line"></span><br><span class="line">See the caveats in the documentation: https:&#x2F;&#x2F;pandas.pydata.org&#x2F;pandas-docs&#x2F;stable&#x2F;user_guide&#x2F;indexing.html#returning-a-view-versus-a-copy</span><br><span class="line">  df4[&quot;985&quot;]&#x3D;df4[&quot;学校名称&quot;].apply(lambda x: &quot;985&quot; if x in l9 else &quot;&quot;)</span><br><span class="line">&lt;ipython-input-334-7cda56afb1e4&gt;:2: SettingWithCopyWarning: </span><br><span class="line">A value is trying to be set on a copy of a slice from a DataFrame.</span><br><span class="line">Try using .loc[row_indexer,col_indexer] &#x3D; value instead</span><br><span class="line"></span><br><span class="line">See the caveats in the documentation: https:&#x2F;&#x2F;pandas.pydata.org&#x2F;pandas-docs&#x2F;stable&#x2F;user_guide&#x2F;indexing.html#returning-a-view-versus-a-copy</span><br><span class="line">  df4[&quot;211&quot;]&#x3D;df4[&quot;学校名称&quot;].apply(lambda x: &quot;211&quot; if x in l2 else &quot;&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>下一步将按照区域进行分类</strong>  </p>
+<ul>
+<li>东北</li>
+<li>华北</li>
+<li>西北</li>
+<li>华东</li>
+<li>中南</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dongbei=[<span class="string">"黑龙江"</span>,<span class="string">"辽宁"</span>,<span class="string">"吉林"</span>]</span><br><span class="line">huabei=[<span class="string">"北京"</span>,<span class="string">"天津"</span>,<span class="string">"河北"</span>,<span class="string">"山西"</span>,<span class="string">"内蒙古"</span>]</span><br><span class="line">xibei=[<span class="string">"新疆"</span>,<span class="string">"陕西"</span>,<span class="string">"青海"</span>,<span class="string">"甘肃"</span>,<span class="string">"宁夏"</span>]</span><br><span class="line">xinan=[<span class="string">"重庆"</span>,<span class="string">"四川"</span>,<span class="string">"西藏"</span>,<span class="string">"云南"</span>,<span class="string">"贵州"</span>]</span><br><span class="line">huadong=[<span class="string">"上海"</span>,<span class="string">"江苏"</span>,<span class="string">"浙江"</span>,<span class="string">"安徽"</span>,<span class="string">"福建"</span>,<span class="string">"山东"</span>,<span class="string">"江西"</span>]</span><br><span class="line">zhongnan=[<span class="string">"河南"</span>,<span class="string">"湖北"</span>,<span class="string">"湖南"</span>,<span class="string">"广东"</span>,<span class="string">"广西"</span>,<span class="string">"海南"</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>华北区的大学</strong></p>
+<ul>
+<li>总共78所</li>
+<li>前50名的名单</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_hb=df4[df4[<span class="string">"省市"</span>].isin(huabei)]</span><br><span class="line">df_hb.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(78, 6)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_hb[:<span class="number">50</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+  <th>985</th>
+  <th>211</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>1</th>
+  <td>清华大学</td>
+  <td>北京</td>
+  <td>100.0</td>
+  <td>1</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>2</th>
+  <td>北京大学</td>
+  <td>北京</td>
+  <td>95.2</td>
+  <td>2</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>7</th>
+  <td>中国人民大学</td>
+  <td>北京</td>
+  <td>87.8</td>
+  <td>31</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>8</th>
+  <td>北京航空航天大学</td>
+  <td>北京</td>
+  <td>86.9</td>
+  <td>11</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>13</th>
+  <td>南开大学</td>
+  <td>天津</td>
+  <td>83.9</td>
+  <td>18</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>14</th>
+  <td>中央财经大学</td>
+  <td>北京</td>
+  <td>82.9</td>
+  <td>49</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>15</th>
+  <td>北京师范大学</td>
+  <td>北京</td>
+  <td>82.7</td>
+  <td>22</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>18</th>
+  <td>对外经济贸易大学</td>
+  <td>北京</td>
+  <td>81.9</td>
+  <td>34</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>20</th>
+  <td>天津大学</td>
+  <td>天津</td>
+  <td>80.1</td>
+  <td>19</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>22</th>
+  <td>北京外国语大学</td>
+  <td>北京</td>
+  <td>79.9</td>
+  <td>63</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>23</th>
+  <td>中国政法大学</td>
+  <td>北京</td>
+  <td>79.8</td>
+  <td>76</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>24</th>
+  <td>北京理工大学</td>
+  <td>北京</td>
+  <td>79.7</td>
+  <td>16</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>34</th>
+  <td>北京邮电大学</td>
+  <td>北京</td>
+  <td>76.1</td>
+  <td>42</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>36</th>
+  <td>中国传媒大学</td>
+  <td>北京</td>
+  <td>74.1</td>
+  <td>96</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>50</th>
+  <td>北京科技大学</td>
+  <td>北京</td>
+  <td>71.1</td>
+  <td>39</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>51</th>
+  <td>首都医科大学</td>
+  <td>北京</td>
+  <td>71.0</td>
+  <td>医2</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>52</th>
+  <td>北京交通大学</td>
+  <td>北京</td>
+  <td>70.8</td>
+  <td>46</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>55</th>
+  <td>天津医科大学</td>
+  <td>天津</td>
+  <td>69.5</td>
+  <td>医5</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>56</th>
+  <td>北京语言大学</td>
+  <td>北京</td>
+  <td>69.3</td>
+  <td>63</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>59</th>
+  <td>中国农业大学</td>
+  <td>北京</td>
+  <td>68.5</td>
+  <td>42</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>63</th>
+  <td>中央民族大学</td>
+  <td>北京</td>
+  <td>67.5</td>
+  <td>123</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>70</th>
+  <td>华北电力大学</td>
+  <td>北京</td>
+  <td>66.4</td>
+  <td>56</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>74</th>
+  <td>北京工业大学</td>
+  <td>北京</td>
+  <td>65.9</td>
+  <td>61</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>75</th>
+  <td>河北工业大学</td>
+  <td>天津</td>
+  <td>65.7</td>
+  <td>114</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>77</th>
+  <td>北京林业大学</td>
+  <td>北京</td>
+  <td>65.5</td>
+  <td>91</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>84</th>
+  <td>北京化工大学</td>
+  <td>北京</td>
+  <td>64.0</td>
+  <td>50</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>87</th>
+  <td>北京中医药大学</td>
+  <td>北京</td>
+  <td>63.1</td>
+  <td>医11</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>93</th>
+  <td>燕山大学</td>
+  <td>河北</td>
+  <td>61.9</td>
+  <td>104</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>95</th>
+  <td>天津财经大学</td>
+  <td>天津</td>
+  <td>61.6</td>
+  <td>139</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>95</th>
+  <td>中国地质大学（北京）</td>
+  <td>北京</td>
+  <td>61.6</td>
+  <td>72</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>99</th>
+  <td>中国矿业大学（北京）</td>
+  <td>北京</td>
+  <td>60.9</td>
+  <td>115</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>110</th>
+  <td>河北医科大学</td>
+  <td>河北</td>
+  <td>60.1</td>
+  <td>医12</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>112</th>
+  <td>首都师范大学</td>
+  <td>北京</td>
+  <td>59.7</td>
+  <td>94</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>118</th>
+  <td>首都经济贸易大学</td>
+  <td>北京</td>
+  <td>58.7</td>
+  <td>101</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>125</th>
+  <td>太原理工大学</td>
+  <td>山西</td>
+  <td>58.0</td>
+  <td>108</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>132</th>
+  <td>河北大学</td>
+  <td>河北</td>
+  <td>56.8</td>
+  <td>145</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>136</th>
+  <td>中国人民公安大学</td>
+  <td>北京</td>
+  <td>56.2</td>
+  <td>178</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>139</th>
+  <td>中国石油大学（北京）</td>
+  <td>北京</td>
+  <td>55.4</td>
+  <td>87</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>141</th>
+  <td>石家庄铁道大学</td>
+  <td>河北</td>
+  <td>55.2</td>
+  <td>171</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>150</th>
+  <td>北京体育大学</td>
+  <td>北京</td>
+  <td>54.2</td>
+  <td>168</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>157</th>
+  <td>山西大学</td>
+  <td>山西</td>
+  <td>52.8</td>
+  <td>137</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>162</th>
+  <td>中国民航大学</td>
+  <td>天津</td>
+  <td>52.4</td>
+  <td>185</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>167</th>
+  <td>天津外国语大学</td>
+  <td>天津</td>
+  <td>52.0</td>
+  <td>NaN</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>170</th>
+  <td>北京工商大学</td>
+  <td>北京</td>
+  <td>51.7</td>
+  <td>158</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>170</th>
+  <td>河北经贸大学</td>
+  <td>河北</td>
+  <td>51.7</td>
+  <td>260</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>172</th>
+  <td>山西财经大学</td>
+  <td>山西</td>
+  <td>51.5</td>
+  <td>224</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>174</th>
+  <td>内蒙古大学</td>
+  <td>内蒙古</td>
+  <td>51.3</td>
+  <td>178</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>181</th>
+  <td>河北师范大学</td>
+  <td>河北</td>
+  <td>51.0</td>
+  <td>165</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>190</th>
+  <td>河北科技大学</td>
+  <td>河北</td>
+  <td>49.7</td>
+  <td>190</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>203</th>
+  <td>北京建筑大学</td>
+  <td>北京</td>
+  <td>48.5</td>
+  <td>175</td>
+  <td></td>
+  <td></td>
+</tr>
+  </tbody>
+</table>
+
+
+<p><strong>东北区的大学</strong></p>
+<ul>
+<li>总共59所</li>
+<li>前30名的名单</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_db=df4[df4[<span class="string">"省市"</span>].isin(dongbei)]</span><br><span class="line">df_db.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(59, 6)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_db[:<span class="number">30</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+  <th>985</th>
+  <th>211</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>32</th>
+  <td>哈尔滨工业大学</td>
+  <td>黑龙江</td>
+  <td>76.6</td>
+  <td>10</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>43</th>
+  <td>大连理工大学</td>
+  <td>辽宁</td>
+  <td>72.9</td>
+  <td>26</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>45</th>
+  <td>吉林大学</td>
+  <td>吉林</td>
+  <td>71.9</td>
+  <td>25</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>66</th>
+  <td>东北财经大学</td>
+  <td>辽宁</td>
+  <td>67.0</td>
+  <td>73</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>66</th>
+  <td>哈尔滨工程大学</td>
+  <td>黑龙江</td>
+  <td>67.0</td>
+  <td>56</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>69</th>
+  <td>东北大学</td>
+  <td>辽宁</td>
+  <td>66.5</td>
+  <td>40</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>86</th>
+  <td>中国医科大学</td>
+  <td>辽宁</td>
+  <td>63.3</td>
+  <td>医6</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>93</th>
+  <td>大连海事大学</td>
+  <td>辽宁</td>
+  <td>61.9</td>
+  <td>108</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>95</th>
+  <td>大连医科大学</td>
+  <td>辽宁</td>
+  <td>61.6</td>
+  <td>医10</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>105</th>
+  <td>东北师范大学</td>
+  <td>吉林</td>
+  <td>60.4</td>
+  <td>76</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>120</th>
+  <td>辽宁大学</td>
+  <td>辽宁</td>
+  <td>58.2</td>
+  <td>123</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>129</th>
+  <td>东北农业大学</td>
+  <td>黑龙江</td>
+  <td>57.2</td>
+  <td>138</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>130</th>
+  <td>东北林业大学</td>
+  <td>黑龙江</td>
+  <td>57.1</td>
+  <td>143</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>133</th>
+  <td>哈尔滨医科大学</td>
+  <td>黑龙江</td>
+  <td>56.3</td>
+  <td>医7</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>178</th>
+  <td>沈阳药科大学</td>
+  <td>辽宁</td>
+  <td>51.1</td>
+  <td>NaN</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>185</th>
+  <td>长春理工大学</td>
+  <td>吉林</td>
+  <td>50.6</td>
+  <td>210</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>187</th>
+  <td>黑龙江大学</td>
+  <td>黑龙江</td>
+  <td>50.1</td>
+  <td>139</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>199</th>
+  <td>东北电力大学</td>
+  <td>吉林</td>
+  <td>49.0</td>
+  <td>257</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>207</th>
+  <td>辽宁师范大学</td>
+  <td>辽宁</td>
+  <td>48.4</td>
+  <td>216</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>210</th>
+  <td>哈尔滨师范大学</td>
+  <td>黑龙江</td>
+  <td>47.9</td>
+  <td>193</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>219</th>
+  <td>吉林财经大学</td>
+  <td>吉林</td>
+  <td>47.2</td>
+  <td>275</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>225</th>
+  <td>延边大学</td>
+  <td>吉林</td>
+  <td>46.9</td>
+  <td>268</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>232</th>
+  <td>哈尔滨理工大学</td>
+  <td>黑龙江</td>
+  <td>46.5</td>
+  <td>237</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>232</th>
+  <td>沈阳航空航天大学</td>
+  <td>辽宁</td>
+  <td>46.5</td>
+  <td>200</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>238</th>
+  <td>大连外国语大学</td>
+  <td>辽宁</td>
+  <td>45.9</td>
+  <td>NaN</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>238</th>
+  <td>东北石油大学</td>
+  <td>黑龙江</td>
+  <td>45.9</td>
+  <td>262</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>241</th>
+  <td>大连交通大学</td>
+  <td>辽宁</td>
+  <td>45.7</td>
+  <td>273</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>244</th>
+  <td>沈阳建筑大学</td>
+  <td>辽宁</td>
+  <td>45.6</td>
+  <td>287</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>259</th>
+  <td>吉林师范大学</td>
+  <td>吉林</td>
+  <td>44.3</td>
+  <td>234</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>262</th>
+  <td>沈阳农业大学</td>
+  <td>辽宁</td>
+  <td>44.1</td>
+  <td>246</td>
+  <td></td>
+  <td></td>
+</tr>
+  </tbody>
+</table>
+
+
+<p><strong>西北区的大学</strong></p>
+<ul>
+<li>总共42所</li>
+<li>前30名的名单</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_xb=df4[df4[<span class="string">"省市"</span>].isin(xibei)]</span><br><span class="line">df_xb.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(42, 6)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_xb[:<span class="number">30</span>]</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+  <th>985</th>
+  <th>211</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>17</th>
+  <td>西安交通大学</td>
+  <td>陕西</td>
+  <td>82.0</td>
+  <td>14</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>37</th>
+  <td>西北工业大学</td>
+  <td>陕西</td>
+  <td>74.0</td>
+  <td>30</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>54</th>
+  <td>西安电子科技大学</td>
+  <td>陕西</td>
+  <td>70.5</td>
+  <td>48</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>72</th>
+  <td>兰州大学</td>
+  <td>甘肃</td>
+  <td>66.1</td>
+  <td>52</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>85</th>
+  <td>西北大学</td>
+  <td>陕西</td>
+  <td>63.8</td>
+  <td>89</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>87</th>
+  <td>陕西师范大学</td>
+  <td>陕西</td>
+  <td>63.1</td>
+  <td>84</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>90</th>
+  <td>长安大学</td>
+  <td>陕西</td>
+  <td>62.5</td>
+  <td>106</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>103</th>
+  <td>西北农林科技大学</td>
+  <td>陕西</td>
+  <td>60.6</td>
+  <td>81</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>133</th>
+  <td>西北政法大学</td>
+  <td>陕西</td>
+  <td>56.3</td>
+  <td>NaN</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>145</th>
+  <td>西安理工大学</td>
+  <td>陕西</td>
+  <td>54.7</td>
+  <td>158</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>147</th>
+  <td>西安外国语大学</td>
+  <td>陕西</td>
+  <td>54.6</td>
+  <td>NaN</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>164</th>
+  <td>西安建筑科技大学</td>
+  <td>陕西</td>
+  <td>52.2</td>
+  <td>187</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>201</th>
+  <td>西安邮电大学</td>
+  <td>陕西</td>
+  <td>48.7</td>
+  <td>226</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>203</th>
+  <td>宁夏医科大学</td>
+  <td>宁夏</td>
+  <td>48.5</td>
+  <td>医23</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>219</th>
+  <td>陕西科技大学</td>
+  <td>陕西</td>
+  <td>47.2</td>
+  <td>206</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>265</th>
+  <td>西安科技大学</td>
+  <td>陕西</td>
+  <td>43.9</td>
+  <td>275</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>266</th>
+  <td>兰州交通大学</td>
+  <td>甘肃</td>
+  <td>43.8</td>
+  <td>206</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>286</th>
+  <td>西北师范大学</td>
+  <td>甘肃</td>
+  <td>42.0</td>
+  <td>240</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>288</th>
+  <td>西安财经大学</td>
+  <td>陕西</td>
+  <td>41.9</td>
+  <td>336</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>290</th>
+  <td>西安工业大学</td>
+  <td>陕西</td>
+  <td>41.8</td>
+  <td>265</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>291</th>
+  <td>新疆大学</td>
+  <td>新疆</td>
+  <td>41.7</td>
+  <td>268</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>305</th>
+  <td>宁夏大学</td>
+  <td>宁夏</td>
+  <td>41.1</td>
+  <td>284</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>305</th>
+  <td>西安工程大学</td>
+  <td>陕西</td>
+  <td>41.1</td>
+  <td>287</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>314</th>
+  <td>石河子大学</td>
+  <td>新疆</td>
+  <td>40.7</td>
+  <td>262</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>315</th>
+  <td>新疆医科大学</td>
+  <td>新疆</td>
+  <td>40.6</td>
+  <td>医36</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>316</th>
+  <td>西安石油大学</td>
+  <td>陕西</td>
+  <td>40.5</td>
+  <td>324</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>330</th>
+  <td>延安大学</td>
+  <td>陕西</td>
+  <td>40.1</td>
+  <td>331</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>337</th>
+  <td>青海大学</td>
+  <td>青海</td>
+  <td>39.7</td>
+  <td>295</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>347</th>
+  <td>陕西中医药大学</td>
+  <td>陕西</td>
+  <td>39.3</td>
+  <td>医49</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>352</th>
+  <td>兰州财经大学</td>
+  <td>甘肃</td>
+  <td>39.1</td>
+  <td>NaN</td>
+  <td></td>
+  <td></td>
+</tr>
+  </tbody>
+</table>
+
+
+<p><strong>华东区的大学</strong></p>
+<ul>
+<li>总共123所</li>
+<li>前60名的名单</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_hd=df4[df4[<span class="string">"省市"</span>].isin(huadong)]</span><br><span class="line">df_hd.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(123, 6)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_hd[:<span class="number">60</span>]</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+  <th>985</th>
+  <th>211</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>4</th>
+  <td>复旦大学</td>
+  <td>上海</td>
+  <td>91.6</td>
+  <td>5</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>5</th>
+  <td>上海交通大学</td>
+  <td>上海</td>
+  <td>91.1</td>
+  <td>4</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>5</th>
+  <td>中国科学技术大学</td>
+  <td>安徽</td>
+  <td>91.1</td>
+  <td>6</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>9</th>
+  <td>南京大学</td>
+  <td>江苏</td>
+  <td>86.2</td>
+  <td>7</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>10</th>
+  <td>上海财经大学</td>
+  <td>上海</td>
+  <td>85.3</td>
+  <td>42</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>11</th>
+  <td>同济大学</td>
+  <td>上海</td>
+  <td>85.2</td>
+  <td>13</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>12</th>
+  <td>浙江大学</td>
+  <td>浙江</td>
+  <td>84.2</td>
+  <td>3</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>26</th>
+  <td>东南大学</td>
+  <td>江苏</td>
+  <td>79.4</td>
+  <td>17</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>29</th>
+  <td>华东师范大学</td>
+  <td>上海</td>
+  <td>77.9</td>
+  <td>32</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>30</th>
+  <td>上海科技大学</td>
+  <td>上海</td>
+  <td>77.2</td>
+  <td>NaN</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>32</th>
+  <td>上海外国语大学</td>
+  <td>上海</td>
+  <td>76.6</td>
+  <td>70</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>35</th>
+  <td>厦门大学</td>
+  <td>福建</td>
+  <td>75.3</td>
+  <td>23</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>47</th>
+  <td>华东理工大学</td>
+  <td>上海</td>
+  <td>71.4</td>
+  <td>36</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>47</th>
+  <td>南京航空航天大学</td>
+  <td>江苏</td>
+  <td>71.4</td>
+  <td>33</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>49</th>
+  <td>山东大学</td>
+  <td>山东</td>
+  <td>71.3</td>
+  <td>23</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>57</th>
+  <td>华东政法大学</td>
+  <td>上海</td>
+  <td>69.0</td>
+  <td>115</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>60</th>
+  <td>南京理工大学</td>
+  <td>江苏</td>
+  <td>68.4</td>
+  <td>38</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>63</th>
+  <td>中国海洋大学</td>
+  <td>山东</td>
+  <td>67.5</td>
+  <td>67</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>68</th>
+  <td>东华大学</td>
+  <td>上海</td>
+  <td>66.9</td>
+  <td>52</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>71</th>
+  <td>上海大学</td>
+  <td>上海</td>
+  <td>66.3</td>
+  <td>41</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>79</th>
+  <td>上海对外经贸大学</td>
+  <td>上海</td>
+  <td>64.7</td>
+  <td>128</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>79</th>
+  <td>苏州大学</td>
+  <td>江苏</td>
+  <td>64.7</td>
+  <td>29</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>81</th>
+  <td>河海大学</td>
+  <td>江苏</td>
+  <td>64.4</td>
+  <td>79</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>82</th>
+  <td>江南大学</td>
+  <td>江苏</td>
+  <td>64.2</td>
+  <td>59</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>82</th>
+  <td>南京师范大学</td>
+  <td>江苏</td>
+  <td>64.2</td>
+  <td>59</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>87</th>
+  <td>中国药科大学</td>
+  <td>江苏</td>
+  <td>63.1</td>
+  <td>NaN</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>98</th>
+  <td>安徽大学</td>
+  <td>安徽</td>
+  <td>61.3</td>
+  <td>99</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>102</th>
+  <td>合肥工业大学</td>
+  <td>安徽</td>
+  <td>60.7</td>
+  <td>83</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>104</th>
+  <td>南京农业大学</td>
+  <td>江苏</td>
+  <td>60.5</td>
+  <td>69</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>105</th>
+  <td>宁波诺丁汉大学</td>
+  <td>浙江</td>
+  <td>60.4</td>
+  <td>55</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>105</th>
+  <td>中国石油大学（华东）</td>
+  <td>山东</td>
+  <td>60.4</td>
+  <td>82</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>109</th>
+  <td>福州大学</td>
+  <td>福建</td>
+  <td>60.2</td>
+  <td>62</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>114</th>
+  <td>南京医科大学</td>
+  <td>江苏</td>
+  <td>59.2</td>
+  <td>医3</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>114</th>
+  <td>中国矿业大学</td>
+  <td>江苏</td>
+  <td>59.2</td>
+  <td>71</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>116</th>
+  <td>南京审计大学</td>
+  <td>江苏</td>
+  <td>58.9</td>
+  <td>121</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>117</th>
+  <td>杭州电子科技大学</td>
+  <td>浙江</td>
+  <td>58.8</td>
+  <td>97</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>120</th>
+  <td>浙江工业大学</td>
+  <td>浙江</td>
+  <td>58.2</td>
+  <td>89</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>124</th>
+  <td>上海中医药大学</td>
+  <td>上海</td>
+  <td>58.1</td>
+  <td>医8</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>126</th>
+  <td>上海理工大学</td>
+  <td>上海</td>
+  <td>57.9</td>
+  <td>106</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>127</th>
+  <td>南京邮电大学</td>
+  <td>江苏</td>
+  <td>57.3</td>
+  <td>76</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>133</th>
+  <td>浙江财经大学</td>
+  <td>浙江</td>
+  <td>56.3</td>
+  <td>115</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>138</th>
+  <td>浙江工商大学</td>
+  <td>浙江</td>
+  <td>55.8</td>
+  <td>133</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>141</th>
+  <td>浙江师范大学</td>
+  <td>浙江</td>
+  <td>55.2</td>
+  <td>91</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>144</th>
+  <td>南京财经大学</td>
+  <td>江苏</td>
+  <td>54.8</td>
+  <td>111</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>148</th>
+  <td>宁波大学</td>
+  <td>浙江</td>
+  <td>54.4</td>
+  <td>101</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>149</th>
+  <td>浙江理工大学</td>
+  <td>浙江</td>
+  <td>54.3</td>
+  <td>111</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>152</th>
+  <td>上海师范大学</td>
+  <td>上海</td>
+  <td>53.8</td>
+  <td>120</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>153</th>
+  <td>青岛大学</td>
+  <td>山东</td>
+  <td>53.5</td>
+  <td>119</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>154</th>
+  <td>华侨大学</td>
+  <td>福建</td>
+  <td>53.3</td>
+  <td>100</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>156</th>
+  <td>西交利物浦大学</td>
+  <td>江苏</td>
+  <td>52.9</td>
+  <td>101</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>157</th>
+  <td>上海海事大学</td>
+  <td>上海</td>
+  <td>52.8</td>
+  <td>130</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>160</th>
+  <td>江西财经大学</td>
+  <td>江西</td>
+  <td>52.6</td>
+  <td>123</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>161</th>
+  <td>温州医科大学</td>
+  <td>浙江</td>
+  <td>52.5</td>
+  <td>医13</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>165</th>
+  <td>江苏大学</td>
+  <td>江苏</td>
+  <td>52.1</td>
+  <td>85</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>165</th>
+  <td>南京工业大学</td>
+  <td>江苏</td>
+  <td>52.1</td>
+  <td>87</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>168</th>
+  <td>南京信息工程大学</td>
+  <td>江苏</td>
+  <td>51.9</td>
+  <td>80</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>174</th>
+  <td>山东师范大学</td>
+  <td>山东</td>
+  <td>51.3</td>
+  <td>131</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>184</th>
+  <td>福建医科大学</td>
+  <td>福建</td>
+  <td>50.8</td>
+  <td>医17</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>189</th>
+  <td>杭州师范大学</td>
+  <td>浙江</td>
+  <td>49.8</td>
+  <td>128</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>190</th>
+  <td>安徽医科大学</td>
+  <td>安徽</td>
+  <td>49.7</td>
+  <td>医15</td>
+  <td></td>
+  <td></td>
+</tr>
+  </tbody>
+</table>
+
+
+
+
+<p><strong>中南区的大学</strong></p>
+<ul>
+<li>总共77所</li>
+<li>前40名的名单</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_zn=df4[df4[<span class="string">"省市"</span>].isin(zhongnan)]</span><br><span class="line">df_zn.shape</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(77, 6)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_zn[:<span class="number">40</span>]</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+  <th>985</th>
+  <th>211</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>16</th>
+  <td>武汉大学</td>
+  <td>湖北</td>
+  <td>82.4</td>
+  <td>12</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>20</th>
+  <td>华中科技大学</td>
+  <td>湖北</td>
+  <td>80.1</td>
+  <td>7</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>24</th>
+  <td>中山大学</td>
+  <td>广东</td>
+  <td>79.7</td>
+  <td>9</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>28</th>
+  <td>香港中文大学（深圳）</td>
+  <td>广东</td>
+  <td>78.1</td>
+  <td>NaN</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>31</th>
+  <td>南方科技大学</td>
+  <td>广东</td>
+  <td>77.0</td>
+  <td>35</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>40</th>
+  <td>华南理工大学</td>
+  <td>广东</td>
+  <td>73.4</td>
+  <td>20</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>42</th>
+  <td>中南大学</td>
+  <td>湖南</td>
+  <td>73.2</td>
+  <td>21</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>44</th>
+  <td>中南财经政法大学</td>
+  <td>湖北</td>
+  <td>72.2</td>
+  <td>52</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>46</th>
+  <td>湖南大学</td>
+  <td>湖南</td>
+  <td>71.7</td>
+  <td>28</td>
+  <td>985</td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>60</th>
+  <td>华中师范大学</td>
+  <td>湖北</td>
+  <td>68.4</td>
+  <td>46</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>62</th>
+  <td>暨南大学</td>
+  <td>广东</td>
+  <td>68.1</td>
+  <td>51</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>65</th>
+  <td>武汉理工大学</td>
+  <td>湖北</td>
+  <td>67.2</td>
+  <td>45</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>75</th>
+  <td>湖南师范大学</td>
+  <td>湖南</td>
+  <td>65.7</td>
+  <td>91</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>91</th>
+  <td>南方医科大学</td>
+  <td>广东</td>
+  <td>62.4</td>
+  <td>医4</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>92</th>
+  <td>中国地质大学（武汉）</td>
+  <td>湖北</td>
+  <td>62.3</td>
+  <td>63</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>100</th>
+  <td>华中农业大学</td>
+  <td>湖北</td>
+  <td>60.8</td>
+  <td>67</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>105</th>
+  <td>华南师范大学</td>
+  <td>广东</td>
+  <td>60.4</td>
+  <td>85</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>113</th>
+  <td>深圳大学</td>
+  <td>广东</td>
+  <td>59.3</td>
+  <td>58</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>119</th>
+  <td>汕头大学</td>
+  <td>广东</td>
+  <td>58.4</td>
+  <td>95</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>120</th>
+  <td>广东外语外贸大学</td>
+  <td>广东</td>
+  <td>58.2</td>
+  <td>108</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>127</th>
+  <td>武汉科技大学</td>
+  <td>湖北</td>
+  <td>57.3</td>
+  <td>131</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>131</th>
+  <td>广西大学</td>
+  <td>广西</td>
+  <td>57.0</td>
+  <td>133</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>137</th>
+  <td>湖北大学</td>
+  <td>湖北</td>
+  <td>56.0</td>
+  <td>105</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>145</th>
+  <td>湘潭大学</td>
+  <td>湖南</td>
+  <td>54.7</td>
+  <td>115</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>151</th>
+  <td>长沙理工大学</td>
+  <td>湖南</td>
+  <td>53.9</td>
+  <td>150</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>159</th>
+  <td>广州医科大学</td>
+  <td>广东</td>
+  <td>52.7</td>
+  <td>医14</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>173</th>
+  <td>武汉工程大学</td>
+  <td>湖北</td>
+  <td>51.4</td>
+  <td>126</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>174</th>
+  <td>华南农业大学</td>
+  <td>广东</td>
+  <td>51.3</td>
+  <td>122</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>177</th>
+  <td>广州中医药大学</td>
+  <td>广东</td>
+  <td>51.2</td>
+  <td>医19</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>178</th>
+  <td>湖北工业大学</td>
+  <td>湖北</td>
+  <td>51.1</td>
+  <td>163</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>181</th>
+  <td>河南大学</td>
+  <td>河南</td>
+  <td>51.0</td>
+  <td>143</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>188</th>
+  <td>广东工业大学</td>
+  <td>广东</td>
+  <td>49.9</td>
+  <td>111</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>190</th>
+  <td>广西医科大学</td>
+  <td>广西</td>
+  <td>49.7</td>
+  <td>医18</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>194</th>
+  <td>三峡大学</td>
+  <td>湖北</td>
+  <td>49.6</td>
+  <td>156</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>198</th>
+  <td>广州大学</td>
+  <td>广东</td>
+  <td>49.1</td>
+  <td>139</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>222</th>
+  <td>广西师范大学</td>
+  <td>广西</td>
+  <td>47.0</td>
+  <td>161</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>225</th>
+  <td>海南大学</td>
+  <td>海南</td>
+  <td>46.9</td>
+  <td>173</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>225</th>
+  <td>湖南中医药大学</td>
+  <td>湖南</td>
+  <td>46.9</td>
+  <td>医30</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr>
+  <th>230</th>
+  <td>郑州大学</td>
+  <td>河南</td>
+  <td>46.6</td>
+  <td>126</td>
+  <td></td>
+  <td>211</td>
+</tr>
+<tr>
+  <th>235</th>
+  <td>湖南科技大学</td>
+  <td>湖南</td>
+  <td>46.1</td>
+  <td>213</td>
+  <td></td>
+  <td></td>
+</tr>
+  </tbody>
+</table>
+
+
+
+
+<h2 id="列出其他985、211大学"><a href="#列出其他985、211大学" class="headerlink" title="列出其他985、211大学"></a>列出其他985、211大学</h2><br>  
+
+<h3 id="985"><a href="#985" class="headerlink" title="985"></a>985</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df5=df[df[<span class="string">"学校名称"</span>].isin(l9)]</span><br><span class="line">data=df_985.append(df5)</span><br><span class="line">data.drop_duplicates(subset=[<span class="string">"学校名称"</span>],keep=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>所在地</th>
+  <th>生源质量分</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>暂无</th>
+  <td>国防科技大学</td>
+  <td>湖南</td>
+  <td>暂无</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+</tr>
+  </tbody>
+</table>
+### 211
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df6=df[df[<span class="string">"学校名称"</span>].isin(l2)]</span><br><span class="line"><span class="comment"># df6</span></span><br><span class="line"><span class="comment"># df_211</span></span><br><span class="line">data1=df_211.append(df6)</span><br><span class="line">data1.drop_duplicates(subset=[<span class="string">"学校名称"</span>],keep=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+<tr style>
+  <th></th>
+  <th>学校名称</th>
+  <th>所在地</th>
+  <th>生源质量分</th>
+  <th>省市</th>
+  <th>新生高考成绩得分</th>
+  <th>综合排名</th>
+</tr>
+<tr>
+  <th>排名</th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+  <th></th>
+</tr>
+  </thead>
+  <tbody>
+<tr>
+  <th>暂无</th>
+  <td>国防科技大学</td>
+  <td>湖南</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>暂无</th>
+  <td>中央音乐学院</td>
+  <td>北京</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>暂无</th>
+  <td>第二军医大学</td>
+  <td>上海</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+</tr>
+<tr>
+  <th>暂无</th>
+  <td>第四军医大学</td>
+  <td>陕西</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+  <td>NaN</td>
+</tr>
+  </tbody>
+</table>
+
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>凸轮轴1#线OP10_丰田工机_5AF_6C4</title>
     <url>/2020/04/14/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/</url>
     <content><![CDATA[<h1 id="刀具技术要求"><a href="#刀具技术要求" class="headerlink" title="刀具技术要求"></a>刀具技术要求</h1><h2 id="一、总体要求"><a href="#一、总体要求" class="headerlink" title="一、总体要求"></a>一、总体要求</h2><ol>
@@ -340,7 +4002,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="../images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414210005880.png" alt="image-20200414210005880"></td>
+<td><img src="/images/%E5%87%B8%E8%BD%AE%E8%BD%B41-%E7%BA%BFOP10-%E4%B8%B0%E7%94%B0%E5%B7%A5%E6%9C%BA-5AF-6C4/image-20200414210005880.png" alt="image-20200414210005880"></td>
 </tr>
 </tbody></table>
 <table>
@@ -2040,7 +5702,7 @@
 <h2 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h2><h4 id="模糊筛选-精确筛选：isin-contains"><a href="#模糊筛选-精确筛选：isin-contains" class="headerlink" title="模糊筛选/精确筛选：isin(),contains()"></a>模糊筛选/精确筛选：isin(),contains()</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_sel1=df[df[<span class="string">'day'</span>].str.contains(<span class="string">'fr'</span>)]   <span class="comment"># 筛选day列包含fr字符的行</span></span><br><span class="line">df_sel2=df[df[<span class="string">'day'</span>].isin([<span class="string">'fri'</span>,<span class="string">'mon'</span>])]   <span class="comment"># 筛选day列等于fri或mon的行</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="按条件筛选（与、或、非）"><a href="#按条件筛选（与、或、非）" class="headerlink" title="按条件筛选（与、或、非）"></a>按条件筛选（与、或、非）</h4><p>Excel数据目录下提供了“筛选”功能，用于对数据表按不同的条 件进行筛选。Python中使用loc函数配合筛选条件来完成筛选功能。配合sum和count函数还能实现Excel中sumif和countif函数的功能。使用“与”条件进行筛选，条件是年龄大于25岁，并且城市为 beijing。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#使用“与”条件进行筛选</span></span><br><span class="line">df_inner.loc[(df_inner[<span class="string">'age'</span>] &gt; <span class="number">25</span>) &amp; (df_inner[<span class="string">'city'</span>] == <span class="string">'beiji</span></span><br><span class="line"><span class="string">ng'</span>), [<span class="string">'id'</span>,<span class="string">'city'</span>,<span class="string">'age'</span>,<span class="string">'category'</span>,<span class="string">'gender'</span>]]/</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#使用“与”条件进行筛选</span></span><br><span class="line">df_inner.loc[(df_inner[<span class="string">'age'</span>] &gt; <span class="number">25</span>) &amp; (df_inner[<span class="string">'city'</span>] == <span class="string">'beijing'</span>), [<span class="string">'id'</span>,<span class="string">'city'</span>,<span class="string">'age'</span>,<span class="string">'category'</span>,<span class="string">'gender'</span>]]/</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#使用“或”条件筛选</span></span><br><span class="line">df_inner.loc[(df_inner[<span class="string">'age'</span>] &gt; <span class="number">25</span>) | (df_inner[<span class="string">'city'</span>] == <span class="string">'beiji</span></span><br><span class="line"><span class="string">ng'</span>), [<span class="string">'id'</span>,<span class="string">'city'</span>,<span class="string">'age'</span>,<span class="string">'category'</span>,<span class="string">'gender'</span>]].sort([<span class="string">'age'</span>])</span><br></pre></td></tr></table></figure>
 
@@ -6791,6 +10453,169 @@
       </tags>
   </entry>
   <entry>
+    <title>《穷爸爸富爸爸》读书笔记</title>
+    <url>/2020/03/03/%E3%80%8A%E7%A9%B7%E7%88%B8%E7%88%B8%E5%AF%8C%E7%88%B8%E7%88%B8%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>《富爸爸穷爸爸》这本数是 罗伯特清崎 的作品。我没有看过，但是我看了别人的读书笔记，已经归纳出来了，省去了从头到尾的阅读。现在整理后转载过来。</p>
+<h4 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h4><ol>
+<li>我有太多重要的事要做，不能浪费时间。 </li>
+<li>我想和勇者为伴，不希望与后进的人为伍。</li>
+<li>我从未遇见过喜欢亏钱的人，但在我的一生中，从未遇见一位没有亏过钱的富人，却遇见过许多从未亏掉一毛钱的穷人。</li>
+<li>我志在将每一次失败转化为机会，所以我每失败一次都往成功迈进一步。</li>
+<li>我不断学习和提高是因为我知道变化就要来临，我更欢迎变化而不是沉溺于过去。</li>
+<li>我痛恨“我们必须这么做，因为大多数人都这么做”这类话。</li>
+<li>我习惯于用消费的欲望来激发我的财务天赋。</li>
+<li>我是一个富人，富人不会这么做。<a id="more"></a></li>
+</ol>
+<h4 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a>第二部分</h4><ol>
+<li>贫穷是万恶之本。贫穷会放大微小的诱惑，降低作恶的成本，当一个人无路可走时，他就容易在错误的道路上拔足狂奔。</li>
+<li>贫穷激励我努力去想挣钱的方法。</li>
+<li>如果促使你前进的动力不够强大，那么前行道路上的严酷现实就会使你退缩。</li>
+<li>财务自由就是为了有更多选择的机会。</li>
+<li>我不想将来一生都耗在工作上，我不想要父辈们渴望的那些东西，如稳定的工作和一套郊区的房子，我不想做一个打工仔，我不想因为忙于工作而错过陪伴家人的时光，我不想终身努力工作，但在去世时却一无所有。我想自由自在地周游世界，我想以自己喜欢的方式生活，我想在年轻的时候就能做到这些，我想自由支配自己的时间和生活，我想要金钱为我工作。</li>
+</ol>
+<h4 id="第三部分"><a href="#第三部分" class="headerlink" title="第三部分"></a>第三部分</h4><ol>
+<li>穷人穷在理财方式和思维习惯，富人富在理财技能得到培训。</li>
+<li>穷人往往是那些害怕风险，寻求稳定工作，致富靠积攒，对金钱缺乏激情但却有享乐主义的消费方式的人。</li>
+<li>穷人往往出于精神上的懒惰逃避金钱问题，而富人往往热于思考金钱问题然后解决问题。穷人往往害怕风险，躲避风险，而富人往往不惧风险，学会管理风险。穷人往往不断存钱，而富人往往不断投资。</li>
+<li>穷人和中产阶级会先买下房子和汽车等奢侈品，而富人则是最后才买奢侈品。过早购买奢侈品只会让人深陷贷款陷阱之中。</li>
+<li>穷人和中产阶级为钱而工作而富人不为金钱工作，他们让金钱为自己工作。富人购入资产，穷人只有支出，中产阶级购买自以为是资产的负债。</li>
+<li>富人会到限期时再支付订单，而不是预先支付。</li>
+<li>富人越来越富的原因是他们购入资产，资产项又产生现金流足以弥补支出，还可以用剩余的资产项再投资</li>
+<li>富人总是雇佣比自己更聪明的人。</li>
+<li>下意识说：“我可付不起”意味着精神上的懒惰。“我怎样才能付得起”促使你去想办法，“我可付不起”促使你放弃。遇到金钱的问题时不要习惯于逃避，而是要想办法解决问题，想想“怎样才付得起”。</li>
+<li>穷人深陷老鼠赛跑陷阱：终生辛苦工作，收入全部用作支出和还贷。穷人的工资就是他们收入的全部来源，并且他们忙着挣钱去支付税款和贷款，根本无暇研究投资，也就无法抓住机遇，只能一生重复老鼠赛跑的过程。他们把一生中最美好的年华用来挣钱，却不明白到底是为了什么而工作。</li>
+</ol>
+<h4 id="第四部分"><a href="#第四部分" class="headerlink" title="第四部分"></a>第四部分</h4><ol>
+<li>我想和勇者为伴，不希望与后进的人为伍。</li>
+<li>我痛恨“我们必须这么做，因为大多数人都这么做”这类话。</li>
+<li>做你内心认为正确的事，因为你不管怎么做总会受到批评。如果你做，会受到指责，而你不做，还是会受到指责。</li>
+<li>不要听贫穷的或是胆小的人的话。因为我们常常需要极大的勇气，才能不让谣言和杞人忧天的怀疑加剧我们的恐惧和疑虑。</li>
+<li>在现实生活中，人们往往是依靠勇气而不是智慧去取得领先位置的。</li>
+<li>过分的害怕和自我怀疑是毁掉我们才能的最大因素。许多人明明知道该做什么，却缺乏勇气去付诸实践，实在是一件很悲哀的事情。</li>
+<li>如果你是那种没有勇气的人，你的一生会过得稳稳当当，不做错事，在无聊中死去。看上去你的一生过得很安稳，处事无误，事实是，你向生活屈服了，不敢承担风险。你的确想赢，但失败的恐惧超过了成功的兴奋。只有你知道，在你内心深处，你始终认为你不可能赢，所以你选择了稳定。</li>
+<li>大多数人热衷于稳定是出于恐惧。正是出于恐惧的心理，人们才想找一份安稳的工作，关于金钱，他们没有激情。</li>
+<li>认为工作会给你带来安全感其实是在欺骗自己。</li>
+<li>害怕在公众面前说话是害怕被排斥，害怕冒尖，害怕被批评，害怕被嘲笑，害怕被别人所不容。简言之，就是害怕与别人不同。这种心理阻碍了人们去想新办法来解决问题。</li>
+</ol>
+<h4 id="第五部分"><a href="#第五部分" class="headerlink" title="第五部分"></a>第五部分</h4><ol>
+<li>贫穷与破产的区别是：破产是暂时的，而贫穷是永久的。</li>
+<li>我从未遇见过喜欢亏钱的人，但在我的一生中，从未遇见一位没有亏过钱的富人，却遇见过许多从未亏掉一毛钱的穷人。</li>
+<li>人人都想上天堂，却没有人想死。大部分人都梦想发财，但却害怕亏钱，所以他们永远也进不了财富的天堂。</li>
+<li>我志在将每一次失败转化为机会，所以我每失败一次都往成功迈进一步。</li>
+<li>如果你从不跌倒，也就永远学不会走路。大多数人贫穷的主要原因就在于他们太担心失去。胜利者不害怕失败，但失败者害怕。失败是成功过程中的一个组成部分，如果避开失败，也就不会成功。</li>
+<li>不喜欢失败和害怕失败之间有着巨大区别，大部分人因为害怕失败而失败，他们甚至会因为一栋公寓而破产，在财务上人们做得过于安全、规模太小，他们会买大房子。大轿车，却不进行大的投资。</li>
+<li>因为太害怕失败，所以才会失败。胜利意味着不害怕失败。</li>
+<li>胜利者的最大秘密是失败能够激励他们取胜，所以他们不害怕失败。</li>
+<li>我们在某些方面是英雄，而在另一些方面可能是懦夫。</li>
+</ol>
+<h4 id="第六部分"><a href="#第六部分" class="headerlink" title="第六部分"></a>第六部分</h4><ol>
+<li>大多数人只是夸夸其谈，梦想着发财致富，却不会付出行动。</li>
+<li>行动的人总会击败不行动的人</li>
+<li>如果你要破产的话，一定要在30岁以前，这样你还有时间东山再起。</li>
+</ol>
+<h4 id="第七部分"><a href="#第七部分" class="headerlink" title="第七部分"></a>第七部分</h4><ol>
+<li>思考这两件事情：一是时间，这时你最珍贵的资产，二是学习，正因为你没有钱，就更要去学习。</li>
+<li>金钱不是真实的资产。你所拥有的唯一真正的资产就是你的头脑，这是你能控制的最强有力的工具。</li>
+<li>离开学校不是学习的终点而是起点。在校园之外的现实生活里，有许多东西比学习成绩更为重要，人们称之为“魄力”，“勇气”“坚强”“精明”。</li>
+<li>一个人一旦停止了了解有关自己的知识和信息，就会变得无知。富人通过不断学习打开心扉，而穷人则厌恶学习，封闭自己的头脑。</li>
+<li>在这个快速变化的社会中，你学到的东西再多都不算多，因为当你学到时往往就已经过时了。问题在于你学的有多快，这种技能是无价之宝。</li>
+<li>知识就是力量，而且钱越多，就越需要知识来管理它，使它继续增加。只有知识才能解决问题并创造财富，那些不是靠财务知识挣来的钱也不会太长久。</li>
+<li>从长远看，教育比金钱更有价值。我承认为了金钱和生活安稳而工作是很重要，但我仍主张要再找一份工作，以便从中学到另一种技能。</li>
+<li>在找工作的时候要注重能从中学习到什么，而不是只关注这份工作能挣多少钱。</li>
+<li>在投资方面，大多数人选择的是直接去投资，而不是首先投资与学习如何投资。有的人投资股票或者房地产，却从不投资于他们最重要的资产——头脑，对此我感到非常震惊。你买过一两套房产并不能说明你是房地产方面的专家。</li>
+<li>真正的学习需要精力、激情和热切的愿望，愤怒是其中一个重要的组成部分，因为激情正是愤怒和热爱的结合体。</li>
+</ol>
+<h4 id="第八部分"><a href="#第八部分" class="headerlink" title="第八部分"></a>第八部分</h4><ol>
+<li>陈旧的思想是人们最大的债务，已有的某种思想或方法在昨天还是一种资产，今天却已经变成了负债。</li>
+<li>当某种新思想与旧有的思维方式发生冲突时，许多所谓的聪明人会本能地为自己辩护。在这种情况下，他们的聪明和傲慢结合在一起就等于无知。</li>
+<li>我不断学习和提高是因为我知道变化就要来临，我更欢迎变化而不是沉溺于过去。</li>
+<li>一个真正聪明的人总是欢迎新思想，因为新思想能使他们的思想库更加丰富。</li>
+<li>许多人试图用傲慢掩盖无知。如果你知道自己在某一问题上有所欠缺，你就应该找一本领域的专家或者是一本相关的书，马上开始教育自己。</li>
+</ol>
+<h4 id="第九部分"><a href="#第九部分" class="headerlink" title="第九部分"></a>第九部分</h4><ol>
+<li>如果你控制不了自己，就别想着致富。能否自律是将富人、穷人和中产阶级区分开来的首要因素。</li>
+<li>要学会让感情跟随你的思想，而不要让思想跟随你的感情。</li>
+<li>如果你不先控制恐惧和欲望，即使你们获得高薪，也只不过是金钱的奴隶罢了。</li>
+<li>挣多少钱不重要，重要的是能留下多少钱。</li>
+<li>我们每挣到一元钱，就得到了一次选择自己是成为富人、穷人还是中产阶级的机会。我们花钱的习惯反映了我们是什么样的人，穷人之所以贫穷是因为他们有着不良的消费习惯。</li>
+<li>富人最后购买奢侈品，而穷人和中产阶级先买下奢侈品，因为他们想让自己看上去很富有。</li>
+<li>真正的奢侈品是对投资和积累真正资产的奖励。</li>
+<li>我习惯于用消费的欲望来激发并利用我的理财天赋去投资。</li>
+<li>浪费是妨碍财富积累的最大天敌，只有开源节流力求小富，才能有把握大富的机会。</li>
+<li>世界上最悲哀的事情是眼看着有许多大生意可做，手头上却没有钱。</li>
+<li>年轻时就开始积累，你就更容易致富。</li>
+<li>轻松的道路往往会越走越艰难，而艰难的道路往往会越走越轻松。</li>
+</ol>
+<h4 id="第十部分"><a href="#第十部分" class="headerlink" title="第十部分"></a>第十部分</h4><ol>
+<li><p>如果过早购买房子而不是进行投资：</p>
+<ul>
+<li>失去其他资产增值的机会。</li>
+<li>本可以用来投资的资本将用于支付房子高额的维修和保养。</li>
+<li>失去锻炼财商的机会。因为没钱投资就不会投资，也就无法获得投资经验，无法成为成熟的投资人。</li>
+</ul>
+</li>
+<li><p>太早购买房子最大的损失是致富机会的损失。如果你所有的钱都投在了房子上面，你就不得不努力工作，因为你的现金地从支出项流出，而不是流入资产项。</p>
+</li>
+<li><p>因为没钱投资，也就不会去投资，就无法获得投资经验，并永远不会成为成熟投资者。</p>
+</li>
+<li><p>即使公积金能够抵除每月的房贷，你也损失了首付钱带来的投资收益。</p>
+</li>
+<li><p>不要等关系一生的机会来临的时候，你却没有钱可以投资。</p>
+</li>
+</ol>
+<h4 id="第十一部分"><a href="#第十一部分" class="headerlink" title="第十一部分"></a>第十一部分</h4><ol>
+<li>大部分人需要学习和掌握不止一项技能，只有这样他们的收入才能获得显著增长。</li>
+<li>许多才华横溢的人之所以贫穷，就是因为他们只是专心于做好产品，而对商业体系知之甚少。学习一些广告文案和销售的技能，对许多知识你只需知道一点就够了。</li>
+<li>世界上到处都是有才华的穷人，在很多情况下，他们贫穷，财务困难或者只是挣到低于他们应得的薪水，不是因为他们已知的东西而是因为他们未知的东西。他们只将注力意集中在提高做汉堡的技能上，却不注意提高销售和配送汉堡包的技能。</li>
+<li>开创事业所必备的最重要的三种管理技能是：现金流管理、人事管理、个人时间管理。</li>
+<li>沟通能力，书面表达、口头表达及谈判能力对一个人的成功至关重要。</li>
+<li>如果你对法律一无所知，就很容易被欺负，如果你了解法律，你就有还击的机会。</li>
+<li>领导才能是你下一步迫切需要学习的，如果你不说一个好的领导者，你就会被背后的冷箭射中。</li>
+</ol>
+<h4 id="第十二部分"><a href="#第十二部分" class="headerlink" title="第十二部分"></a>第十二部分</h4><ol>
+<li>资产是能把钱放进你口袋里的东西，负债是把钱从你口袋里取走的东西。</li>
+<li>财富就是支撑一个人生存多长时间的能力，或者说，如果我今天停止工作，我还能活多久。</li>
+<li>职业是你的收入项，事业是你的资产项，富人关注的是自己的资产而穷人关注的是自己的职业收人。</li>
+</ol>
+<h4 id="第十三部分"><a href="#第十三部分" class="headerlink" title="第十三部分"></a>第十三部分</h4><ol>
+<li>一个人财商的高低与他是否拥有巨额财产，是否受过高等教育，是否找到一份好工作无关。财商的积累需要靠理财技能的培训和解决财务问题的实践锻炼。</li>
+<li>金钱就是力量，但更有力量的是财商教育。</li>
+<li>如果不会理财，钱越多，欠下的债也就越多。</li>
+<li>许多富裕的家庭富不过三代，就是因为他们没有培养出一个在行的人来管理资产。</li>
+<li>风险总是存在的，但你的财商可以提高你的应付意外的能力。对一个人来说是高风险的事情，对另一个人来说可能是低风险的。</li>
+</ol>
+<h4 id="第十四部分"><a href="#第十四部分" class="headerlink" title="第十四部分"></a>第十四部分</h4><ol>
+<li>投资自己的头脑，掌握多项技能，永远都在学习。</li>
+<li>年轻时就开始积累资本，学习投资，付诸实践。（保持低支出，减少借款）</li>
+<li>照常工作，做个努力的雇员，但要不断构筑自己的资产项，关注自己的事业。</li>
+<li>拥有一个由资产组成的公司，作为综合理财的一部分。</li>
+<li>特意去结交一些有钱的朋友，学习他们得以致富的知识。</li>
+<li>在每月支出之前，先将钱分配给自己的资产项。</li>
+</ol>
+<h4 id="第十五部分"><a href="#第十五部分" class="headerlink" title="第十五部分"></a>第十五部分</h4><ol>
+<li>不谈钱跟依赖钱一样，是一种精神上的疾病。</li>
+<li>那些成功的投资者，在最初肯定不是追求平衡的，追求平衡的人只会在原地踏步。要进步，你必须先做到不平衡，并注意怎样才能使自己不断进步</li>
+<li>如果你有致富的愿望，就必须集中精力。把你大部分的鸡蛋放在较少的篮子里，别像穷人和中产阶级一样，把较少的鸡蛋放在较多的篮子里。</li>
+<li>大部分人让那些债主把沙子踢到脸上，而我决定利用对债主的恐惧使自己变得更加强壮。</li>
+<li>先支付自己，要支付给其他债主的压力就会变得非常大，迫使你去寻求其他形式的收入，支付的压力就会成为你的动力。</li>
+<li>我要承认我会特意结交一些有钱的朋友，我的目标不是他们的钱财，而是他们得以致富的知识。</li>
+<li>你要去结交有钱的朋友，因为他们更接近于市场内部，而钱就是有内线消息挣来的，这样你就能在市场繁荣之前买进，在危机之前卖出。</li>
+<li>机会总是稍纵即逝，知道什么时候要迅速做出决定是一项非常重要的事情。</li>
+<li>机会摆在人们面前，但大多数人从来看不到这些机会，因为他们忙着追求金钱和稳定。</li>
+<li>大多数人认为世界上除了自己外，其他人都应该改变，其实改变自己比改变他人更容易。</li>
+<li>工人付出最大努力以免于被解雇，而雇主提供最低工资以防止工人辞职。</li>
+<li>在积累财富的过程中，最困难的事情莫过于坚持自己的选择而不盲目从众。因为在竞争激烈的市场上，群体往往会反应迟钝，成为被宰割的对象。</li>
+<li>小规模投资人善于小规模的运作，因为他们的思考范围太狭窄，他们总是单干，从不协同作战。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>网摘</category>
+      </categories>
+      <tags>
+        <tag>转载</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一生最后悔的是什么</title>
     <url>/2020/03/03/%E4%B8%80%E7%94%9F%E6%9C%80%E5%90%8E%E6%82%94%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88/</url>
     <content><![CDATA[<p>这是一篇网文，我觉得有些说法和观点还是很有意思的，所以摘抄下来并整理成笔记了。</p>
@@ -6979,169 +10804,6 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《穷爸爸富爸爸》读书笔记</title>
-    <url>/2020/03/03/%E3%80%8A%E7%A9%B7%E7%88%B8%E7%88%B8%E5%AF%8C%E7%88%B8%E7%88%B8%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>《富爸爸穷爸爸》这本数是 罗伯特清崎 的作品。我没有看过，但是我看了别人的读书笔记，已经归纳出来了，省去了从头到尾的阅读。现在整理后转载过来。</p>
-<h4 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h4><ol>
-<li>我有太多重要的事要做，不能浪费时间。 </li>
-<li>我想和勇者为伴，不希望与后进的人为伍。</li>
-<li>我从未遇见过喜欢亏钱的人，但在我的一生中，从未遇见一位没有亏过钱的富人，却遇见过许多从未亏掉一毛钱的穷人。</li>
-<li>我志在将每一次失败转化为机会，所以我每失败一次都往成功迈进一步。</li>
-<li>我不断学习和提高是因为我知道变化就要来临，我更欢迎变化而不是沉溺于过去。</li>
-<li>我痛恨“我们必须这么做，因为大多数人都这么做”这类话。</li>
-<li>我习惯于用消费的欲望来激发我的财务天赋。</li>
-<li>我是一个富人，富人不会这么做。<a id="more"></a></li>
-</ol>
-<h4 id="第二部分"><a href="#第二部分" class="headerlink" title="第二部分"></a>第二部分</h4><ol>
-<li>贫穷是万恶之本。贫穷会放大微小的诱惑，降低作恶的成本，当一个人无路可走时，他就容易在错误的道路上拔足狂奔。</li>
-<li>贫穷激励我努力去想挣钱的方法。</li>
-<li>如果促使你前进的动力不够强大，那么前行道路上的严酷现实就会使你退缩。</li>
-<li>财务自由就是为了有更多选择的机会。</li>
-<li>我不想将来一生都耗在工作上，我不想要父辈们渴望的那些东西，如稳定的工作和一套郊区的房子，我不想做一个打工仔，我不想因为忙于工作而错过陪伴家人的时光，我不想终身努力工作，但在去世时却一无所有。我想自由自在地周游世界，我想以自己喜欢的方式生活，我想在年轻的时候就能做到这些，我想自由支配自己的时间和生活，我想要金钱为我工作。</li>
-</ol>
-<h4 id="第三部分"><a href="#第三部分" class="headerlink" title="第三部分"></a>第三部分</h4><ol>
-<li>穷人穷在理财方式和思维习惯，富人富在理财技能得到培训。</li>
-<li>穷人往往是那些害怕风险，寻求稳定工作，致富靠积攒，对金钱缺乏激情但却有享乐主义的消费方式的人。</li>
-<li>穷人往往出于精神上的懒惰逃避金钱问题，而富人往往热于思考金钱问题然后解决问题。穷人往往害怕风险，躲避风险，而富人往往不惧风险，学会管理风险。穷人往往不断存钱，而富人往往不断投资。</li>
-<li>穷人和中产阶级会先买下房子和汽车等奢侈品，而富人则是最后才买奢侈品。过早购买奢侈品只会让人深陷贷款陷阱之中。</li>
-<li>穷人和中产阶级为钱而工作而富人不为金钱工作，他们让金钱为自己工作。富人购入资产，穷人只有支出，中产阶级购买自以为是资产的负债。</li>
-<li>富人会到限期时再支付订单，而不是预先支付。</li>
-<li>富人越来越富的原因是他们购入资产，资产项又产生现金流足以弥补支出，还可以用剩余的资产项再投资</li>
-<li>富人总是雇佣比自己更聪明的人。</li>
-<li>下意识说：“我可付不起”意味着精神上的懒惰。“我怎样才能付得起”促使你去想办法，“我可付不起”促使你放弃。遇到金钱的问题时不要习惯于逃避，而是要想办法解决问题，想想“怎样才付得起”。</li>
-<li>穷人深陷老鼠赛跑陷阱：终生辛苦工作，收入全部用作支出和还贷。穷人的工资就是他们收入的全部来源，并且他们忙着挣钱去支付税款和贷款，根本无暇研究投资，也就无法抓住机遇，只能一生重复老鼠赛跑的过程。他们把一生中最美好的年华用来挣钱，却不明白到底是为了什么而工作。</li>
-</ol>
-<h4 id="第四部分"><a href="#第四部分" class="headerlink" title="第四部分"></a>第四部分</h4><ol>
-<li>我想和勇者为伴，不希望与后进的人为伍。</li>
-<li>我痛恨“我们必须这么做，因为大多数人都这么做”这类话。</li>
-<li>做你内心认为正确的事，因为你不管怎么做总会受到批评。如果你做，会受到指责，而你不做，还是会受到指责。</li>
-<li>不要听贫穷的或是胆小的人的话。因为我们常常需要极大的勇气，才能不让谣言和杞人忧天的怀疑加剧我们的恐惧和疑虑。</li>
-<li>在现实生活中，人们往往是依靠勇气而不是智慧去取得领先位置的。</li>
-<li>过分的害怕和自我怀疑是毁掉我们才能的最大因素。许多人明明知道该做什么，却缺乏勇气去付诸实践，实在是一件很悲哀的事情。</li>
-<li>如果你是那种没有勇气的人，你的一生会过得稳稳当当，不做错事，在无聊中死去。看上去你的一生过得很安稳，处事无误，事实是，你向生活屈服了，不敢承担风险。你的确想赢，但失败的恐惧超过了成功的兴奋。只有你知道，在你内心深处，你始终认为你不可能赢，所以你选择了稳定。</li>
-<li>大多数人热衷于稳定是出于恐惧。正是出于恐惧的心理，人们才想找一份安稳的工作，关于金钱，他们没有激情。</li>
-<li>认为工作会给你带来安全感其实是在欺骗自己。</li>
-<li>害怕在公众面前说话是害怕被排斥，害怕冒尖，害怕被批评，害怕被嘲笑，害怕被别人所不容。简言之，就是害怕与别人不同。这种心理阻碍了人们去想新办法来解决问题。</li>
-</ol>
-<h4 id="第五部分"><a href="#第五部分" class="headerlink" title="第五部分"></a>第五部分</h4><ol>
-<li>贫穷与破产的区别是：破产是暂时的，而贫穷是永久的。</li>
-<li>我从未遇见过喜欢亏钱的人，但在我的一生中，从未遇见一位没有亏过钱的富人，却遇见过许多从未亏掉一毛钱的穷人。</li>
-<li>人人都想上天堂，却没有人想死。大部分人都梦想发财，但却害怕亏钱，所以他们永远也进不了财富的天堂。</li>
-<li>我志在将每一次失败转化为机会，所以我每失败一次都往成功迈进一步。</li>
-<li>如果你从不跌倒，也就永远学不会走路。大多数人贫穷的主要原因就在于他们太担心失去。胜利者不害怕失败，但失败者害怕。失败是成功过程中的一个组成部分，如果避开失败，也就不会成功。</li>
-<li>不喜欢失败和害怕失败之间有着巨大区别，大部分人因为害怕失败而失败，他们甚至会因为一栋公寓而破产，在财务上人们做得过于安全、规模太小，他们会买大房子。大轿车，却不进行大的投资。</li>
-<li>因为太害怕失败，所以才会失败。胜利意味着不害怕失败。</li>
-<li>胜利者的最大秘密是失败能够激励他们取胜，所以他们不害怕失败。</li>
-<li>我们在某些方面是英雄，而在另一些方面可能是懦夫。</li>
-</ol>
-<h4 id="第六部分"><a href="#第六部分" class="headerlink" title="第六部分"></a>第六部分</h4><ol>
-<li>大多数人只是夸夸其谈，梦想着发财致富，却不会付出行动。</li>
-<li>行动的人总会击败不行动的人</li>
-<li>如果你要破产的话，一定要在30岁以前，这样你还有时间东山再起。</li>
-</ol>
-<h4 id="第七部分"><a href="#第七部分" class="headerlink" title="第七部分"></a>第七部分</h4><ol>
-<li>思考这两件事情：一是时间，这时你最珍贵的资产，二是学习，正因为你没有钱，就更要去学习。</li>
-<li>金钱不是真实的资产。你所拥有的唯一真正的资产就是你的头脑，这是你能控制的最强有力的工具。</li>
-<li>离开学校不是学习的终点而是起点。在校园之外的现实生活里，有许多东西比学习成绩更为重要，人们称之为“魄力”，“勇气”“坚强”“精明”。</li>
-<li>一个人一旦停止了了解有关自己的知识和信息，就会变得无知。富人通过不断学习打开心扉，而穷人则厌恶学习，封闭自己的头脑。</li>
-<li>在这个快速变化的社会中，你学到的东西再多都不算多，因为当你学到时往往就已经过时了。问题在于你学的有多快，这种技能是无价之宝。</li>
-<li>知识就是力量，而且钱越多，就越需要知识来管理它，使它继续增加。只有知识才能解决问题并创造财富，那些不是靠财务知识挣来的钱也不会太长久。</li>
-<li>从长远看，教育比金钱更有价值。我承认为了金钱和生活安稳而工作是很重要，但我仍主张要再找一份工作，以便从中学到另一种技能。</li>
-<li>在找工作的时候要注重能从中学习到什么，而不是只关注这份工作能挣多少钱。</li>
-<li>在投资方面，大多数人选择的是直接去投资，而不是首先投资与学习如何投资。有的人投资股票或者房地产，却从不投资于他们最重要的资产——头脑，对此我感到非常震惊。你买过一两套房产并不能说明你是房地产方面的专家。</li>
-<li>真正的学习需要精力、激情和热切的愿望，愤怒是其中一个重要的组成部分，因为激情正是愤怒和热爱的结合体。</li>
-</ol>
-<h4 id="第八部分"><a href="#第八部分" class="headerlink" title="第八部分"></a>第八部分</h4><ol>
-<li>陈旧的思想是人们最大的债务，已有的某种思想或方法在昨天还是一种资产，今天却已经变成了负债。</li>
-<li>当某种新思想与旧有的思维方式发生冲突时，许多所谓的聪明人会本能地为自己辩护。在这种情况下，他们的聪明和傲慢结合在一起就等于无知。</li>
-<li>我不断学习和提高是因为我知道变化就要来临，我更欢迎变化而不是沉溺于过去。</li>
-<li>一个真正聪明的人总是欢迎新思想，因为新思想能使他们的思想库更加丰富。</li>
-<li>许多人试图用傲慢掩盖无知。如果你知道自己在某一问题上有所欠缺，你就应该找一本领域的专家或者是一本相关的书，马上开始教育自己。</li>
-</ol>
-<h4 id="第九部分"><a href="#第九部分" class="headerlink" title="第九部分"></a>第九部分</h4><ol>
-<li>如果你控制不了自己，就别想着致富。能否自律是将富人、穷人和中产阶级区分开来的首要因素。</li>
-<li>要学会让感情跟随你的思想，而不要让思想跟随你的感情。</li>
-<li>如果你不先控制恐惧和欲望，即使你们获得高薪，也只不过是金钱的奴隶罢了。</li>
-<li>挣多少钱不重要，重要的是能留下多少钱。</li>
-<li>我们每挣到一元钱，就得到了一次选择自己是成为富人、穷人还是中产阶级的机会。我们花钱的习惯反映了我们是什么样的人，穷人之所以贫穷是因为他们有着不良的消费习惯。</li>
-<li>富人最后购买奢侈品，而穷人和中产阶级先买下奢侈品，因为他们想让自己看上去很富有。</li>
-<li>真正的奢侈品是对投资和积累真正资产的奖励。</li>
-<li>我习惯于用消费的欲望来激发并利用我的理财天赋去投资。</li>
-<li>浪费是妨碍财富积累的最大天敌，只有开源节流力求小富，才能有把握大富的机会。</li>
-<li>世界上最悲哀的事情是眼看着有许多大生意可做，手头上却没有钱。</li>
-<li>年轻时就开始积累，你就更容易致富。</li>
-<li>轻松的道路往往会越走越艰难，而艰难的道路往往会越走越轻松。</li>
-</ol>
-<h4 id="第十部分"><a href="#第十部分" class="headerlink" title="第十部分"></a>第十部分</h4><ol>
-<li><p>如果过早购买房子而不是进行投资：</p>
-<ul>
-<li>失去其他资产增值的机会。</li>
-<li>本可以用来投资的资本将用于支付房子高额的维修和保养。</li>
-<li>失去锻炼财商的机会。因为没钱投资就不会投资，也就无法获得投资经验，无法成为成熟的投资人。</li>
-</ul>
-</li>
-<li><p>太早购买房子最大的损失是致富机会的损失。如果你所有的钱都投在了房子上面，你就不得不努力工作，因为你的现金地从支出项流出，而不是流入资产项。</p>
-</li>
-<li><p>因为没钱投资，也就不会去投资，就无法获得投资经验，并永远不会成为成熟投资者。</p>
-</li>
-<li><p>即使公积金能够抵除每月的房贷，你也损失了首付钱带来的投资收益。</p>
-</li>
-<li><p>不要等关系一生的机会来临的时候，你却没有钱可以投资。</p>
-</li>
-</ol>
-<h4 id="第十一部分"><a href="#第十一部分" class="headerlink" title="第十一部分"></a>第十一部分</h4><ol>
-<li>大部分人需要学习和掌握不止一项技能，只有这样他们的收入才能获得显著增长。</li>
-<li>许多才华横溢的人之所以贫穷，就是因为他们只是专心于做好产品，而对商业体系知之甚少。学习一些广告文案和销售的技能，对许多知识你只需知道一点就够了。</li>
-<li>世界上到处都是有才华的穷人，在很多情况下，他们贫穷，财务困难或者只是挣到低于他们应得的薪水，不是因为他们已知的东西而是因为他们未知的东西。他们只将注力意集中在提高做汉堡的技能上，却不注意提高销售和配送汉堡包的技能。</li>
-<li>开创事业所必备的最重要的三种管理技能是：现金流管理、人事管理、个人时间管理。</li>
-<li>沟通能力，书面表达、口头表达及谈判能力对一个人的成功至关重要。</li>
-<li>如果你对法律一无所知，就很容易被欺负，如果你了解法律，你就有还击的机会。</li>
-<li>领导才能是你下一步迫切需要学习的，如果你不说一个好的领导者，你就会被背后的冷箭射中。</li>
-</ol>
-<h4 id="第十二部分"><a href="#第十二部分" class="headerlink" title="第十二部分"></a>第十二部分</h4><ol>
-<li>资产是能把钱放进你口袋里的东西，负债是把钱从你口袋里取走的东西。</li>
-<li>财富就是支撑一个人生存多长时间的能力，或者说，如果我今天停止工作，我还能活多久。</li>
-<li>职业是你的收入项，事业是你的资产项，富人关注的是自己的资产而穷人关注的是自己的职业收人。</li>
-</ol>
-<h4 id="第十三部分"><a href="#第十三部分" class="headerlink" title="第十三部分"></a>第十三部分</h4><ol>
-<li>一个人财商的高低与他是否拥有巨额财产，是否受过高等教育，是否找到一份好工作无关。财商的积累需要靠理财技能的培训和解决财务问题的实践锻炼。</li>
-<li>金钱就是力量，但更有力量的是财商教育。</li>
-<li>如果不会理财，钱越多，欠下的债也就越多。</li>
-<li>许多富裕的家庭富不过三代，就是因为他们没有培养出一个在行的人来管理资产。</li>
-<li>风险总是存在的，但你的财商可以提高你的应付意外的能力。对一个人来说是高风险的事情，对另一个人来说可能是低风险的。</li>
-</ol>
-<h4 id="第十四部分"><a href="#第十四部分" class="headerlink" title="第十四部分"></a>第十四部分</h4><ol>
-<li>投资自己的头脑，掌握多项技能，永远都在学习。</li>
-<li>年轻时就开始积累资本，学习投资，付诸实践。（保持低支出，减少借款）</li>
-<li>照常工作，做个努力的雇员，但要不断构筑自己的资产项，关注自己的事业。</li>
-<li>拥有一个由资产组成的公司，作为综合理财的一部分。</li>
-<li>特意去结交一些有钱的朋友，学习他们得以致富的知识。</li>
-<li>在每月支出之前，先将钱分配给自己的资产项。</li>
-</ol>
-<h4 id="第十五部分"><a href="#第十五部分" class="headerlink" title="第十五部分"></a>第十五部分</h4><ol>
-<li>不谈钱跟依赖钱一样，是一种精神上的疾病。</li>
-<li>那些成功的投资者，在最初肯定不是追求平衡的，追求平衡的人只会在原地踏步。要进步，你必须先做到不平衡，并注意怎样才能使自己不断进步</li>
-<li>如果你有致富的愿望，就必须集中精力。把你大部分的鸡蛋放在较少的篮子里，别像穷人和中产阶级一样，把较少的鸡蛋放在较多的篮子里。</li>
-<li>大部分人让那些债主把沙子踢到脸上，而我决定利用对债主的恐惧使自己变得更加强壮。</li>
-<li>先支付自己，要支付给其他债主的压力就会变得非常大，迫使你去寻求其他形式的收入，支付的压力就会成为你的动力。</li>
-<li>我要承认我会特意结交一些有钱的朋友，我的目标不是他们的钱财，而是他们得以致富的知识。</li>
-<li>你要去结交有钱的朋友，因为他们更接近于市场内部，而钱就是有内线消息挣来的，这样你就能在市场繁荣之前买进，在危机之前卖出。</li>
-<li>机会总是稍纵即逝，知道什么时候要迅速做出决定是一项非常重要的事情。</li>
-<li>机会摆在人们面前，但大多数人从来看不到这些机会，因为他们忙着追求金钱和稳定。</li>
-<li>大多数人认为世界上除了自己外，其他人都应该改变，其实改变自己比改变他人更容易。</li>
-<li>工人付出最大努力以免于被解雇，而雇主提供最低工资以防止工人辞职。</li>
-<li>在积累财富的过程中，最困难的事情莫过于坚持自己的选择而不盲目从众。因为在竞争激烈的市场上，群体往往会反应迟钝，成为被宰割的对象。</li>
-<li>小规模投资人善于小规模的运作，因为他们的思考范围太狭窄，他们总是单干，从不协同作战。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>网摘</category>
-      </categories>
-      <tags>
-        <tag>转载</tag>
       </tags>
   </entry>
   <entry>
