@@ -180,6 +180,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/pandas%E7%AD%9B%E9%80%89%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/pandas%E7%AD%9B%E9%80%89%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">pandas筛选排序</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Erstellt: 2020-04-12 21:16:17" itemprop="dateCreated datePublished" datetime="2020-04-12T21:16:17+08:00">2020-04-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h3><h5 id="单条件df-df-col-gt-100"><a href="#单条件df-df-col-gt-100" class="headerlink" title="单条件df[df[col] &gt; 100]"></a>单条件<code>df[df[col] &gt; 100]</code></h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">print(df[df[<span class="string">'语文'</span>] &gt;<span class="number">100</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">姓名   语文  数学   英语</span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br><span class="line"><span class="number">7</span>  黄远彤  <span class="number">103</span>  <span class="number">79</span>  <span class="number">115</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="多条件df-df-col-gt-96-amp-df-col-gt-96"><a href="#多条件df-df-col-gt-96-amp-df-col-gt-96" class="headerlink" title="多条件df[(df[col] &gt; 96) &amp; (df[col] &gt; 96)]"></a>多条件<code>df[(df[col] &gt; 96) &amp; (df[col] &gt; 96)]</code></h5><p>两个条件分别用括号包含起来</p>
+<p>&amp;：表示两个条件同时满足</p>
+<p>|：表示两个条件满足其中任意一个</p>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><p>ascending属性 </p>
+<p>ascending=True：升序</p>
+<p>ascending=False：降序</p>
+<p>单列值的大小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">print(df.sort_values(<span class="string">'语文'</span>))</span><br><span class="line"></span><br><span class="line">姓名   语文  数学   英语</span><br><span class="line"><span class="number">6</span>  符星海   <span class="number">84</span>  <span class="number">86</span>  <span class="number">113</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span></span><br><span class="line"><span class="number">5</span>   王娜   <span class="number">90</span>  <span class="number">76</span>  <span class="number">117</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span></span><br><span class="line"><span class="number">7</span>  黄远彤  <span class="number">103</span>  <span class="number">79</span>  <span class="number">115</span></span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br></pre></td></tr></table></figure>
+
+<p>多列值</p>
+<p>多列的值进行排序时，将各列用[ ]包含，中间用逗号分隔</p>
+<p>各列的排序方式可以单独设定，ascending的值同样用[ ]包含，中间用逗号分隔</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">print(df.sort_values([<span class="string">'语文'</span>, <span class="string">'数学'</span>], ascending=[<span class="literal">True</span>, <span class="literal">False</span>]))</span><br><span class="line"></span><br><span class="line">姓名   语文  数学   英语</span><br><span class="line"><span class="number">6</span>  符星海   <span class="number">84</span>  <span class="number">86</span>  <span class="number">113</span></span><br><span class="line"><span class="number">4</span>  吴冠套   <span class="number">90</span>  <span class="number">90</span>  <span class="number">113</span></span><br><span class="line"><span class="number">5</span>   王娜   <span class="number">90</span>  <span class="number">76</span>  <span class="number">117</span></span><br><span class="line"><span class="number">1</span>  马广弟   <span class="number">93</span>  <span class="number">96</span>  <span class="number">129</span></span><br><span class="line"><span class="number">3</span>   黄璐  <span class="number">100</span>  <span class="number">79</span>  <span class="number">127</span></span><br><span class="line"><span class="number">7</span>  黄远彤  <span class="number">103</span>  <span class="number">79</span>  <span class="number">115</span></span><br><span class="line"><span class="number">0</span>  钟定胜  <span class="number">106</span>  <span class="number">90</span>   <span class="number">95</span></span><br><span class="line"><span class="number">2</span>  卢雨欣  <span class="number">112</span>  <span class="number">74</span>  <span class="number">132</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4><p><code>df.groupby(col)</code>  返回一个groupby对象以获取一列中的值</p>
+<p><code>df.groupby([col1,col2])</code></p>
+<p><code>df.groupby(col1)[col2]</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">a = df.groupby(<span class="string">'语文'</span>)</span><br><span class="line">b = df.groupby([<span class="string">'语文'</span>, <span class="string">'数学'</span>])</span><br><span class="line">c = df.groupby(<span class="string">'语文'</span>)[<span class="string">'英语'</span>]</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line">&lt;pandas.core.groupby.generic.DataFrameGroupBy object at <span class="number">0x033AFF88</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'成绩表.xls'</span>, usecols=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], nrows=<span class="number">8</span>)</span><br><span class="line">a = df.groupby(<span class="string">'语文'</span>)</span><br><span class="line">b = df.groupby([<span class="string">'语文'</span>, <span class="string">'数学'</span>])</span><br><span class="line">c = df.groupby(<span class="string">'语文'</span>)[<span class="string">'英语'</span>]</span><br><span class="line">print(list(a))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/%E8%BD%B4%E6%89%BF%E5%BA%A7%E5%88%80%E6%9F%84%E9%85%8D%E7%BD%AE%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -828,71 +925,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/pandas%E8%A1%A8%E6%A0%BC%E6%A0%BC%E5%BC%8F%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/07/pandas%E8%A1%A8%E6%A0%BC%E6%A0%BC%E5%BC%8F%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">pandas表格格式处理</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-04-07 17:36:30" itemprop="dateCreated datePublished" datetime="2020-04-07T17:36:30+08:00">2020-04-07</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          被加密了, 请输入密码查看.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/07/pandas%E8%A1%A8%E6%A0%BC%E6%A0%BC%E5%BC%8F%E5%A4%84%E7%90%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -963,7 +995,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -976,7 +1008,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
