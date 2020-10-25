@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>跟单员工作交接</title>
+    <title>pyecharts数据可视化</title>
     <url>/2020/10/25/pyecharts/</url>
     <content><![CDATA[<h1 id="pyecharts数据可视化"><a href="#pyecharts数据可视化" class="headerlink" title="pyecharts数据可视化"></a>pyecharts数据可视化</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pyecharts <span class="keyword">import</span> options <span class="keyword">as</span> opts</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Map, Geo, Bar, Page</span><br><span class="line"><span class="keyword">from</span> pyecharts.faker <span class="keyword">import</span> Faker</span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Page, Grid</span><br><span class="line"><span class="keyword">from</span> pyecharts.render <span class="keyword">import</span> make_snapshot</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
 
@@ -12,14 +12,12 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 世界地图数据</span></span><br><span class="line">value = [<span class="number">95.1</span>, <span class="number">23.2</span>, <span class="number">43.3</span>, <span class="number">66.4</span>]</span><br><span class="line">attr= [<span class="string">"China"</span>,  <span class="string">"Brazil"</span>, <span class="string">"Russia"</span>, <span class="string">"United States"</span>]</span><br><span class="line"><span class="comment"># 省和直辖市</span></span><br><span class="line">provice_distribution = &#123;<span class="string">'河南'</span>: <span class="number">50</span>, <span class="string">'北京'</span>: <span class="number">50</span>, <span class="string">'辽宁'</span>: <span class="number">12</span>, <span class="string">'江西'</span>: <span class="number">28</span>, <span class="string">'上海'</span>: <span class="number">20</span>,  <span class="string">'江苏'</span>: <span class="number">26</span>, <span class="string">'湖南'</span>: <span class="number">18</span>, <span class="string">'浙江'</span>: <span class="number">13</span>, <span class="string">'海南'</span>: <span class="number">2</span>, <span class="string">'广东'</span>: <span class="number">22</span>, <span class="string">'湖北'</span>: <span class="number">8</span>, <span class="string">'黑龙江'</span>: <span class="number">11</span>, <span class="string">'中国澳门'</span>: <span class="number">1</span>, <span class="string">'陕西'</span>: <span class="number">21</span>, <span class="string">'四川'</span>: <span class="number">7</span>, <span class="string">'内蒙古'</span>: <span class="number">30</span>, <span class="string">'重庆'</span>: <span class="number">43</span>, <span class="string">'云南'</span>:<span class="number">1</span>, <span class="string">'贵州'</span>: <span class="number">15</span>, <span class="string">'吉林'</span>: <span class="number">3</span>, <span class="string">'山西'</span>: <span class="number">12</span>, <span class="string">'山东'</span>: <span class="number">11</span>, <span class="string">'福建'</span>: <span class="number">4</span>, <span class="string">'青海'</span>: <span class="number">1</span>, <span class="string">'宁夏'</span>: <span class="number">7</span>, <span class="string">'天津'</span>: <span class="number">1</span>, <span class="string">'新疆'</span>: <span class="number">33</span>&#125;</span><br><span class="line">provice=list(provice_distribution.keys())</span><br><span class="line">values=list(provice_distribution.values())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 城市 -- 指定省的城市 xx市</span></span><br><span class="line">city = [<span class="string">'红桥区'</span>, <span class="string">'河东区'</span>, <span class="string">'河北区'</span>, <span class="string">'河西区'</span>, <span class="string">'东丽区'</span>]</span><br><span class="line">values2 = [<span class="number">1.07</span>, <span class="number">3.85</span>, <span class="number">6.38</span>, <span class="number">8.21</span>, <span class="number">2.53</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 区县 -- 具体城市内的区县  xx县</span></span><br><span class="line">quxian = [<span class="string">'夏邑县'</span>, <span class="string">'民权县'</span>, <span class="string">'梁园区'</span>, <span class="string">'睢阳区'</span>, <span class="string">'柘城县'</span>, <span class="string">'宁陵县'</span>]</span><br><span class="line">values3 = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line"><span class="comment">############################</span></span><br><span class="line">map1=Map(init_opts=opts.InitOpts(width = <span class="string">'1200px'</span>, height=<span class="string">'600px'</span>))</span><br><span class="line">map1.add(<span class="string">"国家"</span>,list(zip(attr,value)),<span class="string">"world"</span>)</span><br><span class="line">map1.set_global_opts(</span><br><span class="line">    title_opts=opts.TitleOpts(title=<span class="string">"世界地图"</span>,subtitle=<span class="string">"country"</span>),</span><br><span class="line">    visualmap_opts=opts.VisualMapOpts()</span><br><span class="line">    )</span><br><span class="line">map1.set_series_opts(label_opts=opts.LabelOpts(is_show=<span class="literal">False</span>))</span><br><span class="line"><span class="comment">#############################</span></span><br><span class="line">map2=Map(&#123;<span class="string">"width"</span>: <span class="string">"1200px"</span>, <span class="string">"height"</span>: <span class="string">"600px"</span>&#125;)</span><br><span class="line">map2.set_global_opts(</span><br><span class="line">    title_opts=&#123;<span class="string">"text"</span>:<span class="string">"价格表"</span>,<span class="string">"subtext"</span>:<span class="string">"苹果"</span>&#125;,</span><br><span class="line">    visualmap_opts=opts.VisualMapOpts(), </span><br><span class="line">    )</span><br><span class="line">map2.add(<span class="string">"省市"</span>,list(zip(provice,values)),<span class="string">"china"</span>,is_selected = <span class="literal">True</span>,)</span><br><span class="line"><span class="comment">####################################</span></span><br><span class="line">map3=Map(init_opts=opts.InitOpts(width = <span class="string">'1200px'</span>, height=<span class="string">'600px'</span>))</span><br><span class="line">map3.set_global_opts(</span><br><span class="line">    title_opts=&#123;<span class="string">"text"</span>:<span class="string">"价格表"</span>,<span class="string">"subtext"</span>:<span class="string">"苹果"</span>&#125;,</span><br><span class="line">    visualmap_opts=opts.VisualMapOpts(), </span><br><span class="line">    legend_opts=opts.LegendOpts(pos_left=<span class="string">"50%"</span>)</span><br><span class="line">)</span><br><span class="line">map3.add(</span><br><span class="line">    <span class="string">"区县"</span>,</span><br><span class="line">    [[city[i],values2[i]] <span class="keyword">for</span> i <span class="keyword">in</span> range(len(city))],</span><br><span class="line">    <span class="string">"天津"</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">#####################################</span></span><br><span class="line">p=Page()</span><br><span class="line">p.add(map1)</span><br><span class="line">p.add(map2)</span><br><span class="line">p.add(map3)</span><br><span class="line">p.render_notebook()</span><br><span class="line"><span class="comment"># p.render(path="t.html")</span></span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-<script>
+<pre><code>C:\Users\xiaoyx\AppData\Roaming\Python\Python38\site-packages\pyecharts\charts\chart.py:14: PendingDeprecationWarning: pyecharts 所有图表类型将在 v1.9.0 版本开始强制使用 ChartItem 进行数据项配置 :)
+  super().__init__(init_opts=init_opts)
+C:\Users\xiaoyx\AppData\Roaming\Python\Python38\site-packages\pyecharts\charts\chart.py:14: PendingDeprecationWarning: pyecharts 所有图表类型将在 v1.9.0 版本开始强制使用 ChartItem 进行数据项配置 :)
+  super().__init__(init_opts=init_opts)
+C:\Users\xiaoyx\AppData\Roaming\Python\Python38\site-packages\pyecharts\charts\chart.py:14: PendingDeprecationWarning: pyecharts 所有图表类型将在 v1.9.0 版本开始强制使用 ChartItem 进行数据项配置 :)
+  super().__init__(init_opts=init_opts)</code></pre><script>
     require.config({
         paths: {
             'echarts':'https://assets.pyecharts.org/assets/echarts.min', 'world':'https://assets.pyecharts.org/assets/maps/world', 'china':'https://assets.pyecharts.org/assets/maps/china', '天津':'https://assets.pyecharts.org/assets/maps/tianjin'
@@ -27,13 +25,13 @@
     });
 </script>
 
-<pre><code>&lt;div id=&quot;19523c21c58d44208b3a84b88d67c520&quot; style=&quot;width:1200px; height:600px;&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;782fbf7eec514a6183bf1d4f2291e5ca&quot; style=&quot;width:1200px; height:600px;&quot;&gt;&lt;/div&gt;
-&lt;div id=&quot;bc6a1d51ffd14faca047715fae0b8303&quot; style=&quot;width:1200px; height:600px;&quot;&gt;&lt;/div&gt;</code></pre><script>
+<pre><code>&lt;div id=&quot;06d68cc5168a483bbf21303dfdbc6c36&quot; style=&quot;width:1200px; height:600px;&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;dd3f3f49eec54a0aa2c076e0ae55dbbb&quot; style=&quot;width:1200px; height:600px;&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;8d6d41589f8b4ab2abe43f363abf5ea4&quot; style=&quot;width:1200px; height:600px;&quot;&gt;&lt;/div&gt;</code></pre><script>
         require(['echarts', 'world', 'china', '天津'], function(echarts) {
-                var chart_19523c21c58d44208b3a84b88d67c520 = echarts.init(
-                    document.getElementById('19523c21c58d44208b3a84b88d67c520'), 'white', {renderer: 'canvas'});
-                var option_19523c21c58d44208b3a84b88d67c520 = {
+                var chart_06d68cc5168a483bbf21303dfdbc6c36 = echarts.init(
+                    document.getElementById('06d68cc5168a483bbf21303dfdbc6c36'), 'white', {renderer: 'canvas'});
+                var option_06d68cc5168a483bbf21303dfdbc6c36 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -170,10 +168,10 @@
         "borderWidth": 0
     }
 };
-                chart_19523c21c58d44208b3a84b88d67c520.setOption(option_19523c21c58d44208b3a84b88d67c520);
-                var chart_782fbf7eec514a6183bf1d4f2291e5ca = echarts.init(
-                    document.getElementById('782fbf7eec514a6183bf1d4f2291e5ca'), 'white', {renderer: 'canvas'});
-                var option_782fbf7eec514a6183bf1d4f2291e5ca = {
+                chart_06d68cc5168a483bbf21303dfdbc6c36.setOption(option_06d68cc5168a483bbf21303dfdbc6c36);
+                var chart_dd3f3f49eec54a0aa2c076e0ae55dbbb = echarts.init(
+                    document.getElementById('dd3f3f49eec54a0aa2c076e0ae55dbbb'), 'white', {renderer: 'canvas'});
+                var option_dd3f3f49eec54a0aa2c076e0ae55dbbb = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -392,10 +390,10 @@
         "borderWidth": 0
     }
 };
-                chart_782fbf7eec514a6183bf1d4f2291e5ca.setOption(option_782fbf7eec514a6183bf1d4f2291e5ca);
-                var chart_bc6a1d51ffd14faca047715fae0b8303 = echarts.init(
-                    document.getElementById('bc6a1d51ffd14faca047715fae0b8303'), 'white', {renderer: 'canvas'});
-                var option_bc6a1d51ffd14faca047715fae0b8303 = {
+                chart_dd3f3f49eec54a0aa2c076e0ae55dbbb.setOption(option_dd3f3f49eec54a0aa2c076e0ae55dbbb);
+                var chart_8d6d41589f8b4ab2abe43f363abf5ea4 = echarts.init(
+                    document.getElementById('8d6d41589f8b4ab2abe43f363abf5ea4'), 'white', {renderer: 'canvas'});
+                var option_8d6d41589f8b4ab2abe43f363abf5ea4 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -527,13 +525,18 @@
         "borderWidth": 0
     }
 };
-                chart_bc6a1d51ffd14faca047715fae0b8303.setOption(option_bc6a1d51ffd14faca047715fae0b8303);
+                chart_8d6d41589f8b4ab2abe43f363abf5ea4.setOption(option_8d6d41589f8b4ab2abe43f363abf5ea4);
         });
     </script>
 
 
 
 
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%%html</span><br><span class="line">&lt;img src=<span class="string">'/images/map_world.png'</span>, width=<span class="number">600</span>, height=<span class="number">400</span>&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>&lt;img src=’/images/map_world.png’, width=600, height=400&gt;</p>
 <h2 id="始化配置-InitOpts"><a href="#始化配置-InitOpts" class="headerlink" title="始化配置 InitOpts()"></a>始化配置 InitOpts()</h2><h3 id="参数写法：-init-opts-opts-InitOpts"><a href="#参数写法：-init-opts-opts-InitOpts" class="headerlink" title="参数写法： init_opts=opts.InitOpts()"></a>参数写法： init_opts=opts.InitOpts()</h3><p>** 内部参数: **   </p>
 <ol>
 <li>width: str = “900px”, height: str = “500px”,  图表画布宽度，css 长度单位。        </li>
