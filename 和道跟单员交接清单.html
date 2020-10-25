@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":8},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="和道跟单员交接清单供应商代码：61035供应商名称：广州和道汽车零部件有限公司客户： 东风本田汽车有限公司，简称：WDHAC  ，地点：武汉 东风本田发动机有限公司，简称：DHEC，地点：广州  交易零件： 零件名：BRKT COMPRESSOR ，图号：38930-RPY-E010    供应链及流程： 跟单员根据两个客户下达的年度和月度产销计划结合工厂的实际库存下达相应的生产订单给工厂，工厂根">
+<meta property="og:type" content="website">
+<meta property="og:title" content="静水深流">
+<meta property="og:url" content="http://yoursite.com/%E5%92%8C%E9%81%93%E8%B7%9F%E5%8D%95%E5%91%98%E4%BA%A4%E6%8E%A5%E6%B8%85%E5%8D%95.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="和道跟单员交接清单供应商代码：61035供应商名称：广州和道汽车零部件有限公司客户： 东风本田汽车有限公司，简称：WDHAC  ，地点：武汉 东风本田发动机有限公司，简称：DHEC，地点：广州  交易零件： 零件名：BRKT COMPRESSOR ，图号：38930-RPY-E010    供应链及流程： 跟单员根据两个客户下达的年度和月度产销计划结合工厂的实际库存下达相应的生产订单给工厂，工厂根">
+<meta property="article:published_time" content="2020-10-25T04:10:42.735Z">
+<meta property="article:modified_time" content="2020-10-25T04:10:42.735Z">
+<meta property="article:author" content="xiaoyaoxin">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/%E5%92%8C%E9%81%93%E8%B7%9F%E5%8D%95%E5%91%98%E4%BA%A4%E6%8E%A5%E6%B8%85%E5%8D%95">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false
+  };
+</script>
+
+  <title> | 静水深流
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">静水深流</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+  
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-Hans">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h2 id="和道跟单员交接清单"><a href="#和道跟单员交接清单" class="headerlink" title="和道跟单员交接清单"></a>和道跟单员交接清单</h2><h4 id="供应商代码：61035"><a href="#供应商代码：61035" class="headerlink" title="供应商代码：61035"></a>供应商代码：61035</h4><h4 id="供应商名称：广州和道汽车零部件有限公司"><a href="#供应商名称：广州和道汽车零部件有限公司" class="headerlink" title="供应商名称：广州和道汽车零部件有限公司"></a>供应商名称：广州和道汽车零部件有限公司</h4><h4 id="客户："><a href="#客户：" class="headerlink" title="客户："></a>客户：</h4><ol>
+<li>东风本田汽车有限公司，简称：WDHAC  ，地点：武汉</li>
+<li>东风本田发动机有限公司，简称：DHEC，地点：广州</li>
+</ol>
+<h4 id="交易零件："><a href="#交易零件：" class="headerlink" title="交易零件："></a>交易零件：</h4><ol>
+<li>零件名：BRKT COMPRESSOR ，图号：38930-RPY-E010  </li>
+</ol>
+<h4 id="供应链及流程："><a href="#供应链及流程：" class="headerlink" title="供应链及流程："></a>供应链及流程：</h4><ol>
+<li><p>跟单员根据两个客户下达的年度和月度产销计划结合工厂的实际库存下达相应的生产订单给工厂，工厂根据出货计划，给德利厂下达铸件订单</p>
+</li>
+<li><p>湛江德利接收订单后提供铸件</p>
+</li>
+<li><p>和道湛江分公司加工成成品包装入库</p>
+</li>
+<li><p>根据客户系统下达的出货指示（传票和取货计划）安排工厂出货</p>
+<ul>
+<li>DHEC是上门取货。新工厂搬迁认证之前继续送货到德利出货</li>
+<li>WDHAC是送货到广州中转仓</li>
+<li>出货有PDA扫码枪将传票、零件信息等传送达系统，客户配套及中转仓均会及时了解到实时状态</li>
+</ul>
+</li>
+</ol>
+<h4 id="具体内容："><a href="#具体内容：" class="headerlink" title="具体内容："></a>具体内容：</h4><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>内容</th>
+<th>WHDAC</th>
+<th>DHEC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>对接系统<br>专线连接<br>每周登录2次</td>
+<td><strong>WCSM系统</strong>：<br>1.系统管理<br>2.订单管理供<br>3.应商结算<br>4.空容器管理<br><br><strong>物流管理系统</strong>：<br>1.取货计划<br><br><strong>电子报价系统</strong>：<br>专线1填报。专线2审核</td>
+<td><strong>EPS电子采购系统：<br>账号a</strong><br>1.通告信息、待办事项<br>2.订单模块<br>3.收货模块<br>4.物流模块<br>5.容器管理<br>6.备货管理<br>7.量产项目管理<br>8.包装管理<br>9.到货异常管理<br>10.样件管理<br>11.产能调查管理<br><br><strong>账号a2:结算系统</strong><br><strong>账号b</strong>:<br>1. 容器管理<br>2.量产项目管理<br>3.供应链信息管理<br>4.评价管理<br>5.索赔管理<br><strong>账号d:对b账号的信息审核</strong><br><strong>账号b1,样件系统</strong>:<br>1.试作推进管理<br>2.产能调查管理<br><br><strong>报价系统：</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>汽车材料数据系统<br>CAMDS数据填报</td>
+<td>学习了解熟悉填报<br>收到填报通知后就需要填报</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>下发生产订单</td>
+<td>每月20日下达生产订单</td>
+<td>同</td>
+</tr>
+<tr>
+<td>4</td>
+<td>下达取货计划</td>
+<td>随时，根据客户需要<br>做好出货台账管理<br>跟进出货<br>做好容器台账管理<br>与工厂仓库协同出货及容器管理</td>
+<td>同</td>
+</tr>
+<tr>
+<td>5</td>
+<td>表单报告提交（协同）</td>
+<td>30日前提交检测报告<br>具体数据品质部门提供<br>接收人:张泽林</td>
+<td>15日前提交月度品质清单<br>具体数据品质部门提供<br>接收人：吴学恒</td>
+</tr>
+<tr>
+<td>6</td>
+<td>提交对账数据给财务</td>
+<td>将月度交易明细对账后确认后提交<br>1.客户<br>2.供应商</td>
+<td>同</td>
+</tr>
+<tr>
+<td>7</td>
+<td>包装要求</td>
+<td>提货数：n 箱<br>托盘+周转箱：20pcs/箱<br>周转箱上线</td>
+<td>提货数：n箱/n托<br>托盘+周转箱：15pcs/箱，16箱/托<br>台车上线，90PCS/台车</td>
+</tr>
+<tr>
+<td>8</td>
+<td>运输流程</td>
+<td>湛江—增城GZCD—<strong><em>武汉CLC—厂内</em></strong><br><u>粗体路线为客户负责</u></td>
+<td><strong><em>湛江—黄埔DCC–厂内</em></strong><br><u>粗体路线为客户负责</u></td>
+</tr>
+<tr>
+<td>9</td>
+<td>日常邮件回复处理</td>
+<td>采购、配套、物流等</td>
+<td>同</td>
+</tr>
+<tr>
+<td>10</td>
+<td>其他未列事项</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>联系人<br>附联系人名单<br>微信交流群</td>
+<td>客户对接部门<br>GZCD联系人<br>CLC联系人<br>物流司机</td>
+<td>客户对接部门<br>DCC联系人<br>福达物流公司及司机</td>
+</tr>
+</tbody></table>
+<p>交接双方当面交接，以上有遗漏的地方及时补全，8月了解熟悉，9月开始正式接手。并通知到所有对接部门和人员。工作邮箱不变。</p>
+<p>​                                                                                                        以上名目整理编写：肖耀新</p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#和道跟单员交接清单"><span class="nav-number">1.</span> <span class="nav-text">和道跟单员交接清单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#供应商代码：61035"><span class="nav-number">1.0.1.</span> <span class="nav-text">供应商代码：61035</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#供应商名称：广州和道汽车零部件有限公司"><span class="nav-number">1.0.2.</span> <span class="nav-text">供应商名称：广州和道汽车零部件有限公司</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户："><span class="nav-number">1.0.3.</span> <span class="nav-text">客户：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交易零件："><span class="nav-number">1.0.4.</span> <span class="nav-text">交易零件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#供应链及流程："><span class="nav-number">1.0.5.</span> <span class="nav-text">供应链及流程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体内容："><span class="nav-number">1.0.6.</span> <span class="nav-text">具体内容：</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">博主</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://photos.google.com/" title="Google → https:&#x2F;&#x2F;photos.google.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Google</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.youtube.com/?gl=JP&tab=r11" title="YouTube → https:&#x2F;&#x2F;www.youtube.com&#x2F;?gl&#x3D;JP&amp;tab&#x3D;r11" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">博主</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.2
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Alle Besucher">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Alle Aufrufe">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'default',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({{ JSON.stringify(config) }});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="{{ src }}">
+</script>
+
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
