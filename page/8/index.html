@@ -180,6 +180,175 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/15/DF_LIST/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/15/DF_LIST/" class="post-title-link" itemprop="url">DF TO LIST 表框、列表互转</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Erstellt: 2020-03-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-15T00:00:00+08:00">2020-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+                </span>
+                  ， 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="DataFrame-to-list"><a href="#DataFrame-to-list" class="headerlink" title="DataFrame to list"></a>DataFrame to list</h3><h4 id="方法1"><a href="#方法1" class="headerlink" title="方法1:"></a>方法1:</h4><p>将DF的某列转换成列表,直接将DF的某列的值转换，df1[‘colums_name’].values.tolist()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'DHAC.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">c = df[<span class="string">'订单号'</span>].drop_duplicates().values.tolist()<span class="comment"># 将某列的值去重并转成列表</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	a的类型是:&#123;&#125;</span></span><br><span class="line"><span class="string">	a的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	c的序列有:&#123;&#125; 个</span></span><br><span class="line"><span class="string">	'''</span>.format(type(a), len(a), len(c)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">a的类型是:&lt;<span class="class"><span class="keyword">class</span> '<span class="title">list</span>'&gt;</span></span><br><span class="line"><span class="class"><span class="title">a</span>的序列有:</span><span class="number">1846</span> 个</span><br><span class="line">c的序列有:<span class="number">130</span> 个</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2:"></a>方法2:</h4><p>直接将整个DF转成列表. df1.values.tolist()</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=df.values.tolist()</span><br><span class="line"></span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法3"><a href="#方法3" class="headerlink" title="方法3:"></a>方法3:</h4><p>用list的函数list强制转换,只对单列有效. list(df1[‘columns_name’])</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=list(df[<span class="string">'订单号'</span>])</span><br><span class="line">print(<span class="string">'''	df的类型是:&#123;&#125;,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	a的类型是:&#123;&#125; ,长度是: &#123;&#125;</span></span><br><span class="line"><span class="string">	'''</span>.format(type(df), len(df),type(a), len(a)))</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">df的类型是:&lt;class 'pandas.core.frame.DataFrame'&gt;,长度是: 1846</span><br><span class="line">a的类型是:&lt;class 'list'&gt; ,长度是: 1846</span><br></pre></td></tr></table></figure>
+
+<h3 id="list-to-DataFrme"><a href="#list-to-DataFrme" class="headerlink" title="list to DataFrme"></a>list to DataFrme</h3><h4 id="将1个列表转成DF-列表中没有子列表"><a href="#将1个列表转成DF-列表中没有子列表" class="headerlink" title="将1个列表转成DF,列表中没有子列表"></a>将1个列表转成DF,列表中没有子列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">df1=pd.DataFrame(a,columns=[<span class="string">'DHAC编号'</span>])<span class="comment">#将1个列表转换成DF,列表中没有子列表！</span></span><br><span class="line">print(<span class="string">'这里是列表的0序列:'</span>,<span class="string">'\n'</span>,a[<span class="number">0</span>])</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">这里是列表的<span class="number">0</span>序列:</span><br><span class="line"> DH5DS508</span><br><span class="line"></span><br><span class="line">这里是表框的头两行</span><br><span class="line">      DHAC编号</span><br><span class="line"><span class="number">0</span>  DH5DS508</span><br><span class="line"><span class="number">1</span>  DH5TP505</span><br></pre></td></tr></table></figure>
+
+<h4 id="将两个没有子列表的列表转换成DF"><a href="#将两个没有子列表的列表转换成DF" class="headerlink" title="将两个没有子列表的列表转换成DF."></a>将两个没有子列表的列表转换成DF.</h4><p>先将两个列表组成字典,并设置KEY. 然后转成DF,不再需要设置colums的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">a = df[<span class="string">'DHAC编号'</span>].values.tolist()<span class="comment">#将DF的某列的值转换成列表。注意.values</span></span><br><span class="line">b = df[<span class="string">'订单号'</span>].values.tolist()</span><br><span class="line">k=&#123;<span class="string">'编号'</span>:a ,<span class="string">'订单'</span>:b&#125;</span><br><span class="line">df1=pd.DataFrame(k)</span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df1.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">          编号       订单</span><br><span class="line"><span class="number">0</span>  DH5DS508  <span class="number">9J</span>D7113</span><br><span class="line"><span class="number">1</span>  DH5TP505  <span class="number">9J</span>D7113</span><br></pre></td></tr></table></figure>
+
+<h4 id="将由子列表组成的列表转换成DF"><a href="#将由子列表组成的列表转换成DF" class="headerlink" title="将由子列表组成的列表转换成DF."></a>将由子列表组成的列表转换成DF.</h4><p>输入的列标题个数必须与子列表中的元素个数匹配。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">'dh.xls'</span>, sheet_name=<span class="string">'销售单'</span>)  <span class="comment"># 读文件</span></span><br><span class="line">c= df.values.tolist()<span class="comment">#将DF转成list</span></span><br><span class="line">df2=pd.DataFrame(c,columns=[<span class="string">'日期'</span>,<span class="string">'编号'</span>,<span class="string">'订单'</span>, <span class="string">'规格'</span> , <span class="string">'数量'</span>])</span><br><span class="line"></span><br><span class="line">print(<span class="string">'这里是表框的头两行'</span>,<span class="string">'\n'</span>,df2.head(<span class="number">2</span>))</span><br><span class="line">---&gt;</span><br><span class="line">这里是表框的头两行</span><br><span class="line">           日期       编号        订单         规格    数量</span><br><span class="line"><span class="number">0</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5DS508  D3<span class="number">.95</span>*<span class="number">100</span>   <span class="number">6.0</span></span><br><span class="line"><span class="number">1</span> <span class="number">2017</span><span class="number">-01</span><span class="number">-13</span>  <span class="number">9J</span>D7113  DH5TP505  <span class="number">302822841</span>  <span class="number">10.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/11/%E6%A0%AA%E6%B4%B2%E9%92%BB%E7%9F%B3%E7%BA%BF%E4%B8%8A%E6%96%B0%E5%93%81%E6%8E%A8%E4%BB%8B%E5%92%8C%E5%9F%B9%E8%AE%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="博主">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/11/%E6%A0%AA%E6%B4%B2%E9%92%BB%E7%9F%B3%E7%BA%BF%E4%B8%8A%E6%96%B0%E5%93%81%E6%8E%A8%E4%BB%8B%E5%92%8C%E5%9F%B9%E8%AE%AD/" class="post-title-link" itemprop="url">株洲钻石线上新品推介和培训</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Erstellt: 2020-03-11 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-11T00:00:00+08:00">2020-03-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          被加密了, 请输入密码查看.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/11/%E6%A0%AA%E6%B4%B2%E9%92%BB%E7%9F%B3%E7%BA%BF%E4%B8%8A%E6%96%B0%E5%93%81%E6%8E%A8%E4%BB%8B%E5%92%8C%E5%9F%B9%E8%AE%AD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/%E6%96%87%E7%AB%A0%E5%A4%B4%E9%83%A8%E8%A7%84%E5%88%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -426,195 +595,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/" class="post-title-link" itemprop="url">Hexo发布博文</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-03-07 14:21:28" itemprop="dateCreated datePublished" datetime="2020-03-07T14:21:28+08:00">2020-03-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="发布新博文"><a href="#发布新博文" class="headerlink" title="发布新博文"></a>发布新博文</h1><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"博文名"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>然后在<code>D:\Blog\yxhsiao.github.io\source\_posts</code>中找到对应名称的<code>.MD</code>文件编辑</li>
-</ul>
-<p>文件抬头的编辑。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 如何养成一个好的习惯</span><br><span class="line">date: <span class="number">2020</span>-<span class="number">03</span>-<span class="number">03</span> <span class="number">20</span>:<span class="number">19</span>:<span class="number">28</span></span><br><span class="line">categories: 网摘</span><br><span class="line">tags: 笔记</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/07/Hexo%E5%8F%91%E5%B8%83%E6%96%B0%E5%8D%9A%E6%96%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/%E7%94%98%E7%89%B9%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="博主">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/05/%E7%94%98%E7%89%B9%E5%9B%BE/" class="post-title-link" itemprop="url">甘特图</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="Erstellt: 2020-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-05T00:00:00+08:00">2020-03-05</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-                </span>
-                  ， 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="进度表制作："><a href="#进度表制作：" class="headerlink" title="进度表制作："></a>进度表制作：</h3><pre class="mermaid">        gantt
-        dateFormat  YY-MM-DD
-        title 新规开发
-        section 争取测试机会
-        洽谈:crit,done,  des1, 20-03-17,20-03-20
-        了解工况:active, des2, 20-03-20,2d
-        section 技术消化
-        技术对策:crit,active,  des3, 20-03-22, 3d
-        申请样品:active, des4, after des3, 1d
-        section 样品制作
-        厂家制作:crit,         des5, after des3, 15d
-        section 测试
-        首次测试: active,des6,after des5, 7d</pre>
-
-<h4 id="主要标签"><a href="#主要标签" class="headerlink" title="主要标签"></a>主要标签</h4><p><strong>mermaid：</strong>表示当前使用的语言为mermaid。</p>
-<p><strong>gantt：</strong>表示图表类型为甘特图</p>
-<p><strong>dateFormat：</strong>指定日期格式（Y表示年，M表示月，D表示日）。YY-MM-DD</p>
-<p><strong>section：</strong> 项目关键字，空格之后输入项目名称。</p>
-<p><strong>任务行：</strong> section后每一行为一个任务。第一个字符串为任务名称，之后以:开头，添加任务属性。</p>
-<h4 id="任务状态："><a href="#任务状态：" class="headerlink" title="任务状态："></a>任务状态：</h4><ul>
-<li><strong>done</strong> 已完成</li>
-<li><strong>active</strong> 正在进行</li>
-<li><strong>crit</strong> 关键任务</li>
-<li><strong>默认任务都为待完成状态</strong></li>
-</ul>
-<p><strong>可以多选</strong></p>
-<h4 id="任务描述："><a href="#任务描述：" class="headerlink" title="任务描述："></a>任务描述：</h4><p>在des1、des2位置添加任务描述，其它任务引用时直接引用des1就可以。</p>
-<p><strong>任务时长有三种方式：</strong></p>
-<ul>
-<li><strong>时间范围</strong> 如：2014-01-06,2014-01-08</li>
-<li><strong>指定天数</strong> 如：5d</li>
-<li><strong>指定开始日期+天数</strong> 如：2014-01-06，5d</li>
-<li><strong>after:</strong> 描述任务时间关系。des3, after des2表示des3紧跟在des2之后。</li>
-</ul>
-<p>**PS:所有关键字之间用“,”分隔，关键字需要属性时用空格分隔(如：after des2,)。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Vorherige Seite"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
@@ -680,7 +665,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">65</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

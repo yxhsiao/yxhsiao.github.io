@@ -1,6 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>跟单员工作交接</title>
+    <url>/2020/08/20/%E5%92%8C%E9%81%93%E8%B7%9F%E5%8D%95%E5%91%98%E4%BA%A4%E6%8E%A5%E6%B8%85%E5%8D%95/</url>
+    <content><![CDATA[<h2 id="和道跟单员交接清单"><a href="#和道跟单员交接清单" class="headerlink" title="和道跟单员交接清单"></a>和道跟单员交接清单</h2><h4 id="供应商代码：61035"><a href="#供应商代码：61035" class="headerlink" title="供应商代码：61035"></a>供应商代码：61035</h4><h4 id="供应商名称：广州和道汽车零部件有限公司"><a href="#供应商名称：广州和道汽车零部件有限公司" class="headerlink" title="供应商名称：广州和道汽车零部件有限公司"></a>供应商名称：广州和道汽车零部件有限公司</h4><h4 id="客户："><a href="#客户：" class="headerlink" title="客户："></a>客户：</h4><ol>
+<li>东风本田汽车有限公司，简称：WDHAC  ，地点：武汉</li>
+<li>东风本田发动机有限公司，简称：DHEC，地点：广州</li>
+</ol>
+<h4 id="交易零件："><a href="#交易零件：" class="headerlink" title="交易零件："></a>交易零件：</h4><ol>
+<li>零件名：BRKT COMPRESSOR ，图号：38930-RPY-E010  </li>
+</ol>
+<h4 id="供应链及流程："><a href="#供应链及流程：" class="headerlink" title="供应链及流程："></a>供应链及流程：</h4><ol>
+<li><p>跟单员根据两个客户下达的年度和月度产销计划结合工厂的实际库存下达相应的生产订单给工厂，工厂根据出货计划，给德利厂下达铸件订单</p>
+</li>
+<li><p>湛江德利接收订单后提供铸件</p>
+</li>
+<li><p>和道湛江分公司加工成成品包装入库</p>
+</li>
+<li><p>根据客户系统下达的出货指示（传票和取货计划）安排工厂出货</p>
+<ul>
+<li>DHEC是上门取货。新工厂搬迁认证之前继续送货到德利出货</li>
+<li>WDHAC是送货到广州中转仓</li>
+<li>出货有PDA扫码枪将传票、零件信息等传送达系统，客户配套及中转仓均会及时了解到实时状态</li>
+</ul>
+</li>
+</ol>
+<h4 id="具体内容："><a href="#具体内容：" class="headerlink" title="具体内容："></a>具体内容：</h4><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>内容</th>
+<th>WHDAC</th>
+<th>DHEC</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>对接系统<br>专线连接<br>每周登录2次</td>
+<td><strong>WCSM系统</strong>：<br>1.系统管理<br>2.订单管理供<br>3.应商结算<br>4.空容器管理<br><br><strong>物流管理系统</strong>：<br>1.取货计划<br><br><strong>电子报价系统</strong>：<br>专线1填报。专线2审核</td>
+<td><strong>EPS电子采购系统：<br>账号a</strong><br>1.通告信息、待办事项<br>2.订单模块<br>3.收货模块<br>4.物流模块<br>5.容器管理<br>6.备货管理<br>7.量产项目管理<br>8.包装管理<br>9.到货异常管理<br>10.样件管理<br>11.产能调查管理<br><br><strong>账号a2:结算系统</strong><br><strong>账号b</strong>:<br>1. 容器管理<br>2.量产项目管理<br>3.供应链信息管理<br>4.评价管理<br>5.索赔管理<br><strong>账号d:对b账号的信息审核</strong><br><strong>账号b1,样件系统</strong>:<br>1.试作推进管理<br>2.产能调查管理<br><br><strong>报价系统：</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>汽车材料数据系统<br>CAMDS数据填报</td>
+<td>学习了解熟悉填报<br>收到填报通知后就需要填报</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>下发生产订单</td>
+<td>每月20日下达生产订单</td>
+<td>同</td>
+</tr>
+<tr>
+<td>4</td>
+<td>下达取货计划</td>
+<td>随时，根据客户需要<br>做好出货台账管理<br>跟进出货<br>做好容器台账管理<br>与工厂仓库协同出货及容器管理</td>
+<td>同</td>
+</tr>
+<tr>
+<td>5</td>
+<td>表单报告提交（协同）</td>
+<td>30日前提交检测报告<br>具体数据品质部门提供<br>接收人:张泽林</td>
+<td>15日前提交月度品质清单<br>具体数据品质部门提供<br>接收人：吴学恒</td>
+</tr>
+<tr>
+<td>6</td>
+<td>提交对账数据给财务</td>
+<td>将月度交易明细对账后确认后提交<br>1.客户<br>2.供应商</td>
+<td>同</td>
+</tr>
+<tr>
+<td>7</td>
+<td>包装要求</td>
+<td>提货数：n 箱<br>托盘+周转箱：20pcs/箱<br>周转箱上线</td>
+<td>提货数：n箱/n托<br>托盘+周转箱：15pcs/箱，16箱/托<br>台车上线，90PCS/台车</td>
+</tr>
+<tr>
+<td>8</td>
+<td>运输流程</td>
+<td>湛江—增城GZCD—<strong><em>武汉CLC—厂内</em></strong><br><u>粗体路线为客户负责</u></td>
+<td><strong><em>湛江—黄埔DCC–厂内</em></strong><br><u>粗体路线为客户负责</u></td>
+</tr>
+<tr>
+<td>9</td>
+<td>日常邮件回复处理</td>
+<td>采购、配套、物流等</td>
+<td>同</td>
+</tr>
+<tr>
+<td>10</td>
+<td>其他未列事项</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>联系人<br>附联系人名单<br>微信交流群</td>
+<td>客户对接部门<br>GZCD联系人<br>CLC联系人<br>物流司机</td>
+<td>客户对接部门<br>DCC联系人<br>福达物流公司及司机</td>
+</tr>
+</tbody></table>
+<p>交接双方当面交接，以上有遗漏的地方及时补全，8月了解熟悉，9月开始正式接手。并通知到所有对接部门和人员。工作邮箱不变。</p>
+<p>​                                                                                                        以上名目整理编写：肖耀新</p>
+]]></content>
+      <categories>
+        <category>工作</category>
+        <category>备忘</category>
+      </categories>
+      <tags>
+        <tag>备忘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>会议纪要-湛江和道</title>
+    <url>/2020/08/02/%E4%BC%9A%E8%AE%AE%E7%BA%AA%E8%A6%81/</url>
+    <content><![CDATA[<h1 id="会议纪要"><a href="#会议纪要" class="headerlink" title="会议纪要"></a>会议纪要</h1><h5 id="时间：2020年8月2日"><a href="#时间：2020年8月2日" class="headerlink" title="时间：2020年8月2日"></a>时间：2020年8月2日</h5><h5 id="地点：广州和道"><a href="#地点：广州和道" class="headerlink" title="地点：广州和道"></a>地点：广州和道</h5><h5 id="参与人员：莫壮伟-陈永光-陈先平-肖耀新"><a href="#参与人员：莫壮伟-陈永光-陈先平-肖耀新" class="headerlink" title="参与人员：莫壮伟    陈永光    陈先平    肖耀新"></a>参与人员：莫壮伟    陈永光    陈先平    肖耀新</h5><h5 id="会议内容及决议事项："><a href="#会议内容及决议事项：" class="headerlink" title="会议内容及决议事项："></a>会议内容及决议事项：</h5><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>事项</th>
+<th>事项描述/说明</th>
+<th>负责人</th>
+<th>完成时间</th>
+<th>完成情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>工作服定制</td>
+<td></td>
+<td>陈永光</td>
+<td>20年8月31日</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>名片印制</td>
+<td>提供模板后印制</td>
+<td>肖耀新</td>
+<td>20年8月8日</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>公司简介</td>
+<td>新工厂搬迁后<br>设计制作PPT</td>
+<td>陈永光</td>
+<td>20年9月10日</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>湛江分公司注册</td>
+<td></td>
+<td>陈永光</td>
+<td>20年8月10日</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>公司门牌制作</td>
+<td></td>
+<td>陈永光</td>
+<td>20年9月10</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>跟单工作交接</td>
+<td>1. 交接清单<br>2. 正式交接</td>
+<td>肖耀新</td>
+<td>20年8月5日<br>20年8月9日</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>TS16949认证</td>
+<td></td>
+<td>陈永光</td>
+<td>20年12月31日</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>ISO14000认证</td>
+<td>本田要求21年完成</td>
+<td>陈永光</td>
+<td>21年12月31日</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>跟进新报价<br>零件定点进度</td>
+<td></td>
+<td>陈先平<br>肖耀新</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>了解近期新<br>零件定点机会</td>
+<td></td>
+<td></td>
+<td>20年8月31日</td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>工作</category>
+        <category>备忘</category>
+      </categories>
+      <tags>
+        <tag>备忘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实例_中国大学分析</title>
     <url>/2020/05/01/%E5%AE%9E%E4%BE%8B_%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h1 id="实例：中国大学数据分析"><a href="#实例：中国大学数据分析" class="headerlink" title="实例：中国大学数据分析"></a>实例：中国大学数据分析</h1><h2 id="本部分按照大学2019年招收生源质量的评分"><a href="#本部分按照大学2019年招收生源质量的评分" class="headerlink" title="本部分按照大学2019年招收生源质量的评分"></a>本部分按照大学2019年招收生源质量的评分</h2><ul>
