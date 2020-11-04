@@ -34,31 +34,31 @@
 <td>DS518-1</td>
 <td>303073754</td>
 <td>$\Phi8.81_{+0.006}^{+0.021}\times70-sd12\times122L$</td>
-<td></td>
+<td><div class="pdf" target="DS518-1_303073754.pdf" height></div></td>
 </tr>
 <tr>
 <td>DS520-1</td>
 <td>D12.15*720-type120/zh25</td>
 <td>$\Phi12.15\times720-\Phi25$</td>
-<td></td>
+<td><div class="pdf" target="DS520-1.pdf" height></div></td>
 </tr>
 <tr>
 <td>DS527</td>
 <td>303318699</td>
 <td>$\Phi5.05\pm0.01\times8-sd6\times60$</td>
-<td></td>
+<td><div class="pdf" target="DS527_33318699.pdf" height></div></td>
 </tr>
 <tr>
 <td>DS528</td>
 <td>303483312</td>
 <td>$\Phi2.95_{-0.01}\times38-sd4\times75L$</td>
-<td></td>
+<td><div class="pdf" target="DS528_303483312.pdf" height></div></td>
 </tr>
 <tr>
 <td>DS529</td>
 <td>303318571</td>
 <td>$\Phi4.1\pm0.02\times10-sd6\times60$</td>
-<td></td>
+<td><div class="pdf" target="DS529_303318571.pdf" height></div></td>
 </tr>
 <tr>
 <td>DS530</td>
@@ -70,13 +70,13 @@
 <td>DS533</td>
 <td>D16.7<em>800/zh25-3425-vdi3208 AM16</em>1.5</td>
 <td>$\Phi16.7\times800-SD25-M16$</td>
-<td></td>
+<td><img src="./images/08.webp" alt></td>
 </tr>
 <tr>
 <td>DS534</td>
 <td>303472745</td>
 <td>$\Phi13.2_{+0.007}^{+0.025}\times50-sd14\times100L$</td>
-<td></td>
+<td><div class="pdf" target="DS534_303472745.pdf" height></div></td>
 </tr>
 <tr>
 <td>DS407-1</td>
@@ -94,7 +94,7 @@
 <td>DS417</td>
 <td>302599681</td>
 <td>$\Phi6.2_{+0.006}^{+0.021}\times34-sd8\times78L$</td>
-<td></td>
+<td><div class="pdf" target="DS417_302599681.pdf" height></div></td>
 </tr>
 <tr>
 <td>DS419</td>
