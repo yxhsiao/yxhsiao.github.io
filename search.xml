@@ -15,19 +15,19 @@
 <tbody><tr>
 <td>DS503</td>
 <td>303156836</td>
-<td>$\Phi$3.96<del>-0.018</del>$\times$75FL-SD3.96$\times120L$</td>
-<td><a href="./image/DS503_303156836.pdf">DS503</a></td>
+<td>$\Phi3.96_-0.018\times75FL-SD3.96\times120L$</td>
+<td><a href="./images/DS503_303156836.pdf">DS503</a></td>
 </tr>
 <tr>
 <td>DS508</td>
 <td>302780778</td>
-<td>$\Phi$3.95<del>-0.012</del>$\times$62FL-SD6.0$\times100L$</td>
+<td>$\Phi3.95_{-0.012}\times62FL-SD6.0\times100L$</td>
 <td></td>
 </tr>
 <tr>
 <td>DS515-1</td>
 <td>303363649</td>
-<td>$\Phi$3.97<del>-0.018</del>$\times$66FL-SD6.0$\times106L$</td>
+<td>$\Phi3.97_{-0.018}\times66FL-SD6.0\times106L$</td>
 <td></td>
 </tr>
 <tr>
@@ -64,7 +64,7 @@
 <td>DS530</td>
 <td>303379444</td>
 <td>$\Phi5.95\pm0.02\times10-sd6\times60$</td>
-<td><a href="./images/DS530.pdf">DS530</a></td>
+<td><a href="./images/DS530_303379444.pdf">DS530</a></td>
 </tr>
 <tr>
 <td>DS533</td>
@@ -157,7 +157,7 @@
 <tr>
 <td>DR153</td>
 <td>303400483</td>
-<td>$\Phi12.02$$<em>{+0.007}^{+0.025}$$\times17.2$$\pm0.2$ - $\Phi16$$\pm0.02$ $\times53.5$$</em>{+0}^{+1}$ - SD16$\times103L$</td>
+<td>$\Phi12.02_{+0.007}^{+0.025}\times17.2\pm0.2 - \Phi16\pm0.02\times53.5_{+0}^{+1} - SD16\times103L$</td>
 <td></td>
 </tr>
 <tr>
