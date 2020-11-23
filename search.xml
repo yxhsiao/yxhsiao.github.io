@@ -1,6 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>色彩原理及调整图片</title>
+    <url>/2020/11/20/%E8%89%B2%E5%BD%A9%E5%8E%9F%E7%90%86%E5%8F%8A%E8%B0%83%E6%95%B4%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<h3 id="色彩原理及调整图片"><a href="#色彩原理及调整图片" class="headerlink" title="色彩原理及调整图片"></a>色彩原理及调整图片</h3><h4>色彩原理</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">RGB绿色</th>
+<th align="left">CMY正片叠底</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><img src="../images/rgb.png" width="50%"></td>
+<td align="left"><img src="../images/cmy.png" width="50%"></td>
+</tr>
+<tr>
+<td align="left">R：red ，G：green，B：blue</td>
+<td align="left">C：cyan，M：magenta，Y：yellow</td>
+</tr>
+<tr>
+<td align="left">RGB是相加混色模式，基于物理发光定义的。某颜色分量越多，得到的颜色越亮，范围值：0~255。RGB都为0的时候表示没有光，显示为黑色；都为255时，显示为白色。</td>
+<td align="left">CMY是减法混色模式，是基于光反射定义的。白色的介质上使用某种油墨，通过光的反射显示出颜色。范围值：0%~100%</td>
+</tr>
+<tr>
+<td align="left">rgb(0,0,0)=Black<br>rgb(255,255,255)=White<br>rgb(128,128,128)=Gray</td>
+<td align="left">black=cmyk(0,0,0,0)<br>white=cmyk(100,100,100,100)<br>gray=cmyk(0,0,0,50)</td>
+</tr>
+<tr>
+<td align="left">G+B=Cyan<br>R+B=Magrnta<br>R+G=Yellow<br>R+G+B=White</td>
+<td align="left">c+y=g<br>c+m=b<br>m+y=r<br>c+m+y=black</td>
+</tr>
+<tr>
+<td align="left">相邻色：一荣俱荣的关系<br>红色的相邻色：洋红、黄色<br>绿色的相邻色：黄色、青色<br>蓝色的相邻色：青色、洋红</td>
+<td align="left">青色的相邻色：绿色、蓝色<br>洋红的相邻色：蓝色、红色<br>黄色的相邻色：红色、绿色</td>
+</tr>
+<tr>
+<td align="left">互补色：此长彼消的关系<br>红——青<br>绿——洋<br>蓝——黄</td>
+<td align="left">互补色：<br>青——红<br>洋——绿<br>黄——蓝</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>拾色器</th>
+<th>颜色值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="../images/red.png" width="80%"></td>
+<td>rgb(255,0,0)<br>cmyk(0,96,95,0)<br>hsb(0,100,100)<br>lab(54,81,70)</td>
+</tr>
+<tr>
+<td><img src="../images/green.png" width="80%"></td>
+<td>rgb(0,255,0)<br>cmyk()<br>hsb()<br>lab()</td>
+</tr>
+<tr>
+<td><img src="../images/blue.png" width="80%"></td>
+<td>rgb(0,0,255)<br>cmyk()<br>hsb()<br>lab()</td>
+</tr>
+<tr>
+<td><img src="../images/black.png" width="80%"></td>
+<td>rgb(0,0,0)<br>cmyk()<br>hsb()<br>lab()</td>
+</tr>
+<tr>
+<td><img src="../images/white.png" width="80%"></td>
+<td>rgb(255,255,255)<br>cmyk()<br>hsb()<br>lab()</td>
+</tr>
+<tr>
+<td><img src="../images/cyan.png" width="80%"></td>
+<td>rgb(0,255,255)<br>cmyk()<br>hsb()<br>lab()</td>
+</tr>
+<tr>
+<td><img src="../images/magenta.png" width="80%"></td>
+<td>rgb(255,0,255)<br>cmyk()<br>hsb()<br>lab()</td>
+</tr>
+<tr>
+<td><img src="../images/yellow.png" width="80%"></td>
+<td>rgb(255,255,0)<br>cmyk()<br>hsb()<br>lab()</td>
+</tr>
+<tr>
+<td><img src="../images/gray.png" width="80%"></td>
+<td>rgb(128,128,128)<br>cmyk()<br>hsb()<br>lab()</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>Lab色彩空间（Lab color space）是颜色-对立空间，带有维度L表示亮度，a和b表示颜色对立维度</p>
+<ul>
+<li>L分量用于表示像素的亮度，取值范围是[0,100],表示从纯黑到纯白；</li>
+<li>a表示从红色到绿色的范围，取值范围是[127,-128]；</li>
+<li>b表示从黄色到蓝色的范围，取值范围是[127,-128]。</li>
+</ul>
+<p>HSB由来：H(hue)表示色相；S(saturation)表示饱和度；B(brightness）表示明度。HSB是色相、饱和度、明度的相应英文首字母缩写。</p>
+<ol>
+<li><p>色相H:</p>
+<ul>
+<li>通俗的讲就是色彩的相貌或者图像的颜色，比如红、蓝、绿、黄……</li>
+<li>色相不是通过百分比，而是以0－360度的角度来表示，它类似一个颜色环，颜色沿着环进行规律性的变化，因此也有12色相环、24色相环等</li>
+<li>黑、白、灰没有色相。</li>
+</ul>
+</li>
+<li><p>饱和度S:表示图像颜色的浓度、鲜艳程度</p>
+<ul>
+<li>通俗的讲就是颜色的深浅，如红色可以分为深红、洋红、浅红等</li>
+<li>饱和度高色彩较艳丽，饱和度低色彩就接近灰色</li>
+<li>白、黑和其他灰色色彩都没有饱和度</li>
+</ul>
+</li>
+<li><p>明度B:也称为亮度，指各种颜色的明暗度</p>
+<ul>
+<li>通俗的讲就是表示颜色的强度</li>
+<li>明度高色彩明亮，明度低色彩暗淡，明度最高得到纯白，最低得到纯黑</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="../images/ld.png" width="60%"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="../images/sj.png" width="60%"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="../images/qx.png" width="60%"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="../images/bhd.png" width="60%"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="../images/sx.png" width="60%"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="../images/scph.png" width="60%"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="../images/tdhhq.png" width="60%"></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="../images/kxys.png" width="60%"></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+  </entry>
+  <entry>
+    <title>公司税收规则</title>
+    <url>/2020/11/11/%E5%85%AC%E5%8F%B8%E7%A8%8E%E6%94%B6%E8%A7%84%E5%88%99/</url>
+    <content><![CDATA[<img src="/.com//税率.png">
+
+
+
+<p><img src="/.com//D:%5CBlog%5Cyxhsiao.github.io%5Csource%5Cimages%5C%E7%A8%8E%E7%8E%87.png" alt="税率"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>DHAC刀具清单</title>
     <url>/2020/11/02/DHAC%E5%88%80%E5%85%B7%E6%B8%85%E5%8D%95/</url>
     <content><![CDATA[<h3 id="直钻："><a href="#直钻：" class="headerlink" title="直钻："></a>直钻：</h3><table>
