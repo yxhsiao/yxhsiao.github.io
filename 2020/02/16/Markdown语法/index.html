@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="快速的书写文档并编辑其格式和布局排版，省去了在office中先录入文字，再编辑格式的麻烦。有人可能会说，word中也有快速套用功能。但是我经过一段时间的使用对比，觉得还是Markdown更简单方便，容易上手。可以在打字的时候就敲入了一些格式设置的标记进去，格式设置已经完成了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown语法">
+<meta property="og:url" content="https://yxhsiao.github.io/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="快速的书写文档并编辑其格式和布局排版，省去了在office中先录入文字，再编辑格式的麻烦。有人可能会说，word中也有快速套用功能。但是我经过一段时间的使用对比，觉得还是Markdown更简单方便，容易上手。可以在打字的时候就敲入了一些格式设置的标记进去，格式设置已经完成了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yxhsiao.github.io/url">
+<meta property="og:image" content="https://yxhsiao.github.io/images/01.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/01.webp">
+<meta property="article:published_time" content="2020-02-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.610Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yxhsiao.github.io/url">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/","path":"2020/02/16/Markdown语法/","title":"Markdown语法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Markdown语法 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%89%8D%E9%9D%A2%E5%8A%A04%E4%B8%AA-%E8%A1%A8%E8%A1%A8%E7%A4%BA%E8%BF%99%E9%87%8C%E6%98%AF%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">前面加4个# 表表示这里是四级标题。####  </span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">高级语法：</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Markdown语法 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Markdown语法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-16T00:00:00+08:00">2020-02-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>快速的书写文档并编辑其格式和布局排版，省去了在office中先录入文字，再编辑格式的麻烦。有人可能会说，word中也有快速套用功能。但是我经过一段时间的使用对比，觉得还是Markdown更简单方便，容易上手。可以在打字的时候就敲入了一些格式设置的标记进去，格式设置已经完成了。<span id="more"></span></p>
+<p><strong>标题</strong>的语法：</p>
+<ul>
+<li><code>#  </code><kbd> </kbd>一级标题内容</li>
+<li><code># # </code><kbd> </kbd>二级标题内容</li>
+<li>在typora中快捷键 ctr+数字键1-6</li>
+<li>对应HTML中是h1–h6标签</li>
+</ul>
+<p>举例：</p>
+<h5 id="前面加4个-表表示这里是四级标题。"><a href="#前面加4个-表表示这里是四级标题。" class="headerlink" title="前面加4个# 表表示这里是四级标题。####  "></a>前面加4个<code>#</code> 表表示这里是四级标题。<kbd>####</kbd> <kbd> </kbd></h5><p><strong>列表</strong>的语法</p>
+<ol>
+<li>有序列表：1. 列表项。—<code>1</code>+<code>点</code>+<code>空格</code>+<code>内容</code>。对应的是ol标签。<kbd>1</kbd><kbd>.</kbd><kbd> </kbd></li>
+<li>无序列表：- 列表项。<code>-</code>+<code>空格</code>+<code>内容</code>。对应的是ul标签。<kbd>-</kbd><kbd> </kbd></li>
+<li>有序列表的序号在css中设定。可以是数字、大、小写字母等等<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ol&#123;<span class="attribute">list-style</span>: upper alpha/lower alpha&#125;，</span><br></pre></td></tr></table></figure></li>
+<li>无序列表之前的符号有三种，有实心圆点、空心圆点、实心方框。<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ul&#123;<span class="attribute">list-style</span>:disc/circle/square&#125;</span><br></pre></td></tr></table></figure>
+举例：</li>
+<li>水果<ol>
+<li>苹果</li>
+</ol>
+</li>
+<li>蔬菜<ol>
+<li>白菜</li>
+</ol>
+</li>
+</ol>
+<p>列表清单属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">Description描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">list-style</td>
+<td align="left">在一个声明中设置列表的所有属性</td>
+</tr>
+<tr>
+<td align="left">list-style-image</td>
+<td align="left">指定图像作为列表项标记</td>
+</tr>
+<tr>
+<td align="left">list-style-position</td>
+<td align="left">指定列表项标记的位置（项目符号）</td>
+</tr>
+<tr>
+<td align="left">list-style-type</td>
+<td align="left">指定列表项标记的类型</td>
+</tr>
+</tbody></table>
+<p>无序列表的属性值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">disc</td>
+<td align="left">Sets the list item marker to a bullet (default)实心圆</td>
+</tr>
+<tr>
+<td align="left">circle</td>
+<td align="left">Sets the list item marker to a circle 空心圆</td>
+</tr>
+<tr>
+<td align="left">square</td>
+<td align="left">Sets the list item marker to a square 实心方框</td>
+</tr>
+<tr>
+<td align="left">none</td>
+<td align="left">The list items will not be marked 无</td>
+</tr>
+</tbody></table>
+<p>有序列表的属性值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Value</th>
+<th align="left">Description描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">decimal</td>
+<td align="left">数字(1,2,3,etc.)</td>
+</tr>
+<tr>
+<td align="left">decimal-leading-zero</td>
+<td align="left">The marker is a number with leading zeros (01, 02, 03, etc.)</td>
+</tr>
+<tr>
+<td align="left">lower-alpha</td>
+<td align="left">小写字母(a, b, c, d, e, etc.)</td>
+</tr>
+<tr>
+<td align="left">lower-greek</td>
+<td align="left">小写希腊字母</td>
+</tr>
+<tr>
+<td align="left">lower-latin</td>
+<td align="left">小写拉丁 (a, b, c, d, e, etc.)</td>
+</tr>
+<tr>
+<td align="left">lower-roman</td>
+<td align="left">小写罗马(i, ii, iii, iv, v, etc.)</td>
+</tr>
+<tr>
+<td align="left">upper-alpha</td>
+<td align="left">大写字母(A, B, C, D, E, etc.)</td>
+</tr>
+<tr>
+<td align="left">upper-greek</td>
+<td align="left">大写希腊</td>
+</tr>
+<tr>
+<td align="left">upper-latin</td>
+<td align="left">大写拉丁(A, B, C, D, E, etc.)</td>
+</tr>
+<tr>
+<td align="left">upper-roman</td>
+<td align="left">大写罗马(I, II, III, IV, V, etc.)</td>
+</tr>
+</tbody></table>
+<p></p>
+<p><strong>引用</strong>的语法：</p>
+<ul>
+<li><code>&gt; </code>+<code>空格</code>+<code>引用内容</code> 这是段落引用，也叫长引用。<kbd>></kbd><kbd> </kbd></li>
+<li><code>&lt;q&gt;</code>+<code>引用内容</code>+<code>&lt;/q&gt;</code> 这是行内引用，也叫短引用。</li>
+</ul>
+<p>长引用的样式修改：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">5px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">0.5em</span>;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100</span> <span class="number">0.9em</span> <span class="string">&quot;楷体&quot;</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">  <span class="attribute">background</span>: rgb(<span class="number">250</span>, <span class="number">250</span>, <span class="number">250</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">blockquote</span> p&#123;</span><br><span class="line"><span class="attribute">padding-top</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">padding-bottom</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">blockquote</span> <span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>行内引用样式：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">q&#123;</span><br><span class="line">	<span class="attribute">background-color</span>: rgb(<span class="number">255</span>, <span class="number">250</span>, <span class="number">232</span>);</span><br><span class="line">	<span class="attribute">text-decoration</span>: underline wavy red;</span><br><span class="line">	<span class="attribute">font</span>: bolder <span class="number">1.1em</span> <span class="string">&quot;等线&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">q</span>::before&#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="string">&quot;“&quot;</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">q</span>::after&#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="string">&quot;”&quot;</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>举例：段落引用示例：</p>
+<blockquote>
+<p>武汉样本样品采集时间局限于 2019 年 12 月 24 日和 2020 年 1 月 5 日。而那个时候，当地对于疫情的排查集中在了华南海鲜市场，而样本来自几家定点医院，换句话说，样本取样地不具备统计学上的无偏性，这导致最终的数据分析也必然受到了影响</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>事实上，我们根据广东和美国的病例，可以推测出，武汉本地存在更古老的单倍型H13 和 H38。因此，要想完整的溯源，事实上对武汉后续发病例进行更广泛的基因组检测，这样才能更好地确定真正的源头。</p>
+</blockquote>
+</blockquote>
+<p>举例：行内引用：<br>鲁迅说过：<q>原本没有路，走的人多了便成了路&lt;</q></p>
+<p><strong>文字</strong>格式语法：<br><code>**</code>+<code>要加粗的文字</code>+<code>**</code><br><code>*</code>+<code>斜体文字</code>+<code>*</code><br><code>***</code>+<code>斜体加粗</code>+<code>***</code><br><code>~~</code>+<code>删除线文字</code>+<code>~~</code></p>
+<p><u>下划线</u>        <code>&lt;u&gt;下划线&lt;/u&gt;</code></p>
+<p><strong>分割线</strong>：<br><code>----</code></p>
+<p>** 超链接**：</p>
+<p><code>[超链接显示名]</code>+<code>(超链接地址 &quot;超链接title&quot;)</code><br>举例：<br><a href="https://yxhsiao.github.io/" title="静水流深">我的博客</a></p>
+<p><strong>插入图片</strong>：<br><code>![图片alt]</code>+<code>(图片链接 &quot;图片title&quot;)</code>    [图片alt] 和 “图片title” 可以省略<br><img src="/url"> 不能改变图片大小，除非从主题文件的css中统一修改，对齐方式等也是css中事先声明了的。所以一般插入图片习惯用html中的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;图片链接&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;图片alt&quot;</span> <span class="attr">title</span>=<span class="string">&quot;图片title&quot;</span>&gt;</span> #alt=&quot;图片alt&quot; title=&quot;图片title&quot;可以省略</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">&quot;height:200px&quot;</span> <span class="attr">src</span>=<span class="string">&quot;url&quot;</span> &gt;</span>  用行内样式即可修改图片大小、位置等。</span><br></pre></td></tr></table></figure>
+<p>举例：</p>
+<p><img src="/./images/01.webp"></p>
+<img style="height:200px" src="/2020/02/16/Markdown%E8%AF%AD%E6%B3%95/01.webp">
+
+
+
+<p><strong>表格</strong>：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| -----: | :-----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+
+<p>单元格合并功能， Markdown不可以， Html可以实现。</p>
+<p>举例：</p>
+<ol>
+<li>colspan 列合并，后面的数字表示合并的列数</li>
+<li>rowspan 行合并，后面的数字表示合并的行数</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>规格<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>备注<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>钻头<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red; text-align:left&quot;</span> <span class="attr">rowspan</span>=<span class="string">2</span>&gt;</span>D8*17FL-80L<span class="tag">&lt;<span class="name">sub</span>&gt;</span>0<span class="tag">&lt;/<span class="name">sub</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>无货、已订货在途<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>阶梯钻<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>不详细<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span>&gt;</span>非标镗刀<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">&quot;border:1px solid red&quot;</span> <span class="attr">colspan</span>=<span class="string">2</span>&gt;</span>不详细<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<table>
+    <tr>
+    <th>名称</th>
+    <th>规格</th>
+    <th>备注</th>
+</tr>
+<tr>
+    <td style="border:1px solid red">钻头</td>
+    <td style="border:1px solid red; text-align:left" rowspan="2">D8*17FL-80L<sub>0</sub></td>
+    <td style="border:1px solid red">无货、已订货在途</td>
+</tr>
+<tr>
+    <td style="border:1px solid red">阶梯钻</td>
+    <td style="border:1px solid red">不详细</td>
+</tr>
+    <tr>
+    <td style="border:1px solid red">非标镗刀</td>
+    <td style="border:1px solid red" colspan="2">不详细</td>
+    </tr>
+</table>
+
+
+
+
+
+<p><strong>上下标</strong>：<br><code>^</code>+<code>上标文字</code>+<code>^</code><br><code>~</code>+<code>下标文字</code>+<code>~</code></p>
+<p>举例：</p>
+<p>X ^2^</p>
+<p>H<del>2</del></p>
+<p><strong>数学公式</strong>：<br>行内公式：<br>    <code>$</code>+<code>A=X^2+Y^3</code>+<code>$</code><br>公式块：快捷键 ctrl+shift+m</p>
+<pre><code>`$$`
+    两对`$$`符号的行间就是书写的公式。
+`$$`
+</code></pre>
+<p>举例：<br>$$<br>c(u)&#x3D;\begin{cases} \sqrt\frac{1}{N}，u&#x3D;0\ \sqrt\frac{2}{N}， u\neq0\end{cases}<br>$$</p>
+<p>代数式：$A&#x3D;X^2+Y^3$ ，面积计算公式：$S&#x3D;\pi*r^2$</p>
+<h2 id="高级语法："><a href="#高级语法：" class="headerlink" title="高级语法："></a>高级语法：</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>ctrl<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span>+<span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>shift<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span>+<span class="language-xml"><span class="tag">&lt;<span class="name">kbd</span>&gt;</span></span>I<span class="language-xml"><span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p><kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>I</kbd></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">    dateFormat YY-MM-DD</span><br><span class="line">    title AAAA</span><br><span class="line">    section 项目1</span><br><span class="line">        已经完成任务: done,des1,20-05-04,20-05-08</span><br><span class="line">        活动任务: active,des2,20-05-08,4d</span><br><span class="line">        关键任务: crit, active,des3,20-05-13, 5d</span><br><span class="line">     section b section项目</span><br><span class="line">     	关键线中的未来任务: crit,des4, 20-05-17, 5d</span><br><span class="line">     	e: active,des5, 20-05-23, 6d</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">　　　dateFormat　yy-MM-DD</span><br><span class="line">　　　title Adding GANTT diagram functionality to mermaid</span><br><span class="line">　　　section A section</span><br><span class="line">　　　Completed task　　:done, des1, 2014-01-06,2014-01-08</span><br><span class="line">　　　Active task 　　　　:active, des2, 2014-01-09, 3d</span><br><span class="line">　　　future task 　　　　:　　　  des3, after des2, 5d</span><br><span class="line">　　　future task2　　　　:　　　  des4, after des3, 5d</span><br><span class="line">　　　section Critical tasks</span><br><span class="line">　　　Completed task in the critical line　:crit, done, 2014-01-06,24h</span><br><span class="line">　　　Implement parser and json　　　　　　:crit, done, after des1, 2d</span><br><span class="line">　　　Create tests for parser　　　　　　　:crit, active, 3d</span><br><span class="line">　　　Future task in critical line　　　　　:crit, 5d</span><br><span class="line">　　　Create tests for renderer　　　　　　:2d</span><br><span class="line">　　　Add to ,mermaid　　　　　　　　　　　:1d</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mermaid</span><br><span class="line">graph LR</span><br><span class="line">A[方形] --&gt;B(圆角)</span><br><span class="line">    B --&gt; C&#123;条件a&#125;</span><br><span class="line">    C --&gt;|a=1| D[结果1]</span><br><span class="line">    C --&gt;|a=2| E[结果2]</span><br><span class="line">   横向流程图]</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/Markdown/" rel="tag"><i class="fa fa-tag"></i> Markdown</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/12/border/" rel="prev" title="border">
+                  <i class="fa fa-chevron-left"></i> border
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/18/columns/" rel="next" title="columns页面分栏">
+                  columns页面分栏 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

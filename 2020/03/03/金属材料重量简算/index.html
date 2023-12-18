@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="金属材料重量计算 公式中长度单位为米，面积单位为平方米，其余单位均为毫米。 圆钢重量$（Kg）&#x3D; 0.00617 \times d^2 \times l$                            d:直径mm，l:长度m 方钢重量$（Kg）&#x3D;0.00785 \times a^2 \times l$                              a:边长">
+<meta property="og:type" content="article">
+<meta property="og:title" content="金属材料重量简算">
+<meta property="og:url" content="https://yxhsiao.github.io/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="金属材料重量计算 公式中长度单位为米，面积单位为平方米，其余单位均为毫米。 圆钢重量$（Kg）&#x3D; 0.00617 \times d^2 \times l$                            d:直径mm，l:长度m 方钢重量$（Kg）&#x3D;0.00785 \times a^2 \times l$                              a:边长">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-03T12:19:28.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.656Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":"","permalink":"https://yxhsiao.github.io/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/","path":"2020/03/03/金属材料重量简算/","title":"金属材料重量简算"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>金属材料重量简算 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="金属材料重量简算 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          金属材料重量简算
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-03 20:19:28" itemprop="dateCreated datePublished" datetime="2020-03-03T20:19:28+08:00">2020-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%93%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">专业</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>金属材料重量计算</strong></p>
+<p><em>公式中长度单位为米，面积单位为平方米，其余单位均为毫米</em>。</p>
+<p>圆钢重量$（Kg）&#x3D; 0.00617 \times d^2 \times l$                            <code>d:直径mm</code>，<code>l:长度m</code></p>
+<p>方钢重量$（Kg）&#x3D;0.00785 \times a^2 \times l$                              <code>a:边长mm</code>，<code>l:长度m</code></p>
+<p>六角钢重量$（Kg）&#x3D;0.0068 \times c^2\times l  $                             <code>c:对边宽mm</code>，<code>l:长度m</code>  <span id="more"></span></p>
+<p>八角钢重量&#x3D;$（Kg）&#x3D; 0.0065 \times c^2 \times l$                             <code>c:对边宽mm</code>，<code>l:长度m</code></p>
+<p>螺纹钢重量$（Kg）&#x3D; 0.00617\times d^2 \times l$                            <code>d:直径mm</code>，<code>l:长度m</code></p>
+<p>角钢重量$（Kg）&#x3D; 0.00785\times （a+b-c）\times c\times l$        <code>a:边宽、b：边宽、c:边厚 mm</code>，<code>l:长度m</code></p>
+<p>扁钢重量$（Kg）&#x3D; 0.00785\times a\times c\times l$            <code>a:边宽、c:边厚 mm</code>，<code>l:长度m</code></p>
+<p>钢管重量$（Kg）&#x3D;0.02466\times c\times（d-c）\times l $        <code>c:边厚、d:外径 mm</code>，<code>l:长度m</code></p>
+<p><strong>各种钢管(材)重量换算公式</strong></p>
+<p><strong>圆钢 盘条（kg&#x2F;m）</strong></p>
+<blockquote>
+<p>W&#x3D; 0.006165$\times d^2$<br>d &#x3D; 直径mm<br>直径100 mm 的圆钢，求每m 重量.<br>每m 重量&#x3D; 0.006165 ×1002&#x3D;61.65kg</p>
+</blockquote>
+<p><strong>螺纹钢（kg&#x2F;m）</strong></p>
+<blockquote>
+<p>W&#x3D; $0.00617 \times d^2$<br>d&#x3D; 断面直径mm<br>断面直径为12 mm 的螺纹钢，求每m 重量.<br>每m 重量&#x3D;0.00617 $\times 12^2&#x3D;$0.89kg</p>
+</blockquote>
+<p><strong>方钢（kg&#x2F;m）</strong></p>
+<blockquote>
+<p>W&#x3D; 0.00785$\times a^2$<br>a&#x3D; 边宽mm<br>边宽20 mm 的方钢，求每m 重量<br>每m 重量&#x3D; 0.00785$\times 20^2$&#x3D;3.14kg</p>
+</blockquote>
+<p><strong>扁钢 （kg&#x2F;m）</strong></p>
+<blockquote>
+<p>W&#x3D; 0.00785$ \times b\times d $<br>b&#x3D; 边宽mm<br>d&#x3D; 厚mm<br>边宽40 mm ，厚5mm 的扁钢，求每m 重量。<br>每m 重量&#x3D; 0.00785$ \times 40\times5$&#x3D; 1.57kg</p>
+</blockquote>
+<p><strong>六角钢 （kg&#x2F;m）</strong></p>
+<blockquote>
+<p>W&#x3D; 0.006798$\times s^2$<br>s&#x3D; 对边距离mm<br>对边距离50 mm 的六角钢，求每m 重量。<br>每m 重量&#x3D; 0.006798$ \times 50^2$&#x3D;17kg</p>
+</blockquote>
+<p><strong>八角钢（kg&#x2F;m）</strong></p>
+<blockquote>
+<p>W&#x3D; 0.0065 $\times s^2$<br>s&#x3D; 对边距离mm<br>对边距离80 mm 的八角钢，求每m 重量。<br>每m 重量&#x3D; 0.0065 $\times 80^2$&#x3D;41.62kg</p>
+</blockquote>
+<p><strong>等边角钢（kg&#x2F;m）</strong></p>
+<blockquote>
+<p>w&#x3D; 0.00785 ×[d （2b – d ）+0.215$\times$（$R^2$ – 2$r^ 2$ ）]<br>b&#x3D; 边宽<br>d&#x3D; 边厚<br>R&#x3D; 内弧半径<br>r&#x3D; 端弧半径<br>求20 mm ×4mm 等边角钢的每m 重量。<br>从冶金产品目录中查出4mm ×20 mm 等边角钢的R 为3.5 ，r 为1.2 ，则每m 重量&#x3D; 0.00785 ×[4 ×（2 ×20 – 4 ）+0.215 ×（$3.5^2 $– 2 $\times 1.2^2 $）]&#x3D;1.15kg</p>
+</blockquote>
+<p><strong>不等边角钢（kg&#x2F;m）</strong></p>
+<blockquote>
+<p>W&#x3D; 0.00785 ×[d （B+b – d ）+0.215$\times$（$R^2$ – 2$r^ 2$ ）]<br>B&#x3D; 长边宽<br>b&#x3D; 短边宽<br>d&#x3D; 边厚<br>R&#x3D; 内弧半径<br>r&#x3D; 端弧半径<br>求30 mm ×20mm ×4mm 不等边角钢的每m 重量。<br>从冶金产品目录中查出30 ×20 ×4 不等边角钢的R 为3.5 ，r 为1.2 ，则每m 重量&#x3D; 0.00785 ×[4 ×（30+20 – 4 ）+0.215 ×（$3.5^2$ – 2$\times 1.2^ 2$ ）]&#x3D;1.46kg</p>
+</blockquote>
+<p><strong>常用数据</strong></p>
+<blockquote>
+<p>1 米(m)＝ 3.281 英尺<br>1 英寸＝ 25.4 毫米<br>1 磅＝ 0.4536 公斤<br>1 盎司＝ 28.3 克<br>1 公斤力＝ 9.81 牛顿<br>1 磅力＝4.45 牛顿<br>1 兆帕&#x3D;145.161 磅 &#x2F; 英寸<br>钢的比重(密度）： 7.8g&#x2F;cm<br>不锈钢比重（密度）：7.78g&#x2F;cm<br>铝的比重（密度）： 2.7g&#x2F;cm<br>锌比重（密度）： 7.05g&#x2F;cm</p>
+</blockquote>
+<p>工字钢 ：每米重量&#x3D;0.00785×腰厚[高+f（腿宽-腰厚）</p>
+<p>槽钢： 每米重量&#x3D;0.00785×腰厚[高+e（腿宽-腰厚）</p>
+<p><code>备注： 1、角钢、工字钢和槽钢的准确计算公式很繁，表列简式用于计算近似值。 2、f值：一般型号及带a的为3.34，带b的为2.65，带c的为2.26。 3、e值：一般型号及带a的为3.26，带b的为2.44，带c的为2.24。 4、除长度以外各长度单位均为毫米（mm) </code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/02/pandas/" rel="prev" title="pyhton_pandas模块">
+                  <i class="fa fa-chevron-left"></i> pyhton_pandas模块
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/03/%E7%A1%AC%E5%BA%A6%E6%8D%A2%E7%AE%97%E8%A1%A8/" rel="next" title="硬度换算">
+                  硬度换算 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

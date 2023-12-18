@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Manjaro_kde 的安装与配置安装制作安装启动盘 制作 ventoy 启动盘 下载最新的 mnjaro-kde 安装包 .iso 格式 将 manjaro*.iso 拷贝到启动盘  开始安装 启动 Pc,按 F12 ，选择 U 盘启动 选择 manjaro-kde，设置安装界面的语言和安装位置 设置区域和时间，设置用户名和密码到安装完毕  系统基本配置更换成镜像源 sudo pacman-m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manjaro系统安装及配置">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/12/17/Manjaro%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="Manjaro_kde 的安装与配置安装制作安装启动盘 制作 ventoy 启动盘 下载最新的 mnjaro-kde 安装包 .iso 格式 将 manjaro*.iso 拷贝到启动盘  开始安装 启动 Pc,按 F12 ，选择 U 盘启动 选择 manjaro-kde，设置安装界面的语言和安装位置 设置区域和时间，设置用户名和密码到安装完毕  系统基本配置更换成镜像源 sudo pacman-m">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-17T09:52:55.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.606Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="LINUX">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/12/17/Manjaro%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/12/17/Manjaro%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/","path":"2023/12/17/Manjaro系统安装及配置/","title":"Manjaro系统安装及配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Manjaro系统安装及配置 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Manjaro-kde-%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Manjaro_kde 的安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="nav-number">1.1.1.</span> <span class="nav-text">制作安装启动盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.2.</span> <span class="nav-text">开始安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">系统基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E6%88%90%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">1.2.1.</span> <span class="nav-text">更换成镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2-pip-%E7%9A%84%E5%BA%93%E6%BA%90"><span class="nav-number">1.2.2.</span> <span class="nav-text">更换 pip 的库源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E5%8F%8A%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E7%9A%84-APP"><span class="nav-number">1.2.3.</span> <span class="nav-text">更新系统及已经安装的 APP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95-fcitx5-%E6%A1%86%E6%9E%B6-fcitx5-lua"><span class="nav-number">1.2.4.</span> <span class="nav-text">安装中文输入法 fcitx5 框架 fcitx5-lua</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93"><span class="nav-number">1.2.5.</span> <span class="nav-text">安装中文字体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">安装常用的软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#yay-%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.1.</span> <span class="nav-text">yay 安装工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#microsoft-edge"><span class="nav-number">1.3.2.</span> <span class="nav-text">microsoft-edge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode"><span class="nav-number">1.3.3.</span> <span class="nav-text">vscode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E5%B7%A5%E5%85%B7-wiregual-tools"><span class="nav-number">1.3.4.</span> <span class="nav-text">代理工具 wiregual-tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90"><span class="nav-number">1.3.5.</span> <span class="nav-text">安装网易云音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-deepin-%E5%BE%AE%E4%BF%A1"><span class="nav-number">1.3.6.</span> <span class="nav-text">安装 deepin 微信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-deepin-%E8%85%BE%E8%AE%AF-QQ"><span class="nav-number">1.3.7.</span> <span class="nav-text">安装 deepin 腾讯 QQ</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KDE-%E6%A1%8C%E9%9D%A2%E7%BE%8E%E5%8C%96"><span class="nav-number">1.4.</span> <span class="nav-text">KDE 桌面美化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="nav-number">1.5.</span> <span class="nav-text">高效工具的安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">1.5.1.</span> <span class="nav-text">oh my zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AE-vim"><span class="nav-number">1.5.2.</span> <span class="nav-text">安装并配置 vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-BBR"><span class="nav-number">1.5.3.</span> <span class="nav-text">配置 BBR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#locate-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.6.</span> <span class="nav-text">locate 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manjaro-%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.</span> <span class="nav-text">Manjaro 系统的常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pacman"><span class="nav-number">1.7.1.</span> <span class="nav-text">pacman</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wget-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.2.</span> <span class="nav-text">wget 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd-x2F-cd-x2F-ls"><span class="nav-number">1.7.3.</span> <span class="nav-text">pwd &#x2F; cd &#x2F; ls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-x2F-rm-x2F-mv"><span class="nav-number">1.7.4.</span> <span class="nav-text">cp &#x2F; rm &#x2F;mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv"><span class="nav-number">1.7.5.</span> <span class="nav-text">mv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tar"><span class="nav-number">1.7.6.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir"><span class="nav-number">1.7.7.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-%E7%B3%BB%E7%BB%9F%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.8.</span> <span class="nav-text">Linux 系统其他常用命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pdf-%E6%96%87%E6%A1%A3%E7%BC%96%E8%BE%91"><span class="nav-number">1.8.</span> <span class="nav-text">Pdf 文档编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE-WINE"><span class="nav-number">1.9.</span> <span class="nav-text">安装和配置 WINE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-libreoffice-%E7%B3%BB%E5%88%97%E8%BD%AF%E4%BB%B6%E7%9A%84%E4%B8%AD%E6%96%87%E8%AF%AD%E8%A8%80%E5%8C%85"><span class="nav-number">1.10.</span> <span class="nav-text">安装 libreoffice 系列软件的中文语言包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-Hexo"><span class="nav-number">1.11.</span> <span class="nav-text">配置 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E7%94%A8github%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.12.</span> <span class="nav-text">启用github博客</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/12/17/Manjaro%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Manjaro系统安装及配置 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Manjaro系统安装及配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-17 17:52:55" itemprop="dateCreated datePublished" datetime="2023-12-17T17:52:55+08:00">2023-12-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Manjaro-kde-的安装与配置"><a href="#Manjaro-kde-的安装与配置" class="headerlink" title="Manjaro_kde 的安装与配置"></a>Manjaro_kde 的安装与配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="制作安装启动盘"><a href="#制作安装启动盘" class="headerlink" title="制作安装启动盘"></a>制作安装启动盘</h3><ol>
+<li>制作 ventoy 启动盘</li>
+<li>下载最新的 mnjaro-kde 安装包 .iso 格式</li>
+<li>将 manjaro*.iso 拷贝到启动盘</li>
+</ol>
+<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><ol>
+<li>启动 Pc,按 F12 ，选择 U 盘启动</li>
+<li>选择 manjaro-kde，设置安装界面的语言和安装位置</li>
+<li>设置区域和时间，设置用户名和密码到安装完毕</li>
+</ol>
+<h2 id="系统基本配置"><a href="#系统基本配置" class="headerlink" title="系统基本配置"></a>系统基本配置</h2><h3 id="更换成镜像源"><a href="#更换成镜像源" class="headerlink" title="更换成镜像源"></a>更换成镜像源</h3><ol>
+<li>sudo pacman-mirrors -i -c China -m rank</li>
+<li>弹出对话框后选择一个最快的源，并确认。</li>
+<li>sudo nano &#x2F;etc&#x2F;pacman.conf # 修改 pacman.conf</li>
+<li>末尾添加内容</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustAll</span><br><span class="line">#中科大源</span><br><span class="line">Server = https:<span class="comment">//mirrors.ustc.edu.cn/archlinuxcn/$arch</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#清华源</span><br><span class="line">#Server = https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/archlinuxcn/</span></span><br><span class="line"></span><br><span class="line">$arch</span><br><span class="line"># 阿里源</span><br><span class="line">#Server = https:<span class="comment">//mirrors.aliyun.com/manjaro/$arch</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>安装 archlinuxcn 签名钥匙</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syy</span><br><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>更新库</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syy</span><br></pre></td></tr></table></figure>
+
+<h3 id="更换-pip-的库源"><a href="#更换-pip-的库源" class="headerlink" title="更换 pip 的库源"></a>更换 pip 的库源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> ~/.pip</span><br><span class="line">sudo nano ~/.pip/pip.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建配置文件内容:</span></span><br><span class="line">[global]</span><br><span class="line"><span class="comment">#阿里云</span></span><br><span class="line"><span class="comment">#index-url =  https://mirrors.aliyun.com/pypi/simple/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#中国科技大学</span></span><br><span class="line"><span class="comment">#index-url =  https://pypi.mirrors.ustc.edu.cn/simple/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#清华大学</span></span><br><span class="line">index-url =  https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="更新系统及已经安装的-APP"><a href="#更新系统及已经安装的-APP" class="headerlink" title="更新系统及已经安装的 APP"></a>更新系统及已经安装的 APP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syyu</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装中文输入法-fcitx5-框架-fcitx5-lua"><a href="#安装中文输入法-fcitx5-框架-fcitx5-lua" class="headerlink" title="安装中文输入法 fcitx5 框架 fcitx5-lua"></a>安装中文输入法 fcitx5 框架 fcitx5-lua</h3><ol>
+<li>安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全家桶 fcitx5-im，包含了fcitx5,fcits5-qt,fcitx5-gtk,fcitx5-configtool</span></span><br><span class="line">sudo pacman -S fcitx5-im</span><br><span class="line">sudo pacman -S fcitx5-chinese-addons</span><br><span class="line">sudo pacman -S fcitx5-material-color</span><br><span class="line">sudo pacman -S kcm-fcitx5</span><br><span class="line">sudo pacman -S fcitx5-lua</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo naao /etc/environment</span><br><span class="line"></span><br><span class="line"><span class="comment"># -----添加内容-----</span></span><br><span class="line">GTK_IM_MODULE DEFAULT=fcitx</span><br><span class="line">QT_IM_MODULE  DEFAULT=fcitx</span><br><span class="line">XMODIFIERS    DEFAULT=@im=fcitx</span><br><span class="line">INPUT_METHOD  DEFAULT=fcitx</span><br><span class="line">SDL_IM_MODULE DEFAULT=fcitx</span><br><span class="line"></span><br><span class="line"><span class="comment">#----重启 Pc-----</span></span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>外观配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 ~/.config/fcitx5/conf/classicui.conf</span><br><span class="line">nano ~/.config/fcitx5/conf/classicui.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----添加以下内容到文末-----</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 垂直候选列表</span></span><br><span class="line">Vertical Candidate List=False</span><br><span class="line"><span class="comment"># 按屏幕 DPI 使用</span></span><br><span class="line">PerScreenDPI=True</span><br><span class="line"><span class="comment"># Font (设置成你喜欢的字体)</span></span><br><span class="line">Font=<span class="string">&quot;思源黑体 CN Medium 13&quot;</span></span><br><span class="line"><span class="comment"># 主题</span></span><br><span class="line">Theme=Material-Color-DeepPurple</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装中文字体"><a href="#安装中文字体" class="headerlink" title="安装中文字体"></a>安装中文字体</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 同时安装多个字体</span></span><br><span class="line">sudo pacman -S wqy-bitmapfont wqy-microhei  wqy-zenhei wqy-microhei-lite</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可安装更多选用字体</span></span><br><span class="line">sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-cjk  noto-fonts noto-fonts-emoji</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装常用的软件"><a href="#安装常用的软件" class="headerlink" title="安装常用的软件"></a>安装常用的软件</h2><h3 id="yay-安装工具"><a href="#yay-安装工具" class="headerlink" title="yay 安装工具"></a>yay 安装工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S yay</span><br></pre></td></tr></table></figure>
+
+<h3 id="microsoft-edge"><a href="#microsoft-edge" class="headerlink" title="microsoft-edge"></a>microsoft-edge</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S microsoft-edge-stable-bin</span><br></pre></td></tr></table></figure>
+
+<p>安装后运行并登入同步数据即可正常使用</p>
+<p>卸载系统自带的浏览器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -R firefox</span><br></pre></td></tr></table></figure>
+
+<h3 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h3><ol>
+<li>官网下载 tar.gz 格式的文件 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/Downloads">https://code.visualstudio.com/Downloads</a></li>
+<li>解压缩</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf code-stable*</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>移动到<code>/opt/</code> 目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> VSCde-linux-x64 /opt</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>增加执行权</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chomd +x /opt/VSCode-linux-x64/bin/code</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>添加快捷方式</li>
+</ol>
+<ul>
+<li>创建文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/share/applications/vscode.desktop</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加内容：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=Visual Studio Code</span><br><span class="line">Comment=Multi-platform code editor <span class="keyword">for</span> linux</span><br><span class="line">Exec=/opt/VSCode-linux-x64/bin/code</span><br><span class="line">Icon=/usr/share/icons/code.webp</span><br><span class="line">Type=Application</span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br><span class="line">Categories=TextEditor;Development;Utility;</span><br><span class="line">MimeType=text/plain;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>复制图标</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> /opt/VSCode-linux-x64/resources/app/resources/linux/code.webp /usr/share/icons/</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>运行程序，启用同步</li>
+<li>查看当前系统的 python <code>pyhon -V</code></li>
+<li>基本可以正常使用 vscode 了。可能中间会出现 ipykernel 安装报错,报错代码如下：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip3 install ipkernel</span><br><span class="line">error: externally-managed-environment</span><br><span class="line"></span><br><span class="line">× This environment is externally managed</span><br><span class="line">╰─&gt; To install Python packages system-wide, try <span class="string">&#x27;pacman -S</span></span><br><span class="line"><span class="string">    python-xyz&#x27;</span>, <span class="built_in">where</span> xyz is the package you are trying to</span><br><span class="line">    install.</span><br><span class="line"></span><br><span class="line">    If you wish to install a non-Arch-packaged Python package,</span><br><span class="line">    create a virtual environment using <span class="string">&#x27;python -m venv path/to/venv&#x27;</span>.</span><br><span class="line">    Then use path/to/venv/bin/python and path/to/venv/bin/pip.</span><br><span class="line"></span><br><span class="line">    If you wish to install a non-Arch packaged Python application,</span><br><span class="line">    it may be easiest to use <span class="string">&#x27;pipx install xyz&#x27;</span>, <span class="built_in">which</span> will manage a</span><br><span class="line">    virtual environment <span class="keyword">for</span> you. Make sure you have python-pipx</span><br><span class="line">    installed via pacman.</span><br><span class="line"></span><br><span class="line">note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.</span><br><span class="line">hint: See PEP 668 <span class="keyword">for</span> the detailed specification.</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>解决办法粗暴</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> /usr/lib/python3.x/EXTERNALLY-MANAGED /usr/lib/python3.x/EXTERNALLY-MANAGED.bk</span><br><span class="line"><span class="comment"># 将上述代码的3.x替换成python版本号</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="代理工具-wiregual-tools"><a href="#代理工具-wiregual-tools" class="headerlink" title="代理工具 wiregual-tools"></a>代理工具 wiregual-tools</h3><ol>
+<li>安装 wireguard 工具</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S wireguard-tools</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改配置文件坐在目录的权限</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 /etc/wireguard</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建配置文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/wireuard/wg0.conf</span><br></pre></td></tr></table></figure>
+
+<p>配置文件内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Interface]</span><br><span class="line">ListenPort = 49852</span><br><span class="line">Address = 10.14.0.2/16</span><br><span class="line">PrivateKey = mKTo/XWQemHxEDJxfDaNvcFwB4R42WQDtV7ZURUitWg=</span><br><span class="line">DNS = 162.252.172.57, 149.154.159.92</span><br><span class="line">[Peer]</span><br><span class="line">PersistentKeepalive = 25</span><br><span class="line">PublicKey = iBJRXLZwXuWWrOZE1ZrAXEKMgV/z0WjG0Tks5rnWLBI=</span><br><span class="line">AllowedIPs = 0.0.0.0/0</span><br><span class="line">Endpoint = 23.230.212.231:51820</span><br><span class="line"><span class="comment"># 以上内容不是固定不变的，</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>运行代理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wg-quick up wg0</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>查看运行状况</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wg</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>关闭代理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wg-quick down wg0</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装网易云音乐"><a href="#安装网易云音乐" class="headerlink" title="安装网易云音乐"></a>安装网易云音乐</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S netease-cloud-music</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-deepin-微信"><a href="#安装-deepin-微信" class="headerlink" title="安装 deepin 微信"></a>安装 deepin 微信</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S deepin-wine-wechat</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-deepin-腾讯-QQ"><a href="#安装-deepin-腾讯-QQ" class="headerlink" title="安装 deepin 腾讯 QQ"></a>安装 deepin 腾讯 QQ</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S deepin-wine-qq</span><br></pre></td></tr></table></figure>
+
+<h2 id="KDE-桌面美化"><a href="#KDE-桌面美化" class="headerlink" title="KDE 桌面美化"></a>KDE 桌面美化</h2><ol>
+<li>安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qt5-base qt5-svg qt5-declarative qt5-quickcontrols</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>安装 osc-url</p>
+<ul>
+<li><p>下载 <a target="_blank" rel="noopener" href="https://www.opendesktop.org/p/1136805/">https://www.opendesktop.org/p/1136805/</a></p>
+</li>
+<li><p>安装</p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -U ~/下载/ocs-url-3.1.0-1-x86_64.pkg.tar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 有了osc-url后，点击主题的 install 按钮后，会跳出是否打开 xdg-open，选择打开并安装主题就 OK 了。</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>下载主题</li>
+</ol>
+<h2 id="高效工具的安装配置"><a href="#高效工具的安装配置" class="headerlink" title="高效工具的安装配置"></a>高效工具的安装配置</h2><h3 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh my zsh"></a>oh my zsh</h3><p>manjaro KDE 自带了 zsh，所以可以直接安装 oh my zsh</p>
+<ol>
+<li>下载 需要代理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>更改 shell 为 zsh</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /usr/bin/zsh</span><br><span class="line">zsh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>下载插件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动补全</span></span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br><span class="line">​<span class="comment"># 语法高亮</span></span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">​<span class="comment"># zsh-vi-mod</span></span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/jeffreytse/zsh-vi-mode <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-vi-mode</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>修改配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打开 ~/.zshrc 找到 plugins 将它改成下面这样：</span></span><br><span class="line">plugins=(</span><br><span class="line">    git</span><br><span class="line">    zsh-syntax-highlighting</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">    zsh-vi-mode</span><br><span class="line">    colored-man-pages</span><br><span class="line">)</span><br><span class="line"><span class="comment">#修改主题</span></span><br><span class="line">ZSH_THEME=<span class="string">&quot;bira&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>安装 autojump,终端目录跳转神器</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo git <span class="built_in">clone</span> https://github.com/wting/autojump</span><br><span class="line"><span class="built_in">cd</span> autojump</span><br><span class="line">./install.py</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">sudo <span class="built_in">rm</span> -rf autojump</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>修改配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo nano ~/.zshrc</span><br><span class="line"><span class="comment"># 在文末添加</span></span><br><span class="line">[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh</span><br><span class="line"><span class="comment"># 配置成功。想在终端跳转到之前的目录时，可直接按 j 和目录名的前缀即可完成跳转</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新配置启用</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装并配置-vim"><a href="#安装并配置-vim" class="headerlink" title="安装并配置 vim"></a>安装并配置 vim</h3><ol>
+<li>安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sy vim</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装插件环境</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/chxuan/vimplus.git ~/.vimplus</span><br><span class="line"><span class="built_in">cd</span> ~/.vimplus</span><br><span class="line">./install.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装插件管理器</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>修改配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 call plug#begin() 和 call plug#end()之间插入以下内容</span></span><br><span class="line"><span class="comment"># 按下 i 键进行 插入 操作，将如下内容粘贴到里面（最好上下留有空行，方便浏览）</span></span><br><span class="line"></span><br><span class="line">Plug <span class="string">&#x27;scrooloose/nerdtree&#x27;</span>, &#123; <span class="string">&#x27;on&#x27;</span>:  <span class="string">&#x27;NERDTreeToggle&#x27;</span> &#125;</span><br><span class="line"><span class="string">&quot;vim 启动的时候 提供一些辅助功能 ，如 显示最近打开的文件，以及一个好看的图标</span></span><br><span class="line"><span class="string">Plug &#x27;mhinz/vim-startify&#x27;</span></span><br><span class="line"><span class="string">&quot;</span>在vim打开文件的时候 侧边展示目前等 ，该插件是必装插件 如果你用 vim作为ide的话</span><br><span class="line">Plug <span class="string">&#x27;mhinz/vim-startify&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;scrooloose/nerdtree&#x27;</span></span><br><span class="line"><span class="string">&quot;这个插件 是 快速搜索文件的 也是必须安装的，比 ctrlp 速度要快</span></span><br><span class="line"><span class="string">Plug &#x27;junegunn/fzf&#x27;, &#123; &#x27;do&#x27;: &#123; -&gt; fzf#install() &#125; &#125;</span></span><br><span class="line"><span class="string">Plug &#x27;junegunn/fzf.vim&#x27;</span></span><br><span class="line"><span class="string">&quot;</span>添加一些分割线 比如你写python的时候 格式对齐 就可以通过这个分割线来 让你很直观的看到</span><br><span class="line">Plugin <span class="string">&#x27;Yggdroot/indentLine&#x27;</span></span><br><span class="line"><span class="string">&quot;自动格式化管理插件, 可根据不同文件类型使用不同的格式化工具</span></span><br><span class="line"><span class="string">Plug &#x27;Chiel92/vim-autoformat&#x27;</span></span><br><span class="line"><span class="string">&quot;</span>Markdown预览</span><br><span class="line">Plug <span class="string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123;<span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;cd app &amp; yarn install&#x27;</span>&#125;</span><br><span class="line">“YCM 先安装，然后手工编译出库文件 ycm_core.so (以及依赖的 libclang.so) 才可使用. 假设使用 vim-plug 下载的 YouCompleteMe 源码保存在目录 ~/.vim/plugged/YouCompleteMe, 在该目录下执行</span><br><span class="line">Plug <span class="string">&#x27;ycm-core/YouCompleteMe&#x27;</span>`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Plugin <span class="string">&#x27;tpope/vim-fugitive&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;git://git.wincent.com/command-t.git&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;mzlogin/vim-markdown-toc&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;zxqfl/tabnine-vim&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6. 安装机器学习语法提示神器</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">cd ~/.vim/plugged/YouCompleteMe</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">python3 ./install.py -all</span><br><span class="line"></span><br><span class="line"># 安装 YouCompleteMe</span><br><span class="line">cd ~/.vim/plugged/YouCompleteMe</span><br><span class="line">./install.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 如果安装完有乱码，那就把终端的字体设置为 DroidSansMono Nerd Font Book</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-BBR"><a href="#配置-BBR" class="headerlink" title="配置 BBR"></a>配置 BBR</h3><p>与传统的拥塞控制算法相比，BBR 具有几个显着的优势，使其成为增强 Manjaro Linux 系统网络性能的绝佳选择。一些主要好处包括：</p>
+<ol>
+<li>提高吞吐量：BBR 有效地利用了可用带宽，从而显著提高了整体数据传输速率。</li>
+<li>减少延迟：使用 BBR，延迟和数据包丢失被最小化，从而带来响应更灵敏和无缝的浏览体验。</li>
+<li>增强的连接稳定性：BBR 可动态适应网络条件的波动，即使在网络拥塞的情况下也能保持稳定的连接。</li>
+<li>在多个网络流之间实现更好的公平性：BBR 确保带宽在不同用户和应用程序之间公平分配，促进平衡的网络环境。</li>
+</ol>
+<p>通过在 Manjaro Linux 系统上启用 BBR，您可以利用这些优势并优化您的互联网体验。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建并编辑配置文件</span></span><br><span class="line">sudo nano /etc/sysctl.d/80-bbr.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加以下内容</span></span><br><span class="line">net.core.default_qdisc=fq</span><br><span class="line">net.ipv4.tcp_congestion_control=bbr</span><br><span class="line"></span><br><span class="line"><span class="comment">#应用更改.此命令重新加载 sysctl 配置，激活 BBR 拥塞控制算法。</span></span><br><span class="line">sudo sysctl --system</span><br><span class="line"></span><br><span class="line"><span class="comment">#若要验证 BBR 是否处于活动状态，请运行：</span></span><br><span class="line">sudo sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出显示如下则表示已经激活</span></span><br><span class="line">net.ipv4.tcp_congestion_control = bbr</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="locate-命令"><a href="#locate-命令" class="headerlink" title="locate 命令"></a>locate 命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装</span></span><br><span class="line">sudo pacman -S locate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用前要更新数据库</span></span><br><span class="line">sudo updatedb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用方法：</span></span><br><span class="line">locate [选项][参数]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Manjaro-系统的常用命令"><a href="#Manjaro-系统的常用命令" class="headerlink" title="Manjaro 系统的常用命令"></a>Manjaro 系统的常用命令</h2><h3 id="pacman"><a href="#pacman" class="headerlink" title="pacman"></a>pacman</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装软件</span></span><br><span class="line">sudo pacman -S package-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先刷新软件库再安装软件</span></span><br><span class="line">sudo pacman -Sy package-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装本地包，支持pkg.tar.gz 或 pkg.tar.xz</span></span><br><span class="line">sudo pacman -U local_package_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载软件,保留其全部已经安装的依赖关系</span></span><br><span class="line">sudo pacman -R package-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载软件及其全部已经安装的依赖关系</span></span><br><span class="line">sudo pacman -R package-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索软件含关键字的包</span></span><br><span class="line">sudo pacman -Ss string</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理软件包缓存，未安装的包文件</span></span><br><span class="line">sudo pacman -Sc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理所有的缓存文件</span></span><br><span class="line">sudo pacman -Scc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新软件库</span></span><br><span class="line">sudo pacman -Syy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级软件包</span></span><br><span class="line">sudo pacman -Syu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级系统</span></span><br><span class="line">sudo pacman -Syyu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已经安装的软件</span></span><br><span class="line">sudo pacman -Qs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除系统中无用的包</span></span><br><span class="line">sudo pacman -R</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">pacman -Qdtq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从 AUR 安装软件包 yay 安装命令不需要加 sudo</span></span><br><span class="line">yay -S package</span><br><span class="line"></span><br><span class="line"><span class="comment"># yay删除包</span></span><br><span class="line">yay -Rns package</span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级所有已安装的包</span></span><br><span class="line">yay -Syu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印系统统计信息</span></span><br><span class="line">yay -Ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查安装的版本</span></span><br><span class="line">yay -Qi package</span><br></pre></td></tr></table></figure>
+
+<h3 id="wget-命令"><a href="#wget-命令" class="headerlink" title="wget 命令"></a>wget 命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载到当前目录</span></span><br><span class="line">wget url</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定下载目录 大写参数 -P</span></span><br><span class="line">wget -P 目录 url</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定下载目录以及重命名下载文件</span></span><br><span class="line">wget -o 目录/filename url</span><br></pre></td></tr></table></figure>
+
+<h3 id="pwd-x2F-cd-x2F-ls"><a href="#pwd-x2F-cd-x2F-ls" class="headerlink" title="pwd &#x2F; cd &#x2F; ls"></a>pwd &#x2F; cd &#x2F; ls</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出目录的内容（默认情况下是当前目录），包括文件和其他嵌套目录</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="built_in">ls</span> /usr</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前目录</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改目录</span></span><br><span class="line"><span class="built_in">cd</span> /home</span><br><span class="line"><span class="built_in">cd</span> ~/下载       <span class="comment"># 切换到当前用户的下载目录 = cd /home/user_name/下载/</span></span><br><span class="line"><span class="built_in">cd</span>              <span class="comment">#切换到当前用户根目录 = cd /homw/user_name/</span></span><br><span class="line"><span class="built_in">cd</span> ..           <span class="comment"># 切换到上一级目录</span></span><br><span class="line"><span class="built_in">cd</span> ./           <span class="comment"># 切换到当前目录</span></span><br></pre></td></tr></table></figure>
+<h3 id="cp-x2F-rm-x2F-mv"><a href="#cp-x2F-rm-x2F-mv" class="headerlink" title="cp &#x2F; rm &#x2F;mv"></a>cp &#x2F; rm &#x2F;mv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制。复制1.txt 到同目录下的 2.txt</span></span><br><span class="line"><span class="built_in">cp</span> 1.txt 2.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归复制。复制整个目录,在Linux中，文件夹以正斜杠 (/)结尾。</span></span><br><span class="line"><span class="built_in">cp</span> -r <span class="built_in">fold</span>/ new_fold/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制fold目录下的所有文件到当前目录</span></span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">fold</span>/* .</span><br><span class="line">```<span class="built_in">export</span> NODEJS_HOME=/usr/local/lib/node/nodejs</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NODEJS_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### rm</span></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line"><span class="built_in">rm</span> 1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除空目录</span></span><br><span class="line"><span class="built_in">rm</span> -r <span class="built_in">fold</span>/tar   -tf    /opt/abc.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除非空目录</span></span><br><span class="line"><span class="built_in">rm</span> -rf <span class="built_in">fold</span>/</span><br></pre></td></tr></table></figure>
+<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 移动文件</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt new_fold/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名文件</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt 2.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名目录</span></span><br><span class="line"><span class="built_in">mv</span> <span class="built_in">fold</span> fold1</span><br></pre></td></tr></table></figure>
+
+<h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数 c:打包（创建新的归档文件）</span></span><br><span class="line"><span class="comment"># 参数 z:使用gzip压缩归档文件</span></span><br><span class="line"><span class="comment"># 参数 j:使用bzip2压缩归档文件</span></span><br><span class="line"><span class="comment"># 参数 v:显示操作信息</span></span><br><span class="line"><span class="comment"># 参数 f:指定归档文件名</span></span><br><span class="line"><span class="comment"># 参数 x:解包（从归档文件中提取文件）</span></span><br><span class="line"><span class="comment"># 参数 C:切换到指定目录</span></span><br><span class="line"><span class="comment"># 参数 t:列出归档文件</span></span><br><span class="line"><span class="comment"># 参数 g:处理GNU格式的归档</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 压缩但不打包 tar cf 归档名 文件名或目录名</span></span><br><span class="line">tar -cf 1.tar 1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看归档文件</span></span><br><span class="line">tar -tf 1.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">## 压缩文件成为新文件.将1.txt压缩成2.tar.gz</span></span><br><span class="line">tar -czvf 2.tar.gz 1.txt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 列出压缩文件的内容</span></span><br><span class="line">tar -tzvg 1.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">## 解压</span></span><br><span class="line">tar -xzvf 1.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建目录</span></span><br><span class="line"><span class="built_in">mkdir</span> newfold/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建多级目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p level1/level2/</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Linux-系统其他常用命令"><a href="#Linux-系统其他常用命令" class="headerlink" title="Linux 系统其他常用命令"></a>Linux 系统其他常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清空回收站</span></span><br><span class="line">sudo <span class="built_in">rm</span> -fr <span class="variable">$HOME</span>/.local/share/Trash/files/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 比较文件差异,并排输出</span></span><br><span class="line">diff -y -w 1.txt 2.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改权限 +r 读权限 +w 写权限 +x 执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> +rwx file</span><br><span class="line"></span><br><span class="line"><span class="comment"># htop 进程查看</span></span><br><span class="line">htop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看预览文件</span></span><br><span class="line"><span class="built_in">cat</span> 1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找文件里符合条件的字符串或正则表达式。</span></span><br><span class="line">grep string 1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在文件夹 dir 中递归查找所有文件中匹配正则表达式 &quot;pattern&quot; 的行，并打印匹配行所在的文件名和行号：</span></span><br><span class="line">grep -r -n pattern <span class="built_in">dir</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在当前目录中，查找后缀有 file 字样的文件中包含 test 字符串的文件，并打印出该字符串的行</span></span><br><span class="line">grep <span class="built_in">test</span> *file</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看系统信息</span></span><br><span class="line">neofetch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示系统当前内存的使用情况</span></span><br><span class="line">free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看占用资源最多的进程，默认cpu占用</span></span><br><span class="line">top</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pdf-文档编辑"><a href="#Pdf-文档编辑" class="headerlink" title="Pdf 文档编辑"></a>Pdf 文档编辑</h2><ol>
+<li>普通的 pdf 内文本编辑直接使用 libreoffice-draw</li>
+<li>查看用 Okular。可以复制文字</li>
+<li>编辑神器 pdftk</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装,安装好的版本是server版 具有pro版的全部功能。</span></span><br><span class="line"></span><br><span class="line">sudo pacman -S pdftk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用方法：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并pdf文件。将1.pdf,2.pdf 合并成 new.pdf</span></span><br><span class="line">pdftk 1.pdf 2.pdf <span class="built_in">cat</span> output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并目录下的所有pdf文件</span></span><br><span class="line">pdftk *.pdf <span class="built_in">cat</span> output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取1-10页为一个新文件</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-10 output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取版连续的页面成为新文件。提取第1-3页，第5页，第7-10页</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-3 5 7-10 output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment">#去除第15-20页</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-14 21-end output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拆分pdf的每一页一个新文件</span></span><br><span class="line">pdftk input.pdf burst output new_%d.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将所有页面旋转180度</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-endsouth output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将第3页顺时针旋转90度</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-2 3east 4-end output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压pdf页面流，然后可以在文本编辑器中编辑pdf</span></span><br><span class="line">pdftk input.pdf outout doc.unc.pdf uncompress</span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩pdf</span></span><br><span class="line">pdftk input.pdf output mydoc.clear.pdf compress</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修复破损的pdf</span></span><br><span class="line">pdftk input.pdf output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改pdf目录。分3步完成</span></span><br><span class="line">1. 提取目录信息</span><br><span class="line">pdftk input.pdf dump_date output toc.txt</span><br><span class="line"></span><br><span class="line">2. 用文本编辑器修改</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">3. 把修改后的信息加载回pdf中</span><br><span class="line">pdftk input.pdf update_info toc.txt output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取pdf文件的元数据和书签信息</span></span><br><span class="line">pdftk input.pdf dump_data output toc.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密 密码为 foopass</span></span><br><span class="line">pdftk input.pdf input_pw foopass output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 128位加密，保留全部权限 密码为 foopass</span></span><br><span class="line">pdftk input.pdf output new.pdf owner_pw foopass</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="安装和配置-WINE"><a href="#安装和配置-WINE" class="headerlink" title="安装和配置 WINE"></a>安装和配置 WINE</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----安装wine-----</span></span><br><span class="line">sudo pacman -S wine</span><br><span class="line"></span><br><span class="line"><span class="comment"># -----修改配置文件-----</span></span><br><span class="line">sudo vim ~/.wine/drive_c/windows/win.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加的内容如下：</span></span><br><span class="line">    [Desktop]</span><br><span class="line">    menufontsize=13</span><br><span class="line">    messagefontsize=13</span><br><span class="line">    statusfontsize=13</span><br><span class="line">    IconTitleSize=13</span><br><span class="line"></span><br><span class="line"><span class="comment">#------注册表编辑-----</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 制作注册表文件</span></span><br><span class="line">sudo vim regedit01</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加内容到regedit01</span></span><br><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]</span><br><span class="line"><span class="string">&quot;Lucida Sans Unicode&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Microsoft Sans Serif&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Microsoft YaHei&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;微软雅黑&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;MS Sans Serif&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma Bold&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;SimSun&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial Black&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;宋体&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;新細明體&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># wine打开注册表</span></span><br><span class="line">wine regedit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入注册表文件</span></span><br><span class="line">在弹出的窗口中，选择导入注册文件，并选择刚创建的注册表文件</span><br><span class="line"></span><br><span class="line"><span class="comment"># -----修改wine启动器界面-----</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入命令</span></span><br><span class="line">winecfg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择显示菜单</span></span><br><span class="line">修改屏幕分辨率 96 dpi</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-libreoffice-系列软件的中文语言包"><a href="#安装-libreoffice-系列软件的中文语言包" class="headerlink" title="安装 libreoffice 系列软件的中文语言包"></a>安装 libreoffice 系列软件的中文语言包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S libreoffice-still-zh-cn</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-Hexo"><a href="#配置-Hexo" class="headerlink" title="配置 Hexo"></a>配置 Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">######以下办法失败######以下办法失败######以下办法失败##########</span></span><br><span class="line"><span class="comment"># -----安装 Nodejs----</span></span><br><span class="line">yay -Sy nodejs</span><br><span class="line"><span class="comment"># 测试是否安装成功</span></span><br><span class="line">node -v <span class="comment"># v21.4.0</span></span><br><span class="line">npm -v  <span class="comment"># 10.2.5</span></span><br><span class="line"><span class="comment"># -----安装 hexo-cli-----</span></span><br><span class="line"><span class="comment"># 测试 git 是否成功安装</span></span><br><span class="line">git --version <span class="comment"># gie version 2.43.0</span></span><br><span class="line"><span class="comment"># 安装 hexo-cli ，在走代理的情况下可以成功安装</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"><span class="comment">###此时出现严重问题，报错 npm ERR! code EACCES.....在网上找了n种办法均告失败，通过更改部分运行目录后成功，但是重启后丢失了sudo命令的使用权。导致系统重装。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##------ 今天2023-12-17计划用新方法来安装-----------------------</span></span><br><span class="line"><span class="comment">#首先准备安装nodejs,从nodejs官网下载安装包---&gt;解压缩到指定目录下----&gt;配置</span></span><br><span class="line"><span class="comment"># 下载到 ~/下载</span></span><br><span class="line">wget -P ～/下载 https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line"><span class="built_in">cd</span> ~/下载</span><br><span class="line">tar -xzvf node-v20.10.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新目录 /usr/local/lib/node</span></span><br><span class="line">sudo <span class="built_in">mkdir</span> /usr/local/lib/node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移动解压缩后的文件夹node-v20.10.0-linux 到/usr/local/lib/node下并重命名为nodejs</span></span><br><span class="line">sudo <span class="built_in">mv</span> ~/下载/node-v20.10.0-linux-x64 /usr/local/lib/node/nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line">sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 添加内容</span></span><br><span class="line"><span class="built_in">export</span> NODEJS_HOME=/usr/local/lib/node/nodejs</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NODEJS_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试是否成功</span></span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line">node -v  <span class="comment"># 10.2.3</span></span><br><span class="line">npm -v   <span class="comment"># v20.10.0</span></span><br><span class="line">以上输出表示安装成功了！</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装hexo,依然报错，从网上继续查找原因和解决办法，主要是全局应用没有使用权限的问题。找到最终的解决办法：改变两个目录的所有者</span></span><br><span class="line">sudo <span class="built_in">chown</span> -R xiaoyx ~/.npm/</span><br><span class="line">sudo coown -R xiaoyx /usr/local/lib/node/</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测是否安装成功</span></span><br><span class="line">hexo --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 至此完全搞定个人博客搭建在linux下的应用。这个操作因为npm权限的问题耗费了整整两天的时间。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="启用github博客"><a href="#启用github博客" class="headerlink" title="启用github博客"></a>启用github博客</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 因为安装的是双系统，之前已经创建了博客，所以在MANJARO下直接使用原来的博客目录。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载windows下的D盘，并切换到博客目录下：</span></span><br><span class="line"><span class="built_in">cd</span> /run/media/xiaoyx/Data/BLOG/yxhsiao/source/_posts</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行hexo d 后报错身份验证错误，解决办法。</span></span><br><span class="line">git config --global user.name <span class="string">&quot;yxhsiao&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;yxhsiao@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 接着将原来win下的c:\\user\\xiaoyx\\.ssh 文件目录全部复制到 ~/</span></span><br><span class="line">sudo <span class="built_in">cp</span> /run/media/xiaoyx/Windows-SSD/Users/xiaoyx/.shh ~/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改该目录的权限</span></span><br><span class="line">sudo <span class="built_in">chmod</span> -R 700 ~/.ssh/                                                                                                                                     2 ↵</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再次运行成功推送</span></span><br><span class="line">hexo clean &amp;&amp; hexo g  &amp;&amp; hexo d</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/LINUX/" rel="tag"><i class="fa fa-tag"></i> LINUX</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/05/Deepin%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" rel="prev" title="Deepin系统的安装与使用">
+                  <i class="fa fa-chevron-left"></i> Deepin系统的安装与使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/17/%E4%BF%AE%E6%94%B9wireguard%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="next" title="修改或创建wireguard的配置文件">
+                  修改或创建wireguard的配置文件 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

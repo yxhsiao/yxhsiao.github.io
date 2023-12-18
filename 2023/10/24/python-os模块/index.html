@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Table of Contents 1  os.name2  os.sep3  os.environ4  os.getcwd()5  os.chdir()6  os.getlogin()7  os.walk()7.1  用列表推导式来盛放结果7.2  列出路径下的文件7.3  列出路径下的目录7.4  列出路径下的某类文件8  os.scandir()9  os.listdir()9.1  只提取">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python_os模块">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/10/24/python-os%E6%A8%A1%E5%9D%97/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="Table of Contents 1  os.name2  os.sep3  os.environ4  os.getcwd()5  os.chdir()6  os.getlogin()7  os.walk()7.1  用列表推导式来盛放结果7.2  列出路径下的文件7.3  列出路径下的目录7.4  列出路径下的某类文件8  os.scandir()9  os.listdir()9.1  只提取">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-24T15:15:59.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.630Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/10/24/python-os%E6%A8%A1%E5%9D%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/10/24/python-os%E6%A8%A1%E5%9D%97/","path":"2023/10/24/python-os模块/","title":"python_os模块"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python_os模块 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Table of Contents</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OS%E6%A8%A1%E5%9D%97"><span class="nav-number">2.</span> <span class="nav-text">OS模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#os-name"><span class="nav-number">2.1.</span> <span class="nav-text">os.name</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-sep"><span class="nav-number">2.2.</span> <span class="nav-text">os.sep</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-dirname-ph"><span class="nav-number">2.2.1.</span> <span class="nav-text">os.path.dirname(ph)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-path-basename-ph"><span class="nav-number">2.3.</span> <span class="nav-text">os.path.basename(ph)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-pardir"><span class="nav-number">2.4.</span> <span class="nav-text">os.pardir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-environ"><span class="nav-number">2.5.</span> <span class="nav-text">os.environ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-getcwd"><span class="nav-number">2.6.</span> <span class="nav-text">os.getcwd()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-chdir"><span class="nav-number">2.7.</span> <span class="nav-text">os.chdir()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-getlogin"><span class="nav-number">2.8.</span> <span class="nav-text">os.getlogin()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-walk-ph"><span class="nav-number">2.9.</span> <span class="nav-text">os.walk(ph)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-scandir-ph"><span class="nav-number">2.10.</span> <span class="nav-text">os.scandir(ph)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-listdir"><span class="nav-number">2.11.</span> <span class="nav-text">os.listdir()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-mkdir"><span class="nav-number">2.12.</span> <span class="nav-text">os.mkdir()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-makedirs"><span class="nav-number">2.13.</span> <span class="nav-text">os.makedirs()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-remove"><span class="nav-number">2.14.</span> <span class="nav-text">os.remove()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-rmdir"><span class="nav-number">2.15.</span> <span class="nav-text">os.rmdir()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-removedirs"><span class="nav-number">2.16.</span> <span class="nav-text">os.removedirs()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-rename-%E5%92%8C-os-renames"><span class="nav-number">2.17.</span> <span class="nav-text">os.rename() 和 os.renames()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#os-path"><span class="nav-number">2.18.</span> <span class="nav-text">os.path</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-join"><span class="nav-number">2.18.1.</span> <span class="nav-text">os.path.join()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-abspath"><span class="nav-number">2.18.2.</span> <span class="nav-text">os.path.abspath()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-basename"><span class="nav-number">2.18.3.</span> <span class="nav-text">os.path.basename()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-dirname"><span class="nav-number">2.18.4.</span> <span class="nav-text">os.path.dirname()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-split"><span class="nav-number">2.18.5.</span> <span class="nav-text">os.path.split()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-splitex"><span class="nav-number">2.18.6.</span> <span class="nav-text">os.path.splitex()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-exists"><span class="nav-number">2.18.7.</span> <span class="nav-text">os.path.exists()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-isabs"><span class="nav-number">2.18.8.</span> <span class="nav-text">os.path.isabs()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-isfile-%E5%92%8C-os-path-isdir"><span class="nav-number">2.18.9.</span> <span class="nav-text">os.path.isfile() 和 os.path.isdir()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-path-getsize"><span class="nav-number">2.18.10.</span> <span class="nav-text">os.path.getsize()</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/10/24/python-os%E6%A8%A1%E5%9D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python_os模块 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python_os模块
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-24 23:15:59" itemprop="dateCreated datePublished" datetime="2023-10-24T23:15:59+08:00">2023-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#os.name" data-toc-modified-id="os.name-1"><span class="toc-item-num">1  </span>os.name</a></span></li><li><span><a href="#os.sep" data-toc-modified-id="os.sep-2"><span class="toc-item-num">2  </span>os.sep</a></span></li><li><span><a href="#os.environ" data-toc-modified-id="os.environ-3"><span class="toc-item-num">3  </span>os.environ</a></span></li><li><span><a href="#os.getcwd()" data-toc-modified-id="os.getcwd()-4"><span class="toc-item-num">4  </span>os.getcwd()</a></span></li><li><span><a href="#os.chdir()" data-toc-modified-id="os.chdir()-5"><span class="toc-item-num">5  </span>os.chdir()</a></span></li><li><span><a href="#os.getlogin()" data-toc-modified-id="os.getlogin()-6"><span class="toc-item-num">6  </span>os.getlogin()</a></span></li><li><span><a href="#os.walk()" data-toc-modified-id="os.walk()-7"><span class="toc-item-num">7  </span>os.walk()</a></span><ul class="toc-item"><li><span><a href="#用列表推导式来盛放结果" data-toc-modified-id="用列表推导式来盛放结果-7.1"><span class="toc-item-num">7.1  </span>用列表推导式来盛放结果</a></span></li><li><span><a href="#列出路径下的文件" data-toc-modified-id="列出路径下的文件-7.2"><span class="toc-item-num">7.2  </span>列出路径下的文件</a></span></li><li><span><a href="#列出路径下的目录" data-toc-modified-id="列出路径下的目录-7.3"><span class="toc-item-num">7.3  </span>列出路径下的目录</a></span></li><li><span><a href="#列出路径下的某类文件" data-toc-modified-id="列出路径下的某类文件-7.4"><span class="toc-item-num">7.4  </span>列出路径下的某类文件</a></span></li></ul></li><li><span><a href="#os.scandir()" data-toc-modified-id="os.scandir()-8"><span class="toc-item-num">8  </span>os.scandir()</a></span></li><li><span><a href="#os.listdir()" data-toc-modified-id="os.listdir()-9"><span class="toc-item-num">9  </span>os.listdir()</a></span><ul class="toc-item"><li><span><a href="#只提取目录" data-toc-modified-id="只提取目录-9.1"><span class="toc-item-num">9.1  </span>只提取目录</a></span></li><li><span><a href="#只提取文件" data-toc-modified-id="只提取文件-9.2"><span class="toc-item-num">9.2  </span>只提取文件</a></span></li></ul></li><li><span><a href="#os.mkdir()" data-toc-modified-id="os.mkdir()-10"><span class="toc-item-num">10  </span>os.mkdir()</a></span></li><li><span><a href="#os.makedirs()" data-toc-modified-id="os.makedirs()-11"><span class="toc-item-num">11  </span>os.makedirs()</a></span></li><li><span><a href="#os.remove()" data-toc-modified-id="os.remove()-12"><span class="toc-item-num">12  </span>os.remove()</a></span></li><li><span><a href="#os.rmdir()" data-toc-modified-id="os.rmdir()-13"><span class="toc-item-num">13  </span>os.rmdir()</a></span></li><li><span><a href="#os.removedirs()" data-toc-modified-id="os.removedirs()-14"><span class="toc-item-num">14  </span>os.removedirs()</a></span></li><li><span><a href="#os.rename()" data-toc-modified-id="os.rename()-15"><span class="toc-item-num">15  </span>os.rename()</a></span></li><li><span><a href="#os.path-模块" data-toc-modified-id="os.path-模块-16"><span class="toc-item-num">16  </span>os.path 模块</a></span><ul class="toc-item"><li><span><a href="#os.path.join()" data-toc-modified-id="os.path.join()-16.1"><span class="toc-item-num">16.1  </span>os.path.join()</a></span></li><li><span><a href="#os.path.abspath()" data-toc-modified-id="os.path.abspath()-16.2"><span class="toc-item-num">16.2  </span>os.path.abspath()</a></span></li><li><span><a href="#os.path.basename()" data-toc-modified-id="os.path.basename()-16.3"><span class="toc-item-num">16.3  </span>os.path.basename()</a></span></li><li><span><a href="#os.path.dirname()" data-toc-modified-id="os.path.dirname()-16.4"><span class="toc-item-num">16.4  </span>os.path.dirname()</a></span></li><li><span><a href="#os.path.split()" data-toc-modified-id="os.path.split()-16.5"><span class="toc-item-num">16.5  </span>os.path.split()</a></span></li><li><span><a href="#os.path.splitex()" data-toc-modified-id="os.path.splitex()-16.6"><span class="toc-item-num">16.6  </span>os.path.splitex()</a></span></li><li><span><a href="#os.path.exists()" data-toc-modified-id="os.path.exists()-16.7"><span class="toc-item-num">16.7  </span>os.path.exists()</a></span></li><li><span><a href="#os.path.isabs()" data-toc-modified-id="os.path.isabs()-16.8"><span class="toc-item-num">16.8  </span>os.path.isabs()</a></span></li><li><span><a href="#os.path.isfile()-和-os.path.isdir()" data-toc-modified-id="os.path.isfile()-和-os.path.isdir()-16.9"><span class="toc-item-num">16.9  </span>os.path.isfile() 和 os.path.isdir()</a></span></li><li><span><a href="#os.path.getsize()" data-toc-modified-id="os.path.getsize()-16.10"><span class="toc-item-num">16.10  </span>os.path.getsize()</a></span></li></ul></li></ul></div>
+
+<h1 id="OS模块"><a href="#OS模块" class="headerlink" title="OS模块"></a>OS模块</h1><ul>
+<li>该模块提供了一些方便使用操作系统相关功能的函数。</li>
+<li>想读写一个文件，open()，</li>
+<li>操作路径， os.path</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+
+<h2 id="os-name"><a href="#os-name" class="headerlink" title="os.name"></a><code>os.name</code></h2><ul>
+<li>该属性宽泛地指明了当前 Python 运行所在的环境，实际上是导入的操作系统相关模块的名称。这个名称也决定了模块中哪些功能是可用的，哪些是没有相应实现的。</li>
+<li>目前有效名称为以下三个：posix，nt，java。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.name</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘nt’</p>
+<h2 id="os-sep"><a href="#os-sep" class="headerlink" title="os.sep"></a><code>os.sep</code></h2><ul>
+<li>主要用于系统路径的分隔符：</li>
+<li>Windows系统通过是 <code>\</code>，Linux类系统如Ubuntu的分隔符是 <code>/</code>，</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.sep</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<pre><code>&#39;\\&#39;
+</code></pre>
+<h3 id="os-path-dirname-ph"><a href="#os-path-dirname-ph" class="headerlink" title="os.path.dirname(ph)"></a><code>os.path.dirname(ph)</code></h3><ol>
+<li>语法：os.path.dirname(path)</li>
+<li>功能：去掉文件名，返回目录</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.path.dirname(<span class="string">r&#x27;d:\software&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘d:\‘</p>
+<h2 id="os-path-basename-ph"><a href="#os-path-basename-ph" class="headerlink" title="os.path.basename(ph)"></a><code>os.path.basename(ph)</code></h2><ol>
+<li>语法：os.path.basename(path)</li>
+<li>功能：返回path最后的文件名</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.path.basename(<span class="string">r&#x27;d:\software&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘software’</p>
+<h2 id="os-pardir"><a href="#os-pardir" class="headerlink" title="os.pardir"></a><code>os.pardir</code></h2><ol>
+<li>语法</li>
+<li>参数:无。</li>
+<li>返回值:返回当前目录的父目录（上一级目录），默认值为  <code>..</code> 。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">os.pardir</span><br><span class="line">os.getcwd()</span><br><span class="line">os.path.abspath(os.path.join(os.getcwd(), os.pardir))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘..’</p>
+<p>Output:</p>
+<pre><code>&#39;d:\\&#39;
+</code></pre>
+<p>Output:<br>    ‘d:\‘</p>
+<h2 id="os-environ"><a href="#os-environ" class="headerlink" title="os.environ"></a><code>os.environ</code></h2><ul>
+<li><code>os.environ</code>属性可以返回环境相关的信息，主要是各类环境变量。返回值是一个映射（类似字典类型），具体的值为第一次导入os模块时的快照；其中的各个键值对，键是环境变量名，值则是环境变量对应的值。在第一次导入os模块之后，除非直接修改os.environ的值，否则该属性的值不再发生变化。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&#x27;HOMEPATH&#x27;</span>]</span><br><span class="line"></span><br><span class="line">os.environ</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘\Users\xiaoyx’</p>
+<p>Output:<br>    environ{‘ALLUSERSPROFILE’: ‘C:\ProgramData’,<br>            ‘APPDATA’: ‘C:\Users\xiaoyx\AppData\Roaming’,<br>            ‘APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL’: ‘1’,<br>            ‘CHOCOLATEYINSTALL’: ‘C:\ProgramData\chocolatey’,<br>            ‘CHOCOLATEYLASTPATHUPDATE’: ‘133302881561848781’,<br>            ‘CHROME_CRASHPAD_PIPE_NAME’: ‘\\.\pipe\crashpad_26876_GMWMILBKGJTUSXKS’,<br>            ‘COMMONPROGRAMFILES’: ‘C:\Program Files\Common Files’,<br>            ‘COMMONPROGRAMFILES(X86)’: ‘C:\Program Files (x86)\Common Files’,<br>            ‘COMMONPROGRAMW6432’: ‘C:\Program Files\Common Files’,</p>
+<h2 id="os-getcwd"><a href="#os-getcwd" class="headerlink" title="os.getcwd()"></a><code>os.getcwd()</code></h2><ul>
+<li>返回当前工作目录</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘d:\‘</p>
+<h2 id="os-chdir"><a href="#os-chdir" class="headerlink" title="os.chdir()"></a><code>os.chdir()</code></h2><ul>
+<li>“chdir”其实是“change the directory”的简写，因此 <code>os.chdir()</code>的用处实际上是切换当前工作路径为指定路径。其中“指定路径”需要作为参数传入函数 <code>os.chdir()</code>，该参数既可以是文本或字节型字符串，也可以是一个文件描述符，还可以是一个广义的类路径（path-like）对象。若指定路径不存在，则会抛出FileNotFoundError异常。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(<span class="string">&#x27;d:\\&#x27;</span>)</span><br><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>Output:<br>    ‘d:\‘</p>
+<h2 id="os-getlogin"><a href="#os-getlogin" class="headerlink" title="os.getlogin()"></a><code>os.getlogin()</code></h2><ul>
+<li>返回当前系统的实际登录名</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.getlogin()</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘xiaoyx’</p>
+<h2 id="os-walk-ph"><a href="#os-walk-ph" class="headerlink" title="os.walk(ph)"></a><code>os.walk(ph)</code></h2><ul>
+<li>这个函数需要传入一个路径作为top参数，函数的作用是在以top为根节点的目录树中游走，对树中的每个目录生成一个由(dirpath, dirnames, filenames)三项组成的三元组。</li>
+<li><code>os.walk(top, topdown=True, onerror=None, followlinks=False)</code></li>
+<li>得到的是一个生成器<ul>
+<li>第一层：目录路径</li>
+<li>第二层：目录名</li>
+<li>第三层：目录下的文件名</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 得到的是一个生成器</span></span><br><span class="line">os.walk(<span class="string">&quot;.\\&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    &lt;generator object _walk at 0x0000017805566FF0&gt;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ph = <span class="string">&quot;D:\\BLOG\\yxhsiao\\themes\\next\\docs&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用for循环</span></span><br><span class="line"><span class="keyword">for</span> path, dirs, files <span class="keyword">in</span> os.walk(ph):</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> files:</span><br><span class="line">        <span class="built_in">print</span>(os.path.join(path, name))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表推导式：</span></span><br><span class="line">[</span><br><span class="line">    os.path.join(path, file) <span class="keyword">for</span> path, <span class="built_in">dir</span>, files <span class="keyword">in</span> os.walk(ph)</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files <span class="keyword">if</span> re.search(<span class="string">r&#x27;\.\w+$&#x27;</span>, file)</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    D:\BLOG\yxhsiao\themes\next\docs\AGPL3.md<br>    D:\BLOG\yxhsiao\themes\next\docs\AUTHORS.md<br>    D:\BLOG\yxhsiao\themes\next\docs\LICENSE.txt<br>    D:\BLOG\yxhsiao\themes\next\docs\ru\README.md<br>    D:\BLOG\yxhsiao\themes\next\docs\zh-CN\CODE_OF_CONDUCT.md<br>    D:\BLOG\yxhsiao\themes\next\docs\zh-CN\CONTRIBUTING.md<br>    D:\BLOG\yxhsiao\themes\next\docs\zh-CN\README.md</p>
+<p>Output:</p>
+<pre><code>[&#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AGPL3.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AUTHORS.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\LICENSE.txt&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\ru\\README.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\CODE_OF_CONDUCT.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\CONTRIBUTING.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\README.md&#39;]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ph = <span class="string">&quot;D:\\BLOG\\yxhsiao\\themes\\next\\docs&quot;</span></span><br><span class="line"><span class="comment"># 获取所有目录</span></span><br><span class="line">[ph <span class="keyword">for</span> ph, <span class="built_in">dir</span>, files <span class="keyword">in</span> os.walk(ph)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取子目录</span></span><br><span class="line">[os.path.join(ph,x) <span class="keyword">for</span> ph, <span class="built_in">dir</span>, files <span class="keyword">in</span> os.walk(ph) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">dir</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取所有文件</span></span><br><span class="line">[os.path.join(ph, file) <span class="keyword">for</span> ph, <span class="built_in">dir</span>, files <span class="keyword">in</span> os.walk(ph) <span class="keyword">for</span> file <span class="keyword">in</span> files]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    [‘D:\BLOG\yxhsiao\themes\next\docs’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\ru’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN’]</p>
+<p>Output:</p>
+<pre><code>[&#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\ru&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN&#39;]
+</code></pre>
+<p>Output:</p>
+<pre><code>[&#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AGPL3.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AUTHORS.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\LICENSE.txt&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\ru\\README.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\CODE_OF_CONDUCT.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\CONTRIBUTING.md&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\README.md&#39;]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 既然生成器的结果是一个二维列表，那么就可以用list[0],list[1],list[2]分别获取其路径、目录名、文件</span></span><br><span class="line"><span class="comment"># list[0]：路径</span></span><br><span class="line"><span class="comment"># list[1]：目录名列表</span></span><br><span class="line"><span class="comment"># list[2]：文件列表</span></span><br><span class="line"></span><br><span class="line">[i[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> os.walk(ph)]</span><br><span class="line">[i[<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> os.walk(ph)]</span><br><span class="line">[i[<span class="number">2</span>] <span class="keyword">for</span> i <span class="keyword">in</span> os.walk(ph)]</span><br><span class="line"></span><br><span class="line">[os.path.join(i[<span class="number">0</span>],x) <span class="keyword">for</span> i <span class="keyword">in</span> os.walk(ph) <span class="keyword">for</span> x <span class="keyword">in</span> i[<span class="number">2</span>]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<pre><code>[&#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\ru&#39;,
+ &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN&#39;]
+</code></pre>
+<p>Output:</p>
+<pre><code>[[&#39;ru&#39;, &#39;zh-CN&#39;], [], []]
+</code></pre>
+<p>Output:<br>    [[‘AGPL3.md’, ‘AUTHORS.md’, ‘LICENSE.txt’],<br>     [‘README.md’],<br>     [‘CODE_OF_CONDUCT.md’, ‘CONTRIBUTING.md’, ‘README.md’]]</p>
+<p>Output:<br>    [‘D:\BLOG\yxhsiao\themes\next\docs\AGPL3.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\AUTHORS.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\LICENSE.txt’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\ru\README.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN\CODE_OF_CONDUCT.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN\CONTRIBUTING.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN\README.md’]</p>
+<h2 id="os-scandir-ph"><a href="#os-scandir-ph" class="headerlink" title="os.scandir(ph)"></a><code>os.scandir(ph)</code></h2><ol>
+<li>返回path目录树中对应的os.DirEntry对象的迭代器（文件夹或文件），</li>
+<li>不包含子文件夹里的文件夹和文件，</li>
+<li>运行效率比os.walk高，Python官方推荐使用os.scandir来遍历目录树。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">find_dir</span>(<span class="params">ph</span>):</span><br><span class="line">    <span class="keyword">return</span> [i.path <span class="keyword">for</span> i <span class="keyword">in</span> os.scandir(ph) <span class="keyword">if</span> i.is_dir()]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_file</span>(<span class="params">ph</span>):</span><br><span class="line">    <span class="keyword">return</span> [i.path <span class="keyword">for</span> i <span class="keyword">in</span> os.scandir(ph) <span class="keyword">if</span> i.is_file()]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">find_dir(ph)</span><br><span class="line">find_file(ph)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    [‘D:\BLOG\yxhsiao\themes\next\docs\ru’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN’]<br>Output:<br>    [‘D:\BLOG\yxhsiao\themes\next\docs\AGPL3.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\AUTHORS.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\LICENSE.txt’]</p>
+<h2 id="os-listdir"><a href="#os-listdir" class="headerlink" title="os.listdir()"></a><code>os.listdir()</code></h2><ul>
+<li>列出（当前）目录下的全部路径（及文件）。</li>
+<li>该函数存在一个参数，用以指定要列出子目录的路径，默认为“.”，即“当前路径”。</li>
+<li>函数返回值是一个列表，其中各元素均为字符串，分别是各路径名和文件名。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不指定路径的情况下默认当前目录</span></span><br><span class="line">ph = <span class="string">r&quot;D:\BLOG\yxhsiao\themes\next\docs&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_dir</span>(<span class="params">ph</span>):</span><br><span class="line">    <span class="keyword">return</span> [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(ph) <span class="keyword">if</span> re.search(<span class="string">r&#x27;\.\w+$&#x27;</span>, i) == <span class="literal">None</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_file</span>(<span class="params">ph</span>):</span><br><span class="line">    <span class="keyword">return</span> [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(ph) <span class="keyword">if</span> re.search(<span class="string">r&#x27;\.\w+$&#x27;</span>, i)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">find_dir(ph)</span><br><span class="line">find_file(ph)</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<pre><code>[&#39;ru&#39;, &#39;zh-CN&#39;]
+
+[&#39;AGPL3.md&#39;, &#39;AUTHORS.md&#39;, &#39;LICENSE.txt&#39;]
+</code></pre>
+<h2 id="os-mkdir"><a href="#os-mkdir" class="headerlink" title="os.mkdir()"></a><code>os.mkdir()</code></h2><ul>
+<li>新建一个目录。需要传入一个类路径参数用以指定新建路径的位置和名称，</li>
+<li>如果指定路径已存在，则会抛出FileExistsError异常。</li>
+<li>该函数只能在已有的路径下新建一级路径，新建多级路径会抛出FileNotFoundError异常。</li>
+<li>需要新建多级路径的场景下，使用 <code>os.makedirs()</code>来完成任务。函数 <code>os.makedirs()</code>执行的是递归创建，若有必要，会分别新建指定路径经过的中间路径，直到最后创建出末端的“叶子路径”。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dir</span> = <span class="string">&#x27;D:\\OneDrive\\Code\\Note\\python_module&#x27;</span></span><br><span class="line">[i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(<span class="built_in">dir</span>)]</span><br><span class="line"></span><br><span class="line">newdir = os.path.join(<span class="built_in">dir</span>, <span class="string">&#x27;test_makedir&#x27;</span>)</span><br><span class="line"></span><br><span class="line">os.rmdir(newdir) <span class="keyword">if</span> os.path.exists(newdir) <span class="keyword">else</span> os.mkdir(newdir)</span><br><span class="line">[i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(<span class="built_in">dir</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    [‘.ipynb_checkpoints’,<br>     ‘Datetime’,<br>     ‘Numpy’,<br>     ‘Openpyxl_处理Excel’,<br>     ‘Os’,<br>     ‘Pandas’,<br>     ‘Pillow’,<br>     ‘pychart’,<br>     ‘Random’,<br>     ‘Regex’,<br>     ‘Sys’,<br>     ‘xlwings’,<br>     ‘Yagmail’]</p>
+<p>Output:<br>    [‘.ipynb_checkpoints’,<br>     ‘Datetime’,<br>     ‘Numpy’,<br>     ‘Openpyxl_处理Excel’,<br>     ‘Os’,<br>     ‘Pandas’,<br>     ‘Pillow’,<br>     ‘pychart’,<br>     ‘Random’,<br>     ‘Regex’,<br>     ‘Sys’,<br>     ‘test_makedir’,<br>     ‘xlwings’,<br>     ‘Yagmail’]</p>
+<h2 id="os-makedirs"><a href="#os-makedirs" class="headerlink" title="os.makedirs()"></a><code>os.makedirs()</code></h2><ul>
+<li>同时创建多级目录</li>
+</ul>
+<h2 id="os-remove"><a href="#os-remove" class="headerlink" title="os.remove()"></a><code>os.remove()</code></h2><ul>
+<li>用于删除文件。</li>
+<li>如果指定路径是目录而非文件的话，就会抛出IsADirectoryError异常。删除目录应该使用 <code>os.rmdir()</code>函数。</li>
+</ul>
+<h2 id="os-rmdir"><a href="#os-rmdir" class="headerlink" title="os.rmdir()"></a><code>os.rmdir()</code></h2><ul>
+<li>删除单级目录</li>
+</ul>
+<h2 id="os-removedirs"><a href="#os-removedirs" class="headerlink" title="os.removedirs()"></a><code>os.removedirs()</code></h2><ul>
+<li>删除多级目录</li>
+</ul>
+<h2 id="os-rename-和-os-renames"><a href="#os-rename-和-os-renames" class="headerlink" title="os.rename() 和 os.renames()"></a><code>os.rename()</code> 和 <code>os.renames()</code></h2><ul>
+<li>该函数的作用是将文件或路径重命名</li>
+<li><code>os.rename(src, dst)</code>，即将src指向的文件或路径重命名为dst指定的名称。</li>
+<li>注意，如果指定的目标路径在其他目录下，该函数还可实现文件或路径的“剪切并粘贴”功能。但无论直接原地重命名还是“剪切粘贴”，中间路径都必须要存在，否则就会抛出FileNotFoundError异常。如果目标路径已存在，Windows 下会抛出FileExistsError异常；Linux 下，如果目标路径为空且用户权限允许，则会静默覆盖原路径，否则抛出OSError异常，</li>
+<li>和上两个函数一样，该函数也有对应的递归版本 <code>os.renames()</code>，能够创建缺失的中间路径。</li>
+<li>注意，这两种情况下，如果函数执行成功，都会调用 <code>os.removedir()</code>函数来递归删除源路径的最下级目录。</li>
+</ul>
+<h2 id="os-path"><a href="#os-path" class="headerlink" title="os.path"></a><code>os.path</code></h2><ul>
+<li>其实这个模块是os模块根据系统类型从另一个模块导入的，并非直接由os模块实现，比如 <code>os.name</code>值为nt，则在os模块中执行 <code>import ntpath as path</code>；如果 <code>os.name</code>值为posix，则导入posixpath。</li>
+<li>使用该模块要注意一个很重要的特性：<code>os.path</code>中的函数基本上是纯粹的字符串操作。换句话说，传入该模块函数的参数甚至不需要是一个有效路径，该模块也不会试图访问这个路径，而仅仅是按照“路径”的通用格式对字符串进行处理。</li>
+<li>更进一步地说，<code>os.path</code>模块的功能我们都可以自己使用字符串操作手动实现，该模块的作用是让我们在实现相同功能的时候不必考虑具体的系统，尤其是不需要过多关注文件系统分隔符的问题。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    &lt;module ‘ntpath’ from ‘c:\Users\xiaoyx\AppData\Local\Programs\Python\Python310\lib\ntpath.py’&gt;</p>
+<h3 id="os-path-join"><a href="#os-path-join" class="headerlink" title="os.path.join()"></a><code>os.path.join()</code></h3><ul>
+<li>可以将多个传入路径组合为一个路径。实际上是将传入的几个字符串用系统的分隔符连接起来，组合成一个新的字符串，所以一般的用法是将第一个参数作为父目录，之后每一个参数即使下一级目录，从而组合成一个新的符合逻辑的路径。</li>
+<li>但如果传入路径中存在一个“绝对路径”格式的字符串，且这个字符串不是函数的第一个参数，那么其他在这个参数之前的所有参数都会被丢弃，余下的参数再进行组合。更准确地说，只有最后一个“绝对路径”及其之后的参数才会体现在返回结果中。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p1 = <span class="string">&#x27;home&#x27;</span></span><br><span class="line">p2 = <span class="string">&#x27;fm&#x27;</span></span><br><span class="line">p3 = <span class="string">&#x27;note&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  按照传入参数的顺序连接，并且用系统分隔符隔开</span></span><br><span class="line">os.path.join(p1, p2, p3)</span><br><span class="line">os.path.join(p3, p2, p1)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘home\fm\note’<br>    ‘note\fm\home’</p>
+<h3 id="os-path-abspath"><a href="#os-path-abspath" class="headerlink" title="os.path.abspath()"></a><code>os.path.abspath()</code></h3><ul>
+<li>将传入路径规范化，返回一个相应的绝对路径格式的字符串。</li>
+<li>也就是说当传入路径符合“绝对路径”的格式时，该函数仅仅将路径分隔符替换为适应当前系统的字符，不做其他任何操作，并将结果返回。所谓“绝对路径的格式”，其实指的就是一个字母加冒号，之后跟分隔符和字符串序列的格式：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当前目录的绝对路径</span></span><br><span class="line">os.path.abspath(<span class="string">r&quot;.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上级目录的绝对路径</span></span><br><span class="line">os.path.abspath(<span class="string">r&quot;..&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定目录</span></span><br><span class="line">os.path.abspath(<span class="string">r&quot;D:\BLOG\yxhsiao\themes\next\docs&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘d:\‘<br>    ‘d:\‘<br>    ‘D:\BLOG\yxhsiao\themes\next\docs’</p>
+<h3 id="os-path-basename"><a href="#os-path-basename" class="headerlink" title="os.path.basename()"></a><code>os.path.basename()</code></h3><ul>
+<li>该函数返回传入路径的“基名”，即传入路径的最下级目录。</li>
+<li>整这个函数要注意的一点是，返回的“基名”实际上是传入路径最后一个分隔符之后的子字符串，也就是说，如果最下级目录之后还有一个分隔符，得到的就会是一个空字符串：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.basename(<span class="string">r&#x27;D:\OneDrive\SOFT\FormatFactory&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘FormatFactory’</p>
+<h3 id="os-path-dirname"><a href="#os-path-dirname" class="headerlink" title="os.path.dirname()"></a><code>os.path.dirname()</code></h3><ul>
+<li>与 <code>os.path.basename()</code>函数正好相反，返回的是最后一个分隔符前的整个字符串：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.dirname(<span class="string">r&#x27;D:\OneDrive\SOFT\FormatFactory&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    ‘D:\OneDrive\SOFT’</p>
+<h3 id="os-path-split"><a href="#os-path-split" class="headerlink" title="os.path.split()"></a><code>os.path.split()</code></h3><ul>
+<li>实际上前两个函数都是弟弟，这个函数才是老大。</li>
+<li>函数 <code>os.path.split()</code>的功能就是将传入路径以最后一个分隔符为界，分成两个字符串，并打包成元组的形式返回.</li>
+<li>前两个函数 <code>os.path.dirname()</code>和 <code>os.path.basename()</code>的返回值分别是函数 <code>os.path.split()</code>返回值的第一个、第二个元素。就连二者的具体实现都十分真实：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.split(<span class="string">r&#x27;D:\OneDrive\SOFT\FormatFactory&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    (‘D:\OneDrive\SOFT’, ‘FormatFactory’)</p>
+<h3 id="os-path-splitex"><a href="#os-path-splitex" class="headerlink" title="os.path.splitex()"></a><code>os.path.splitex()</code></h3><ul>
+<li>分离文件名与扩展名；默认返回(fname,fextension)元组，可做分片操作</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ph = <span class="string">r&quot;D:\3D\export\test3.pdf&quot;</span></span><br><span class="line">os.path.splitext(ph)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    (‘D:\3D\export\test3’, ‘.pdf’)</p>
+<h3 id="os-path-exists"><a href="#os-path-exists" class="headerlink" title="os.path.exists()"></a><code>os.path.exists()</code></h3><ul>
+<li>这个函数用于判断路径所指向的位置是否存在。若存在则返回True，不存在则返回False</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.exists(<span class="string">r&#x27;D:\OneDrive\SOFT\134&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    False</p>
+<h3 id="os-path-isabs"><a href="#os-path-isabs" class="headerlink" title="os.path.isabs()"></a><code>os.path.isabs()</code></h3><ul>
+<li>该函数判断传入路径是否是绝对路径，若是则返回True，否则返回False。当然，仅仅是检测格式，同样不对其有效性进行任何核验：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.isabs(<span class="string">r&#x27;D:\OneDrive\SOFT\FormatFactory&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    True</p>
+<h3 id="os-path-isfile-和-os-path-isdir"><a href="#os-path-isfile-和-os-path-isdir" class="headerlink" title="os.path.isfile() 和 os.path.isdir()"></a><code>os.path.isfile() 和 os.path.isdir()</code></h3><ul>
+<li>这两个函数分别判断传入路径是否是文件或路径，注意，此处会核验路径的有效性，如果是无效路径将会持续返回False。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;D:\\OneDrive\\Code\\Note\\python_module&#x27;</span></span><br><span class="line"></span><br><span class="line">os.path.isfile(a)</span><br><span class="line">os.path.isdir(a)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    False<br>    True</p>
+<h3 id="os-path-getsize"><a href="#os-path-getsize" class="headerlink" title="os.path.getsize()"></a><code>os.path.getsize()</code></h3><ul>
+<li>返回指定文件的大小,以字节为单位。</li>
+<li>仅仅对文件有效。使用前最好先判断是否是文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AGPL3.md&#x27;</span></span><br><span class="line">b = <span class="string">&#x27;D:\\BLOG\\yxhsiao\\themes&#x27;</span></span><br><span class="line"></span><br><span class="line">os.path.getsize(a) <span class="keyword">if</span> os.path.isfile(a) <span class="keyword">else</span> <span class="string">&#x27;The is not file&#x27;</span></span><br><span class="line">os.path.getsize(b) <span class="keyword">if</span> os.path.isfile(b) <span class="keyword">else</span> <span class="string">&#x27;The is not file&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>Output:<br>    34490<br>    ‘The is not file’</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/24/xwlings%E7%9A%84%E5%BA%94%E7%94%A8/" rel="prev" title="xwlings的应用">
+                  <i class="fa fa-chevron-left"></i> xwlings的应用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/10/24/%E4%B8%80%E8%A1%8C%E8%A1%A8%E8%BE%BE%EF%BC%9Aif-else/" rel="next" title="一行表达：if...else">
+                  一行表达：if...else <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

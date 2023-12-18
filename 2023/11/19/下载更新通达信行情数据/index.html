@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041# !&#x2F;usr&#x2F;bin&#x2F;python3# coding&#x3D;utf-8# date&#x3D;20231117# name&#x3D;下载更新通达信行情数据from pytdx.hq import TdxHq_APIfrom pytdx.hq import TDXParamsf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="下载更新通达信行情数据">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/11/19/%E4%B8%8B%E8%BD%BD%E6%9B%B4%E6%96%B0%E9%80%9A%E8%BE%BE%E4%BF%A1%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041# !&#x2F;usr&#x2F;bin&#x2F;python3# coding&#x3D;utf-8# date&#x3D;20231117# name&#x3D;下载更新通达信行情数据from pytdx.hq import TdxHq_APIfrom pytdx.hq import TDXParamsf">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-19T13:10:11.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.633Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/11/19/%E4%B8%8B%E8%BD%BD%E6%9B%B4%E6%96%B0%E9%80%9A%E8%BE%BE%E4%BF%A1%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/11/19/%E4%B8%8B%E8%BD%BD%E6%9B%B4%E6%96%B0%E9%80%9A%E8%BE%BE%E4%BF%A1%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE/","path":"2023/11/19/下载更新通达信行情数据/","title":"下载更新通达信行情数据"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>下载更新通达信行情数据 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%9B%B4%E6%96%B0K%E7%BA%BF%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">下载更新K线数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E5%8C%96%E6%88%90-py-%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">转化成.py 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E6%9C%AC%E5%9C%B0%E9%80%9A%E8%BE%BE%E4%BF%A1%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD%E7%9A%84%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">读取本地通达信软件下载的行情数据</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/11/19/%E4%B8%8B%E8%BD%BD%E6%9B%B4%E6%96%B0%E9%80%9A%E8%BE%BE%E4%BF%A1%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="下载更新通达信行情数据 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          下载更新通达信行情数据
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-19 21:10:11" itemprop="dateCreated datePublished" datetime="2023-11-19T21:10:11+08:00">2023-11-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !/usr/bin/python3</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment"># date=20231117</span></span><br><span class="line"><span class="comment"># name=下载更新通达信行情数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pytdx.hq <span class="keyword">import</span> TdxHq_API</span><br><span class="line"><span class="keyword">from</span> pytdx.hq <span class="keyword">import</span> TDXParams</span><br><span class="line"><span class="keyword">from</span> pytdx.crawler.history_financial_crawler <span class="keyword">import</span> HistoryFinancialListCrawler</span><br><span class="line"><span class="keyword">from</span> pytdx.crawler.history_financial_crawler <span class="keyword">import</span> HistoryFinancialCrawler</span><br><span class="line"><span class="keyword">from</span> pytdx.reader <span class="keyword">import</span> HistoryFinancialReader</span><br><span class="line"><span class="keyword">from</span> pytdx.crawler.base_crawler <span class="keyword">import</span> demo_reporthook</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date, datetime, timedelta</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> chinese_calendar <span class="keyword">import</span> is_workday</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">api = TdxHq_API(multithread=<span class="literal">True</span>, heartbeat=<span class="literal">True</span>, auto_retry=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">downkdata</span>(<span class="params">code,startdate,enddate,file</span>):</span><br><span class="line">    data = api.get_k_data(code,startdate,enddate)  </span><br><span class="line">    <span class="keyword">if</span> data.empty: </span><br><span class="line">        <span class="keyword">pass</span>                   </span><br><span class="line">    <span class="keyword">else</span>:                  </span><br><span class="line">        data.to_csv(file,encoding=<span class="string">&quot;utf-8-sig&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;code&#125;</span> 下载数据 <span class="subst">&#123;<span class="built_in">len</span>(data)&#125;</span> 行&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">updatekdate</span>(<span class="params">code,startdate,enddate,file</span>):</span><br><span class="line">    data = api.get_k_data(code,startdate,enddate)</span><br><span class="line">    <span class="keyword">if</span> data.empty: </span><br><span class="line">        <span class="keyword">pass</span>                   </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        data.to_csv(file,mode=<span class="string">&quot;a&quot;</span>,header=<span class="number">0</span>,encoding=<span class="string">&quot;utf-8-sig&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;code&#125;</span> 更新数据 <span class="subst">&#123;<span class="built_in">len</span>(data)&#125;</span> 行&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_workdate</span>(<span class="params">olddate</span>):</span><br><span class="line">    workday = olddate + timedelta(days=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> is_workday(pd.to_datetime(<span class="string">f&quot;<span class="subst">&#123;workday:%Y-%m-%d&#125;</span>&quot;</span>)):</span><br><span class="line">        workday += timedelta(days=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> workday  </span><br></pre></td></tr></table></figure>
+
+<h3 id="下载更新K线数据"><a href="#下载更新K线数据" class="headerlink" title="下载更新K线数据"></a>下载更新K线数据</h3><ol>
+<li>行情数据存放目录：<code>&quot;D:\Stock_data\kdata</code></li>
+<li>所有的股票代码及名称等信息文件:<code>&quot;D:\stock_data\allstock.csv&quot;</code></li>
+<li>读取股票代码名称文件，获取全部股票代码sr</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fd = <span class="string">r&quot;D:\Stock_data\kdata&quot;</span></span><br><span class="line">df_code = pd.read_csv(<span class="string">r&quot;D:\stock_data\allstock.csv&quot;</span>, dtype=&#123;<span class="string">&quot;代码&quot;</span>: <span class="built_in">str</span>&#125;)</span><br><span class="line">df_code.head()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>代码</th>
+      <th>名称</th>
+      <th>细分行业</th>
+      <th>地区</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>000001</td>
+      <td>平安银行</td>
+      <td>股份制银行</td>
+      <td>深圳</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>000002</td>
+      <td>万 科Ａ</td>
+      <td>住宅开发</td>
+      <td>深圳</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>000004</td>
+      <td>国华网安</td>
+      <td>基础软件</td>
+      <td>深圳</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>000005</td>
+      <td>ST星源</td>
+      <td>水治理</td>
+      <td>深圳</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>000006</td>
+      <td>深振业Ａ</td>
+      <td>住宅开发</td>
+      <td>深圳</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> api.connect(<span class="string">&#x27;124.71.9.153&#x27;</span>, <span class="number">7709</span>):</span><br><span class="line">    data = pd.DataFrame()</span><br><span class="line">    <span class="keyword">for</span> code <span class="keyword">in</span> df_code.代码:</span><br><span class="line">        filename = <span class="string">f&quot;<span class="subst">&#123;code&#125;</span>.csv&quot;</span></span><br><span class="line">        file = os.path.join(fd,filename)</span><br><span class="line">        <span class="keyword">if</span> os.path.exists(file) <span class="keyword">and</span> os.path.getsize(file)&gt;=<span class="number">100</span>:</span><br><span class="line">            olddate = pd.read_csv(file, dtype=&#123;<span class="string">&quot;code&quot;</span>: <span class="built_in">str</span>&#125;,parse_dates=[<span class="string">&#x27;date&#x27;</span>]).iloc[-<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">            startdate = <span class="string">f&quot;<span class="subst">&#123;get_workdate(olddate):%Y-%m-%d&#125;</span>&quot;</span></span><br><span class="line">            enddate = <span class="string">f&quot;<span class="subst">&#123;date.today():%Y-%m-%d&#125;</span>&quot;</span></span><br><span class="line">            <span class="keyword">if</span> startdate &lt; enddate:</span><br><span class="line">                updatekdate(code=code,startdate=startdate,enddate=enddate,file=file)</span><br><span class="line">            <span class="keyword">elif</span> startdate == enddate:</span><br><span class="line">                <span class="keyword">if</span> datetime.now().hour &lt; <span class="number">16</span>:</span><br><span class="line">                    updatekdate(code=code,startdate=startdate,enddate=enddate,file=file)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            startdate = <span class="string">&quot;2020-01-01&quot;</span></span><br><span class="line">            enddate = <span class="string">f&quot;<span class="subst">&#123;date.today():%Y-%m-%d&#125;</span>&quot;</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                downkdata(code,startdate,enddate,file) </span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="built_in">print</span>(code,<span class="string">&#x27;无数据可下载！&#x27;</span>)</span><br><span class="line">                <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>001326 下载数据 7 行
+001376 下载数据 11 行
+001378 下载数据 15 行
+301489 下载数据 19 行
+301517 下载数据 24 行
+301555 下载数据 14 行
+001306 下载数据 2 行
+301568 无数据可下载！
+603107 下载数据 13 行
+603107 下载数据 13 行
+603193 下载数据 24 行
+603273 下载数据 20 行
+603361 无数据可下载！
+688648 下载数据 5 行
+688653 下载数据 1 行
+</code></pre>
+<h3 id="转化成-py-文件"><a href="#转化成-py-文件" class="headerlink" title="转化成.py 文件"></a>转化成<code>.py</code> 文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !/usr/bin/python3</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment"># date=20231117</span></span><br><span class="line"><span class="comment"># name=下载更新通达信行情数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pytdx.hq <span class="keyword">import</span> TdxHq_API</span><br><span class="line"><span class="keyword">from</span> pytdx.hq <span class="keyword">import</span> TDXParams</span><br><span class="line"><span class="keyword">from</span> pytdx.crawler.history_financial_crawler <span class="keyword">import</span> HistoryFinancialListCrawler</span><br><span class="line"><span class="keyword">from</span> pytdx.crawler.history_financial_crawler <span class="keyword">import</span> HistoryFinancialCrawler</span><br><span class="line"><span class="keyword">from</span> pytdx.reader <span class="keyword">import</span> HistoryFinancialReader</span><br><span class="line"><span class="keyword">from</span> pytdx.crawler.base_crawler <span class="keyword">import</span> demo_reporthook</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date, datetime, timedelta</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> chinese_calendar <span class="keyword">import</span> is_workday</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">api = TdxHq_API(multithread=<span class="literal">True</span>, heartbeat=<span class="literal">True</span>, auto_retry=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">downkdata</span>(<span class="params">code,startdate,enddate,file</span>):</span><br><span class="line">    data = api.get_k_data(code,startdate,enddate)  </span><br><span class="line">    <span class="keyword">if</span> data.empty: </span><br><span class="line">        <span class="keyword">pass</span>                   </span><br><span class="line">    <span class="keyword">else</span>:                  </span><br><span class="line">        data.to_csv(file,encoding=<span class="string">&quot;utf-8-sig&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;code&#125;</span> 更新数据 <span class="subst">&#123;<span class="built_in">len</span>(data)&#125;</span> 行&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">updatekdate</span>(<span class="params">code,startdate,enddate,file</span>):</span><br><span class="line">    data = api.get_k_data(code,startdate,enddate)</span><br><span class="line">    <span class="keyword">if</span> data.empty: </span><br><span class="line">        <span class="keyword">pass</span>                   </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        data.to_csv(file,mode=<span class="string">&quot;a&quot;</span>,header=<span class="number">0</span>,encoding=<span class="string">&quot;utf-8-sig&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;code&#125;</span> 更新数据 <span class="subst">&#123;<span class="built_in">len</span>(data)&#125;</span> 行&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_workdate</span>(<span class="params">olddate</span>):</span><br><span class="line">    workday = olddate + timedelta(days=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">not</span> is_workday(pd.to_datetime(<span class="string">f&quot;<span class="subst">&#123;workday:%Y-%m-%d&#125;</span>&quot;</span>)):</span><br><span class="line">        workday += timedelta(days=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> workday  </span><br><span class="line">    </span><br><span class="line"><span class="keyword">with</span> api.connect(<span class="string">&#x27;124.71.9.153&#x27;</span>, <span class="number">7709</span>):</span><br><span class="line">    data = pd.DataFrame()</span><br><span class="line">    <span class="keyword">for</span> code <span class="keyword">in</span> df_code.代码:</span><br><span class="line">        filename = <span class="string">f&quot;<span class="subst">&#123;code&#125;</span>.csv&quot;</span></span><br><span class="line">        file = os.path.join(fd,filename)</span><br><span class="line">        <span class="keyword">if</span> os.path.exists(file) <span class="keyword">and</span> os.path.getsize(file)&gt;=<span class="number">100</span>:</span><br><span class="line">            olddate = pd.read_csv(file, dtype=&#123;<span class="string">&quot;code&quot;</span>: <span class="built_in">str</span>&#125;,parse_dates=[<span class="string">&#x27;date&#x27;</span>]).iloc[-<span class="number">1</span>, <span class="number">0</span>]</span><br><span class="line">            startdate = <span class="string">f&quot;<span class="subst">&#123;get_workdate(olddate):%Y-%m-%d&#125;</span>&quot;</span></span><br><span class="line">            enddate = <span class="string">f&quot;<span class="subst">&#123;date.today():%Y-%m-%d&#125;</span>&quot;</span></span><br><span class="line">            <span class="keyword">if</span> startdate &lt; enddate:</span><br><span class="line">                updatekdate(code=code,startdate=startdate,enddate=enddate,file=file)</span><br><span class="line">            <span class="keyword">elif</span> startdate == enddate:</span><br><span class="line">                <span class="keyword">if</span> datetime.now().hour &lt; <span class="number">16</span>:</span><br><span class="line">                    updatekdate(code=code,startdate=startdate,enddate=enddate,file=file)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            startdate = <span class="string">&quot;2020-01-01&quot;</span></span><br><span class="line">            enddate = <span class="string">f&quot;<span class="subst">&#123;date.today():%Y-%m-%d&#125;</span>&quot;</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                downkdata(code,startdate,enddate,file) </span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="built_in">print</span>(code,<span class="string">&#x27;无数据可下载！&#x27;</span>)</span><br><span class="line">                <span class="keyword">pass</span>   </span><br></pre></td></tr></table></figure>
+
+<pre><code>301568 无数据可下载！
+603361 无数据可下载！
+</code></pre>
+<h3 id="读取本地通达信软件下载的行情数据"><a href="#读取本地通达信软件下载的行情数据" class="headerlink" title="读取本地通达信软件下载的行情数据"></a>读取本地通达信软件下载的行情数据</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pytdx.reader <span class="keyword">import</span> TdxDailyBarReader, TdxFileNotFoundException</span><br><span class="line"><span class="keyword">import</span> re,os</span><br><span class="line">reader = TdxDailyBarReader()</span><br><span class="line"></span><br><span class="line">code = <span class="string">&#x27;600004&#x27;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_filepath</span>(<span class="params">code</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    根据6位数字的股票代码获取完整的日k线数据路径</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> code.startswith(<span class="string">&#x27;6&#x27;</span>,<span class="number">0</span>,<span class="number">1</span>):</span><br><span class="line">        code = <span class="string">&#x27;sh&#x27;</span> + code</span><br><span class="line">    <span class="keyword">elif</span> code.startswith(<span class="string">&#x27;0&#x27;</span>,<span class="number">0</span>,<span class="number">1</span>) <span class="keyword">or</span> code.startswith(<span class="string">&#x27;3&#x27;</span>,<span class="number">0</span>,<span class="number">1</span>):</span><br><span class="line">        code = <span class="string">&#x27;sz&#x27;</span> + code</span><br><span class="line">    fd1 = <span class="string">r&#x27;D:\new_tdx\vipdoc&#x27;</span></span><br><span class="line">    fd2 = <span class="string">f&quot;<span class="subst">&#123;re.match(<span class="string">r&#x27;[a-z]+&#x27;</span>,code).group()&#125;</span>\lday\&#123;code&#125;.day&quot;</span> </span><br><span class="line">    <span class="keyword">return</span> os.path.join(fd1,fd2)</span><br><span class="line"></span><br><span class="line">df = reader.get_df(get_filepath(code))</span><br><span class="line">df.tail()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>amount</th>
+      <th>volume</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-11-13</th>
+      <td>10.84</td>
+      <td>10.89</td>
+      <td>10.72</td>
+      <td>10.80</td>
+      <td>83254888.0</td>
+      <td>77213.47</td>
+    </tr>
+    <tr>
+      <th>2023-11-14</th>
+      <td>10.81</td>
+      <td>10.93</td>
+      <td>10.78</td>
+      <td>10.91</td>
+      <td>104742512.0</td>
+      <td>96441.44</td>
+    </tr>
+    <tr>
+      <th>2023-11-15</th>
+      <td>11.01</td>
+      <td>11.04</td>
+      <td>10.87</td>
+      <td>10.91</td>
+      <td>96345712.0</td>
+      <td>88116.11</td>
+    </tr>
+    <tr>
+      <th>2023-11-16</th>
+      <td>10.92</td>
+      <td>10.93</td>
+      <td>10.81</td>
+      <td>10.86</td>
+      <td>70977744.0</td>
+      <td>65407.95</td>
+    </tr>
+    <tr>
+      <th>2023-11-17</th>
+      <td>10.86</td>
+      <td>10.95</td>
+      <td>10.83</td>
+      <td>10.91</td>
+      <td>79382128.0</td>
+      <td>72868.78</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/19/%E6%B1%87%E6%80%BB%E6%88%96%E6%9B%B4%E6%96%B0%E5%8E%86%E5%8F%B2%E8%B4%A2%E6%8A%A5%E6%95%B0%E6%8D%AE/" rel="prev" title="汇总或更新历史财报数据">
+                  <i class="fa fa-chevron-left"></i> 汇总或更新历史财报数据
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/19/%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%A8%A1%E5%9D%97/" rel="next" title="通达信模块">
+                  通达信模块 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="安装jupyter notebook 先安装好python3 安装jupyter notebook ，命令行窗口中  pip3 install jupyter 启动jupyter notebookr 打开CMD命令窗口 输入: jupyter notebook    修改主题 安装主题 pip install jupyterthemes pip install jupyterlab_legos_u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jupyter编辑器">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="安装jupyter notebook 先安装好python3 安装jupyter notebook ，命令行窗口中  pip3 install jupyter 启动jupyter notebookr 打开CMD命令窗口 输入: jupyter notebook    修改主题 安装主题 pip install jupyterthemes pip install jupyterlab_legos_u">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/1.webp">
+<meta property="article:published_time" content="2023-12-17T16:30:19.640Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.640Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="jupyter">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yxhsiao.github.io/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/1.webp">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/","path":"2023/12/18/python_jupyter编辑器/","title":"Jupyter编辑器"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Jupyter编辑器 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85jupyter-notebook"><span class="nav-number">1.</span> <span class="nav-text">安装jupyter notebook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">修改主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jt%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">jt函数的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">查看已经安装的主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E6%96%B0%E4%B8%BB%E9%A2%98"><span class="nav-number">2.3.</span> <span class="nav-text">切换新主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AD%97%E4%BD%93%EF%BC%88%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93%EF%BC%89%EF%BC%9A-f-%E5%8F%82%E6%95%B0"><span class="nav-number">2.4.</span> <span class="nav-text">代码的字体（等宽字体）：-f 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notebook-%E3%80%81Text-x2F-MD-%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E5%AD%97%E4%BD%93%EF%BC%88%E6%97%A0%E8%A1%AC%E7%BA%BF%E5%AD%97%E4%BD%93%EF%BC%89%EF%BC%9A-nf-x2F-tf-%E5%8F%82%E6%95%B0"><span class="nav-number">2.5.</span> <span class="nav-text">Notebook 、Text&#x2F;MD 单元格的字体（无衬线字体）：-nf&#x2F;-tf 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notebook-%E3%80%81Text-x2F-MD-%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E5%AD%97%E4%BD%93%EF%BC%88%E8%A1%AC%E7%BA%BF%E5%AD%97%E4%BD%93%EF%BC%89%EF%BC%9A-nf-x2F-tf-%E5%8F%82%E6%95%B0"><span class="nav-number">2.6.</span> <span class="nav-text">Notebook 、Text&#x2F;MD 单元格的字体（衬线字体）：-nf&#x2F;-tf 参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">输出其他类型代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E9%93%BE%E6%8E%A5"><span class="nav-number">4.1.</span> <span class="nav-text">嵌入链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87"><span class="nav-number">4.2.</span> <span class="nav-text">显示图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BApdf"><span class="nav-number">4.3.</span> <span class="nav-text">显示pdf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">4.4.</span> <span class="nav-text">更新软件包</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Jupyter编辑器 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Jupyter编辑器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-18 00:30:19" itemprop="dateCreated datePublished" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="安装jupyter-notebook"><a href="#安装jupyter-notebook" class="headerlink" title="安装jupyter notebook"></a>安装jupyter notebook</h2><ol>
+<li>先安装好python3</li>
+<li>安装jupyter notebook ，命令行窗口中  pip3 install jupyter</li>
+<li>启动jupyter notebookr<ol>
+<li>打开CMD命令窗口</li>
+<li>输入: jupyter notebook</li>
+</ol>
+</li>
+</ol>
+<h2 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h2><ol>
+<li>安装主题<ol>
+<li>pip install jupyterthemes</li>
+<li>pip install jupyterlab_legos_ui</li>
+</ol>
+</li>
+<li>查看已经安装的主题<ol>
+<li>!jt -l  # 列出已经安装的主题</li>
+<li>结果：[chesterish,grade3,gruvboxd,gruvboxl,monokai,oceans16,onedork,solarizedd,solarizedl]</li>
+</ol>
+</li>
+<li>切换主题并设置特性<ol>
+<li>jt -t gruvboxd # -t 后面的是要切换的新主题名称</li>
+<li>jt的参数表</li>
+</ol>
+</li>
+<li>重置主题至默认主题<ol>
+<li>jt -r</li>
+</ol>
+</li>
+</ol>
+<table>
+  <tr>
+    <th>参数1</th>
+    <th>功能</th>
+    <th>参数2</th>
+    <th>功能</th>
+  </tr>
+    <tr>
+        <td>-f</td>
+        <td>代码字体</td>
+        <td>-fs</td>
+        <td>代码字号</td>
+    </tr>
+    <tr>
+        <td>-nf</td>
+        <td>notebook字体</td>
+        <td>-nfs</td>
+        <td>notebook字号</td>
+    </tr>
+    <tr>
+        <td>-tf</td>
+        <td>Text/MD Cell字体</td>
+        <td>-tfs</td>
+        <td>Text/MD Cell字号</td>
+    </tr>
+    <tr>
+        <td>-dfs</td>
+        <td>pandas DF字号</td>
+        <td>-ofs</td>
+        <td>Output Area 字号</td>
+    </tr>
+    <tr>
+        <td>-cellw</td>
+        <td>cell的宽度</td>
+        <td>-dfonts</td>
+        <td>强制默认字体</td>
+    </tr>
+    <tr>
+        <td>-lineh</td>
+        <td>行高</td>
+        <td>-l</td>
+        <td>列出已经安装的主题</td>
+    </tr>
+    <tr>
+        <td>-r</td>
+        <td>恢复默认主题</td>
+        <td>-t ***</td>
+        <td>切换主题***:新主题名称</td>
+    </tr>
+    <tr>
+        <td>-T</td>
+        <td>显示工具栏</td>
+        <td>-N</td>
+        <td>显示名称和徽标</td>
+    </tr>
+</table>
+
+<h3 id="jt函数的使用"><a href="#jt函数的使用" class="headerlink" title="jt函数的使用"></a>jt函数的使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%%cmd</span><br><span class="line">jt -h</span><br></pre></td></tr></table></figure>
+
+<pre><code>Task exception was never retrieved
+future: &lt;Task finished name=&#39;Task-12&#39; coro=&lt;ScriptMagics.shebang.`&lt;locals&gt;`._handle_stream() done, defined at C:\Python310\lib\site-packages\IPython\core\magics\script.py:211&gt; exception=UnicodeDecodeError(&#39;utf-8&#39;, b&#39;Microsoft Windows [\xb0\xe6\xb1\xbe 10.0.22000.556]\r\n&#39;, 19, 20, &#39;invalid start byte&#39;)&gt;
+Traceback (most recent call last):
+  File &quot;C:\Python310\lib\site-packages\IPython\core\magics\script.py&quot;, line 213, in _handle_stream
+    line = (await stream.readline()).decode(&quot;utf8&quot;)
+UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0xb0 in position 19: invalid start byte
+</code></pre>
+<h3 id="查看已经安装的主题"><a href="#查看已经安装的主题" class="headerlink" title="查看已经安装的主题"></a>查看已经安装的主题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!jt - l</span><br></pre></td></tr></table></figure>
+
+<pre><code>Available Themes:
+   chesterish
+   grade3
+   gruvboxd
+   gruvboxl
+   monokai
+   oceans16
+   onedork
+   solarizedd
+   solarizedl
+</code></pre>
+<h3 id="切换新主题"><a href="#切换新主题" class="headerlink" title="切换新主题"></a>切换新主题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!jt - t grade3 - cellw <span class="number">91</span> % -lineh <span class="number">130</span> - f source - fs <span class="number">115</span> - tf ptserif - tfs <span class="number">13</span> - nf ptsans - nfs <span class="number">9</span> - ofs <span class="number">9</span> - TN</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>jt -t    参数</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>grade3</td>
+<td>切换新主题grade3</td>
+</tr>
+<tr>
+<td>-cellw   100%</td>
+<td>调整单元格的宽度，占屏幕的比例</td>
+</tr>
+<tr>
+<td>-lineh   120</td>
+<td>单元格的高度</td>
+</tr>
+<tr>
+<td>-f fira -fs 115</td>
+<td>设置代码字体为Fira字体大小为11.5pt</td>
+</tr>
+<tr>
+<td>-tf merriserif -tfs 10</td>
+<td>设置makedown字体和大小</td>
+</tr>
+<tr>
+<td>-nf ptsans -nfs 13</td>
+<td>设置notebook（界面）字体、字体大小，实际就是菜单栏字体</td>
+</tr>
+<tr>
+<td>-m 200</td>
+<td>页面上的容器边距</td>
+</tr>
+<tr>
+<td>-cursc r -cursw 5</td>
+<td>设置光标的颜色为红色，宽度为5</td>
+</tr>
+<tr>
+<td>-of *** -ofs 14</td>
+<td>输出区的字形和大小（14）</td>
+</tr>
+</tbody></table>
+<h3 id="代码的字体（等宽字体）：-f-参数"><a href="#代码的字体（等宽字体）：-f-参数" class="headerlink" title="代码的字体（等宽字体）：-f 参数"></a>代码的字体（等宽字体）：-f 参数</h3><ul>
+<li>参数列表</li>
+</ul>
+<p>anka<br>anonymous<br>aurulent<br>bitstream<br>bpmono<br>code<br>consolamono<br>cousine<br>dejavu<br>droidmono<br>fira<br>firacode<br>generic<br>hack<br>hasklig<br>inconsolata<br>inputmono<br>iosevka<br>liberation<br>meslo<br>office<br>oxygen<br>roboto<br>saxmono<br>source<br>sourcemed<br>ptmono<br>ubuntu</p>
+<h3 id="Notebook-、Text-x2F-MD-单元格的字体（无衬线字体）：-nf-x2F-tf-参数"><a href="#Notebook-、Text-x2F-MD-单元格的字体（无衬线字体）：-nf-x2F-tf-参数" class="headerlink" title="Notebook 、Text&#x2F;MD 单元格的字体（无衬线字体）：-nf&#x2F;-tf 参数"></a>Notebook 、Text&#x2F;MD 单元格的字体（无衬线字体）：-nf&#x2F;-tf 参数</h3><ul>
+<li>参数列表</li>
+</ul>
+<p>opensans<br>droidsans<br>exosans<br>latosans<br>ptsans<br>robotosans<br>sourcesans</p>
+<h3 id="Notebook-、Text-x2F-MD-单元格的字体（衬线字体）：-nf-x2F-tf-参数"><a href="#Notebook-、Text-x2F-MD-单元格的字体（衬线字体）：-nf-x2F-tf-参数" class="headerlink" title="Notebook 、Text&#x2F;MD 单元格的字体（衬线字体）：-nf&#x2F;-tf 参数"></a>Notebook 、Text&#x2F;MD 单元格的字体（衬线字体）：-nf&#x2F;-tf 参数</h3><ul>
+<li>参数列表</li>
+</ul>
+<p>loraserif<br>ptserif<br>georgiaserif<br>cardoserif<br>crimsonserif<br>ebserif<br>merriserif<br>neutonserif<br>goudyserif</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><ol>
+<li>安装nbextensions</li>
+<li>了解插件包的功能；</li>
+<li>大部分插件只需要在nbextensions 界面勾选即可，部分需要pip 安装</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !pip install jupyter_contrib_nbextensions</span></span><br><span class="line"><span class="comment"># !jupyter contrib nbextension install - -user</span></span><br><span class="line"><span class="comment"># !pip install jupyter_nbextensions_configurator</span></span><br><span class="line"><span class="comment"># !jupyter nbextension enable</span></span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;b&gt;</code>limit_output extension: Maximum message size of 10000 exceeded with 10114 characters<code>&lt;/b&gt;</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装autopep8</span></span><br><span class="line"><span class="comment"># !pip3 install autopep8</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># # 安装魔法工具包</span></span><br><span class="line"><span class="comment"># !pip install ipywidgets</span></span><br><span class="line"><span class="comment"># !jupyter nbextension enable--py widgetsnbextension</span></span><br></pre></td></tr></table></figure>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>插件</th>
+      <th>功能</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Autopep8</td>
+      <td>美化代码</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Hinterland</td>
+      <td>代码提示和补全</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ExecuteTime</td>
+      <td>运行时间和耗时</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>variable inspector</td>
+      <td>变量监视</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>zenmode</td>
+      <td>不显示菜单栏</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>code folding</td>
+      <td>代码折叠</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Collapsible headings</td>
+      <td>标题折叠</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Skip-traceback</td>
+      <td>跳过报错的过程</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Snippets</td>
+      <td>插入常用代码片</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Slideshow</td>
+      <td>幻灯片放映</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Jupyter Widgets</td>
+      <td>魔法工具包</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Table of Contents</td>
+      <td>生成目录</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="输出其他类型代码"><a href="#输出其他类型代码" class="headerlink" title="输出其他类型代码"></a>输出其他类型代码</h2><ol>
+<li>输入 %lsmagic  可以获得Magic操作符的列表</li>
+<li>输入 %cmdname? 可以查看命令信息</li>
+<li>输出HTML： %%html</li>
+<li>输出cmd：%%cmd</li>
+<li>输出LATEX：%%latex</li>
+<li>嵌入链接：<ol>
+<li>from IPython.display import IFrame</li>
+<li>IFrame(‘url’, width&#x3D;800, height&#x3D;450)</li>
+</ol>
+</li>
+<li>嵌入PDF:<ol>
+<li>from IPython.display import IFrame</li>
+<li>IFrame(‘.\DR153test.pdf’, width&#x3D;800, height&#x3D;800)</li>
+</ol>
+</li>
+<li>运行python文件 .py<ol>
+<li>%run xxx.py  按Ctrl+Enter后执行</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%lsmagic</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<pre><code>Available line magics:
+%alias  %alias_magic  %autoawait  %autocall  %automagic  %autosave  %bookmark  %cd  %clear  %cls  %colors  %conda  %config  %connect_info  %copy  %ddir  %debug  %dhist  %dirs  %doctest_mode  %echo  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %macro  %magic  %matplotlib  %mkdir  %more  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %pip  %popd  %pprint  %precision  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %ren  %rep  %rerun  %reset  %reset_selective  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %who  %who_ls  %whos  %xdel  %xmode
+
+Available cell magics:
+%%!  %%HTML  %%SVG  %%bash  %%capture  %%cmd  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%markdown  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+
+Automagic is ON, % prefix IS NOT needed for line magics.
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看用法</span></span><br><span class="line">%cd?</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%%cmd</span><br><span class="line">cd d:\</span><br><span class="line">    <span class="built_in">dir</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>Task exception was never retrieved
+future: &lt;Task finished name=&#39;Task-7&#39; coro=&lt;ScriptMagics.shebang.`&lt;locals&gt;`._handle_stream() done, defined at C:\Python310\lib\site-packages\IPython\core\magics\script.py:211&gt; exception=UnicodeDecodeError(&#39;utf-8&#39;, b&#39;Microsoft Windows [\xb0\xe6\xb1\xbe 10.0.22000.556]\r\n&#39;, 19, 20, &#39;invalid start byte&#39;)&gt;
+Traceback (most recent call last):
+  File &quot;C:\Python310\lib\site-packages\IPython\core\magics\script.py&quot;, line 213, in _handle_stream
+    line = (await stream.readline()).decode(&quot;utf8&quot;)
+UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0xb0 in position 19: invalid start byte
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 等同于上面的简化代码</span></span><br><span class="line">!<span class="built_in">dir</span> d: \</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌入链接"><a href="#嵌入链接" class="headerlink" title="嵌入链接"></a>嵌入链接</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> IFrame</span><br><span class="line"></span><br><span class="line">IFrame(<span class="string">&#x27;https://pandas.pydata.org/pandas-docs/stable/reference/groupby.html&#x27;</span>,</span><br><span class="line">       width=<span class="number">800</span>,</span><br><span class="line">       height=<span class="number">800</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<iframe width="800" height="800" src="<https://pandas.pydata.org/pandas-docs/stable/reference/groupby.html>" frameborder="0" allowfullscreen <blockquote>
+</iframe>
+
+<h3 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image, IFrame</span><br><span class="line"></span><br><span class="line">Image(<span class="string">&#x27;./1.webp&#x27;</span>, width=<span class="string">&#x27;25%&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<img src="/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/1.webp" width="25%">
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image, IFrame</span><br><span class="line"></span><br><span class="line">Image(<span class="string">&#x27;./1.webp&#x27;</span>, retina=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<img src="/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/1.webp" width="100%">
+
+<h3 id="显示pdf"><a href="#显示pdf" class="headerlink" title="显示pdf"></a>显示pdf</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> Image, IFrame</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">IFrame(<span class="string">&#x27;./2.pdf&#x27;</span>, width=<span class="string">&#x27;80%&#x27;</span>, height=<span class="string">&#x27;800px&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<div class="pdf-container" data-target="./2.pdf" data-height="500px"></div>
+
+<h3 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip3 install --upgrade pip</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/jupyter/" rel="tag"><i class="fa fa-tag"></i> jupyter</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/17/%E4%BF%AE%E6%94%B9%E5%8D%9A%E6%96%87%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/" rel="prev" title="修改博文中的图片格式">
+                  <i class="fa fa-chevron-left"></i> 修改博文中的图片格式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/18/Pillow_Note/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

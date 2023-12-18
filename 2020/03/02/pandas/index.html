@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="使用pandas的必要条件安装必要的模块： pip install pandas pip install numpy  其他功能需要的模块 pip install xlrd # 读取xls  测试环境ok？ 测试pandas的两大结构：Series和DateFrame  1234import pandas as pdimport numpy as nps &#x3D; pd.Series([1,3,6,np">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pyhton_pandas模块">
+<meta property="og:url" content="https://yxhsiao.github.io/2020/03/02/pandas/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="使用pandas的必要条件安装必要的模块： pip install pandas pip install numpy  其他功能需要的模块 pip install xlrd # 读取xls  测试环境ok？ 测试pandas的两大结构：Series和DateFrame  1234import pandas as pdimport numpy as nps &#x3D; pd.Series([1,3,6,np">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.650Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2020/03/02/pandas/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2020/03/02/pandas/","path":"2020/03/02/pandas/","title":"pyhton_pandas模块"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>pyhton_pandas模块 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8pandas%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">使用pandas的必要条件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%9A%84%E6%A8%A1%E5%9D%97%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">安装必要的模块：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD%E9%9C%80%E8%A6%81%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="nav-number">1.2.</span> <span class="nav-text">其他功能需要的模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83ok%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">测试环境ok？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E6%A6%82%E6%8B%AC"><span class="nav-number">1.4.</span> <span class="nav-text">功能概括</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9Cexcel%E7%9A%84%E8%A1%8C%E5%92%8C%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">操作excel的行和列</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8loc%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">用loc：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8iloc%EF%BC%9A%E6%9C%89%E5%BA%8F%E5%88%97%E5%8A%9F%E8%83%BD"><span class="nav-number">2.2.</span> <span class="nav-text">用iloc：有序列功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%AD%9B%E9%80%89%E5%8A%9F%E8%83%BD"><span class="nav-number">2.3.</span> <span class="nav-text">数据筛选功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%80%BC"><span class="nav-number">2.4.</span> <span class="nav-text">修改值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%97"><span class="nav-number">2.5.</span> <span class="nav-text">添加列</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/03/02/pandas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="pyhton_pandas模块 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          pyhton_pandas模块
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-02T00:00:00+08:00">2020-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="使用pandas的必要条件"><a href="#使用pandas的必要条件" class="headerlink" title="使用pandas的必要条件"></a>使用pandas的必要条件</h4><h5 id="安装必要的模块："><a href="#安装必要的模块：" class="headerlink" title="安装必要的模块："></a>安装必要的模块：</h5><ol>
+<li>pip install pandas</li>
+<li>pip install numpy</li>
+</ol>
+<h5 id="其他功能需要的模块"><a href="#其他功能需要的模块" class="headerlink" title="其他功能需要的模块"></a>其他功能需要的模块</h5><ul>
+<li>pip install xlrd # 读取xls</li>
+</ul>
+<h5 id="测试环境ok？"><a href="#测试环境ok？" class="headerlink" title="测试环境ok？"></a>测试环境ok？</h5><ul>
+<li>测试pandas的两大结构：Series和DateFrame</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">s = pd.Series([<span class="number">1</span>,<span class="number">3</span>,<span class="number">6</span>,np.nan,<span class="number">44</span>,<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>读取excel,方法:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">&#x27;DHAC.xls&#x27;</span>)</span><br><span class="line">df1 = pd.read_excel(<span class="string">&#x27;DHAC.xls&#x27;</span>, sheet_name=<span class="string">&#x27;销售单&#x27;</span>)</span><br><span class="line">df2 = pd.read_excel(<span class="string">&#x27;DHAC.xls&#x27;</span>, sheet_name=[<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">data = df.head()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;获取到所有的值:\n&#123;0&#125;&quot;</span>.<span class="built_in">format</span>(data))</span><br><span class="line"><span class="built_in">print</span>(df2)</span><br></pre></td></tr></table></figure>
+
+<p>以上都能够正常读取输出则表明功能环境正常了。下面开始操作。</p>
+<h5 id="功能概括"><a href="#功能概括" class="headerlink" title="功能概括"></a>功能概括</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s=pd.Series([<span class="number">1</span>,<span class="number">3</span>,np.nan,<span class="number">56</span>,<span class="number">78</span>]) <span class="comment">#创建一个列的表</span></span><br><span class="line"><span class="comment"># 没有指定index,自动生成序列号。</span></span><br><span class="line"><span class="comment"># 没有指定列数，行数，则认为是1列。</span></span><br><span class="line">---&gt;</span><br><span class="line"><span class="number">0</span>     <span class="number">1.0</span></span><br><span class="line"><span class="number">1</span>     <span class="number">3.0</span></span><br><span class="line"><span class="number">2</span>     <span class="number">6.0</span></span><br><span class="line"><span class="number">3</span>     NaN</span><br><span class="line"><span class="number">4</span>    <span class="number">44.0</span></span><br><span class="line"><span class="number">5</span>     <span class="number">1.0</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dates = pd.date_range(<span class="string">&#x27;20160101&#x27;</span>, periods=<span class="number">6</span>)  <span class="comment"># 设置一个日期范围，指定开始日，序列的个数。</span></span><br><span class="line">df = pd.DataFrame(np.arange(<span class="number">1</span>,<span class="number">25</span>).reshape((<span class="number">6</span>,<span class="number">4</span>)),index=dates,columns=[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"></span><br><span class="line"><span class="comment"># DataFrame函数 (value.reshape(),index=[],colums=[])</span></span><br><span class="line"><span class="comment"># reshape函数：</span></span><br><span class="line">	<span class="comment"># reshape((6,4)):设置为6行4列。</span></span><br><span class="line">	<span class="comment"># reshape(-1,4):设置成4列。行数：-1表示自动计算。也可以只指定行，列数自动计算。</span></span><br><span class="line"><span class="comment"># index函数：制定行的标签或叫行名。用列表赋值，或用变量导入</span></span><br><span class="line"><span class="comment"># columns函数：指定列的标签或叫列名。用列表赋值，或用变量导入</span></span><br><span class="line">----&gt;</span><br><span class="line">             a   b   c   d</span><br><span class="line"><span class="number">2016</span>-01-01   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span></span><br><span class="line"><span class="number">2016</span>-01-02   <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span></span><br><span class="line"><span class="number">2016</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2016</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2016</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2016</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="操作excel的行和列"><a href="#操作excel的行和列" class="headerlink" title="操作excel的行和列"></a>操作excel的行和列</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df[<span class="string">&#x27;A&#x27;</span>]) <span class="comment"># 输出列名为A的数据</span></span><br><span class="line"><span class="built_in">print</span>(df.A)	<span class="comment"># 与上同，这是另一种写法</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(df[<span class="number">0</span>:<span class="number">3</span>])  <span class="comment">#输出第一到第四列的内容</span></span><br><span class="line"><span class="built_in">print</span>(df[<span class="string">&#x27;20130102&#x27;</span>:<span class="string">&#x27;20130104&#x27;</span>])<span class="comment">#输出两个行名之间的数据，包括两个行名所在行的数据。</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="用loc："><a href="#用loc：" class="headerlink" title="用loc："></a>用loc：</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">date = pd.date_range(<span class="string">&#x27;20200101&#x27;</span>,periods=<span class="number">6</span>)</span><br><span class="line">df = pd.DataFrame(np.arange(<span class="number">1</span>,<span class="number">25</span>).reshape((<span class="number">6</span>,<span class="number">4</span>)),index=date, columns=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;生成的表格数据是：\n&#x27;</span> ,df)</span><br><span class="line"><span class="comment"># 使用标签loc</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n输出行名为:20200103 的行数据：\n&#x27;</span>,df.loc[<span class="string">&#x27;20200103&#x27;</span>].values)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n输出全部行的A、B列的数据:\n&#x27;</span>,df.loc[:,[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>]].values)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n输出20200105行的A、B列：\n&#x27;</span>,df.loc[<span class="string">&#x27;20200105&#x27;</span>,[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>]])</span><br><span class="line">---&gt;</span><br><span class="line">生成的表格数据是：</span><br><span class="line">              A   B   C   D</span><br><span class="line"><span class="number">2020</span>-01-01   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span></span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span></span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span></span><br><span class="line"></span><br><span class="line">输出行名为:<span class="number">20200103</span> 的行数据：</span><br><span class="line"> [ <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span>]</span><br><span class="line"></span><br><span class="line">输出全部行的A、B列的数据:</span><br><span class="line"> [[ <span class="number">1</span>  <span class="number">2</span>]</span><br><span class="line"> [ <span class="number">5</span>  <span class="number">6</span>]</span><br><span class="line"> [ <span class="number">9</span> <span class="number">10</span>]</span><br><span class="line"> [<span class="number">13</span> <span class="number">14</span>]</span><br><span class="line"> [<span class="number">17</span> <span class="number">18</span>]</span><br><span class="line"> [<span class="number">21</span> <span class="number">22</span>]]</span><br><span class="line"></span><br><span class="line">输出<span class="number">20200105</span>行的A、B列：</span><br><span class="line"> A    <span class="number">17</span></span><br><span class="line">B    <span class="number">18</span></span><br><span class="line">Name: <span class="number">2020</span>-01-05 <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span>, dtype: int32</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="用iloc：有序列功能"><a href="#用iloc：有序列功能" class="headerlink" title="用iloc：有序列功能"></a>用iloc：有序列功能</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">date = pd.date_range(<span class="string">&#x27;20200101&#x27;</span>,periods=<span class="number">6</span>)</span><br><span class="line">df = pd.DataFrame(np.arange(<span class="number">1</span>,<span class="number">25</span>).reshape((<span class="number">6</span>,<span class="number">4</span>)),index=date, columns=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;生成的表格数据是：\n&#x27;</span> ,df)</span><br><span class="line"><span class="comment">#使用序列</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n输出第4行第2列：\n&#x27;</span>,df.iloc[<span class="number">3</span>,<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n输出第4～5行的2～3列：\n&#x27;</span>,df.iloc[<span class="number">3</span>:<span class="number">5</span>,<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n输出第2、4、6行的第2～3列：\n&#x27;</span>,df.iloc[[<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>],<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line">---&gt;&gt;</span><br><span class="line">生成的表格数据是：</span><br><span class="line">              A   B   C   D</span><br><span class="line"><span class="number">2020</span>-01-01   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span></span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span></span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span></span><br><span class="line"></span><br><span class="line">输出第<span class="number">4</span>行第<span class="number">2</span>列：</span><br><span class="line"> <span class="number">14</span></span><br><span class="line"></span><br><span class="line">输出第<span class="number">4</span>～<span class="number">5</span>行的<span class="number">2</span>～<span class="number">3</span>列：</span><br><span class="line">              B   C</span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">14</span>  <span class="number">15</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">18</span>  <span class="number">19</span></span><br><span class="line"></span><br><span class="line">输出第<span class="number">2</span>、<span class="number">4</span>、<span class="number">6</span>行的第<span class="number">2</span>～<span class="number">3</span>列：</span><br><span class="line">              B   C</span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">6</span>   <span class="number">7</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">14</span>  <span class="number">15</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">22</span>  <span class="number">23</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="数据筛选功能"><a href="#数据筛选功能" class="headerlink" title="数据筛选功能"></a>数据筛选功能</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">date = pd.date_range(<span class="string">&#x27;20200101&#x27;</span>,periods=<span class="number">6</span>)</span><br><span class="line">df = pd.DataFrame(np.arange(<span class="number">1</span>,<span class="number">25</span>).reshape((<span class="number">6</span>,<span class="number">4</span>)),index=date, columns=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;生成的表格数据是：\n&#x27;</span> ,df)</span><br><span class="line"><span class="comment">#通过判断的筛选。键值是标签名即列名或行名</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n输出列名A，值大于8的行：\n&#x27;</span>,df[df.A&gt;<span class="number">8</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n输出列名A，值大于8的行：与上表示有别，结果一致\n&#x27;</span>,df[df.A&gt;<span class="number">8</span>])</span><br><span class="line">---&gt;</span><br><span class="line">生成的表格数据是：</span><br><span class="line">              A   B   C   D</span><br><span class="line"><span class="number">2020</span>-01-01   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span></span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span></span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span></span><br><span class="line"></span><br><span class="line">输出列名A，值大于<span class="number">8</span>的行：</span><br><span class="line">              A   B   C   D</span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span></span><br><span class="line"></span><br><span class="line">输出列名A，值大于<span class="number">8</span>的行：与上表示有别，结果一致</span><br><span class="line">              A   B   C   D</span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="修改值"><a href="#修改值" class="headerlink" title="修改值"></a>修改值</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">date = pd.date_range(<span class="string">&#x27;20200101&#x27;</span>,periods=<span class="number">6</span>)</span><br><span class="line">df = pd.DataFrame(np.arange(<span class="number">1</span>,<span class="number">25</span>).reshape((<span class="number">6</span>,<span class="number">4</span>)),index=date, columns=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;生成的表格数据是：\n&#x27;</span> ,df)</span><br><span class="line"><span class="comment"># #修改值</span></span><br><span class="line">df.iloc[<span class="number">2</span>,<span class="number">2</span>] = <span class="number">666</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n修改后变成：\n&#x27;</span>,df)</span><br><span class="line">----&gt;&gt;&gt;</span><br><span class="line">生成的表格数据是：</span><br><span class="line">              A   B   C   D</span><br><span class="line"><span class="number">2020</span>-01-01   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span></span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span></span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span></span><br><span class="line"></span><br><span class="line">修改后变成：</span><br><span class="line">              A   B    C   D</span><br><span class="line"><span class="number">2020</span>-01-01   <span class="number">1</span>   <span class="number">2</span>    <span class="number">3</span>   <span class="number">4</span></span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">5</span>   <span class="number">6</span>    <span class="number">7</span>   <span class="number">8</span></span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">666</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>   <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>   <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>   <span class="number">23</span>  <span class="number">24</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="添加列"><a href="#添加列" class="headerlink" title="添加列"></a>添加列</h5><p>添加列并分别赋值时，应该注意以下几点：</p>
+<ul>
+<li>指定的行数必须与原来相同。index</li>
+<li>设的值的个数也必须相等。有几行就应该有几个值。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">date = pd.date_range(<span class="string">&#x27;20200101&#x27;</span>,periods=<span class="number">6</span>)</span><br><span class="line">df = pd.DataFrame(np.arange(<span class="number">1</span>,<span class="number">25</span>).reshape((<span class="number">6</span>,<span class="number">4</span>)),index=date, columns=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;生成的表格数据是：\n&#x27;</span> ,df)</span><br><span class="line"><span class="comment">#添加列</span></span><br><span class="line">df[<span class="string">&#x27;F&#x27;</span>] =np.nan</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n添加列名为F的列，列值都等于NaN\n&#x27;</span>,df)</span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;E&#x27;</span>] = pd.Series([<span class="number">15</span>,<span class="number">28</span>,<span class="number">33</span>,<span class="number">45</span>,<span class="number">56</span>,<span class="number">89</span>], index=pd.date_range(<span class="string">&#x27;20200101&#x27;</span>,periods=<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n添加列名为E的列，列值设定的值\n&#x27;</span>,df)</span><br><span class="line"></span><br><span class="line">---&gt;&gt;&gt;</span><br><span class="line">生成的表格数据是：</span><br><span class="line">              A   B   C   D</span><br><span class="line"><span class="number">2020</span>-01-01   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span></span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span></span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span></span><br><span class="line"></span><br><span class="line">添加列名为F的列，列值都等于NaN</span><br><span class="line">              A   B   C   D   F</span><br><span class="line"><span class="number">2020</span>-01-01   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span> NaN</span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span> NaN</span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span> NaN</span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span> NaN</span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span> NaN</span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span> NaN</span><br><span class="line"></span><br><span class="line">添加列名为E的列，列值设定的值</span><br><span class="line">              A   B   C   D   F   E</span><br><span class="line"><span class="number">2020</span>-01-01   <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span> NaN  <span class="number">15</span></span><br><span class="line"><span class="number">2020</span>-01-02   <span class="number">5</span>   <span class="number">6</span>   <span class="number">7</span>   <span class="number">8</span> NaN  <span class="number">28</span></span><br><span class="line"><span class="number">2020</span>-01-03   <span class="number">9</span>  <span class="number">10</span>  <span class="number">11</span>  <span class="number">12</span> NaN  <span class="number">33</span></span><br><span class="line"><span class="number">2020</span>-01-04  <span class="number">13</span>  <span class="number">14</span>  <span class="number">15</span>  <span class="number">16</span> NaN  <span class="number">45</span></span><br><span class="line"><span class="number">2020</span>-01-05  <span class="number">17</span>  <span class="number">18</span>  <span class="number">19</span>  <span class="number">20</span> NaN  <span class="number">56</span></span><br><span class="line"><span class="number">2020</span>-01-06  <span class="number">21</span>  <span class="number">22</span>  <span class="number">23</span>  <span class="number">24</span> NaN  <span class="number">89</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/28/python_note/" rel="prev" title="python笔记">
+                  <i class="fa fa-chevron-left"></i> python笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/03/%E9%87%91%E5%B1%9E%E6%9D%90%E6%96%99%E9%87%8D%E9%87%8F%E7%AE%80%E7%AE%97/" rel="next" title="金属材料重量简算">
+                  金属材料重量简算 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="pd.read_csv( )12import pandas as pdimport numpy as np  pd.read_csv(     filepath_or_buffer: &#39;FilePath | ReadCsvBuffer[bytes] | ReadCsvBuffer[str]&#39;,       sep&#x3D;&lt;no_default&gt;,       delimite">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas读入csv文件格式化">
+<meta property="og:url" content="https://yxhsiao.github.io/2022/03/26/Pandas%E8%AF%BB%E5%85%A5csv%E6%A0%BC%E5%BC%8F%E5%8C%96/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="pd.read_csv( )12import pandas as pdimport numpy as np  pd.read_csv(     filepath_or_buffer: &#39;FilePath | ReadCsvBuffer[bytes] | ReadCsvBuffer[str]&#39;,       sep&#x3D;&lt;no_default&gt;,       delimite">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-26T03:11:23.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.646Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2022/03/26/Pandas%E8%AF%BB%E5%85%A5csv%E6%A0%BC%E5%BC%8F%E5%8C%96/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2022/03/26/Pandas%E8%AF%BB%E5%85%A5csv%E6%A0%BC%E5%BC%8F%E5%8C%96/","path":"2022/03/26/Pandas读入csv格式化/","title":"Pandas读入csv文件格式化"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Pandas读入csv文件格式化 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pd-read-csv"><span class="nav-number">1.</span> <span class="nav-text">pd.read_csv( )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96CSV"><span class="nav-number">2.</span> <span class="nav-text">读取CSV</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#filepath-or-buffer"><span class="nav-number">2.1.</span> <span class="nav-text">filepath_or_buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sep-str-%E6%8C%87%E5%AE%9A%E5%88%86%E9%9A%94%E7%AC%A6"><span class="nav-number">2.2.</span> <span class="nav-text">sep : str,指定分隔符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index-col-x3D-None-x2F-0-x2F-False"><span class="nav-number">2.3.</span> <span class="nav-text">index_col &#x3D; None&#x2F;0&#x2F;False</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#header-int-or-list-of-ints"><span class="nav-number">2.4.</span> <span class="nav-text">header : int or list of ints</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#names-x3D-%E2%80%A6-%E6%9B%B4%E6%94%B9%E5%88%97%E5%90%8D%E7%A7%B0"><span class="nav-number">2.5.</span> <span class="nav-text">names&#x3D; […] 更改列名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#usecols-x3D-None-%E9%80%89%E5%8F%96%E5%88%97"><span class="nav-number">2.6.</span> <span class="nav-text">usecols&#x3D;None, 选取列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dtype-%E6%8C%87%E5%AE%9A%E5%88%97%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.7.</span> <span class="nav-text">dtype :  指定列的数据格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parse-dates-%E8%A7%A3%E6%9E%90%E6%97%A5%E6%9C%9F%E5%88%97"><span class="nav-number">2.8.</span> <span class="nav-text">parse_dates  解析日期列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#converters-dict"><span class="nav-number">2.9.</span> <span class="nav-text">converters : dict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nrows-int"><span class="nav-number">2.10.</span> <span class="nav-text">nrows : int</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#skip-blank-lines-%E5%AF%B9%E7%A9%BA%E8%A1%8C%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">2.11.</span> <span class="nav-text">skip_blank_lines : 对空行的处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#skiprows-list-like-or-integer"><span class="nav-number">2.12.</span> <span class="nav-text">skiprows : list-like or integer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#engine-%E6%8C%87%E5%AE%9A%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BC%95%E6%93%8E"><span class="nav-number">2.13.</span> <span class="nav-text">engine : 指定解析数据的引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#encoding-%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E9%9B%86%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.14.</span> <span class="nav-text">encoding : 指定字符集类型</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/26/Pandas%E8%AF%BB%E5%85%A5csv%E6%A0%BC%E5%BC%8F%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Pandas读入csv文件格式化 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Pandas读入csv文件格式化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-26 11:11:23" itemprop="dateCreated datePublished" datetime="2022-03-26T11:11:23+08:00">2022-03-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="pd-read-csv"><a href="#pd-read-csv" class="headerlink" title="pd.read_csv( )"></a><code>pd.read_csv( )</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+<p><code>pd.read_csv(     filepath_or_buffer: &#39;FilePath | ReadCsvBuffer[bytes] | ReadCsvBuffer[str]&#39;,       sep=&lt;no_default&gt;,       delimiter=None,       header=&#39;infer&#39;,       names=&lt;no_default&gt;,       index_col=None,       usecols=None,       squeeze=None,       prefix=&lt;no_default&gt;,       mangle_dupe_cols=True,       dtype: &#39;DtypeArg | None&#39; = None,       engine: &#39;CSVEngine | None&#39; = None,       converters=None,       true_values=None,       false_values=None,       skipinitialspace=False,       skiprows=None,       skipfooter=0,       nrows=None,       na_values=None,       keep_default_na=True,       na_filter=True,       verbose=False,       skip_blank_lines=True,       parse_dates=None,       infer_datetime_format=False,       keep_date_col=False,       date_parser=None,       dayfirst=False,       cache_dates=True,       iterator=False,       chunksize=None,       compression: &#39;CompressionOptions&#39; = &#39;infer&#39;,       thousands=None,       decimal: &#39;str&#39; = &#39;.&#39;,       lineterminator=None,       quotechar=&#39;&quot;&#39;,       quoting=0,       doublequote=True,       escapechar=None,       comment=None,       encoding=None,       encoding_errors: &#39;str | None&#39; = &#39;strict&#39;  ,     dialect=None,       error_bad_lines=None,       warn_bad_lines=None,       on_bad_lines=None,       delim_whitespace=False,       low_memory=True,       memory_map=False,       float_precision=None,       storage_options: &#39;StorageOptions&#39; = None,   )</code></p>
+<h2 id="读取CSV"><a href="#读取CSV" class="headerlink" title="读取CSV"></a>读取CSV</h2><ul>
+<li>csv（逗号分割）<br>也支持文件的部分导入和选择迭代</li>
+</ul>
+<h3 id="filepath-or-buffer"><a href="#filepath-or-buffer" class="headerlink" title="filepath_or_buffer"></a>filepath_or_buffer</h3><ul>
+<li>指定文件路径</li>
+<li>本地文件 <code>D:\OneDrive\文档\Office\shid.csv</code></li>
+<li>url(http\ftp)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>期号</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>B1</th>
+      <th>B2</th>
+      <th>日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>21088</td>
+      <td>2</td>
+      <td>14</td>
+      <td>31</td>
+      <td>34</td>
+      <td>35</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>21087</td>
+      <td>10</td>
+      <td>14</td>
+      <td>15</td>
+      <td>25</td>
+      <td>28</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>21086</td>
+      <td>2</td>
+      <td>3</td>
+      <td>7</td>
+      <td>16</td>
+      <td>17</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>21085</td>
+      <td>1</td>
+      <td>12</td>
+      <td>15</td>
+      <td>26</td>
+      <td>35</td>
+      <td>10</td>
+      <td>11</td>
+      <td>2021-07-26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>21084</td>
+      <td>2</td>
+      <td>10</td>
+      <td>14</td>
+      <td>30</td>
+      <td>33</td>
+      <td>6</td>
+      <td>9</td>
+      <td>2021-07-24</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sep-str-指定分隔符"><a href="#sep-str-指定分隔符" class="headerlink" title="sep : str,指定分隔符"></a>sep : str,指定分隔符</h3><ul>
+<li>default ‘,’</li>
+<li>如果不指定参数，则会尝试使用逗号分隔。</li>
+<li>分隔符长于一个字符并且不是‘\s+’,将使用python的语法分析器。并且忽略数据中的逗号。正则表达式例子：’\r\t’</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>,sep=<span class="string">&#x27;\t&#x27;</span>).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>,期号,R1,R2,R3,R4,R5,B1,B2,日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0,21088,02,14,31,34,35,01,07,2021-08-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1,21087,10,14,15,25,28,03,10,2021-07-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2,21086,02,03,07,16,17,06,10,2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3,21085,01,12,15,26,35,10,11,2021-07-26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4,21084,02,10,14,30,33,06,09,2021-07-24</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="index-col-x3D-None-x2F-0-x2F-False"><a href="#index-col-x3D-None-x2F-0-x2F-False" class="headerlink" title="index_col &#x3D; None&#x2F;0&#x2F;False"></a>index_col &#x3D; None&#x2F;0&#x2F;False</h3><ul>
+<li>用第几列作为行索引</li>
+<li>None :表示没有，自动添加数字序列作为索引</li>
+<li>0：指定第0列作为索引列</li>
+<li><code>[0,1]: 也可以指定多列索引</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>, index_col=[<span class="number">0</span>, <span class="number">1</span>]).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>B1</th>
+      <th>B2</th>
+      <th>日期</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>期号</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <th>21088</th>
+      <td>2</td>
+      <td>14</td>
+      <td>31</td>
+      <td>34</td>
+      <td>35</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <th>21087</th>
+      <td>10</td>
+      <td>14</td>
+      <td>15</td>
+      <td>25</td>
+      <td>28</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <th>21086</th>
+      <td>2</td>
+      <td>3</td>
+      <td>7</td>
+      <td>16</td>
+      <td>17</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <th>21085</th>
+      <td>1</td>
+      <td>12</td>
+      <td>15</td>
+      <td>26</td>
+      <td>35</td>
+      <td>10</td>
+      <td>11</td>
+      <td>2021-07-26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <th>21084</th>
+      <td>2</td>
+      <td>10</td>
+      <td>14</td>
+      <td>30</td>
+      <td>33</td>
+      <td>6</td>
+      <td>9</td>
+      <td>2021-07-24</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="header-int-or-list-of-ints"><a href="#header-int-or-list-of-ints" class="headerlink" title="header : int or list of ints"></a>header : int or list of ints</h3><ul>
+<li>指定数据框的列标签</li>
+<li>default ‘infer’</li>
+<li>None 会表明表中没有表头，自动添加数字序列的表头</li>
+<li>0 ：表示使用表格中的首行作为标签</li>
+<li><code>[0,1,2]</code> 也可以是多行作为标题</li>
+<li>指定行数用来作为列名，数据开始行数。如果文件中没有列名，则默认为0，否则设置为None。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>,index_col=<span class="number">0</span>,header=<span class="literal">None</span>).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+    </tr>
+    <tr>
+      <th>0</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>NaN</th>
+      <td>期号</td>
+      <td>R1</td>
+      <td>R2</td>
+      <td>R3</td>
+      <td>R4</td>
+      <td>R5</td>
+      <td>B1</td>
+      <td>B2</td>
+      <td>日期</td>
+    </tr>
+    <tr>
+      <th>0.0</th>
+      <td>21088</td>
+      <td>02</td>
+      <td>14</td>
+      <td>31</td>
+      <td>34</td>
+      <td>35</td>
+      <td>01</td>
+      <td>07</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>21087</td>
+      <td>10</td>
+      <td>14</td>
+      <td>15</td>
+      <td>25</td>
+      <td>28</td>
+      <td>03</td>
+      <td>10</td>
+      <td>2021-07-31</td>
+    </tr>
+    <tr>
+      <th>2.0</th>
+      <td>21086</td>
+      <td>02</td>
+      <td>03</td>
+      <td>07</td>
+      <td>16</td>
+      <td>17</td>
+      <td>06</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3.0</th>
+      <td>21085</td>
+      <td>01</td>
+      <td>12</td>
+      <td>15</td>
+      <td>26</td>
+      <td>35</td>
+      <td>10</td>
+      <td>11</td>
+      <td>2021-07-26</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>, index_col=<span class="number">0</span>, header=[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>期号</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>B1</th>
+      <th>B2</th>
+      <th>日期</th>
+    </tr>
+    <tr>
+      <th>0</th>
+      <th>21088</th>
+      <th>02</th>
+      <th>14</th>
+      <th>31</th>
+      <th>34</th>
+      <th>35</th>
+      <th>01</th>
+      <th>07</th>
+      <th>2021-08-02</th>
+    </tr>
+    <tr>
+      <th>1</th>
+      <th>21087</th>
+      <th>10</th>
+      <th>14</th>
+      <th>15</th>
+      <th>25</th>
+      <th>28</th>
+      <th>03</th>
+      <th>10</th>
+      <th>2021-07-31</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>21086</td>
+      <td>2</td>
+      <td>3</td>
+      <td>7</td>
+      <td>16</td>
+      <td>17</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>21085</td>
+      <td>1</td>
+      <td>12</td>
+      <td>15</td>
+      <td>26</td>
+      <td>35</td>
+      <td>10</td>
+      <td>11</td>
+      <td>2021-07-26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21084</td>
+      <td>2</td>
+      <td>10</td>
+      <td>14</td>
+      <td>30</td>
+      <td>33</td>
+      <td>6</td>
+      <td>9</td>
+      <td>2021-07-24</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>21083</td>
+      <td>7</td>
+      <td>9</td>
+      <td>11</td>
+      <td>26</td>
+      <td>35</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2021-07-21</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>21082</td>
+      <td>1</td>
+      <td>14</td>
+      <td>22</td>
+      <td>29</td>
+      <td>33</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-19</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="names-x3D-…-更改列名称"><a href="#names-x3D-…-更改列名称" class="headerlink" title="names&#x3D; […] 更改列名称"></a>names&#x3D; […] 更改列名称</h3><ul>
+<li>更改列名称</li>
+<li><code>names=&lt;no_default&gt;</code></li>
+<li>数量要相同，</li>
+<li>列名称是一个序列</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(</span><br><span class="line">    <span class="string">&#x27;dlt.csv&#x27;</span>,</span><br><span class="line">    index_col=<span class="number">0</span>,</span><br><span class="line">    header=<span class="number">0</span>,</span><br><span class="line">    names=[<span class="string">&#x27;期号&#x27;</span>, <span class="string">&#x27;Red1&#x27;</span>, <span class="string">&#x27;Red2&#x27;</span>, <span class="string">&#x27;Red3&#x27;</span>, <span class="string">&#x27;Red4&#x27;</span>, <span class="string">&#x27;Red5&#x27;</span>, <span class="string">&#x27;Blue1&#x27;</span>, <span class="string">&#x27;Blue2&#x27;</span>,</span><br><span class="line">           <span class="string">&#x27;日期&#x27;</span>]).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>期号</th>
+      <th>Red1</th>
+      <th>Red2</th>
+      <th>Red3</th>
+      <th>Red4</th>
+      <th>Red5</th>
+      <th>Blue1</th>
+      <th>Blue2</th>
+      <th>日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21088</td>
+      <td>2</td>
+      <td>14</td>
+      <td>31</td>
+      <td>34</td>
+      <td>35</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21087</td>
+      <td>10</td>
+      <td>14</td>
+      <td>15</td>
+      <td>25</td>
+      <td>28</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21086</td>
+      <td>2</td>
+      <td>3</td>
+      <td>7</td>
+      <td>16</td>
+      <td>17</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>21085</td>
+      <td>1</td>
+      <td>12</td>
+      <td>15</td>
+      <td>26</td>
+      <td>35</td>
+      <td>10</td>
+      <td>11</td>
+      <td>2021-07-26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21084</td>
+      <td>2</td>
+      <td>10</td>
+      <td>14</td>
+      <td>30</td>
+      <td>33</td>
+      <td>6</td>
+      <td>9</td>
+      <td>2021-07-24</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="usecols-x3D-None-选取列"><a href="#usecols-x3D-None-选取列" class="headerlink" title="usecols&#x3D;None, 选取列"></a>usecols&#x3D;None, 选取列</h3><ul>
+<li>要读入哪些列的数据，用列表表示</li>
+<li><code>usecols=[0,1,...]</code></li>
+<li>当使用 <code>usecols=[...]</code> 参数时，要将 <code>index_col =None</code></li>
+<li>也可以使用函数定义要读入哪些列，传入函数的变量是列标签</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>, index_col=<span class="literal">None</span>, header=<span class="string">&#x27;infer&#x27;</span>, usecols=[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>]).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>期号</th>
+      <th>R2</th>
+      <th>R4</th>
+      <th>B1</th>
+      <th>日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21088</td>
+      <td>14</td>
+      <td>34</td>
+      <td>1</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21087</td>
+      <td>14</td>
+      <td>25</td>
+      <td>3</td>
+      <td>2021-07-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21086</td>
+      <td>3</td>
+      <td>16</td>
+      <td>6</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>21085</td>
+      <td>12</td>
+      <td>26</td>
+      <td>10</td>
+      <td>2021-07-26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21084</td>
+      <td>10</td>
+      <td>30</td>
+      <td>6</td>
+      <td>2021-07-24</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  re</span><br><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>, index_col=<span class="literal">None</span>, header=<span class="number">0</span>, usecols=<span class="keyword">lambda</span> x: re.search(<span class="string">&quot;^B&quot;</span>,x)).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>B1</th>
+      <th>B2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="dtype-指定列的数据格式"><a href="#dtype-指定列的数据格式" class="headerlink" title="dtype :  指定列的数据格式"></a>dtype :  指定列的数据格式</h3><ul>
+<li>default None</li>
+<li>用字典的格式指定多列</li>
+<li>每列数据的数据类型。例如 {‘a’: np.float64, ‘b’: np.int32}</li>
+<li><code>dtype = &#123;</code>col1’: str ,’col2’: int32 ,’col3’ :</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df1 = pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>, index_col=<span class="number">0</span>, header=[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">df2 = pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>,</span><br><span class="line">                  index_col=<span class="number">0</span>,</span><br><span class="line">                  header=<span class="number">0</span>,</span><br><span class="line">                  dtype=&#123;</span><br><span class="line">                      <span class="string">&#x27;期号&#x27;</span>: <span class="built_in">str</span>,</span><br><span class="line">                      <span class="string">&#x27;R2&#x27;</span>: <span class="built_in">int</span>,</span><br><span class="line">                  &#125;)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;之前各列的数据格式：\n&#x27;</span>, df1.dtypes)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;指定了dtype参数后各列的数据格式：\n&#x27;</span>, df2.dtypes)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br><code>&lt;img src=&quot;./1.webp&quot;&gt;</code></p>
+<h3 id="parse-dates-解析日期列"><a href="#parse-dates-解析日期列" class="headerlink" title="parse_dates  解析日期列"></a>parse_dates  解析日期列</h3><ul>
+<li><code>parse_dates=[&#39;col_date&#39;]</code></li>
+<li>指定某些列为时间类型，这个参数一般搭配date_parser使用。<ul>
+<li>date_parser：是用来配合parse_dates参数的，</li>
+<li>因为有的列虽然是日期，但没办法直接转化，需要我们指定一个解析格式：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df2 = pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>,</span><br><span class="line">                  index_col=<span class="number">0</span>,</span><br><span class="line">                  header=<span class="number">0</span>,</span><br><span class="line">                  dtype=&#123;</span><br><span class="line">                      <span class="string">&#x27;期号&#x27;</span>: <span class="built_in">str</span>,</span><br><span class="line">                      <span class="string">&#x27;R2&#x27;</span>: np.int32,</span><br><span class="line">                  &#125;,</span><br><span class="line">                  parse_dates=[<span class="string">&#x27;日期&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;之前各列的数据格式：\n&#x27;</span>, df1.dtypes)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;指定了dtype参数后各列的数据格式：\n&#x27;</span>, df2.dtypes)</span><br></pre></td></tr></table></figure>
+
+<p>Output:<br><code>&lt;img src=&quot;./2.webp&quot;&gt;</code></p>
+<h3 id="converters-dict"><a href="#converters-dict" class="headerlink" title="converters : dict"></a>converters : dict</h3><ul>
+<li>default None 列转换函数的字典。key可以是列名或者列的序号。</li>
+<li>可以转换数据格式，也可以使用函数运算</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>,</span><br><span class="line">            index_col=<span class="number">0</span>,</span><br><span class="line">            header=<span class="number">0</span>,</span><br><span class="line">            dtype=&#123;</span><br><span class="line">                <span class="string">&#x27;期号&#x27;</span>: <span class="built_in">str</span>,</span><br><span class="line">                <span class="string">&#x27;Red2&#x27;</span>: <span class="built_in">int</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            parse_dates=[<span class="string">&#x27;日期&#x27;</span>],</span><br><span class="line">            converters=&#123;</span><br><span class="line">                <span class="string">&#x27;R5&#x27;</span>: <span class="built_in">float</span>,</span><br><span class="line">                <span class="string">&#x27;R1&#x27;</span>: <span class="keyword">lambda</span> x: <span class="built_in">str</span>(x).rjust(<span class="number">3</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">            &#125;).head()</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>期号</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>B1</th>
+      <th>B2</th>
+      <th>日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21088</td>
+      <td>002</td>
+      <td>14</td>
+      <td>31</td>
+      <td>34</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21087</td>
+      <td>010</td>
+      <td>14</td>
+      <td>15</td>
+      <td>25</td>
+      <td>28.0</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21086</td>
+      <td>002</td>
+      <td>3</td>
+      <td>7</td>
+      <td>16</td>
+      <td>17.0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>21085</td>
+      <td>001</td>
+      <td>12</td>
+      <td>15</td>
+      <td>26</td>
+      <td>35.0</td>
+      <td>10</td>
+      <td>11</td>
+      <td>2021-07-26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21084</td>
+      <td>002</td>
+      <td>10</td>
+      <td>14</td>
+      <td>30</td>
+      <td>33.0</td>
+      <td>6</td>
+      <td>9</td>
+      <td>2021-07-24</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="nrows-int"><a href="#nrows-int" class="headerlink" title="nrows : int"></a>nrows : int</h3><ul>
+<li>default None</li>
+<li>需要读取的行数（从文件头开始算起）。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>,</span><br><span class="line">            index_col=<span class="number">0</span>,</span><br><span class="line">            header=<span class="number">0</span>,</span><br><span class="line">            dtype=&#123;</span><br><span class="line">                <span class="string">&#x27;期号&#x27;</span>: <span class="built_in">str</span>,</span><br><span class="line">                <span class="string">&#x27;Red2&#x27;</span>: <span class="built_in">int</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            parse_dates=[<span class="string">&#x27;日期&#x27;</span>],</span><br><span class="line">            converters=&#123;</span><br><span class="line">                <span class="string">&#x27;R5&#x27;</span>: <span class="built_in">float</span>,</span><br><span class="line">                <span class="string">&#x27;R1&#x27;</span>: <span class="keyword">lambda</span> x: <span class="built_in">str</span>(x).rjust(<span class="number">3</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            nrows=<span class="number">8</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>期号</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>B1</th>
+      <th>B2</th>
+      <th>日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21088</td>
+      <td>002</td>
+      <td>14</td>
+      <td>31</td>
+      <td>34</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21087</td>
+      <td>010</td>
+      <td>14</td>
+      <td>15</td>
+      <td>25</td>
+      <td>28.0</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21086</td>
+      <td>002</td>
+      <td>3</td>
+      <td>7</td>
+      <td>16</td>
+      <td>17.0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>21085</td>
+      <td>001</td>
+      <td>12</td>
+      <td>15</td>
+      <td>26</td>
+      <td>35.0</td>
+      <td>10</td>
+      <td>11</td>
+      <td>2021-07-26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21084</td>
+      <td>002</td>
+      <td>10</td>
+      <td>14</td>
+      <td>30</td>
+      <td>33.0</td>
+      <td>6</td>
+      <td>9</td>
+      <td>2021-07-24</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>21083</td>
+      <td>007</td>
+      <td>9</td>
+      <td>11</td>
+      <td>26</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>8</td>
+      <td>2021-07-21</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>21082</td>
+      <td>001</td>
+      <td>14</td>
+      <td>22</td>
+      <td>29</td>
+      <td>33.0</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-19</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>21081</td>
+      <td>005</td>
+      <td>13</td>
+      <td>24</td>
+      <td>29</td>
+      <td>35.0</td>
+      <td>7</td>
+      <td>8</td>
+      <td>2021-07-17</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="skip-blank-lines-对空行的处理"><a href="#skip-blank-lines-对空行的处理" class="headerlink" title="skip_blank_lines : 对空行的处理"></a>skip_blank_lines : 对空行的处理</h3><ul>
+<li>boolean, default True</li>
+<li>如果为True，则跳过空行；否则记为NaN。</li>
+</ul>
+<h3 id="skiprows-list-like-or-integer"><a href="#skiprows-list-like-or-integer" class="headerlink" title="skiprows : list-like or integer"></a>skiprows : list-like or integer</h3><ul>
+<li>default None 需要忽略的行数（从文件开始处算起），或需要跳过的行号列表（从0开始）。</li>
+<li>注意不要将表头给过滤掉</li>
+<li>skipfooter : int, default 0 从文件尾部开始忽略。 (c引擎不支持)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>,</span><br><span class="line">            index_col=<span class="number">0</span>,</span><br><span class="line">            header=<span class="number">0</span>,</span><br><span class="line">            dtype=&#123;</span><br><span class="line">                <span class="string">&#x27;期号&#x27;</span>: <span class="built_in">str</span>,</span><br><span class="line">                <span class="string">&#x27;Red2&#x27;</span>: <span class="built_in">int</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            parse_dates=[<span class="string">&#x27;日期&#x27;</span>],</span><br><span class="line">            converters=&#123;</span><br><span class="line">                <span class="string">&#x27;R5&#x27;</span>: <span class="built_in">float</span>,</span><br><span class="line">                <span class="string">&#x27;R1&#x27;</span>: <span class="keyword">lambda</span> x: <span class="built_in">str</span>(x).rjust(<span class="number">3</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            nrows=<span class="number">8</span>,</span><br><span class="line">            skiprows=<span class="keyword">lambda</span> x: x &gt; <span class="number">0</span> <span class="keyword">and</span> x % <span class="number">2</span> == <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>期号</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>B1</th>
+      <th>B2</th>
+      <th>日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21088</td>
+      <td>002</td>
+      <td>14</td>
+      <td>31</td>
+      <td>34</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21086</td>
+      <td>002</td>
+      <td>3</td>
+      <td>7</td>
+      <td>16</td>
+      <td>17.0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21084</td>
+      <td>002</td>
+      <td>10</td>
+      <td>14</td>
+      <td>30</td>
+      <td>33.0</td>
+      <td>6</td>
+      <td>9</td>
+      <td>2021-07-24</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>21082</td>
+      <td>001</td>
+      <td>14</td>
+      <td>22</td>
+      <td>29</td>
+      <td>33.0</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-19</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>21080</td>
+      <td>015</td>
+      <td>16</td>
+      <td>20</td>
+      <td>29</td>
+      <td>30.0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-14</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>21078</td>
+      <td>002</td>
+      <td>8</td>
+      <td>17</td>
+      <td>19</td>
+      <td>25.0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2021-07-10</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>21076</td>
+      <td>006</td>
+      <td>13</td>
+      <td>22</td>
+      <td>25</td>
+      <td>26.0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2021-07-05</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>21074</td>
+      <td>011</td>
+      <td>14</td>
+      <td>18</td>
+      <td>20</td>
+      <td>25.0</td>
+      <td>3</td>
+      <td>7</td>
+      <td>2021-06-30</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="engine-指定解析数据的引擎"><a href="#engine-指定解析数据的引擎" class="headerlink" title="engine : 指定解析数据的引擎"></a>engine : 指定解析数据的引擎</h3><ul>
+<li>{‘c’, ‘python’} 两种选择</li>
+<li>使用的分析引擎。可以选择C或者是python。C引擎快但是Python引擎功能更加完备。</li>
+</ul>
+<h3 id="encoding-指定字符集类型"><a href="#encoding-指定字符集类型" class="headerlink" title="encoding : 指定字符集类型"></a>encoding : 指定字符集类型</h3><ul>
+<li><code>gbk</code>,<code>ansi</code>,<code>utf-8-sig</code>,</li>
+<li>通常指定为’utf-8’.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(<span class="string">&#x27;dlt.csv&#x27;</span>,</span><br><span class="line">            index_col=<span class="number">0</span>,</span><br><span class="line">            header=<span class="number">0</span>,</span><br><span class="line">            dtype=&#123;</span><br><span class="line">                <span class="string">&#x27;期号&#x27;</span>: <span class="built_in">str</span>,</span><br><span class="line">                <span class="string">&#x27;R2&#x27;</span>: <span class="built_in">float</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            parse_dates=[<span class="string">&#x27;日期&#x27;</span>],</span><br><span class="line">            converters=&#123;</span><br><span class="line">                <span class="string">&#x27;R5&#x27;</span>: <span class="built_in">float</span>,</span><br><span class="line">                <span class="string">&#x27;R1&#x27;</span>: <span class="keyword">lambda</span> x: <span class="built_in">str</span>(x).rjust(<span class="number">2</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">            &#125;,</span><br><span class="line">            nrows=<span class="number">8</span>,</span><br><span class="line">            skiprows=<span class="keyword">lambda</span> x: x &gt; <span class="number">0</span> <span class="keyword">and</span> x % <span class="number">2</span> == <span class="number">0</span>,</span><br><span class="line">            encoding=<span class="string">&#x27;utf-8-sig&#x27;</span>,</span><br><span class="line">            engine=<span class="string">&#x27;c&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>期号</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>B1</th>
+      <th>B2</th>
+      <th>日期</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21088</td>
+      <td>02</td>
+      <td>14.0</td>
+      <td>31</td>
+      <td>34</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2021-08-02</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>21086</td>
+      <td>02</td>
+      <td>3.0</td>
+      <td>7</td>
+      <td>16</td>
+      <td>17.0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-28</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21084</td>
+      <td>02</td>
+      <td>10.0</td>
+      <td>14</td>
+      <td>30</td>
+      <td>33.0</td>
+      <td>6</td>
+      <td>9</td>
+      <td>2021-07-24</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>21082</td>
+      <td>01</td>
+      <td>14.0</td>
+      <td>22</td>
+      <td>29</td>
+      <td>33.0</td>
+      <td>3</td>
+      <td>10</td>
+      <td>2021-07-19</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>21080</td>
+      <td>15</td>
+      <td>16.0</td>
+      <td>20</td>
+      <td>29</td>
+      <td>30.0</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2021-07-14</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>21078</td>
+      <td>02</td>
+      <td>8.0</td>
+      <td>17</td>
+      <td>19</td>
+      <td>25.0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2021-07-10</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>21076</td>
+      <td>06</td>
+      <td>13.0</td>
+      <td>22</td>
+      <td>25</td>
+      <td>26.0</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2021-07-05</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>21074</td>
+      <td>11</td>
+      <td>14.0</td>
+      <td>18</td>
+      <td>20</td>
+      <td>25.0</td>
+      <td>3</td>
+      <td>7</td>
+      <td>2021-06-30</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/22/python-%E8%A7%A3%E6%9E%90%E5%BC%8F/" rel="prev" title="python-解析式">
+                  <i class="fa fa-chevron-left"></i> python-解析式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/05/python_%E6%A0%BC%E5%BC%8F%E5%8C%96-f-string/" rel="next" title="python 的格式化输出 f-string">
+                  python 的格式化输出 f-string <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

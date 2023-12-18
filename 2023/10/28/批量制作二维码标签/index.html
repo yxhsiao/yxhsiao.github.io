@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="从上往下贴图12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010">
+<meta property="og:type" content="article">
+<meta property="og:title" content="批量制作二维码标签">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/10/28/%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%87%E7%AD%BE/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="从上往下贴图12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/28/%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%87%E7%AD%BE/WDH5NC00701231028_1.webp">
+<meta property="article:published_time" content="2023-10-28T08:29:54.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.660Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yxhsiao.github.io/2023/10/28/%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%87%E7%AD%BE/WDH5NC00701231028_1.webp">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/10/28/%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%87%E7%AD%BE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/10/28/%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%87%E7%AD%BE/","path":"2023/10/28/批量制作二维码标签/","title":"批量制作二维码标签"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>批量制作二维码标签 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E4%B8%8A%E5%BE%80%E4%B8%8B%E8%B4%B4%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">从上往下贴图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E4%B8%8B%E5%BE%80%E4%B8%8A%E8%B4%B4%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">从下往上贴图</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/10/28/%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%87%E7%AD%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="批量制作二维码标签 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          批量制作二维码标签
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-28 16:29:54" itemprop="dateCreated datePublished" datetime="2023-10-28T16:29:54+08:00">2023-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="从上往下贴图"><a href="#从上往下贴图" class="headerlink" title="从上往下贴图"></a>从上往下贴图</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,re</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date, time, timedelta</span><br><span class="line"><span class="keyword">import</span> qrcode <span class="keyword">as</span> qr</span><br><span class="line"><span class="keyword">import</span> yagmail <span class="keyword">as</span> yag</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw, ImageFont</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">remove_old</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    删除文件夹下的旧文件。webp格式的旧文件(二维码图片)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    fold = <span class="string">r&quot;D:\onedrive\Code\Note\Python_project\WDHAC_QR&quot;</span></span><br><span class="line">    files = [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(fold) <span class="keyword">if</span> re.search(<span class="string">r&quot;webp$&quot;</span>, i)]</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        os.remove(<span class="string">f&quot;<span class="subst">&#123;fold&#125;</span>\\<span class="subst">&#123;file&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">creat_icon</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    生成在二维码图片中间添加的文字图片</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    icon = Image.new(<span class="string">&quot;RGBA&quot;</span>, (<span class="number">50</span>, <span class="number">35</span>), (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">120</span>))</span><br><span class="line">    draw = ImageDraw.Draw(icon)</span><br><span class="line">    font = ImageFont.truetype(font=<span class="string">&quot;msyh.ttc&quot;</span>, size=<span class="number">28</span>)</span><br><span class="line">    draw.text((<span class="number">0</span>, <span class="number">0</span>), text, fill=(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>), font=font)</span><br><span class="line">    <span class="keyword">return</span> icon</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">creat_ewm</span>(<span class="params">name, num, rq</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    批量生成二维码</span></span><br><span class="line"><span class="string">    参数:   name(str)       物料名称</span></span><br><span class="line"><span class="string">            num(int)        数量</span></span><br><span class="line"><span class="string">            rq(str)         日期231001 23年10月1日</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 设置二维码内容</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">int</span>(num) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> num &gt; <span class="number">99</span>:</span><br><span class="line">            sq = <span class="built_in">str</span>(i).rjust(<span class="number">3</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">            data = name + rq + sq</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            sq = <span class="built_in">str</span>(i).rjust(<span class="number">2</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">            data = name + rq + sq</span><br><span class="line">        <span class="comment"># 指定二维码的格式:box_size:表示每个方格带像素点个数，border：表示边距占位几个方格</span></span><br><span class="line">        qr = qrcode.QRCode(version=<span class="number">2</span>,</span><br><span class="line">                           error_correction=qrcode.constants.ERROR_CORRECT_H,</span><br><span class="line">                           box_size=<span class="number">6</span>,</span><br><span class="line">                           border=<span class="number">2</span>)</span><br><span class="line">        <span class="comment"># 添加二维吗的内容资料</span></span><br><span class="line">        qr.add_data(data)</span><br><span class="line">        qr.make(fit=<span class="literal">True</span>)</span><br><span class="line">        <span class="comment"># 将二维码生成图片并保存，文件名为日期+序列号</span></span><br><span class="line">        img = qr.make_image()</span><br><span class="line">        img = img.convert(<span class="string">&quot;RGBA&quot;</span>)</span><br><span class="line">        <span class="comment"># # 获取生成的二维码图片尺寸：</span></span><br><span class="line">        <span class="comment"># icon_w, icon_h = img.size</span></span><br><span class="line">        <span class="comment"># icon = creat_icon(sq)</span></span><br><span class="line">        <span class="comment"># img.paste(icon, (100, 100), icon)</span></span><br><span class="line">        img.save(<span class="string">f&quot;<span class="subst">&#123;rq&#125;</span>_<span class="subst">&#123;sq&#125;</span>.webp&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">creat_tag</span>(<span class="params">name, rq</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    生成可以打印的二维码标签</span></span><br><span class="line"><span class="string">    参数:   name(str)       物料名称</span></span><br><span class="line"><span class="string">            rq(str)         日期231001 23年10月1日</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># ----------列出生成的二维码图片的明细------------</span></span><br><span class="line">    files = [x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir() <span class="keyword">if</span> re.search(<span class="string">&quot;^\d&#123;6&#125;_\d+&quot;</span>, x)]</span><br><span class="line">    <span class="comment"># -----查看生成的二维码的实际大小</span></span><br><span class="line">    img = Image.<span class="built_in">open</span>(files[<span class="number">0</span>])</span><br><span class="line">    w1, h1 = img.size</span><br><span class="line">            </span><br><span class="line">    <span class="comment"># -----创建一张标签纸大小的空白照片，每英寸300像素的分辨率，标签纸尺寸 80 *270 mm</span></span><br><span class="line">    w = <span class="built_in">int</span>(<span class="number">80</span> / <span class="number">25.4</span> * <span class="number">300</span>)</span><br><span class="line">    h = <span class="built_in">int</span>(<span class="number">270</span> / <span class="number">25.4</span> * <span class="number">300</span>)</span><br><span class="line">    pg = Image.new(<span class="string">&quot;RGBA&quot;</span>, (w, h))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># -----设置页边距,每行并排2张二维码-----</span></span><br><span class="line">    a = <span class="built_in">int</span>((<span class="number">40</span> / <span class="number">25.4</span> * <span class="number">300</span> - w1) / <span class="number">2</span>)</span><br><span class="line">    b = <span class="built_in">int</span>((<span class="number">27</span> / <span class="number">25.4</span> * <span class="number">300</span> - h1) / <span class="number">2</span>)  </span><br><span class="line">       </span><br><span class="line">    <span class="comment">#-----粘贴二维码图片到标签纸上</span></span><br><span class="line">    x, y= a, b</span><br><span class="line">    page = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> files:</span><br><span class="line">        img = Image.<span class="built_in">open</span>(i)</span><br><span class="line">        <span class="keyword">if</span> w - x - w1 &gt;= <span class="number">0</span>:</span><br><span class="line">            pg.paste(img, (x, y))</span><br><span class="line">            x += w1 + a*<span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x = a</span><br><span class="line">            y += h1 + b *<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> h - y - h1 &gt; <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># print(page, i, x, y)</span></span><br><span class="line">                pg.paste(img, (x, y))</span><br><span class="line">                x += w1 +  a *<span class="number">2</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                pg.save(<span class="string">&quot;&#123;&#125;.webp&quot;</span>.<span class="built_in">format</span>(name + rq + <span class="string">&quot;_&quot;</span> + <span class="built_in">str</span>(page)))</span><br><span class="line">                pg = Image.new(<span class="string">&quot;RGBA&quot;</span>, (w, h))</span><br><span class="line">                x, y= a, b</span><br><span class="line">                page += <span class="number">1</span></span><br><span class="line">                pg.paste(img, (x, y))</span><br><span class="line">                x += w1 +  a *<span class="number">2</span></span><br><span class="line">                img.close()</span><br><span class="line">    pg.save(<span class="string">&quot;&#123;&#125;.webp&quot;</span>.<span class="built_in">format</span>(name + rq + <span class="string">&quot;_&quot;</span> + <span class="built_in">str</span>(page)))</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> files:</span><br><span class="line">        os.remove(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_email</span>(<span class="params">name, num, rq</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    自动发送邮件。</span></span><br><span class="line"><span class="string">    参数:   name(str):      物料名称</span></span><br><span class="line"><span class="string">            num(int):       数量</span></span><br><span class="line"><span class="string">            rq(str)         日期231001 23年10月1日</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span>    </span><br><span class="line">    <span class="comment"># ----------邮件基本设置---------</span></span><br><span class="line">    mail_host = <span class="string">&quot;smtp.163.com&quot;</span>          <span class="comment"># SMTP服务器</span></span><br><span class="line">    port = <span class="built_in">int</span>(<span class="number">25</span>)                      <span class="comment"># 端口号</span></span><br><span class="line">    sender = <span class="string">&quot;yxhsiao@163.com&quot;</span>          <span class="comment"># 发件人邮箱</span></span><br><span class="line">    pwd = <span class="string">&quot;MGWMGHFEVMYQLFVK&quot;</span>            <span class="comment"># 授权密码</span></span><br><span class="line">    receivers = [<span class="string">&quot;zgjxjjwyx@126.com&quot;</span>]   <span class="comment"># 收件人邮箱，可以为多个收件人</span></span><br><span class="line">    ccs = [<span class="string">&quot;1796685160@qq.com&quot;</span>]         <span class="comment"># 邮件抄送</span></span><br><span class="line">    bccs = [<span class="string">&quot;yxhsiao@hotmail.com&quot;</span>]      <span class="comment"># 邮件密送</span></span><br><span class="line">    title = <span class="string">f&quot;<span class="subst">&#123;date.today()&#125;</span> 发货：<span class="subst">&#123;name&#125;</span> 数量：<span class="subst">&#123;num&#125;</span> Pcs&quot;</span> <span class="comment"># 邮件主题</span></span><br><span class="line">    <span class="comment"># 邮件内容</span></span><br><span class="line">    html = <span class="string">&quot;&lt;p style=&#x27;font: normal 150 13pt 黑体;color:#f104b7;text-align:center&#x27;&gt;&lt;p&gt;&lt;strong&gt;&lt;span&gt;二维码制作已完成下载即可！&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;ol start=&#x27;&#x27; &gt;&lt;li&gt;&lt;p&gt;&lt;span&gt;标签打印机页面模板设置：&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;纸张大小：80 x 270 &lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;布局：上边距 2mm&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;span&gt;二维码图片大小设置：&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;span&gt;伸展到方框范围&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;保持纵横比&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;尺寸：80 x 270&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;span&gt;并设置图片左右上下居中&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&quot;</span></span><br><span class="line">    <span class="comment"># 邮件附件</span></span><br><span class="line">    attachs = [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir() <span class="keyword">if</span> re.match(<span class="string">r&quot;&#123;name&#125;&#123;rq&#125;&quot;</span>, i)]</span><br><span class="line">    <span class="comment"># 发送邮件</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        yag = yagmail.SMTP(user=sender, password=pwd, host=mail_host)</span><br><span class="line">        yag.send(</span><br><span class="line">            to=receivers,</span><br><span class="line">            <span class="comment"># cc=ccs,</span></span><br><span class="line">            <span class="comment"># bcc=bccs,</span></span><br><span class="line">            subject=title,</span><br><span class="line">            contents=html,</span><br><span class="line">            attachments=attachs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Email send success&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Email send fail&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    name = <span class="built_in">input</span>(<span class="string">&quot;输入编码！ &quot;</span>)</span><br><span class="line">    num = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;输入要打印的多少张二维码！ &quot;</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(num))</span><br><span class="line">    rq = <span class="string">f&quot;<span class="subst">&#123;date.today():%y%m%d&#125;</span>&quot;</span></span><br><span class="line">    remove_old()</span><br><span class="line">    creat_ewm(name,num,rq)</span><br><span class="line">    creat_tag(name,rq)</span><br><span class="line">    <span class="comment"># send_email(name,num,rq)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="从下往上贴图"><a href="#从下往上贴图" class="headerlink" title="从下往上贴图"></a>从下往上贴图</h3><ol>
+<li>符合打印机的习惯</li>
+<li>不足一页时，可以省纸张</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,re</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date, time, timedelta</span><br><span class="line"><span class="keyword">import</span> qrcode </span><br><span class="line"><span class="keyword">import</span> yagmail </span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw, ImageFont</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">remove_old</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    删除文件夹下的旧文件。webp格式的旧文件(二维码图片)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    fold = <span class="string">r&quot;D:\onedrive\Code\Note\Python_project\WDHAC_QR&quot;</span></span><br><span class="line">    files = [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(fold) <span class="keyword">if</span> re.search(<span class="string">r&quot;webp$&quot;</span>, i)]</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        os.remove(<span class="string">f&quot;<span class="subst">&#123;fold&#125;</span>\\<span class="subst">&#123;file&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">creat_icon</span>(<span class="params">text</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    生成在二维码图片中间添加的文字图片</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    icon = Image.new(<span class="string">&quot;RGBA&quot;</span>, (<span class="number">50</span>, <span class="number">35</span>), (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">120</span>))</span><br><span class="line">    draw = ImageDraw.Draw(icon)</span><br><span class="line">    font = ImageFont.truetype(font=<span class="string">&quot;msyh.ttc&quot;</span>, size=<span class="number">28</span>)</span><br><span class="line">    draw.text((<span class="number">0</span>, <span class="number">0</span>), text, fill=(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>), font=font)</span><br><span class="line">    <span class="keyword">return</span> icon</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">creat_ewm</span>(<span class="params">name, num, rq</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    批量生成二维码</span></span><br><span class="line"><span class="string">    参数:   name(str)       物料名称</span></span><br><span class="line"><span class="string">            num(int)        数量</span></span><br><span class="line"><span class="string">            rq(str)         日期231001 23年10月1日</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 设置二维码内容</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">int</span>(num) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> num &gt; <span class="number">99</span>:</span><br><span class="line">            sq = <span class="built_in">str</span>(i).rjust(<span class="number">3</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">            data = name + rq + sq</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            sq = <span class="built_in">str</span>(i).rjust(<span class="number">2</span>, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">            data = name + rq + sq</span><br><span class="line">        <span class="comment"># 指定二维码的格式:box_size:表示每个方格带像素点个数，border：表示边距占位几个方格</span></span><br><span class="line">        qr = qrcode.QRCode(version=<span class="number">2</span>,</span><br><span class="line">                           error_correction=qrcode.constants.ERROR_CORRECT_H,</span><br><span class="line">                           box_size=<span class="number">6</span>,</span><br><span class="line">                           border=<span class="number">2</span>)</span><br><span class="line">        <span class="comment"># 添加二维吗的内容资料</span></span><br><span class="line">        qr.add_data(data)</span><br><span class="line">        qr.make(fit=<span class="literal">True</span>)</span><br><span class="line">        <span class="comment"># 将二维码生成图片并保存，文件名为日期+序列号</span></span><br><span class="line">        img = qr.make_image()</span><br><span class="line">        img = img.convert(<span class="string">&quot;RGBA&quot;</span>)</span><br><span class="line">        <span class="comment"># # 获取生成的二维码图片尺寸：</span></span><br><span class="line">        <span class="comment"># icon_w, icon_h = img.size</span></span><br><span class="line">        <span class="comment"># icon = creat_icon(sq)</span></span><br><span class="line">        <span class="comment"># img.paste(icon, (100, 100), icon)</span></span><br><span class="line">        img.save(<span class="string">f&quot;<span class="subst">&#123;rq&#125;</span>_<span class="subst">&#123;sq&#125;</span>.webp&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">creat_tag</span>(<span class="params">name, rq</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    生成可以打印的二维码标签.倒序打印,省纸</span></span><br><span class="line"><span class="string">    参数:   name(str)       物料名称</span></span><br><span class="line"><span class="string">            rq(str)         日期231001 23年10月1日</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># ----------列出生成的二维码图片的明细------------</span></span><br><span class="line">    files = [x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir() <span class="keyword">if</span> re.search(<span class="string">&quot;^\d&#123;6&#125;_\d+&quot;</span>, x)]</span><br><span class="line">    <span class="comment"># -----查看生成的二维码的实际大小</span></span><br><span class="line">    img = Image.<span class="built_in">open</span>(files[<span class="number">0</span>])</span><br><span class="line">    w1, h1 = img.size</span><br><span class="line">            </span><br><span class="line">    <span class="comment"># -----创建一张标签纸大小的空白照片，每英寸300像素的分辨率，标签纸尺寸 80 *270 mm</span></span><br><span class="line">    w = <span class="built_in">int</span>(<span class="number">80</span> / <span class="number">25.4</span> * <span class="number">300</span>)</span><br><span class="line">    h = <span class="built_in">int</span>(<span class="number">270</span> / <span class="number">25.4</span> * <span class="number">300</span>)</span><br><span class="line">    pg = Image.new(<span class="string">&quot;RGBA&quot;</span>, (w, h))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># -----设置页边距,每行并排2张二维码-----</span></span><br><span class="line">    a = <span class="built_in">int</span>((<span class="number">40</span> / <span class="number">25.4</span> * <span class="number">300</span> - w1) / <span class="number">2</span>)</span><br><span class="line">    b = <span class="built_in">int</span>((<span class="number">27</span> / <span class="number">25.4</span> * <span class="number">300</span> - h1) / <span class="number">2</span>)  </span><br><span class="line">       </span><br><span class="line">    <span class="comment">#-----粘贴二维码图片到标签纸上</span></span><br><span class="line">    x, y= a, h-b-h1</span><br><span class="line">    page = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> files:</span><br><span class="line">        img = Image.<span class="built_in">open</span>(i)</span><br><span class="line">        <span class="keyword">if</span> w - x - w1 &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># print(page, i, x, y)</span></span><br><span class="line">            pg.paste(img, (x, y))</span><br><span class="line">            x += w1 + a*<span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x = a</span><br><span class="line">            y -= h1 + b *<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> h + y - h1 &gt; <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># print(page, i, x, y)</span></span><br><span class="line">                pg.paste(img, (x, y))</span><br><span class="line">                x += w1 +  a *<span class="number">2</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                pg.save(<span class="string">&quot;&#123;&#125;.webp&quot;</span>.<span class="built_in">format</span>(name + rq + <span class="string">&quot;_&quot;</span> + <span class="built_in">str</span>(page)))</span><br><span class="line">                pg = Image.new(<span class="string">&quot;RGBA&quot;</span>, (w, h))</span><br><span class="line">                x, y= a, b</span><br><span class="line">                page += <span class="number">1</span></span><br><span class="line">                <span class="comment"># print(page, i, x, y)</span></span><br><span class="line">                pg.paste(img, (x, y))</span><br><span class="line">                x += w1 +  a *<span class="number">2</span></span><br><span class="line">                img.close()</span><br><span class="line">    pg.save(<span class="string">&quot;&#123;&#125;.webp&quot;</span>.<span class="built_in">format</span>(name + rq + <span class="string">&quot;_&quot;</span> + <span class="built_in">str</span>(page)))</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> files:</span><br><span class="line">        os.remove(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_email</span>(<span class="params">name, num, rq</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    自动发送邮件。</span></span><br><span class="line"><span class="string">    参数:   name(str):      物料名称</span></span><br><span class="line"><span class="string">            num(int):       数量</span></span><br><span class="line"><span class="string">            rq(str)         日期231001 23年10月1日</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span>    </span><br><span class="line">    <span class="comment"># ----------邮件基本设置---------</span></span><br><span class="line">    mail_host = <span class="string">&quot;smtp.163.com&quot;</span>          <span class="comment"># SMTP服务器</span></span><br><span class="line">    port = <span class="built_in">int</span>(<span class="number">25</span>)                      <span class="comment"># 端口号</span></span><br><span class="line">    sender = <span class="string">&quot;yxhsiao@163.com&quot;</span>          <span class="comment"># 发件人邮箱</span></span><br><span class="line">    pwd = <span class="string">&quot;MGWMGHFEVMYQLFVK&quot;</span>            <span class="comment"># 授权密码</span></span><br><span class="line">    receivers = [<span class="string">&quot;zgjxjjwyx@126.com&quot;</span>]   <span class="comment"># 收件人邮箱，可以为多个收件人</span></span><br><span class="line">    ccs = [<span class="string">&quot;1796685160@qq.com&quot;</span>]         <span class="comment"># 邮件抄送</span></span><br><span class="line">    bccs = [<span class="string">&quot;yxhsiao@hotmail.com&quot;</span>]      <span class="comment"># 邮件密送</span></span><br><span class="line">    title = <span class="string">f&quot;<span class="subst">&#123;date.today()&#125;</span> 发货：<span class="subst">&#123;name&#125;</span> 数量：<span class="subst">&#123;num&#125;</span> Pcs&quot;</span> <span class="comment"># 邮件主题</span></span><br><span class="line">    <span class="comment"># 邮件内容</span></span><br><span class="line">    html = <span class="string">&quot;&lt;p style=&#x27;font: normal 150 13pt 黑体;color:#f104b7;text-align:center&#x27;&gt;&lt;p&gt;&lt;strong&gt;&lt;span&gt;二维码制作已完成下载即可！&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;ol start=&#x27;&#x27; &gt;&lt;li&gt;&lt;p&gt;&lt;span&gt;标签打印机页面模板设置：&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;纸张大小：80 x 270 &lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;布局：上边距 2mm&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;span&gt;二维码图片大小设置：&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;span&gt;伸展到方框范围&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;保持纵横比&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;尺寸：80 x 270&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;span&gt;并设置图片左右上下居中&lt;/span&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&quot;</span></span><br><span class="line">    <span class="comment"># 邮件附件</span></span><br><span class="line">    attachs = [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir() <span class="keyword">if</span> re.match(<span class="string">r&quot;&#123;name&#125;&#123;rq&#125;&quot;</span>, i)]</span><br><span class="line">    <span class="comment"># 发送邮件</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        yag = yagmail.SMTP(user=sender, password=pwd, host=mail_host)</span><br><span class="line">        yag.send(</span><br><span class="line">            to=receivers,</span><br><span class="line">            <span class="comment"># cc=ccs,</span></span><br><span class="line">            <span class="comment"># bcc=bccs,</span></span><br><span class="line">            subject=title,</span><br><span class="line">            contents=html,</span><br><span class="line">            attachments=attachs)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Email send success&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Email send fail&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    name = <span class="string">&quot;WDH5NC00701&quot;</span></span><br><span class="line">    num = <span class="number">6</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(num))</span><br><span class="line">    rq = <span class="string">f&quot;<span class="subst">&#123;date.today():%y%m%d&#125;</span>&quot;</span></span><br><span class="line">    remove_old()</span><br><span class="line">    creat_ewm(name,num,rq)</span><br><span class="line">    creat_tag(name,rq)</span><br><span class="line">    <span class="comment"># send_email(name,num,rq)</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2023/10/28/%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%87%E7%AD%BE/WDH5NC00701231028_1.webp">
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/28/%E5%88%A0%E9%99%A4Creo%E6%97%A7%E6%A1%A3/" rel="prev" title="删除Creo旧档">
+                  <i class="fa fa-chevron-left"></i> 删除Creo旧档
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/" rel="next" title="Creo参数化设计">
+                  Creo参数化设计 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

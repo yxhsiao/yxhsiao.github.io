@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="列表去重查找重复后删除12345678910a&#x3D;[1,2,1,4,2]b&#x3D;[]for i in a:	if i not in b:		b.append(i)print(&amp;#x27;新的列表中的元素有:&amp;#x27;,&amp;#x27;\n&amp;#x27;,b)---&gt;新的列表中的元素有: [1, 2, 4]  用list内置函数去重123456a&#x3D;[3,2,1,4,2,1,3]b&#x3D;list(set(a)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python_List去重 &amp; Df去重">
+<meta property="og:url" content="https://yxhsiao.github.io/2020/03/17/python_List%E5%8E%BB%E9%87%8D%20&%20Df%E5%8E%BB%E9%87%8D%E9%87%8D/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="列表去重查找重复后删除12345678910a&#x3D;[1,2,1,4,2]b&#x3D;[]for i in a:	if i not in b:		b.append(i)print(&amp;#x27;新的列表中的元素有:&amp;#x27;,&amp;#x27;\n&amp;#x27;,b)---&gt;新的列表中的元素有: [1, 2, 4]  用list内置函数去重123456a&#x3D;[3,2,1,4,2,1,3]b&#x3D;list(set(a)">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.640Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2020/03/17/python_List%E5%8E%BB%E9%87%8D%20&%20Df%E5%8E%BB%E9%87%8D%E9%87%8D/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2020/03/17/python_List%E5%8E%BB%E9%87%8D%20&%20Df%E5%8E%BB%E9%87%8D%E9%87%8D/","path":"2020/03/17/python_List去重 & Df去重重/","title":"python_List去重 & Df去重"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python_List去重 & Df去重 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%97%E8%A1%A8%E5%8E%BB%E9%87%8D"><span class="nav-number">1.</span> <span class="nav-text">列表去重</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E9%87%8D%E5%A4%8D%E5%90%8E%E5%88%A0%E9%99%A4"><span class="nav-number">1.1.</span> <span class="nav-text">查找重复后删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8list%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0%E5%8E%BB%E9%87%8D"><span class="nav-number">1.2.</span> <span class="nav-text">用list内置函数去重</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E5%AD%97%E5%85%B8%E7%9A%84fromkeys-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">用字典的fromkeys()函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8sorted%E5%87%BD%E6%95%B0%E5%8E%BB%E9%87%8D"><span class="nav-number">1.4.</span> <span class="nav-text">使用sorted函数去重</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrame%E5%8E%BB%E9%87%8D"><span class="nav-number">2.</span> <span class="nav-text">DataFrame去重</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/03/17/python_List%E5%8E%BB%E9%87%8D%20&%20Df%E5%8E%BB%E9%87%8D%E9%87%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python_List去重 & Df去重 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python_List去重 & Df去重
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-17T00:00:00+08:00">2020-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="列表去重"><a href="#列表去重" class="headerlink" title="列表去重"></a>列表去重</h3><h4 id="查找重复后删除"><a href="#查找重复后删除" class="headerlink" title="查找重复后删除"></a>查找重复后删除</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>]</span><br><span class="line">b=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">	<span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> b:</span><br><span class="line">		b.append(i)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;新的列表中的元素有:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,b)</span><br><span class="line">---&gt;</span><br><span class="line">新的列表中的元素有:</span><br><span class="line"> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="用list内置函数去重"><a href="#用list内置函数去重" class="headerlink" title="用list内置函数去重"></a>用list内置函数去重</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">b=<span class="built_in">list</span>(<span class="built_in">set</span>(a))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;新的列表中的元素有:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,b)</span><br><span class="line">---&gt;</span><br><span class="line">新的列表中的元素有:</span><br><span class="line"> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h4 id="用字典的fromkeys-函数"><a href="#用字典的fromkeys-函数" class="headerlink" title="用字典的fromkeys()函数"></a>用字典的fromkeys()函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">b=&#123;&#125;.fromkeys(a).keys() <span class="comment"># b是一个字典,只包含key的字典</span></span><br><span class="line">c=<span class="built_in">list</span>(b) <span class="comment"># 将字典的key转换成列表.如果转换字典的值成列表需要在字典后加:.values</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;新的列表中的元素有:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,c)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;b的类型是:&#x27;</span>,<span class="built_in">type</span>(b))</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">新的列表中的元素有:</span><br><span class="line"> [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>]</span><br><span class="line">b的类型是: &lt;<span class="keyword">class</span> <span class="string">&#x27;dict_keys&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用sorted函数去重"><a href="#使用sorted函数去重" class="headerlink" title="使用sorted函数去重"></a>使用sorted函数去重</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">b=<span class="built_in">sorted</span>(<span class="built_in">set</span>(a),key=a.index)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;新的列表中的元素有:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,b)</span><br><span class="line"></span><br><span class="line">---&gt;</span><br><span class="line">新的列表中的元素有:</span><br><span class="line"> [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="DataFrame去重"><a href="#DataFrame去重" class="headerlink" title="DataFrame去重"></a>DataFrame去重</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">a=pd.DataFrame(&#123;<span class="string">&#x27;A&#x27;</span>: [<span class="string">&#x27;TP512&#x27;</span>,<span class="string">&#x27;TP601&#x27;</span>,<span class="string">&#x27;TP108&#x27;</span>,<span class="string">&#x27;TP509&#x27;</span>,<span class="string">&#x27;TP601&#x27;</span>],<span class="string">&#x27;B&#x27;</span>:[<span class="string">&#x27;M7&#x27;</span>,<span class="string">&#x27;M5&#x27;</span>,<span class="string">&#x27;M6&#x27;</span>,<span class="string">&#x27;M5&#x27;</span>,<span class="string">&#x27;M10&#x27;</span>]&#125;)</span><br><span class="line">b = a.drop_duplicates()</span><br><span class="line">c = a.drop_duplicates(subset=<span class="string">&#x27;B&#x27;</span>,keep=<span class="string">&quot;first&quot;</span>,inplace = <span class="literal">False</span>)</span><br><span class="line">d = a.drop_duplicates(subset=<span class="string">&#x27;B&#x27;</span>,keep=<span class="string">&quot;last&quot;</span>,inplace = <span class="literal">False</span>)</span><br><span class="line">e = a.drop_duplicates(subset=<span class="string">&#x27;A&#x27;</span>,keep=<span class="string">&quot;first&quot;</span>,inplace = <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;没有去重前:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,a)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;全部列去重,删除重复保留首先出现的:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,b)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;B列去重,删除重复保留首先出现的:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,c)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;B列去重,删除重复保留最后出现的:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,d)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;A列去重,删除重复保留最后出现的:&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>,e)</span><br><span class="line"></span><br><span class="line">----&gt;</span><br><span class="line">没有去重前:</span><br><span class="line">        A    B</span><br><span class="line"><span class="number">0</span>  TP512   M7</span><br><span class="line"><span class="number">1</span>  TP601   M5</span><br><span class="line"><span class="number">2</span>  TP108   M6</span><br><span class="line"><span class="number">3</span>  TP509   M5</span><br><span class="line"><span class="number">4</span>  TP601  M10</span><br><span class="line">全部列去重,删除重复保留首先出现的:</span><br><span class="line">        A    B</span><br><span class="line"><span class="number">0</span>  TP512   M7</span><br><span class="line"><span class="number">1</span>  TP601   M5</span><br><span class="line"><span class="number">2</span>  TP108   M6</span><br><span class="line"><span class="number">3</span>  TP509   M5</span><br><span class="line"><span class="number">4</span>  TP601  M10</span><br><span class="line">B列去重,删除重复保留首先出现的:</span><br><span class="line">        A    B</span><br><span class="line"><span class="number">0</span>  TP512   M7</span><br><span class="line"><span class="number">1</span>  TP601   M5</span><br><span class="line"><span class="number">2</span>  TP108   M6</span><br><span class="line"><span class="number">4</span>  TP601  M10</span><br><span class="line">B列去重,删除重复保留最后出现的:</span><br><span class="line">        A    B</span><br><span class="line"><span class="number">0</span>  TP512   M7</span><br><span class="line"><span class="number">2</span>  TP108   M6</span><br><span class="line"><span class="number">3</span>  TP509   M5</span><br><span class="line"><span class="number">4</span>  TP601  M10</span><br><span class="line">A列去重,删除重复保留最后出现的:</span><br><span class="line">        A   B</span><br><span class="line"><span class="number">0</span>  TP512  M7</span><br><span class="line"><span class="number">1</span>  TP601  M5</span><br><span class="line"><span class="number">2</span>  TP108  M6</span><br><span class="line"><span class="number">3</span>  TP509  M5</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/15/python_DF%20&%20LIST%20%E4%BA%92%E8%BD%AC/" rel="prev" title="python_DF & LIST 互转">
+                  <i class="fa fa-chevron-left"></i> python_DF & LIST 互转
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/17/ER%E5%A4%B9%E5%A4%B4%E6%A0%87%E5%87%86/" rel="next" title="ER夹头尺寸">
+                  ER夹头尺寸 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="参数化设计实例 准备对四边形刀片的建模 共同点：四条边   建模步骤：  创建模型Step1:绘制图形绘制内接圆 —&gt;绘制平行四边形 —-&gt; 约束四条边相切于内接圆 —-&gt; 标注尺寸   Step2:对称拉伸  Step3:倒圆角  Step4:拔模  Step5:投影文字    程序    完成参数的设置。详细参数如下： 1234567891011121314151617181">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Creo参数化设计">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="参数化设计实例 准备对四边形刀片的建模 共同点：四条边   建模步骤：  创建模型Step1:绘制图形绘制内接圆 —&gt;绘制平行四边形 —-&gt; 约束四条边相切于内接圆 —-&gt; 标注尺寸   Step2:对称拉伸  Step3:倒圆角  Step4:拔模  Step5:投影文字    程序    完成参数的设置。详细参数如下： 1234567891011121314151617181">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/2.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/3.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/4.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/8.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/9.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/6.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/7.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/10.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/11.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/12.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/13.webp">
+<meta property="article:published_time" content="2023-10-29T03:51:51.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.660Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="Creo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/1.webp">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/","path":"2023/10/29/Creo参数化设计/","title":"Creo参数化设计"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Creo参数化设计 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">参数化设计实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">创建模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Step1-%E7%BB%98%E5%88%B6%E5%9B%BE%E5%BD%A2"><span class="nav-number">1.1.1.</span> <span class="nav-text">Step1:绘制图形</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Step2-%E5%AF%B9%E7%A7%B0%E6%8B%89%E4%BC%B8"><span class="nav-number">1.1.2.</span> <span class="nav-text">Step2:对称拉伸</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Step3-%E5%80%92%E5%9C%86%E8%A7%92"><span class="nav-number">1.1.3.</span> <span class="nav-text">Step3:倒圆角</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Step4-%E6%8B%94%E6%A8%A1"><span class="nav-number">1.1.4.</span> <span class="nav-text">Step4:拔模</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Step5-%E6%8A%95%E5%BD%B1%E6%96%87%E5%AD%97"><span class="nav-number">1.1.5.</span> <span class="nav-text">Step5:投影文字</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%8F%E6%97%B6%E6%9B%B4%E6%96%B0%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.1.</span> <span class="nav-text">随时更新设计</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Creo参数化设计 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Creo参数化设计
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-29 11:51:51" itemprop="dateCreated datePublished" datetime="2023-10-29T11:51:51+08:00">2023-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Creo/" itemprop="url" rel="index"><span itemprop="name">Creo</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="参数化设计实例"><a href="#参数化设计实例" class="headerlink" title="参数化设计实例"></a>参数化设计实例</h3><ol>
+<li>准备对四边形刀片的建模<ol>
+<li>共同点：四条边</li>
+</ol>
+</li>
+<li>建模步骤：</li>
+</ol>
+<h4 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h4><h5 id="Step1-绘制图形"><a href="#Step1-绘制图形" class="headerlink" title="Step1:绘制图形"></a>Step1:绘制图形</h5><p>绘制内接圆 —&gt;绘制平行四边形 —-&gt; 约束四条边相切于内接圆 —-&gt; 标注尺寸</p>
+<img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/1.webp">
+
+<h5 id="Step2-对称拉伸"><a href="#Step2-对称拉伸" class="headerlink" title="Step2:对称拉伸"></a>Step2:对称拉伸</h5><img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/2.webp">
+
+<h5 id="Step3-倒圆角"><a href="#Step3-倒圆角" class="headerlink" title="Step3:倒圆角"></a>Step3:倒圆角</h5><img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/3.webp">
+
+<h5 id="Step4-拔模"><a href="#Step4-拔模" class="headerlink" title="Step4:拔模"></a>Step4:拔模</h5><img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/4.webp">
+
+<h5 id="Step5-投影文字"><a href="#Step5-投影文字" class="headerlink" title="Step5:投影文字"></a>Step5:投影文字</h5><img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/8.webp">
+
+<img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/9.webp">
+
+<h3 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h3><img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/6.webp">
+
+<img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/7.webp">
+
+<p>完成参数的设置。详细参数如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br></pre></td><td class="code"><pre><span class="line">INPUT</span><br><span class="line"> NAME STRING</span><br><span class="line"> &quot;输入刀片规格&quot;</span><br><span class="line">END INPUT</span><br><span class="line"></span><br><span class="line">RELATIONS</span><br><span class="line">SHAPE = EXTRACT(NAME,1,1)</span><br><span class="line">BACK =EXTRACT(NAME,2,1)</span><br><span class="line">LENGTH = EXTRACT(NAME,5,2)</span><br><span class="line">THINK =EXTRACT(NAME,7,2)</span><br><span class="line">ROUND = EXTRACT(NAME,9,2)</span><br><span class="line">MIRROR = EXTRACT(NAME,2,1)</span><br><span class="line"></span><br><span class="line">/*控制镜像特征是否显示</span><br><span class="line">/* D16=内接圆直径,</span><br><span class="line">/* D17 =菱形顶角 ，</span><br><span class="line">/* D21=刀片厚度，</span><br><span class="line">/*D20=刀尖圆角,</span><br><span class="line">/* D21=刀片后角</span><br><span class="line"></span><br><span class="line">/* 形状记号转换</span><br><span class="line">IF SHAPE == &quot;C&quot;</span><br><span class="line">D17=80</span><br><span class="line">ENDIF</span><br><span class="line">IF SHAPE == &quot;D&quot;</span><br><span class="line">D17=55</span><br><span class="line">ENDIF</span><br><span class="line">IF SHAPE == &quot;E&quot;</span><br><span class="line">D17=75</span><br><span class="line">ENDIF</span><br><span class="line">IF SHAPE == &quot;F&quot;</span><br><span class="line">D17=50</span><br><span class="line">ENDIF</span><br><span class="line">IF SHAPE == &quot;V&quot;</span><br><span class="line">D17=35</span><br><span class="line">ENDIF</span><br><span class="line">IF SHAPE == &quot;S&quot;</span><br><span class="line">D17=90</span><br><span class="line">ENDIF</span><br><span class="line"></span><br><span class="line">/* 厚度记号转换</span><br><span class="line">IF THINK == &quot;02&quot;</span><br><span class="line">D15 = 2.38</span><br><span class="line">ENDIF</span><br><span class="line">IF THINK == &quot;03&quot;</span><br><span class="line">D15 = 3.18</span><br><span class="line">ENDIF</span><br><span class="line">IF THINK == &quot;04&quot;</span><br><span class="line">D15 = 4.76</span><br><span class="line">ENDIF</span><br><span class="line">IF THINK == &quot;05&quot;</span><br><span class="line">D15 = 5.56</span><br><span class="line">ENDIF</span><br><span class="line">IF THINK == &quot;06&quot;</span><br><span class="line">D15 = 6.35</span><br><span class="line">ENDIF</span><br><span class="line">IF THINK == &quot;07&quot;</span><br><span class="line">D15 = 7.94</span><br><span class="line">ENDIF</span><br><span class="line">IF THINK == &quot;09&quot;</span><br><span class="line">D15 = 9.52</span><br><span class="line">ENDIF</span><br><span class="line">IF THINK == &quot;T2&quot;</span><br><span class="line">D15 = 2.78</span><br><span class="line">ENDIF</span><br><span class="line">IF THINK == &quot;T3&quot;</span><br><span class="line">D15 = 3.97</span><br><span class="line">ENDIF</span><br><span class="line"></span><br><span class="line">/* 刀尖圆角记号转换</span><br><span class="line">IF ROUND == &quot;02&quot;</span><br><span class="line">D20 = 0.2</span><br><span class="line">ENDIF</span><br><span class="line">IF ROUND == &quot;04&quot;</span><br><span class="line">D20 = 0.4</span><br><span class="line">ENDIF</span><br><span class="line">IF ROUND == &quot;08&quot;</span><br><span class="line">D20 = 0.8</span><br><span class="line">ENDIF</span><br><span class="line">IF ROUND == &quot;12&quot;</span><br><span class="line">D20 = 1.2</span><br><span class="line">ENDIF</span><br><span class="line">IF ROUND == &quot;16&quot;</span><br><span class="line">D20 = 1.6</span><br><span class="line">ENDIF</span><br><span class="line"></span><br><span class="line">/* 后角记号转换</span><br><span class="line">IF BACK == &quot;N&quot;</span><br><span class="line">D21=0</span><br><span class="line">ENDIF</span><br><span class="line">IF BACK == &quot;A&quot;</span><br><span class="line">D21=3</span><br><span class="line">ENDIF</span><br><span class="line">IF BACK == &quot;B&quot;</span><br><span class="line">D21=5</span><br><span class="line">ENDIF</span><br><span class="line">IF BACK == &quot;C&quot;</span><br><span class="line">D21=7</span><br><span class="line">ENDIF</span><br><span class="line">IF BACK == &quot;D&quot;</span><br><span class="line">D21=15</span><br><span class="line">ENDIF</span><br><span class="line">IF BACK == &quot;E&quot;</span><br><span class="line">D21=20</span><br><span class="line">ENDIF</span><br><span class="line">IF BACK == &quot;P&quot;</span><br><span class="line">D21=11</span><br><span class="line">ENDIF</span><br><span class="line"></span><br><span class="line">/* 刃长记号转换成内接圆直径 D16</span><br><span class="line">IF SHAPE == &quot;C&quot;</span><br><span class="line"> IF LENGTH == &quot;06&quot;</span><br><span class="line"> D16= 6.35</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;08&quot;</span><br><span class="line"> D16=7.94</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;09&quot;</span><br><span class="line"> D16=9.525</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;12&quot;</span><br><span class="line"> D16=12.7</span><br><span class="line"> ENDIF</span><br><span class="line">  IF LENGTH == &quot;16&quot;</span><br><span class="line"> D16=15.975</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;19&quot;</span><br><span class="line"> D16=19.3</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;25&quot;</span><br><span class="line"> D16=25.4</span><br><span class="line"> ENDIF</span><br><span class="line">ENDIF</span><br><span class="line"></span><br><span class="line">IF SHAPE == &quot;D&quot;</span><br><span class="line"> IF LENGTH == &quot;07&quot;</span><br><span class="line"> D16= 6.35</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;09&quot;</span><br><span class="line"> D16=7.94</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;11&quot;</span><br><span class="line"> D16=9.525</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;15&quot;</span><br><span class="line"> D16=12.7</span><br><span class="line"> ENDIF</span><br><span class="line">  IF LENGTH == &quot;16&quot;</span><br><span class="line"> D16=15.975</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;19&quot;</span><br><span class="line"> D16=19.4</span><br><span class="line"> ENDIF</span><br><span class="line">ENDIF</span><br><span class="line"></span><br><span class="line">IF SHAPE == &quot;V&quot;</span><br><span class="line"> IF LENGTH == &quot;08&quot;</span><br><span class="line"> D16=4.76</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;09&quot;</span><br><span class="line"> D16=5.56</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;11&quot;</span><br><span class="line"> D16=6.35</span><br><span class="line"> ENDIF</span><br><span class="line">  IF LENGTH == &quot;16&quot;</span><br><span class="line"> D16=9.525</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;22&quot;</span><br><span class="line"> D16=19.3</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;25&quot;</span><br><span class="line"> D16=12.7</span><br><span class="line"> ENDIF</span><br><span class="line">ENDIF</span><br><span class="line"></span><br><span class="line">IF SHAPE == &quot;S&quot;</span><br><span class="line"> IF LENGTH == &quot;06&quot;</span><br><span class="line"> D16= 6.35</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;07&quot;</span><br><span class="line"> D16=7.94</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;09&quot;</span><br><span class="line"> D16=9.525</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;12&quot;</span><br><span class="line"> D16=12.7</span><br><span class="line"> ENDIF</span><br><span class="line">  IF LENGTH == &quot;15&quot;</span><br><span class="line"> D16=15.875</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;19&quot;</span><br><span class="line"> D16=19.05</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;25&quot;</span><br><span class="line"> D16=25.4</span><br><span class="line"> IF LENGTH == &quot;31&quot;</span><br><span class="line"> D16=31.75</span><br><span class="line"> ENDIF</span><br><span class="line"> ENDIF</span><br><span class="line"> IF LENGTH == &quot;25&quot;</span><br><span class="line"> D16=25.4</span><br><span class="line"> ENDIF</span><br><span class="line">ENDIF</span><br><span class="line">END　RELATIONS</span><br></pre></td></tr></table></figure>
+
+<h4 id="随时更新设计"><a href="#随时更新设计" class="headerlink" title="随时更新设计"></a>随时更新设计</h4><p><code>Ctrl+G</code> 更新模型</p>
+<img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/10.webp">
+
+<p>勾选 NAME</p>
+<img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/11.webp">
+
+<p>输入刀片规格</p>
+<img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/12.webp">
+
+<p>得到新的模型</p>
+<img src="/2023/10/29/Creo%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/13.webp">
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/Creo/" rel="tag"><i class="fa fa-tag"></i> Creo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/28/%E6%89%B9%E9%87%8F%E5%88%B6%E4%BD%9C%E4%BA%8C%E7%BB%B4%E7%A0%81%E6%A0%87%E7%AD%BE/" rel="prev" title="批量制作二维码标签">
+                  <i class="fa fa-chevron-left"></i> 批量制作二维码标签
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/05/Pycharts%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E9%A1%B9/" rel="next" title="Pycharts常用配置项">
+                  Pycharts常用配置项 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

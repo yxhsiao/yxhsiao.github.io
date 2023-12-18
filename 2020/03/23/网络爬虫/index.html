@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="所需要的模块：123451. requests          2.23.0 2. urllib3           1.25.8 3. urlopen           1.0.04. beautifulsoup4    4.8.25. lxml              4.5.0    举例讲解用正则表达式：解析网页的步骤：  指定要爬的网址 (url) 使用 python 登录上这个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python_网络爬虫">
+<meta property="og:url" content="https://yxhsiao.github.io/2020/03/23/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="所需要的模块：123451. requests          2.23.0 2. urllib3           1.25.8 3. urlopen           1.0.04. beautifulsoup4    4.8.25. lxml              4.5.0    举例讲解用正则表达式：解析网页的步骤：  指定要爬的网址 (url) 使用 python 登录上这个">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.660Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2020/03/23/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2020/03/23/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/","path":"2020/03/23/网络爬虫/","title":"python_网络爬虫"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python_网络爬虫 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E6%A8%A1%E5%9D%97%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">所需要的模块：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B%E8%AE%B2%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">举例讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%9A"><span class="nav-number">2.0.1.</span> <span class="nav-text">用正则表达式：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp"><span class="nav-number">2.0.2.</span> <span class="nav-text">exp:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-1"><span class="nav-number">2.0.3.</span> <span class="nav-text">exp:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-2"><span class="nav-number">2.0.4.</span> <span class="nav-text">exp:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8BeautifulSoup-%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%EF%BC%9A"><span class="nav-number">2.0.5.</span> <span class="nav-text">用BeautifulSoup 解析网页：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-3"><span class="nav-number">2.0.6.</span> <span class="nav-text">exp:</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number"></span> <span class="nav-text"> 标题, 可以就直接 soup.h1.
+</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8C%89-Class-%E5%8C%B9%E9%85%8D"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">按 Class 匹配</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-4"><span class="nav-number">0.0.1.</span> <span class="nav-text">exp:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%EF%BC%9A"><span class="nav-number">0.0.1.1.</span> <span class="nav-text">正则匹配：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-5"><span class="nav-number">0.0.2.</span> <span class="nav-text">exp:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-6"><span class="nav-number">0.0.3.</span> <span class="nav-text">exp:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-7"><span class="nav-number">0.0.4.</span> <span class="nav-text">exp:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Requests"><span class="nav-number">0.1.</span> <span class="nav-text">Requests</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#requests-get-%E8%AF%B7%E6%B1%82"><span class="nav-number">0.1.0.1.</span> <span class="nav-text">requests get 请求</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-8"><span class="nav-number">0.1.1.</span> <span class="nav-text">exp:</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/03/23/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python_网络爬虫 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python_网络爬虫
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="所需要的模块："><a href="#所需要的模块：" class="headerlink" title="所需要的模块："></a>所需要的模块：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> requests          <span class="number">2.23</span><span class="number">.0</span> </span><br><span class="line"><span class="number">2.</span> urllib3           <span class="number">1.25</span><span class="number">.8</span> </span><br><span class="line"><span class="number">3.</span> urlopen           <span class="number">1.0</span><span class="number">.0</span></span><br><span class="line"><span class="number">4.</span> beautifulsoup4    <span class="number">4.8</span><span class="number">.2</span></span><br><span class="line"><span class="number">5.</span> lxml              <span class="number">4.5</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="举例讲解"><a href="#举例讲解" class="headerlink" title="举例讲解"></a>举例讲解</h3><h5 id="用正则表达式："><a href="#用正则表达式：" class="headerlink" title="用正则表达式："></a>用正则表达式：</h5><p>解析网页的步骤：</p>
+<ol>
+<li>指定要爬的网址 (url)</li>
+<li>使用 python 登录上这个网址 (urlopen等)</li>
+<li>读取网页信息 (read() 出来)</li>
+</ol>
+<p>获取网页的Html代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">html = <span class="built_in">urlopen</span>(‘url’).<span class="built_in">read</span>().<span class="built_in">decoad</span>(‘utf<span class="number">-8</span>’)    </span><br></pre></td></tr></table></figure>
+
+<h5 id="exp"><a href="#exp" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#读取网站的HTML代码。导入模块后用urlopen即可以读取指定网页的html代码</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line">html = urlopen(</span><br><span class="line">    <span class="string">&quot;https://morvanzhou.github.io/static/scraping/basic-structure.html&quot;</span></span><br><span class="line">).read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(html)</span><br></pre></td></tr></table></figure>
+
+<p>从已经提取的网页信息中匹配网页的title:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = re.<span class="built_in">findall</span>(r<span class="string">&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;</span>, html)</span><br></pre></td></tr></table></figure>
+
+<h5 id="exp-1"><a href="#exp-1" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line">html = urlopen(</span><br><span class="line">    <span class="string">&quot;https://morvanzhou.github.io/static/scraping/basic-structure.html&quot;</span></span><br><span class="line">).read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">res = re.findall(<span class="string">r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;</span>, html)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nPage title is: &quot;</span>, res[<span class="number">0</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>从已经提取的网页信息中匹配网页的href</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = re.<span class="built_in">findall</span>(r<span class="number">&#x27;</span>href=<span class="string">&quot;(.*?)&quot;</span><span class="string">&#x27;, html)</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="exp-2"><a href="#exp-2" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res = re.findall(<span class="string">r&#x27;href=&quot;(.*?)&quot;&#x27;</span>, html)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nAll links: &quot;</span>, res)</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="用BeautifulSoup-解析网页："><a href="#用BeautifulSoup-解析网页：" class="headerlink" title="用BeautifulSoup 解析网页："></a>用BeautifulSoup 解析网页：</h5><ol>
+<li><p>导入模块:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">import</span> requests</span><br><span class="line"><span class="number">2.</span> <span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="number">3.</span> <span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>解析网页的步骤：</p>
+<ol>
+<li>指定要爬的网址 (url)</li>
+<li>使用 python 登录上这个网址 (urlopen等)</li>
+<li>读取网页信息 (read() 出来)</li>
+<li>将读取的信息放入 BeautifulSoup</li>
+<li>使用 BeautifulSoup 选取 tag 信息等 (代替正则表达式)</li>
+</ol>
+<h5 id="exp-3"><a href="#exp-3" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">html = urlopen(</span><br><span class="line">    <span class="string">&quot;https://morvanzhou.github.io/static/scraping/basic-structure.html&quot;</span></span><br><span class="line">).read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">soup = BeautifulSoup(html,features=<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;打印网页的一级标题&#x27;</span>,soup.h1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;打印网页段落内容&#x27;</span>,soup.p.contents)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;打印网页链接&#x27;</span>,soup.a)</span><br></pre></td></tr></table></figure>
+
+<p>BeautifulSoup的工作原理：</p>
+<ol>
+<li><p>读取这个网页信息, 我们将要加载进 BeautifulSoup, 以 lxml 的这种形式加载. 除了 lxml, 其实还有很多形式的解析器, 不过大家都推荐使用 lxml 的形式. 然后 soup 里面就有着这个 HTML 的所有信息. 如果你要输出 </p><h1> 标题, 可以就直接 soup.h1.<p></p>
+</h1></li>
+<li><p>如果网页中有多个同样的 tag, 比如链接 <a>, 我们可以使用 find_all() 来找到所有的选项. 因为我们真正的 link 不是在 <a> 中间 </a>, 而是在 <a href="link"> 里面, 也可以看做是 <a> 的一个属性. 我们能用像 Python 字典的形式, 用 key 来读取 l[“href”].</a></a></a></p>
+</li>
+</ol>
+<p><strong>上面是用html的标签进行解析，也可以通过网页的css解析</strong></p>
+<h6 id="按-Class-匹配"><a href="#按-Class-匹配" class="headerlink" title="按 Class 匹配"></a>按 Class 匹配</h6><p>按 Class 匹配很简单. 比如我要找所有 class&#x3D;month 的信息. 并打印出它们的 tag 内文字.</p>
+<p>或者找到 class&#x3D;jan 的信息. 然后在 <ul> 下面继续找 <ul> 内部的 <li> 信息. 这样一层层嵌套的信息, 非常容易找到.</li></ul></ul></p>
+<h5 id="exp-4"><a href="#exp-4" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">soup = BeautifulSoup(html, features=<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">month = soup.find_all(<span class="string">&#x27;li&#x27;</span>, &#123;<span class="string">&quot;class&quot;</span>: <span class="string">&quot;month&quot;</span>&#125;)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> month:</span><br><span class="line">    <span class="built_in">print</span>(m.get_text())</span><br><span class="line"></span><br><span class="line">jan = soup.find(<span class="string">&#x27;ul&#x27;</span>, &#123;<span class="string">&quot;class&quot;</span>: <span class="string">&#x27;jan&#x27;</span>&#125;)</span><br><span class="line">d_jan = jan.find_all(<span class="string">&#x27;li&#x27;</span>)            </span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> d_jan:</span><br><span class="line">    <span class="built_in">print</span>(d.get_text())</span><br></pre></td></tr></table></figure>
+
+<h6 id="正则匹配："><a href="#正则匹配：" class="headerlink" title="正则匹配："></a>正则匹配：</h6><p>我们先读取这个网页. 导入正则模块 re.</p>
+<h5 id="exp-5"><a href="#exp-5" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">html = urlopen(<span class="string">&quot;https://morvanzhou.github.io/static/scraping/table.html&quot;</span>).read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>比如图片, 它们都藏在这样一个<img> 标签中，但是每个标签的src（图片地址）可能不同。或者图片的格式也不同，有JPG,PNG,WEBP等等。如果只需要某一类的图片呢？可以用正则表达式。<code>r’.*?\.webp</code>找出所有webp格式的图片链接。把正则的 compile 形式放到 BeautifulSoup 的功能中, 就能选到符合要求的图片链接了.</p>
+<h5 id="exp-6"><a href="#exp-6" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">soup = BeautifulSoup(html, features=<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">img_links = soup.find_all(<span class="string">&quot;img&quot;</span>, &#123;<span class="string">&quot;src&quot;</span>: re.<span class="built_in">compile</span>(<span class="string">&#x27;.*?\.webp&#x27;</span>)&#125;)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> img_links:</span><br><span class="line">    <span class="built_in">print</span>(link[<span class="string">&#x27;src&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<p>又或者我们发现, 我想选一些课程的链接, 而这些链接都有统一的形式, 就是开头都会有 https://morvan., 那我就将这个定为一个正则的规则, 让 BeautifulSoup 帮我找到符合这个规则的链接.</p>
+<h5 id="exp-7"><a href="#exp-7" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">course_links = soup.find_all(<span class="string">&#x27;a&#x27;</span>, &#123;<span class="string">&#x27;href&#x27;</span>: re.<span class="built_in">compile</span>(<span class="string">&#x27;https://morvan.*&#x27;</span>)&#125;)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> course_links:</span><br><span class="line">    <span class="built_in">print</span>(link[<span class="string">&#x27;href&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<h4 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h4><p>获取网页的方式 :其实在加载网页的时候, 有几种类型, 而这几种类型就是你打开网页的关键. 最重要的类型 (method) 就是 get 和 post (当然还有其他的, 比如 head, delete). 刚接触网页构架的朋友可能又会觉得有点懵逼了. 这些请求的方式到底有什么不同? 他们又有什么作用?</p>
+<p>我们就来说两个重要的, get, post, 95% 的时间, 你都是在使用这两个来请求一个网页.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> post</span><br><span class="line">   <span class="number">1.</span> 账号登录</span><br><span class="line">   <span class="number">2.</span> 搜索内容</span><br><span class="line">   <span class="number">3.</span> 上传图片</span><br><span class="line">   <span class="number">4.</span> 上传文件</span><br><span class="line">   <span class="number">5.</span> 往服务器传数据 等</span><br><span class="line"><span class="number">2.</span> get</span><br><span class="line">   <span class="number">1.</span> 正常打开网页</span><br><span class="line">   <span class="number">2.</span> 不往服务器传数据</span><br></pre></td></tr></table></figure>
+
+<p>这样看来, 很多网页使用 get 就可以了, 比如 莫烦Python 里的所有页面, 都是只是 get 发送请求. 而 post, 我们则是给服务器发送个性化请求, 比如将你的账号密码传给服务器, 让它给你返回一个含有你个人信息的 HTML.</p>
+<p>从主动和被动的角度来说, post 中文是发送, 比较主动, 你控制了服务器返回的内容. 而 get 中文是取得, 是被动的, 你没有发送给服务器个性化的信息, 它不会根据你个性化的信息返回不一样的 HTML.</p>
+<h6 id="requests-get-请求"><a href="#requests-get-请求" class="headerlink" title="requests get 请求"></a>requests get 请求</h6><p>有了 requests, 我们可以发送个中 method 的请求. 比如 get. 我们想模拟一下百度的搜索. 首先我们需要观看一下百度搜索的规律. 在百度搜索框中写上 “莫烦python” 我们发现它弹出了一串这么长的网址.</p>
+<p>但是仔细一看, 和 “莫烦Python” 有关的信息, 只有前面一小段 (“s?wd&#x3D;莫烦python”), 其他的对我们来说都是无用的信息. 所以我们现在来尝试一下如果把后面的”无用” url 都去掉会怎样? Duang! 我们还是能搜到 “莫烦python”.</p>
+<p>所以 “s?wd&#x3D;莫烦python” 这就是我们搜索需要的关键信息. 我们就能用 <code>get</code> 来搭配一些自定义的搜索关键词来用 python 个性化搜索. 首先, 我们固定不动的网址部分是 “http://www.baidu.com/s”, <code>?</code> 后面的东西都是一些参数 (parameters), 所以我们将这些 parameters 用 python 的字典代替, 然后传入 requests.get() 功能. 然后我们还能用 python (webbrowser模块) 打开一个你的默认浏览器, 观看你是否在百度的搜索页面.</p>
+<h5 id="exp-8"><a href="#exp-8" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> webbrowser</span><br><span class="line">param = &#123;<span class="string">&quot;wd&quot;</span>: <span class="string">&quot;莫烦Python&quot;</span>&#125;  <span class="comment"># 搜索的信息</span></span><br><span class="line">r = requests.get(<span class="string">&#x27;http://www.baidu.com/s&#x27;</span>, params=param)</span><br><span class="line"><span class="built_in">print</span>(r.url)</span><br><span class="line">webbrowser.<span class="built_in">open</span>(r.url)</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/03/20/python_%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/" rel="prev" title="python_创建文件夹">
+                  <i class="fa fa-chevron-left"></i> python_创建文件夹
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/03/23/%E5%88%80%E7%89%87%E6%9D%90%E8%B4%A8%E5%AF%B9%E7%85%A7/" rel="next" title="刀片材质对照">
+                  刀片材质对照 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

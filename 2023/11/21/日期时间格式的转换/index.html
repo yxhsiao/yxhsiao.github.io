@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="12from datetime import date,timedelta,datetime,timeimport time  datetime 时间格式及转化 获取方式 datetime 模块 转化成字符串 x.strftime(format) x : 要转化的datetime时间 format : 转换成的字符串格式 如：%Y%m%d ,%Y-%m-%d ,%Y&#x2F;%m&#x2F;%d   转化成时间戳">
+<meta property="og:type" content="article">
+<meta property="og:title" content="日期时间格式的转换">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/11/21/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="12from datetime import date,timedelta,datetime,timeimport time  datetime 时间格式及转化 获取方式 datetime 模块 转化成字符串 x.strftime(format) x : 要转化的datetime时间 format : 转换成的字符串格式 如：%Y%m%d ,%Y-%m-%d ,%Y&#x2F;%m&#x2F;%d   转化成时间戳">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-21T06:45:12.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.660Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/11/21/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/11/21/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2/","path":"2023/11/21/日期时间格式的转换/","title":"日期时间格式的转换"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>日期时间格式的转换 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8F%8A%E8%BD%AC%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">datetime 时间格式及转化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#datetime-to-str"><span class="nav-number">1.1.</span> <span class="nav-text">datetime to str</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datetime-to-timestamp"><span class="nav-number">1.2.</span> <span class="nav-text">datetime to timestamp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timestamp-to-datetime"><span class="nav-number">1.3.</span> <span class="nav-text">timestamp to datetime</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%B6%E9%97%B4%E5%8F%8A%E8%BD%AC%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">str 字符串格式的时间及转化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#str-to-datetime"><span class="nav-number">2.1.</span> <span class="nav-text">str to datetime</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timestamp-%E6%97%B6%E9%97%B4%E6%88%B3%E6%97%B6%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">timestamp 时间戳时间的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#timestamp-to-str"><span class="nav-number">3.1.</span> <span class="nav-text">timestamp to str</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timestamp-to-datetime-1"><span class="nav-number">3.2.</span> <span class="nav-text">timestamp to datetime</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/11/21/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="日期时间格式的转换 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          日期时间格式的转换
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-21 14:45:12" itemprop="dateCreated datePublished" datetime="2023-11-21T14:45:12+08:00">2023-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date,timedelta,datetime,time</span><br><span class="line"><span class="keyword">import</span> time</span><br></pre></td></tr></table></figure>
+
+<h2 id="datetime-时间格式及转化"><a href="#datetime-时间格式及转化" class="headerlink" title="datetime 时间格式及转化"></a><code>datetime</code> 时间格式及转化</h2><ol>
+<li>获取方式 <code>datetime</code> 模块</li>
+<li>转化成字符串 <code>x.strftime(format)</code><ul>
+<li><code>x</code> : 要转化的datetime时间</li>
+<li><code>format</code> : 转换成的字符串格式 如：<code>%Y%m%d</code> ,<code>%Y-%m-%d</code> ,<code>%Y/%m/%d</code></li>
+</ul>
+</li>
+<li>转化成时间戳<ul>
+<li>需要导入 <code>time</code> 模块</li>
+<li><code>time.mktime(x.timetuple())</code> <ul>
+<li><code>time.mktime</code> 转换成时间戳的函数</li>
+<li><code>x</code> : 要转化的datetime时间</li>
+<li><code>timetuple()</code> 将 <code>datetime</code> 转换成时间元组</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dt1 = date.today()</span><br><span class="line">dt2 = datetime.now()</span><br><span class="line"></span><br><span class="line">dt1</span><br><span class="line">dt2</span><br></pre></td></tr></table></figure>
+
+
+<p>Output：</p>
+<pre><code>datetime.date(2023, 11, 21)
+
+datetime.datetime(2023, 11, 21, 14, 46, 43, 68528)
+</code></pre>
+<h3 id="datetime-to-str"><a href="#datetime-to-str" class="headerlink" title="datetime to str"></a><code>datetime</code> to <code>str</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dt1.strftime(<span class="string">&quot;%Y%m%d&quot;</span>)</span><br><span class="line">dt1.strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br><span class="line">dt1.strftime(<span class="string">&quot;%Y/%m/%d&quot;</span>)</span><br><span class="line"></span><br><span class="line">dt2.strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>Output：</p>
+<pre><code>&#39;20231121&#39;
+
+&#39;2023-11-21&#39;
+
+&#39;2023/11/21&#39;
+
+&#39;2023-11-21&#39;
+</code></pre>
+<h3 id="datetime-to-timestamp"><a href="#datetime-to-timestamp" class="headerlink" title="datetime to timestamp"></a><code>datetime</code> to <code>timestamp</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dt = datetime.now()</span><br><span class="line">dt.timetuple()</span><br><span class="line">st = time.mktime(dt.timetuple())</span><br><span class="line">st</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>Output：</p>
+<pre><code>time.struct_time(tm_year=2023, tm_mon=11, tm_mday=21, tm_hour=14, tm_min=46, tm_sec=43, tm_wday=1, tm_yday=325, tm_isdst=-1)
+
+1700549203.0
+</code></pre>
+<h3 id="timestamp-to-datetime"><a href="#timestamp-to-datetime" class="headerlink" title="timestamp to datetime"></a><code>timestamp</code> to <code>datetime</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dt = datetime.now()</span><br><span class="line">dt</span><br><span class="line">st = time.mktime(dt.timetuple())</span><br><span class="line">st</span><br><span class="line">date.fromtimestamp(st)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>Output：</p>
+<pre><code>datetime.datetime(2023, 11, 21, 14, 46, 43, 117266)
+
+1700549203.0
+
+datetime.date(2023, 11, 21)
+</code></pre>
+<h2 id="str-字符串格式的时间及转化"><a href="#str-字符串格式的时间及转化" class="headerlink" title="str 字符串格式的时间及转化"></a><code>str</code> 字符串格式的时间及转化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;20231111&#x27;</span></span><br><span class="line">str2 = <span class="string">&#x27;2023-11-11&#x27;</span></span><br><span class="line">str3 = <span class="string">&#x27;2023/11/11&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="str-to-datetime"><a href="#str-to-datetime" class="headerlink" title="str to datetime"></a><code>str</code> to <code>datetime</code></h3><ul>
+<li><code>datetime.strptime</code> 方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datetime.strptime(str1,<span class="string">&#x27;%Y%m%d&#x27;</span>)</span><br><span class="line">datetime.strptime(str2,<span class="string">&#x27;%Y-%m-%d&#x27;</span>)</span><br><span class="line">datetime.strptime(str3,<span class="string">&#x27;%Y/%m/%d&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Output：<br>    datetime.datetime(2023, 11, 11, 0, 0)</p>
+<pre><code>datetime.datetime(2023, 11, 11, 0, 0)
+
+datetime.datetime(2023, 11, 11, 0, 0)
+</code></pre>
+<ul>
+<li><code>dateutil</code> 模块的 <code>parser.parse(string)</code> 方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> dateutil <span class="keyword">import</span> parser</span><br><span class="line">parser.parse(str1)</span><br><span class="line">parser.parse(str2)</span><br><span class="line">parser.parse(str3)</span><br></pre></td></tr></table></figure>
+
+<p>Output：</p>
+<pre><code>datetime.datetime(2023, 11, 11, 0, 0)
+
+datetime.datetime(2023, 11, 11, 0, 0)
+
+datetime.datetime(2023, 11, 11, 0, 0)
+</code></pre>
+<ul>
+<li><code>pandas</code>模块的 <code>pd.to_datetime(str1)</code>方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.to_datetime(str1)</span><br><span class="line">pd.to_datetime(str2)</span><br><span class="line">pd.to_datetime(str3)</span><br></pre></td></tr></table></figure>
+
+<p>Output：</p>
+<pre><code>Timestamp(&#39;2023-11-11 00:00:00&#39;)
+
+Timestamp(&#39;2023-11-11 00:00:00&#39;)
+
+Timestamp(&#39;2023-11-11 00:00:00&#39;)
+</code></pre>
+<h2 id="timestamp-时间戳时间的转换"><a href="#timestamp-时间戳时间的转换" class="headerlink" title="timestamp 时间戳时间的转换"></a><code>timestamp</code> 时间戳时间的转换</h2><p>自1970年1月1日(00:00:00 GMT)以来的秒数</p>
+<ol>
+<li>生成方法 <ul>
+<li><code>time</code>模块</li>
+<li><code>time.time()</code> 生成当前时间的时间戳 </li>
+<li>时间戳的数据类型是浮点数</li>
+</ul>
+</li>
+<li>转换成<code>str</code> 格式的时间<ul>
+<li>分两步操作，先将时间戳转换成时间元组，然后转换<ul>
+<li><code>time.localtime(a)</code>  <code>a</code> : 要转换的时间戳</li>
+</ul>
+</li>
+<li>time.strftime(“%Y-%m-%d”,<code>time.localtime(a)</code>)<ul>
+<li><code>a</code> : 要转换的时间戳</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>转换成<code>datetime</code><ul>
+<li>转换成日期和时间 <code>datetime.fromtimestamp(a)</code><ul>
+<li><code>a</code> : 要转换的时间戳</li>
+</ul>
+</li>
+<li>转换成日期 <code>date.fromtimestamp(int(a))</code><ul>
+<li>先将时间戳的浮点数转换成整型  <code>int(a)</code></li>
+<li><code>a</code> : 要转换的时间戳</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = time.time()</span><br><span class="line">a</span><br><span class="line"><span class="built_in">type</span>(a)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Output：</p>
+<pre><code>1700549203.5535545
+
+float
+</code></pre>
+<h3 id="timestamp-to-str"><a href="#timestamp-to-str" class="headerlink" title="timestamp to str"></a><code>timestamp</code> to <code>str</code></h3><ul>
+<li><code>time.strftime(&quot;%Y-%m-%d&quot;,time.localtime(a))</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">b = time.localtime(a)</span><br><span class="line">b</span><br><span class="line"><span class="built_in">type</span>(b)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Output：</p>
+<pre><code>time.struct_time(tm_year=2023, tm_mon=11, tm_mday=21, tm_hour=14, tm_min=46, tm_sec=43, tm_wday=1, tm_yday=325, tm_isdst=0)
+
+time.struct_time
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c = time.strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>,b)</span><br><span class="line">c</span><br><span class="line"><span class="built_in">type</span>(c)</span><br></pre></td></tr></table></figure>
+<p>Output：</p>
+<pre><code>&#39;2023-11-21&#39;
+
+str
+</code></pre>
+<h3 id="timestamp-to-datetime-1"><a href="#timestamp-to-datetime-1" class="headerlink" title="timestamp to datetime"></a><code>timestamp</code> to <code>datetime</code></h3><ol>
+<li>转换成datetime<ul>
+<li><code>datetime.fromtimestamp(a)</code></li>
+</ul>
+</li>
+<li>转换成date<ul>
+<li><code>date.fromtimestamp(int(a))</code></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datetime.fromtimestamp(a)</span><br><span class="line">date.fromtimestamp(<span class="built_in">int</span>(a))</span><br></pre></td></tr></table></figure>
+
+<p>Output：</p>
+<pre><code>datetime.datetime(2023, 11, 21, 14, 46, 43, 553555)
+
+datetime.date(2023, 11, 21)
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/19/%E9%80%9A%E8%BE%BE%E4%BF%A1%E6%A8%A1%E5%9D%97/" rel="prev" title="通达信模块">
+                  <i class="fa fa-chevron-left"></i> 通达信模块
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/23/Creo%E4%B8%9D%E9%94%A5%E7%94%BB%E6%B3%95/" rel="next" title="Creo丝锥画法">
+                  Creo丝锥画法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

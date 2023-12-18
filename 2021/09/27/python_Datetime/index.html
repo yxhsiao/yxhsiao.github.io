@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Datetime模块导入模块 只导入模块名 使用模块的类时需要写的代码较长如：使用date类的today()方法就要写：datetime.date.today()  123456import datetimedatetime.date.today()datetime.date.today().isocalendar()datetime.datetime.now()datetime.datetime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python_Datetime模块的使用">
+<meta property="og:url" content="https://yxhsiao.github.io/2021/09/27/python_Datetime/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="Datetime模块导入模块 只导入模块名 使用模块的类时需要写的代码较长如：使用date类的today()方法就要写：datetime.date.today()  123456import datetimedatetime.date.today()datetime.date.today().isocalendar()datetime.datetime.now()datetime.datetime">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.636Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2021/09/27/python_Datetime/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2021/09/27/python_Datetime/","path":"2021/09/27/python_Datetime/","title":"python_Datetime模块的使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python_Datetime模块的使用 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Datetime%E6%A8%A1%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">Datetime模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97"><span class="nav-number">1.1.</span> <span class="nav-text">导入模块</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#exp"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">exp:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-1"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">exp:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97%E7%9A%84%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">导入模块的类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-2"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">exp:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exp-3"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">exp:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E4%B8%AD%E5%8C%85%E5%90%AB%E7%9A%84%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">模块中包含的类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#date%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">date类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#date%E5%AF%B9%E8%B1%A1%E6%9E%84%E6%88%90"><span class="nav-number">2.0.1.</span> <span class="nav-text">date对象构成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.1.</span> <span class="nav-text">常用类的方法和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">2.2.</span> <span class="nav-text">常用的方法和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E6%97%A5%E6%9C%9F"><span class="nav-number">2.3.</span> <span class="nav-text">最大最小日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E6%97%A5%E6%9C%9F%E5%8D%95%E4%BD%8D"><span class="nav-number">2.4.</span> <span class="nav-text">最小日期单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%97%B6%E9%97%B4%E6%88%B3%E8%BF%94%E5%9B%9Edate"><span class="nav-number">2.5.</span> <span class="nav-text">从时间戳返回date</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%B9%B4%E3%80%81%E6%9C%88%E3%80%81%E6%97%A5"><span class="nav-number">2.6.</span> <span class="nav-text">返回年、月、日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E5%B9%B4%E3%80%81%E6%9C%88%E3%80%81%E6%97%A5"><span class="nav-number">2.7.</span> <span class="nav-text">替换年、月、日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9Etime-struct-time%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.8.</span> <span class="nav-text">返回time.struct_time类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%85%83%E5%B9%B4%E8%87%B3%E4%BB%8A%E7%9A%84%E5%A4%A9%E6%95%B0"><span class="nav-number">2.9.</span> <span class="nav-text">返回元年至今的天数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%91%A8%E4%B8%80%E4%B8%BA0%E7%9A%84%E6%98%9F%E6%9C%9F"><span class="nav-number">2.10.</span> <span class="nav-text">返回周一为0的星期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%91%A8%E4%B8%80%E4%B8%BA1%E7%9A%84%E6%98%9F%E6%9C%9F"><span class="nav-number">2.11.</span> <span class="nav-text">返回周一为1的星期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%A0%87%E5%87%86%E6%97%A5%E5%8E%86"><span class="nav-number">2.12.</span> <span class="nav-text">返回标准日历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E-YYYY-MM-DD-%E7%9A%84%E6%97%A5%E6%9C%9F%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">2.13.</span> <span class="nav-text">返回 (YYYY-MM-DD) 的日期字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%8C%87%E5%AE%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.14.</span> <span class="nav-text">返回指定的字符串日期格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#time%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">time类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.1.</span> <span class="nav-text">常用类的方法和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text">常用的方法和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E6%97%B6%E9%97%B4"><span class="nav-number">3.3.</span> <span class="nav-text">最大最小时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E6%97%B6%E9%97%B4%E5%8D%95%E4%BD%8D"><span class="nav-number">3.4.</span> <span class="nav-text">最小时间单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%8C%87%E5%AE%9A%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.5.</span> <span class="nav-text">返回指定的字符串时间格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%A0%87%E5%87%86%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.6.</span> <span class="nav-text">返回标准的字符串格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datetime%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">datetime类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.1.</span> <span class="nav-text">常用类的方法和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">4.2.</span> <span class="nav-text">常用的方法和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%BD%93%E5%89%8D%E6%97%B6%E5%88%BB"><span class="nav-number">4.3.</span> <span class="nav-text">返回当前时刻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%97%A5%E6%9C%9Fdate"><span class="nav-number">4.4.</span> <span class="nav-text">返回日期date</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E6%97%B6%E9%97%B4time"><span class="nav-number">4.5.</span> <span class="nav-text">返回时间time</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9EUTC%E6%97%B6%E9%97%B4%E5%85%83%E7%BB%84"><span class="nav-number">4.6.</span> <span class="nav-text">返回UTC时间元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86date%E5%AF%B9%E8%B1%A1%E5%92%8Ctime%E5%AF%B9%E8%B1%A1%E5%90%88%E5%B9%B6"><span class="nav-number">4.7.</span> <span class="nav-text">将date对象和time对象合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%BD%93%E5%89%8D%E6%97%B6%E5%88%BB%E7%9A%84UTC"><span class="nav-number">4.8.</span> <span class="nav-text">返回当前时刻的UTC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%94%E5%9B%9Edatetime"><span class="nav-number">4.9.</span> <span class="nav-text">根据字符串返回datetime</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timedelta%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">timedelta类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">5.1.</span> <span class="nav-text">常用类的方法和属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E4%B8%8A%E4%B8%AA%E6%9C%88%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E5%92%8C%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%9A%84%E6%97%A5%E6%9C%9F"><span class="nav-number">5.2.</span> <span class="nav-text">计算上个月的最后一天和第一天的日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E4%B8%8A%E5%91%A8%E4%B8%80%E5%92%8C%E5%91%A8%E6%97%A5%E7%9A%84%E6%97%A5%E6%9C%9F"><span class="nav-number">5.3.</span> <span class="nav-text">计算上周一和周日的日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%8C%87%E5%AE%9A%E6%97%A5%E6%9C%9F%E5%BD%93%E6%9C%88%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9%E7%9A%84%E6%97%A5%E6%9C%9F%E5%92%8C%E6%9C%AC%E6%9C%88%E5%A4%A9%E6%95%B0"><span class="nav-number">5.4.</span> <span class="nav-text">计算指定日期当月最后一天的日期和本月天数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%8C%87%E5%AE%9A%E6%97%A5%E6%9C%9F%E4%B8%8B%E4%B8%AA%E6%9C%88%E5%BD%93%E5%A4%A9%E7%9A%84%E6%97%A5%E6%9C%9F"><span class="nav-number">5.5.</span> <span class="nav-text">计算指定日期下个月当天的日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E6%9C%AC%E5%91%A8%E4%B8%80%E8%87%B3%E4%BB%8A%E5%A4%A9%E7%9A%84%E6%97%B6%E9%97%B4%E6%AE%B5%E5%B9%B6%E8%8E%B7%E5%BE%97%E4%B8%8A%E5%91%A8%E5%AF%B9%E5%BA%94%E5%90%8C%E4%B8%80%E6%97%B6%E9%97%B4%E6%AE%B5"><span class="nav-number">5.6.</span> <span class="nav-text">获得本周一至今天的时间段并获得上周对应同一时间段</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BE%93%E5%87%BA"><span class="nav-number">6.</span> <span class="nav-text">日期的字符串输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">6.1.</span> <span class="nav-text">python中的日期时间格式化</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2021/09/27/python_Datetime/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python_Datetime模块的使用 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python_Datetime模块的使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-27T00:00:00+08:00">2021-09-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="Datetime模块"><a href="#Datetime模块" class="headerlink" title="Datetime模块"></a>Datetime模块</h2><h3 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h3><ul>
+<li>只导入模块名</li>
+<li>使用模块的类时需要写的代码较长如：使用<code>date</code>类的<code>today()</code>方法就要写：<code>datetime.date.today()</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">datetime.date.today()</span><br><span class="line">datetime.date.today().isocalendar()</span><br><span class="line">datetime.datetime.now()</span><br><span class="line">datetime.datetime.now().isoformat()</span><br></pre></td></tr></table></figure>
+
+<h5 id="exp"><a href="#exp" class="headerlink" title="exp:"></a>exp:</h5><pre><code>datetime.date(2021, 8, 4)
+</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">IsoCalendarDate</span>(year=<span class="number">2021</span>, week=<span class="number">31</span>, weekday=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="exp-1"><a href="#exp-1" class="headerlink" title="exp:"></a>exp:</h5><pre><code>datetime.datetime(2021, 8, 4, 1, 21, 54, 884090
+
+
+&#39;2021-08-04T01:21:54.885103&#39;
+</code></pre>
+<h3 id="导入模块的类"><a href="#导入模块的类" class="headerlink" title="导入模块的类"></a>导入模块的类</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 这样可以省略模块名</span><br><span class="line">- `from datetime <span class="keyword">import</span> date` # 导入datetime的date类</span><br><span class="line">- `from datetime <span class="keyword">import</span> date, time, datetime,timedelta` # 一次导入datetime的多个常用类</span><br></pre></td></tr></table></figure>
+
+<h5 id="exp-2"><a href="#exp-2" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date, time, datetime, timedelta</span><br><span class="line"></span><br><span class="line">date.today()</span><br><span class="line">date.today().isocalendar()</span><br><span class="line">datetime.now()</span><br><span class="line">datetime.now().isoformat()</span><br></pre></td></tr></table></figure>
+
+<h5 id="exp-3"><a href="#exp-3" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">datetime.date(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">4</span>)</span><br><span class="line">datetime.IsoCalendarDate(year=<span class="number">2021</span>, week=<span class="number">31</span>, weekday=<span class="number">3</span>)</span><br><span class="line">datetime.datetime(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">21</span>, <span class="number">54</span>, <span class="number">904688</span>)</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>&#39;2021-08-04T01:21:54.904688&#39;
+</code></pre>
+<h3 id="模块中包含的类"><a href="#模块中包含的类" class="headerlink" title="模块中包含的类"></a>模块中包含的类</h3><table><tr><th><span>类名</span></th><th><span>功能说明</span></th></tr><tbody><tr><td><span>date</span></td><td><span>日期对象,常用的属性有year, month, day</span></td></tr><tr><td><span>time</span></td><td><span>时间对象</span></td></tr><tr><td><span>datetime</span></td><td><span>日期时间对象,常用的属性有hour, minute, second, microsecond</span></td></tr><tr><td><span>datetime_CAPI</span></td><td><span>日期时间对象C语言接口</span></td></tr><tr><td><span>timedelta</span></td><td><span>时间间隔，即两个时间点之间的长度</span></td></tr><tr><td><span>tzinfo</span></td><td><span>时区信息对象</span></td></tr></tbody></table>
+
+<h2 id="date类"><a href="#date类" class="headerlink" title="date类"></a>date类</h2><h4 id="date对象构成"><a href="#date对象构成" class="headerlink" title="date对象构成"></a>date对象构成</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- date对象由year年份、month月份及day日期三部分构成：</span><br><span class="line">- `datetime.<span class="built_in">date</span>(self, /, *args, **kwargs)`</span><br><span class="line">- 返回日期对象元组（year，month，day)</span><br><span class="line">- 通过`.year`,`. month`,`.day` 分别获取年月日</span><br></pre></td></tr></table></figure>
+
+
+<h3>常用类的方法和属性</h3>
+<table>
+    <tr>
+        <td>date.max</td>
+        <td>对象所能表示的最大日期（9999-12-31</td></tr>
+    <tr>
+        <td><span>date.min</span></td>
+        <td><span>对象所能表示的最小日期（0001-01-01）</span></td></tr>
+    <tr><td><span>date.today()</span></td><td><span>返回一个表示当前本地时间的date对象</span></td></tr><tr><td><span>date.resolution</span></td><td><span>date对象表示日期的最小单位（天）</span></td></tr><tr><td><span>date.fromtimestamp(timestamp)</span></td><td><span>根据给定的时间戳，返回一个date对象</span></td></tr></table>
+<h3>常用的方法和属性</h3>    
+<table>
+<tr><td><span>d.year</span></td><td><span>年</span></td></tr>
+<tr><td><span>d.month</span></td><td><span>月</span></td></tr>
+<tr><td><span>d.day</span></td><td><span>日</span></td></tr>
+<tr><td><span>d.replace(year[,month[,day]])</span></td><td><span>生成并返回一个新的日期对象，原日期对象不变</span></td></tr>
+<tr><td><span>d.timetuple()</span></td><td><span>返回日期对应的时间元组（time.struct_time）对象</span></td></tr>
+<tr><td><span>d.toordinal()</span></td><td><span>返回日期是自0001-01-01开始的第多少天</span></td></tr>
+<tr><td><span>d.weekday()</span></td><td><span>返回日期是星期几，[0,6],0表示星期一，1表示星期二</span></td></tr>
+<tr><td><span>d.isoweekday()</span></td><td><span>返回日期是星期几，[1,7],1表示星期一，2表示星期二</span></td></tr><tr><td><span>d.isocalendar()</span></td><td><span>返回格式为（year，weekday，isoweekday）的元组</span></td></tr><tr><td><span>d.isoformat()</span></td><td><span>返回‘YYYY-MM-DD’格式的日期字符串</span></td></tr>
+<tr><td><span>d.strftime()</span></td><td><span>自定义格式化字符串（和time模块的strftime()方法相同）</span></td></tr></table>
+### 返回当前日期
+
+<p><strong>exp</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回当前日期</span></span><br><span class="line"></span><br><span class="line">d = date.today()</span><br><span class="line"></span><br><span class="line">d, d.year, d.month, d.day</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>(datetime.date(2021, 8, 4), 2021, 8, 4)
+</code></pre>
+<h3 id="最大最小日期"><a href="#最大最小日期" class="headerlink" title="最大最小日期"></a>最大最小日期</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># date类能表示的最大/最小的年、月、日的数值</span></span><br><span class="line"></span><br><span class="line">date.<span class="built_in">max</span>, date.<span class="built_in">min</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>(datetime.date(9999, 12, 31), datetime.date(1, 1, 1))
+</code></pre>
+<h3 id="最小日期单位"><a href="#最小日期单位" class="headerlink" title="最小日期单位"></a>最小日期单位</h3><p><strong>exp</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># date对象表示日期的最小单位。这里是天</span></span><br><span class="line"></span><br><span class="line">date.resolution</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>datetime.timedelta(days=1)
+</code></pre>
+<h3 id="从时间戳返回date"><a href="#从时间戳返回date" class="headerlink" title="从时间戳返回date"></a>从时间戳返回date</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据给定的时间戮，返回一个date对象</span></span><br><span class="line"><span class="comment"># datetime.date.fromtimestamp()传入的是时间戳，需要用time模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import time</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># date.fromtimestamp(time.time()).month</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回年、月、日"><a href="#返回年、月、日" class="headerlink" title="返回年、月、日"></a>返回年、月、日</h3><p><strong>exp</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .year,.month,.day属性</span></span><br><span class="line"></span><br><span class="line">date.today().year</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>2021
+</code></pre>
+<h3 id="替换年、月、日"><a href="#替换年、月、日" class="headerlink" title="替换年、月、日"></a>替换年、月、日</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .replace属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换年份</span></span><br><span class="line">date.today().replace(year=<span class="number">2019</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换日期</span></span><br><span class="line">date.today().replace(day=<span class="number">23</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">date</span>(<span class="number">2019</span>, <span class="number">8</span>, <span class="number">4</span>)</span><br><span class="line">datetime.<span class="built_in">date</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">23</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="返回time-struct-time类型"><a href="#返回time-struct-time类型" class="headerlink" title="返回time.struct_time类型"></a>返回time.struct_time类型</h3><p><strong>exp</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 该方法为了兼容time.localtime(...)返回一个类型为time.struct_time的数组，但有关时间的部分元素值为0：</span></span><br><span class="line">date.today().timetuple()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time.<span class="built_in">struct_time</span>(tm_year=<span class="number">2021</span>, tm_mon=<span class="number">8</span>, tm_mday=<span class="number">4</span>, tm_hour=<span class="number">0</span>, tm_min=<span class="number">0</span>, tm_sec=<span class="number">0</span>, tm_wday=<span class="number">2</span>, tm_yday=<span class="number">216</span>, tm_isdst=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回元年至今的天数"><a href="#返回元年至今的天数" class="headerlink" title="返回元年至今的天数"></a>返回元年至今的天数</h3><p><strong>exp</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回公元公历开始到现在的天数。公元1年1月1日为1</span></span><br><span class="line"></span><br><span class="line">date.today().toordinal()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">738006</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回周一为0的星期"><a href="#返回周一为0的星期" class="headerlink" title="返回周一为0的星期"></a>返回周一为0的星期</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回指定日期所在的星期数（周一为0…周日为6)</span></span><br><span class="line"></span><br><span class="line">date.today().weekday()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回周一为1的星期"><a href="#返回周一为1的星期" class="headerlink" title="返回周一为1的星期"></a>返回周一为1的星期</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回符合ISO标准的指定日期所在的星期数（周一为1…周日为7)</span></span><br><span class="line"></span><br><span class="line">date.today().isoweekday()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回标准日历"><a href="#返回标准日历" class="headerlink" title="返回标准日历"></a>返回标准日历</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回一个包含三个值的元组，三个值依次为：year年份，week number周数，weekday星期数（周一为1…周日为7)：</span></span><br><span class="line"></span><br><span class="line">date.today().isocalendar()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">IsoCalendarDate</span>(year=<span class="number">2021</span>, week=<span class="number">31</span>, weekday=<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回-YYYY-MM-DD-的日期字符串"><a href="#返回-YYYY-MM-DD-的日期字符串" class="headerlink" title="返回 (YYYY-MM-DD) 的日期字符串"></a>返回 (YYYY-MM-DD) 的日期字符串</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#返回符合ISO 8601标准 (YYYY-MM-DD) 的日期字符串</span></span><br><span class="line"></span><br><span class="line">date.today().isoformat()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;2021-08-04&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回指定的字符串日期格式"><a href="#返回指定的字符串日期格式" class="headerlink" title="返回指定的字符串日期格式"></a>返回指定的字符串日期格式</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date.today().strftime(<span class="string">&#x27;%Y-%m-%d-%a-%A-%W&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;2021-08-04-Wed-Wednesday-31&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="time类"><a href="#time类" class="headerlink" title="time类"></a>time类</h2><ul>
+<li><p>time类和time模块各自独立</p>
+</li>
+<li><p><code>datetime.time(hour[,minute[,decond[,microsecond[,tzinfo]]]])</code></p>
+</li>
+</ul>
+<h3>常用类的方法和属性</h3>
+<table><tr>time.max表示的最大时间</tr><tr><td>time.min</td><td>表示的最小时间</td></tr><tr><td>time.resolution</td><td>时间的最小单位，这里是1微秒</td></tr></table>
+
+<h3>常用的方法和属性</h3>
+<table><tr>t.hour时</tr><tbody><tr><td>t.minute</td><td>分</td></tr><tr><td>t.second</td><td>秒</td></tr><tr><td>t.microsecond</td><td>微秒</td></tr><tr><td>t.tzinfo</td><td>时区信息</td></tr><tr><td>t.replace()</td><td>用参数指定替代（时，分，秒，微秒，时区）对象，生成并返回新的对象</td></tr><tr><td>t.isoformat()</td><td>返回&#39;HH:MM:SS&#39;格式字符串</td></tr><tr><td>t.strftime()</td><td>返回自定义格式化字符串</td></tr></tbody></table>
+
+<h3 id="最大最小时间"><a href="#最大最小时间" class="headerlink" title="最大最小时间"></a>最大最小时间</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time.<span class="built_in">max</span>,time.<span class="built_in">min</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(datetime.<span class="built_in">time</span>(<span class="number">23</span>, <span class="number">59</span>, <span class="number">59</span>, <span class="number">999999</span>), datetime.<span class="built_in">time</span>(<span class="number">0</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="最小时间单位"><a href="#最小时间单位" class="headerlink" title="最小时间单位"></a>最小时间单位</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time.resolution</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">timedelta</span>(microseconds=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回指定的字符串时间格式"><a href="#返回指定的字符串时间格式" class="headerlink" title="返回指定的字符串时间格式"></a>返回指定的字符串时间格式</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time(<span class="number">23</span>, <span class="number">57</span>, <span class="number">34</span>, <span class="number">345</span>).strftime(<span class="string">&quot;%H:%M:%S&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;23:57:34&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回标准的字符串格式"><a href="#返回标准的字符串格式" class="headerlink" title="返回标准的字符串格式"></a>返回标准的字符串格式</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time(<span class="number">23</span>, <span class="number">57</span>, <span class="number">34</span>, <span class="number">345</span>).isoformat()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;23:57:34.000345&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="datetime类"><a href="#datetime类" class="headerlink" title="datetime类"></a>datetime类</h2><ul>
+<li><p>相当于date和time结合起来</p>
+</li>
+<li><p><code>datetime.datetime(year,month,day[,hour[,minute[,second[,microsecond[,tzinfo]]]]])</code></p>
+</li>
+</ul>
+<h3>常用类的方法和属性</h3>
+<table><tr><td>datetime.max</td><td>最大日期</td></tr><tbody><tr><td>datetime.min</td><td>最小日期</td></tr><tr><td>datetime.resolution</td><td>datetime对象所表示日期的最小单位，1微秒</td></tr><tr><td>datetime.today()</td><td>返回当前本地时间</td></tr><tr><td>datetime.now([tz])</td><td>返回当前本地时间，如果指定tz，则返回tz时区当地时间</td></tr><tr><td>datetime.fromtimestamp(timestamp[,tz])</td><td>根据给定的时间戳返回datetime对象，如果指定tz,则返回tz时区datetime对象</td></tr><tr><td>datetime.utcfromtimestamp(timestamp)</td><td>根据时间戳创建一个datetime对象</td></tr></tbody></table>
+
+<h3>常用的方法和属性</h3>
+<table><tr><td>dt.year</td><td>年</td></tr><tbody><tr><td>dt.month</td><td>月</td></tr><tr><td>dt.day</td><td>日</td></tr><tr><td>dt.hour</td><td>时</td></tr><tr><td>dt.minute</td><td>分</td></tr><tr><td>dt.second  秒</td><td>&nbsp;</td></tr><tr><td>dt.microsecond</td><td>微妙</td></tr><tr><td>dt.tzinfo</td><td>时区信息</td></tr><tr><td>dt.date()</td><td>获取dt的date对象</td></tr><tr><td>dt.time()</td><td>获取dt的time对象，tzinfo为none</td></tr><tr><td>dt.timetz()</td><td>获取dt的time对象，tzinfo为与datetime的tzinfo相同</td></tr><tr><td>dt.replace()</td><td>指定参数替代（年，月，日，时，分，秒，微妙，时区），生成并返回新对象</td></tr><tr><td>dt.utctimetuple()</td><td>返回UTC时间对应的时间元组（不包括tzinfo）</td></tr><tr><td>dt.timestamp()</td><td>返回dt对象对应的时间戳</td></tr><tr><td>dt.toordinal()</td><td>返回日期是是自0001-01-01开始的第多少天（与date类相同）</td></tr><tr><td>dt.weekday()</td><td>返回日期是星期几，[1,7],1表示星期一（与date类相同）</td></tr><tr><td>dt.isocalendar()</td><td>返回格式如（year，month，day）的时间元组（与date类相同）</td></tr><tr><td>dt.ctime()</td><td>等价与time模块的time.ctime（time.mktime(d.timetuple())）</td></tr><tr><td>dt.strftime()</td><td>返回指定格式的时间字符串</td></tr></tbody></table>
+
+<h3 id="返回当前时刻"><a href="#返回当前时刻" class="headerlink" title="返回当前时刻"></a>返回当前时刻</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.now()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">21</span>, <span class="number">55</span>, <span class="number">184731</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回日期date"><a href="#返回日期date" class="headerlink" title="返回日期date"></a>返回日期date</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.now().date()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">date</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回时间time"><a href="#返回时间time" class="headerlink" title="返回时间time"></a>返回时间time</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.now().time()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">time</span>(<span class="number">1</span>, <span class="number">21</span>, <span class="number">55</span>, <span class="number">216736</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回UTC时间元组"><a href="#返回UTC时间元组" class="headerlink" title="返回UTC时间元组"></a>返回UTC时间元组</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.now().utctimetuple()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time.<span class="built_in">struct_time</span>(tm_year=<span class="number">2021</span>, tm_mon=<span class="number">8</span>, tm_mday=<span class="number">4</span>, tm_hour=<span class="number">1</span>, tm_min=<span class="number">21</span>, tm_sec=<span class="number">55</span>, tm_wday=<span class="number">2</span>, tm_yday=<span class="number">216</span>, tm_isdst=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="将date对象和time对象合并"><a href="#将date对象和time对象合并" class="headerlink" title="将date对象和time对象合并"></a>将date对象和time对象合并</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=datetime.now()</span><br><span class="line">d=a.date()</span><br><span class="line">t=a.time()</span><br><span class="line"></span><br><span class="line">datetime.combine(d,t)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">21</span>, <span class="number">55</span>, <span class="number">248728</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回当前时刻的UTC"><a href="#返回当前时刻的UTC" class="headerlink" title="返回当前时刻的UTC"></a>返回当前时刻的UTC</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datetime.utcnow()</span><br><span class="line">datetime.now()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">17</span>, <span class="number">21</span>, <span class="number">55</span>, <span class="number">264729</span>)</span><br><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">21</span>, <span class="number">55</span>, <span class="number">264729</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="根据字符串返回datetime"><a href="#根据字符串返回datetime" class="headerlink" title="根据字符串返回datetime"></a>根据字符串返回datetime</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.strptime(<span class="string">&quot;2021-07-31 23:45&quot;</span>,<span class="string">&quot;%Y-%m-%d %H:%M&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">7</span>, <span class="number">31</span>, <span class="number">23</span>, <span class="number">45</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="timedelta类"><a href="#timedelta类" class="headerlink" title="timedelta类"></a>timedelta类</h2><ul>
+<li><p>时间加减（代表了两个datetime之间的时间差）</p>
+</li>
+<li><p><code>datetime.timedalta(days=0,seconds=0,microseconds=0,milliseconds=0,minutes=0 ,hours=0,weeks=0)</code></p>
+</li>
+<li><p>在日期上做天，小时，分钟，秒，毫秒，微秒,周 的时间计算</p>
+<ul>
+<li><p>1毫秒转换为1000微秒</p>
+</li>
+<li><p>1分钟转换为60秒</p>
+</li>
+<li><p>1小时转换为3600秒</p>
+</li>
+<li><p>1周转换为7天</p>
+</li>
+</ul>
+</li>
+<li><p>其中，timedelta内部只存储 days,seconds,microseconds</p>
+</li>
+</ul>
+<h3>常用类的方法和属性</h3>
+<table>
+    <tr>
+        <td>td.days</td><td>天（范围[-999999999，999999999]）</td>
+    </tr>
+    <tr>
+        <td>td.seconds</td><td>秒（范围[0,86399]）</td>
+    </tr>
+    <tr>
+        <td>td.microseconds</td><td>微秒（范围[0,999999]）</td>
+    </tr>
+    <tr>
+        <td>td.total_seconds()</td><td>以秒为单位返回该时间差</td>
+    </tr>
+</table>
+### 时间的加减
+
+<p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">start_time = datetime.now()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定天数：days=？ 默认天，可以省略</span></span><br><span class="line"><span class="comment"># 指定小时：hours=?</span></span><br><span class="line"><span class="comment"># 指定分钟：minutes=?</span></span><br><span class="line"><span class="comment"># 指定秒钟：seconds=？</span></span><br><span class="line"><span class="comment"># 指定微秒：microseconds=？</span></span><br><span class="line"><span class="comment"># 指定星期：weeks=？</span></span><br><span class="line"></span><br><span class="line">end1=start_time + timedelta(<span class="number">1</span>)</span><br><span class="line">end1</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">21</span>, <span class="number">55</span>, <span class="number">296744</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start_time + timedelta(hours=<span class="number">16</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">17</span>, <span class="number">21</span>, <span class="number">55</span>, <span class="number">296744</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start_time + timedelta(hours=<span class="number">16</span>,minutes=<span class="number">35</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">17</span>, <span class="number">56</span>, <span class="number">55</span>, <span class="number">296744</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start_time + timedelta(hours=<span class="number">16</span>,seconds=<span class="number">40</span>,weeks=<span class="number">2</span>,days=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">19</span>, <span class="number">17</span>, <span class="number">22</span>, <span class="number">35</span>, <span class="number">296744</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="计算上个月的最后一天和第一天的日期"><a href="#计算上个月的最后一天和第一天的日期" class="headerlink" title="计算上个月的最后一天和第一天的日期"></a>计算上个月的最后一天和第一天的日期</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算上个月的最后一天和第一天的日期</span></span><br><span class="line"></span><br><span class="line">td = date.today()  <span class="comment"># 获取当前日期</span></span><br><span class="line">a = datetime(td.year, td.month, <span class="number">1</span>)  <span class="comment"># 获取本月的第一天</span></span><br><span class="line">x = a + timedelta(days=-<span class="number">1</span>)</span><br><span class="line">x</span><br><span class="line"></span><br><span class="line">y = datetime(x.year, x.month, <span class="number">1</span>)</span><br><span class="line">y</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">7</span>, <span class="number">31</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">datetime.<span class="built_in">datetime</span>(<span class="number">2021</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="计算上周一和周日的日期"><a href="#计算上周一和周日的日期" class="headerlink" title="计算上周一和周日的日期"></a>计算上周一和周日的日期</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">w = date.today().isoweekday()</span><br><span class="line">d1=date.today()-timedelta(w+<span class="number">6</span>)</span><br><span class="line">d7=date.today()-timedelta(w)</span><br><span class="line">d1,d7</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(datetime.<span class="built_in">date</span>(<span class="number">2021</span>, <span class="number">7</span>, <span class="number">26</span>), datetime.<span class="built_in">date</span>(<span class="number">2021</span>, <span class="number">8</span>, <span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="计算指定日期当月最后一天的日期和本月天数"><a href="#计算指定日期当月最后一天的日期和本月天数" class="headerlink" title="计算指定日期当月最后一天的日期和本月天数"></a>计算指定日期当月最后一天的日期和本月天数</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;1978-9-2&quot;</span></span><br><span class="line">d = datetime.strptime(a, <span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br><span class="line">d1 = datetime(d.year, d.month + <span class="number">1</span>, <span class="number">1</span>) - timedelta(<span class="number">1</span>)</span><br><span class="line">d1.strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>), d1.day</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="string">&#x27;1978-09-30&#x27;</span>, <span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="计算指定日期下个月当天的日期"><a href="#计算指定日期下个月当天的日期" class="headerlink" title="计算指定日期下个月当天的日期"></a>计算指定日期下个月当天的日期</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;2002-1-9&quot;</span></span><br><span class="line">d = datetime.strptime(a, <span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br><span class="line">d1 = datetime(d.year, d.month + <span class="number">1</span>, d.day)</span><br><span class="line">d1.strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;2002-02-09&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="获得本周一至今天的时间段并获得上周对应同一时间段"><a href="#获得本周一至今天的时间段并获得上周对应同一时间段" class="headerlink" title="获得本周一至今天的时间段并获得上周对应同一时间段"></a>获得本周一至今天的时间段并获得上周对应同一时间段</h3><p><strong>exp:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">td=date.today().isoweekday()</span><br><span class="line">d1=date.today()-timedelta(td-<span class="number">1</span>)</span><br><span class="line">[d1.isoformat(),date.today().isoformat(),]</span><br><span class="line">[(d1-timedelta(weeks=<span class="number">1</span>)).isoformat(),(date.today()-timedelta(weeks=<span class="number">1</span>)).isoformat()]</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;2021-08-02&#x27;</span>, <span class="string">&#x27;2021-08-04&#x27;</span>]</span><br><span class="line">[<span class="string">&#x27;2021-07-26&#x27;</span>, <span class="string">&#x27;2021-07-28&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="日期的字符串输出"><a href="#日期的字符串输出" class="headerlink" title="日期的字符串输出"></a>日期的字符串输出</h2><h3>python中的日期时间格式化</h3>
+<table><tr><td>符号</td><td>说明</td></tr>
+<tr><td>%y</td><td>两位数的年份表示（00-99）</td></tr>
+<tr><td>%Y</td><td>四位数的年份表示（000-9999）</td></tr><tr><td>%m</td><td>月份（01-12）</td></tr><tr><td>%d</td><td>月内中的一天（0-31）</td></tr><tr><td>%H</td><td>24小时制小时数（0-23）</td></tr><tr><td>%I</td><td>12小时制小时数（01-12）</td></tr><tr><td>%M</td><td>分钟数（00=59）</td></tr><tr><td>%S</td><td>秒（00-59）</td></tr><tr><td>%a</td><td>本地简化星期名称</td></tr><tr><td>%A</td><td>本地完整星期名称</td></tr><tr><td>%b</td><td>本地简化的月份名称</td></tr><tr><td>%B</td><td>本地完整的月份名称</td></tr><tr><td>%c</td><td>本地相应的日期表示和时间表示</td></tr><tr><td>%j</td><td>年内的一天（001-366）</td></tr><tr><td>%p</td><td>本地A.M.或P.M.的等价符</td></tr><tr><td>%U</td><td>一年中的星期数（00-53）星期天为星期的开始</td></tr><tr><td>%w</td><td>星期（0-6），星期天为星期的开始</td></tr><tr><td>%W</td><td>一年中的星期数（00-53）星期一为星期的开始</td></tr><tr><td>%x</td><td>本地相应的日期表示</td></tr><tr><td>%X</td><td>本地相应的时间表示</td></tr><tr><td>%Z</td><td>当前时区的名称</td></tr><tr><td>%%</td><td>%号本身</td></tr></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/03/23/python-str/" rel="prev" title="python-str">
+                  <i class="fa fa-chevron-left"></i> python-str
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/11/17/%E8%BF%9E%E6%9D%865ay/" rel="next" title="连杆5ay">
+                  连杆5ay <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

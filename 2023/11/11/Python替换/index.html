@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="字符串的替换 replace 函数语法：  string.replace(old,new,count) string：要替换的字符串 old: （必选，字符串类型）被替换的字符串 new: （必选，字符串类型）替换后的字符串 count: （可选，整型）替换的次数   str.replace(string,old,new,count) old: （必选，字符串类型）被替换的字符串 new: （必选">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python替换">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/11/11/Python%E6%9B%BF%E6%8D%A2/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="字符串的替换 replace 函数语法：  string.replace(old,new,count) string：要替换的字符串 old: （必选，字符串类型）被替换的字符串 new: （必选，字符串类型）替换后的字符串 count: （可选，整型）替换的次数   str.replace(string,old,new,count) old: （必选，字符串类型）被替换的字符串 new: （必选">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-10T16:20:33.000Z">
+<meta property="article:modified_time" content="2023-12-17T16:30:19.643Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/11/11/Python%E6%9B%BF%E6%8D%A2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/11/11/Python%E6%9B%BF%E6%8D%A2/","path":"2023/11/11/Python替换/","title":"Python替换"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python替换 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9B%BF%E6%8D%A2-replace-%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">字符串的替换 replace 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9B%BF%E6%8D%A2-re-sub"><span class="nav-number">2.</span> <span class="nav-text">字符串的替换 re.sub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataFrme-%E7%9A%84%E5%80%BC%E6%9B%BF%E6%8D%A2"><span class="nav-number">3.</span> <span class="nav-text">DataFrme 的值替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loc%E6%96%B9%E6%B3%95%E6%9B%BF%E6%8D%A2%E5%88%97%E7%9A%84%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">loc方法替换列的值</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/11/11/Python%E6%9B%BF%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python替换 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python替换
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-11 00:20:33" itemprop="dateCreated datePublished" datetime="2023-11-11T00:20:33+08:00">2023-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="字符串的替换-replace-函数"><a href="#字符串的替换-replace-函数" class="headerlink" title="字符串的替换 replace 函数"></a>字符串的替换 replace 函数</h3><p>语法：</p>
+<ol>
+<li><code>string.replace(old,new,count)</code><ul>
+<li>string：要替换的字符串</li>
+<li>old: （必选，字符串类型）被替换的字符串</li>
+<li>new: （必选，字符串类型）替换后的字符串</li>
+<li>count: （可选，整型）替换的次数</li>
+</ul>
+</li>
+<li><code>str.replace(string,old,new,count)</code><ul>
+<li>old: （必选，字符串类型）被替换的字符串</li>
+<li>new: （必选，字符串类型）替换后的字符串</li>
+<li>count: （可选，整型）替换的次数</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要做替换的字符串</span></span><br><span class="line">a = <span class="string">&#x27;2023-11-10&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换方式1</span></span><br><span class="line">a.replace(<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换次数 例如只替换 1 次</span></span><br><span class="line">a.replace(<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定替换次数为负数，则会全部替换.但是必须是整型int</span></span><br><span class="line">a.replace(<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#x27;</span>,-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#39;20231110&#39;
+
+&#39;202311-10&#39;
+
+&#39;20231110&#39;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 替换方式2</span></span><br><span class="line"><span class="built_in">str</span>.replace(a,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># replace() 不会改变原字符串的内容，而是返回一个新的字符串</span></span><br><span class="line">a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连续替换</span></span><br><span class="line">b =<span class="string">&#x27;I Love python&#x27;</span></span><br><span class="line">b.replace(<span class="string">&#x27;python&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>).replace(<span class="string">&#x27;I&#x27;</span>,<span class="string">&#x27;You&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>&#39;20231110&#39;
+
+&#39;2023-11-10&#39;
+
+&#39;You Love C++&#39;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 替换列表中的元素，获得新的列表</span></span><br><span class="line">lst = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&#x27;ABC&#x27;</span>]</span><br><span class="line">lst </span><br><span class="line">[i.replace(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;a&#x27;</span>) <span class="keyword">for</span> i <span class="keyword">in</span> lst]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换字典中的键或值</span></span><br><span class="line">dct =&#123;k:v <span class="keyword">for</span> v,k <span class="keyword">in</span> <span class="built_in">enumerate</span>(lst)&#125;</span><br><span class="line">dct</span><br><span class="line"></span><br><span class="line">&#123;k.replace(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;aa&#x27;</span>):<span class="built_in">str</span>(v).replace(<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;100&#x27;</span>) <span class="keyword">for</span> k,v <span class="keyword">in</span> dct.items()&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+
+[&#39;a&#39;, &#39;B&#39;, &#39;C&#39;]
+
+&#123;&#39;A&#39;: 0, &#39;B&#39;: 1, &#39;C&#39;: 2&#125;
+
+&#123;&#39;aa&#39;: &#39;0&#39;, &#39;B&#39;: &#39;100&#39;, &#39;C&#39;: &#39;2&#39;&#125;
+</code></pre>
+<h3 id="字符串的替换-re-sub"><a href="#字符串的替换-re-sub" class="headerlink" title="字符串的替换 re.sub"></a>字符串的替换 re.sub</h3><p>语法：<br><code>re.sub(pattern, repl, string, count=0, flags=0)</code></p>
+<ul>
+<li>pattern : 正则中的模式字符串。</li>
+<li>repl : 替换的字符串，也可为一个函数。</li>
+<li>string : 要被查找替换的原始字符串。</li>
+<li>count : 模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;address:123;number:456;date:789&#x27;</span></span><br><span class="line"><span class="comment"># 简单替换，将字符串中的 `:` 替换成 ` = `</span></span><br><span class="line">re.sub(<span class="string">r&#x27;:&#x27;</span>,<span class="string">&#x27; = &#x27;</span>,a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># reple 也可以是一个函数. 注意其中的函数 group()</span></span><br><span class="line">repl = <span class="keyword">lambda</span> x: <span class="string">&#x27;****&#x27;</span> <span class="keyword">if</span> x.group() == <span class="string">&#x27;123&#x27;</span> <span class="keyword">else</span> (<span class="string">&#x27;不允许公开的号码&#x27;</span> <span class="keyword">if</span> x.group() == <span class="string">&#x27;456&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;???&#x27;</span>)</span><br><span class="line">re.sub(<span class="string">r&#x27;\d+&#x27;</span>,repl,a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">repl = <span class="keyword">lambda</span> x: <span class="built_in">str</span>(<span class="built_in">int</span>(x.group()) + <span class="number">100</span>)  </span><br><span class="line">re.sub(<span class="string">r&#x27;\d+&#x27;</span>,repl,a)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>&#39;address = 123;number = 456;date = 789&#39;
+
+&#39;address:****;number:不允许公开的号码;date:???&#39;
+
+&#39;address:223;number:556;date:889&#39;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">file = <span class="string">r&quot;C:\Users\xiaoyx\Desktop\231110\近三天均多头\231110_list.txt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file) <span class="keyword">as</span> f1, <span class="built_in">open</span>(<span class="string">f&#x27;<span class="subst">&#123;file&#125;</span>.bak&#x27;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f2:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f1:</span><br><span class="line">        <span class="comment"># print(line)</span></span><br><span class="line">        <span class="comment"># repl = lambda x :</span></span><br><span class="line">        f2.write(re.sub(<span class="string">r&#x27;\D+&#x27;</span>,<span class="string">&#x27;&#x27;</span>,line))</span><br><span class="line">os.remove(file)</span><br><span class="line">os.rename(<span class="string">f&#x27;<span class="subst">&#123;file&#125;</span>.bak&#x27;</span>,file)</span><br><span class="line">f1.close()</span><br><span class="line">f2.close()</span><br></pre></td></tr></table></figure>
+
+<pre><code>54
+</code></pre>
+<h3 id="DataFrme-的值替换"><a href="#DataFrme-的值替换" class="headerlink" title="DataFrme 的值替换"></a>DataFrme 的值替换</h3><ol>
+<li><p>replace</p>
+<ul>
+<li><code>df.replace(old,new)</code></li>
+<li><code>df.replace(&#123;old:new,old,new&#125;)</code></li>
+</ul>
+</li>
+<li><p>map</p>
+<ul>
+<li><code>Series.map(arg,na_action =None)</code><ul>
+<li>arg : 映射一个 Series。它可以是一个集合或一个函数</li>
+<li>na_action:处理 NaN（非数字）值。它可以取两个值-None 或 ignore。None 是默认值，map() 将把映射应用于所有值，包括 Nan 值；ignore 将 NaN 值留在列中，而不传递给映射方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>applymap</p>
+<ul>
+<li>语法：DataFrame.applymap(func, na_action&#x3D;None, **kwargs)</li>
+<li>func : 传入的函数</li>
+<li></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">file = <span class="string">&#x27;ddd.csv&#x27;</span></span><br><span class="line">df = pd.read_csv(file,</span><br><span class="line">                <span class="comment">#  skiprows=[i for i in range(1,11)],</span></span><br><span class="line">                 nrows=<span class="number">2</span>,</span><br><span class="line">                 parse_dates=[<span class="string">&#x27;date&#x27;</span>], </span><br><span class="line">                 index_col=<span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">                 )</span><br><span class="line">df</span><br><span class="line"><span class="comment"># 将 bs列的 `0` 替换成 ` `, 将 `1` 替换成 `建仓`</span></span><br><span class="line">df.replace(<span class="number">0</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="number">1</span>,<span class="string">&#x27;建仓&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将多个值替换成一个相同的值</span></span><br><span class="line">df.replace([<span class="number">0</span>,<span class="number">1</span>],<span class="number">333</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典形式， 字典的键:被替换的字符串，字典的值：替换后的字符串</span></span><br><span class="line"><span class="comment">##  实现用多个数值替换多个数值</span></span><br><span class="line">df.replace(&#123;<span class="number">0</span>:<span class="string">&#x27;&#x27;</span>,<span class="number">1</span>:<span class="string">&#x27;建仓&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>建仓</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>333</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>333</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>建仓</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(file,</span><br><span class="line">                 nrows=<span class="number">2</span>,</span><br><span class="line">                 parse_dates=[<span class="string">&#x27;date&#x27;</span>], </span><br><span class="line">                 index_col=<span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;open&#x27;</span>] = df[<span class="string">&#x27;open&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x :<span class="string">f&#x27;<span class="subst">&#123;x :<span class="number">.2</span>f&#125;</span>&#x27;</span>,na_action=<span class="literal">None</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.18</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.50</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(file,</span><br><span class="line">                 nrows=<span class="number">2</span>,</span><br><span class="line">                 parse_dates=[<span class="string">&#x27;date&#x27;</span>], </span><br><span class="line">                 index_col=<span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">df</span><br><span class="line">df.applymap(<span class="keyword">lambda</span> x :<span class="string">f&#x27;<span class="subst">&#123;x:<span class="number">.2</span>f&#125;</span>&#x27;</span>,na_action=<span class="literal">None</span>)</span><br><span class="line">df.applymap(<span class="keyword">lambda</span> x :<span class="string">f&#x27;<span class="subst">&#123;x:<span class="number">.2</span>f&#125;</span>&#x27;</span>,na_action=<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line">df.applymap(<span class="keyword">lambda</span> x :<span class="built_in">round</span>(x,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.18</td>
+      <td>3.18</td>
+      <td>3.14</td>
+      <td>3.16</td>
+      <td>9718154.00</td>
+      <td>0.93</td>
+      <td>3.13</td>
+      <td>3.10</td>
+      <td>3.12</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.50</td>
+      <td>3.52</td>
+      <td>3.45</td>
+      <td>3.52</td>
+      <td>10729909.00</td>
+      <td>0.59</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.18</td>
+      <td>3.18</td>
+      <td>3.14</td>
+      <td>3.16</td>
+      <td>9718154.00</td>
+      <td>0.93</td>
+      <td>3.13</td>
+      <td>3.10</td>
+      <td>3.12</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.50</td>
+      <td>3.52</td>
+      <td>3.45</td>
+      <td>3.52</td>
+      <td>10729909.00</td>
+      <td>0.59</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.18</td>
+      <td>3.18</td>
+      <td>3.14</td>
+      <td>3.16</td>
+      <td>9718154</td>
+      <td>0.93</td>
+      <td>3.13</td>
+      <td>3.10</td>
+      <td>3.12</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.50</td>
+      <td>3.52</td>
+      <td>3.45</td>
+      <td>3.52</td>
+      <td>10729909</td>
+      <td>0.59</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="loc方法替换列的值"><a href="#loc方法替换列的值" class="headerlink" title="loc方法替换列的值"></a>loc方法替换列的值</h3><p>语法：<br><code>DataFrame.loc[condition, column_label] = new_value</code></p>
+<ol>
+<li>condition：这个参数返回使条件为真的值。</li>
+<li>column_label：该参数用于指定要更新的目标列。<br>通过参数确定值后，我们将其更新为 new_value。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(file,</span><br><span class="line">                 nrows=<span class="number">2</span>,</span><br><span class="line">                 parse_dates=[<span class="string">&#x27;date&#x27;</span>], </span><br><span class="line">                 index_col=<span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">df.loc[df.<span class="built_in">open</span> &gt; df.close,<span class="string">&#x27;bs&#x27;</span>] = <span class="string">&#x27;收阴线&#x27;</span></span><br><span class="line"></span><br><span class="line">df.loc[df.volume &gt; <span class="number">10000000</span>, <span class="string">&#x27;bs&#x27;</span>] = <span class="string">&#x27;大成交量&#x27;</span></span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>收阴线</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>大成交量</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/11/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%BF%AE%E6%94%B9/" rel="prev" title="Python字符串的修改">
+                  <i class="fa fa-chevron-left"></i> Python字符串的修改
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/11/Pandas%E7%BC%BA%E5%A4%B1%E5%80%BC/" rel="next" title="Pandas缺失值">
+                  Pandas缺失值 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

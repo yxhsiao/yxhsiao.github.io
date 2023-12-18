@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="123from PIL import Image, ImageColor, ImageFilter,ImageDraw,ImageFontimport os,re Output Content: 打开图片文件Image.open（webpfile） 123456789101112im &#x3D; Image.open(&quot;test.webp&quot;)im# 文件是否为有效的图片文件path &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="静水深流">
+<meta property="og:url" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="123from PIL import Image, ImageColor, ImageFilter,ImageDraw,ImageFontimport os,re Output Content: 打开图片文件Image.open（webpfile） 123456789101112im &#x3D; Image.open(&quot;test.webp&quot;)im# 文件是否为有效的图片文件path &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_2_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_11_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_11_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_11_2.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_13_3.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_16_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_16_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_16_2.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_16_3.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_18_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_20_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_20_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_22_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_22_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_25_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_26_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_28_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_30_2.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_31_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_32_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_33_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_35_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_36_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_38_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_40_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_40_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_44_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_44_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_44_2.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_44_3.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_46_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_48_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_50_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_51_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_52_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_53_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_54_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_55_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_56_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_57_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_58_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_59_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_60_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_63_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_63_2.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_64_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_65_2.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_69_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_69_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_71_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_71_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_71_2.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_72_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_72_1.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_75_0.webp">
+<meta property="og:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_76_0.webp">
+<meta property="article:published_time" content="2023-12-18T15:12:11.471Z">
+<meta property="article:modified_time" content="2023-12-18T15:12:11.471Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yxhsiao.github.io/2023/12/18/Pillow_Note/Pillow_Note_2_0.webp">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2023/12/18/Pillow_Note/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2023/12/18/Pillow_Note/","path":"2023/12/18/Pillow_Note/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">打开图片文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%B1%9E%E6%80%A7"><span class="nav-number"></span> <span class="nav-text">图片属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E5%B0%BA%E5%AF%B8"><span class="nav-number">1.</span> <span class="nav-text">图片尺寸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RGB%E9%80%9A%E9%81%93%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number"></span> <span class="nav-text">RGB通道的图片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%A6%BB%E9%80%9A%E9%81%93"><span class="nav-number">1.</span> <span class="nav-text">分离通道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E5%8D%95%E9%80%9A%E9%81%93%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number">2.</span> <span class="nav-text">保存单通道的图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E6%94%BE%E5%9B%BE%E7%89%87%E5%B0%BA%E5%AF%B8"><span class="nav-number">3.</span> <span class="nav-text">缩放图片尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resize-%E5%92%8C-thumbnail-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.</span> <span class="nav-text">resize() 和 thumbnail() 方法的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E9%80%9A%E9%81%93"><span class="nav-number">5.</span> <span class="nav-text">合并通道</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E5%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%80%9A%E9%81%93%E5%90%88%E6%88%90"><span class="nav-number">5.1.</span> <span class="nav-text">单张图片的通道合成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E5%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%80%9A%E9%81%93%E5%90%88%E6%88%90"><span class="nav-number">5.2.</span> <span class="nav-text">两张图片的通道合成</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#blend-%E6%B7%B7%E5%90%88%E5%9B%BE%E7%89%87"><span class="nav-number"></span> <span class="nav-text">blend() 混合图片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#composite-%E6%B7%B7%E5%90%88%E5%9B%BE%E7%89%87"><span class="nav-number"></span> <span class="nav-text">composite  混合图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">0.1.</span> <span class="nav-text">参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E5%9B%BE%E7%89%87%E5%B0%BA%E5%AF%B8"><span class="nav-number"></span> <span class="nav-text">更改图片尺寸</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E6%8C%87%E5%AE%9A%E7%9A%84%E5%B0%BA%E5%AF%B8-%E4%B8%8D%E4%BF%9D%E6%8C%81%E7%BA%B5%E6%A8%AA%E6%AF%94"><span class="nav-number">1.</span> <span class="nav-text">按指定的尺寸,不保持纵横比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%9D%E6%8C%81%E6%AF%94%E4%BE%8B"><span class="nav-number">1.1.</span> <span class="nav-text">保持比例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%80%BC"><span class="nav-number">1.2.</span> <span class="nav-text">插值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">图像的复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#expand-x3D-True"><span class="nav-number">1.</span> <span class="nav-text">expand&#x3D;True</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E9%95%9C%E9%9D%A2%E7%BF%BB%E8%BD%AC"><span class="nav-number"></span> <span class="nav-text">图像的镜面翻转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96rgb%E5%80%BC%E5%8F%8Aalpha"><span class="nav-number"></span> <span class="nav-text">获取rgb值及alpha</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%9B%BE%E5%83%8F"><span class="nav-number"></span> <span class="nav-text">新建图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%81%E5%89%AA%E5%9B%BE%E7%89%87"><span class="nav-number"></span> <span class="nav-text">裁剪图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E7%B2%98%E8%B4%B4"><span class="nav-number"></span> <span class="nav-text">图片粘贴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E8%BF%87%E6%BB%A4"><span class="nav-number"></span> <span class="nav-text">图像过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number"></span> <span class="nav-text">图像转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E5%9B%BE%E5%83%8F%E5%B0%BA%E5%AF%B8%E5%90%8E%E5%8F%A6%E5%AD%98%E4%B8%BAwebp"><span class="nav-number"></span> <span class="nav-text">更改图像尺寸后另存为webp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E6%96%87%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">绘制文字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%A0%E5%9B%BE"><span class="nav-number"></span> <span class="nav-text">抠图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#removebg%E6%A8%A1%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">removebg模块</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/12/18/Pillow_Note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-18 23:12:11" itemprop="dateCreated datePublished" datetime="2023-12-18T23:12:11+08:00">2023-12-18</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageColor, ImageFilter,ImageDraw,ImageFont</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os,re</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<h3 id="打开图片文件"><a href="#打开图片文件" class="headerlink" title="打开图片文件"></a>打开图片文件</h3><p><code>Image.open（webpfile）</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im</span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件是否为有效的图片文件</span></span><br><span class="line"></span><br><span class="line">path = <span class="string">r&quot;D:\onedrive\Code\Note\python_module\Pillow\test_1.webp&quot;</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> Image.<span class="built_in">open</span>(path) <span class="keyword">as</span> im:</span><br><span class="line">            <span class="built_in">print</span>(path, im.<span class="built_in">format</span>, <span class="string">f&quot;<span class="subst">&#123;im.size&#125;</span>@<span class="subst">&#123;im.mode&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_2_0.webp">
+    
+<h2 id="图片属性"><a href="#图片属性" class="headerlink" title="图片属性"></a>图片属性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">im.filename     <span class="comment"># &#x27;test.webp&#x27;</span></span><br><span class="line">im.size         <span class="comment"># (487, 640)</span></span><br><span class="line">im.mode         <span class="comment"># &#x27;RGB&#x27;</span></span><br><span class="line">im.getbands</span><br><span class="line">im.<span class="built_in">format</span>       <span class="comment"># &#x27;JPEG&#x27;</span></span><br><span class="line">im.info</span><br><span class="line">im.readonly</span><br><span class="line">im.width</span><br><span class="line">im.height</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>&#39;test.webp&#39;
+
+(487, 640)
+
+&#39;RGB&#39;
+
+&lt;bound method Image.getbands of &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=487x640 at 0x7F067F5A3150&gt;&gt;
+
+&#39;JPEG&#39;
+
+&#123;&#39;jfif&#39;: 257, &#39;jfif_version&#39;: (1, 1), &#39;jfif_unit&#39;: 0, &#39;jfif_density&#39;: (1, 1)&#125;
+
+0
+
+487
+
+640
+</code></pre>
+<h3 id="图片尺寸"><a href="#图片尺寸" class="headerlink" title="图片尺寸"></a>图片尺寸</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># im.size返回的是一个元组，包含尺寸的width,height</span></span><br><span class="line">im.size</span><br><span class="line">w,h=im.size</span><br><span class="line">w,h</span><br><span class="line"></span><br><span class="line">im.width,im.height</span><br><span class="line"></span><br><span class="line"><span class="comment"># 图片占用存储空间尺寸，单位bit</span></span><br><span class="line">os.path.getsize(<span class="string">&#x27;test.webp&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(487, 640)
+
+(487, 640)
+
+(487, 640)
+
+113104
+</code></pre>
+<h2 id="RGB通道的图片"><a href="#RGB通道的图片" class="headerlink" title="RGB通道的图片"></a>RGB通道的图片</h2><h3 id="分离通道"><a href="#分离通道" class="headerlink" title="分离通道"></a>分离通道</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># img.split() 返回三元素的元组,各元素就是三个通道的单通道图片</span></span><br><span class="line"><span class="comment"># 分离颜色通道，产生三个 Image对象</span></span><br><span class="line"></span><br><span class="line">webpfile = <span class="string">&quot;test.webp&quot;</span></span><br><span class="line"></span><br><span class="line">img = Image.<span class="built_in">open</span>(webpfile)</span><br><span class="line">r, g, b = img.split()</span><br><span class="line">r, g, b</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(im),<span class="built_in">type</span>(webpfile))</span><br><span class="line"></span><br><span class="line">a,b,c = Image.Image.split(Image.<span class="built_in">open</span>(webpfile))</span><br><span class="line">a,b,c</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(&lt;PIL.Image.Image image mode=L size=487x640&gt;,
+ &lt;PIL.Image.Image image mode=L size=487x640&gt;,
+ &lt;PIL.Image.Image image mode=L size=487x640&gt;)
+
+&lt;class &#39;PIL.JpegImagePlugin.JpegImageFile&#39;&gt; &lt;class &#39;str&#39;&gt;
+
+(&lt;PIL.Image.Image image mode=L size=487x640&gt;,
+ &lt;PIL.Image.Image image mode=L size=487x640&gt;,
+ &lt;PIL.Image.Image image mode=L size=487x640&gt;)
+</code></pre>
+<h3 id="保存单通道的图片"><a href="#保存单通道的图片" class="headerlink" title="保存单通道的图片"></a>保存单通道的图片</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Output Content:</span><br><span class="line">img = Image.open(imgfile)</span><br><span class="line"></span><br><span class="line">a,b,c = Image.Image.split(img)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rgb通道分离后， 返回一个元组，分别代表r,g,b  </span></span><br><span class="line"><span class="comment"># 单通道的图片的像素尺寸不变，但是占用的存储空间变小50%以上</span></span><br><span class="line"></span><br><span class="line">imgfile = <span class="string">&quot;test.webp&quot;</span></span><br><span class="line">img = Image.<span class="built_in">open</span>(imgfile)</span><br><span class="line">a, b, c = Image.Image.split(img)</span><br><span class="line"></span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line"></span><br><span class="line">a.save(<span class="string">&quot;testwebp_chanl_r.webp&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_11_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_11_1.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_11_2.webp">
+    
+<h3 id="缩放图片尺寸"><a href="#缩放图片尺寸" class="headerlink" title="缩放图片尺寸"></a>缩放图片尺寸</h3><p>Image.thumbnail(size, resample&#x3D;None)</p>
+<ol>
+<li>size: 缩略图尺寸，是一个二元元组，形如(width, height)w,h都不应超过源图片尺寸。等比缩放图片。</li>
+<li>resample: 样例率算法。可以是下列之一，分别对应不同的样例率算法</li>
+</ol>
+<h3 id="resize-和-thumbnail-方法的区别"><a href="#resize-和-thumbnail-方法的区别" class="headerlink" title="resize() 和 thumbnail() 方法的区别"></a>resize() 和 thumbnail() 方法的区别</h3><ol>
+<li>resize()方法可以缩小也可以放大，而thumbnail()方法只能缩小；</li>
+<li>resize()方法不会改变原来对象的大小，只会返回一个新的Image对象</li>
+<li>thumbnail()方法会直接改变对象的大小，返回值为none；</li>
+<li>resize()方法中的size参数直接规定了修改后的大小；</li>
+<li>thumbnail()方法按比例缩小，size参数只规定修改后size的最大值。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">im =Image.<span class="built_in">open</span>(<span class="string">&#x27;test.webp&#x27;</span>)</span><br><span class="line">w,h = im.size</span><br><span class="line">w,h</span><br><span class="line"></span><br><span class="line">im.thumbnail((<span class="number">400</span>,<span class="number">600</span>))</span><br><span class="line">im,im.size</span><br><span class="line"></span><br><span class="line">im.thumbnail((<span class="number">200</span>,<span class="number">600</span>),Image.LANCZOS)</span><br><span class="line">im,im.size</span><br><span class="line"></span><br><span class="line">im</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(487, 640)
+
+(&lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=400x526&gt;, (400, 526))
+
+(&lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=200x263&gt;, (200, 263))
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_13_3.webp">
+    
+<h3 id="合并通道"><a href="#合并通道" class="headerlink" title="合并通道"></a>合并通道</h3><ul>
+<li>Image.merge(mode, bands)</li>
+<li>参数说明如下：- </li>
+<li>mode：指定输出图片的模式</li>
+<li>bands：参数类型为元组或者列表序列，其元素值是组成图像的颜色通道，比如 RGB 分别代表三种颜色通道，可以表示为 (r,g,b)。</li>
+<li>注意，该函数会返回一个新的 Image 对象。</li>
+</ul>
+<h4 id="单张图片的通道合成"><a href="#单张图片的通道合成" class="headerlink" title="单张图片的通道合成"></a>单张图片的通道合成</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">img = Image.<span class="built_in">open</span>(<span class="string">&#x27;test.webp&#x27;</span>)</span><br><span class="line">img</span><br><span class="line">a = img.split()</span><br><span class="line">r, g, b = a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回原图</span></span><br><span class="line">Image.merge(<span class="string">&quot;RGB&quot;</span>, a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改通道顺序 倒序</span></span><br><span class="line">Image.merge(<span class="string">&quot;RGB&quot;</span>, a[::-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改通道顺序</span></span><br><span class="line">Image.merge(<span class="string">&quot;RGB&quot;</span>, (r,b,g))</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_16_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_16_1.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_16_2.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_16_3.webp">
+    
+<h4 id="两张图片的通道合成"><a href="#两张图片的通道合成" class="headerlink" title="两张图片的通道合成"></a>两张图片的通道合成</h4><p>要求两张图片的模式、图像大小必须要保持一致，否则不能合并</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">img = Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">img.thumbnail((<span class="number">400</span>, <span class="number">800</span>))</span><br><span class="line"></span><br><span class="line">img1 = Image.<span class="built_in">open</span>(<span class="string">&quot;test2.webp&quot;</span>)</span><br><span class="line">img2 = img1.resize(img.size)</span><br><span class="line">r, g, b = img.split()</span><br><span class="line">x, y, z = img2.split()</span><br><span class="line"></span><br><span class="line">Image.merge(<span class="string">&quot;RGB&quot;</span>, ( r, g,z))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(img.size, img2.size)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_18_0.webp">
+    
+<pre><code>(400, 526) (400, 526)
+</code></pre>
+<h1 id="blend-混合图片"><a href="#blend-混合图片" class="headerlink" title="blend() 混合图片"></a>blend() 混合图片</h1><ul>
+<li>blend() 方法来混合 RGBA 模式的图片（PNG 格式），函数的语法格式如下：<ul>
+<li><code>Image.blend(image1,image2, alpha)</code></li>
+<li>参数说明如下：<ul>
+<li>image1，image2：表示两个 Image 对象。</li>
+<li>alpha：表示透明度，取值范围为 0 到 1.<ul>
+<li>当取值为 0 时，输出图像相当于 image1 的拷贝，</li>
+<li>而取值为 1 时，则是 image2 的拷贝，</li>
+<li>只有当取值为 0.5 时，才为两个图像的中合。因此改值的大小决定了两个图像的混合程度。</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>与 RGB 模式相比，RGBA 在 RGB 的基础上增加了透明度，通过 Alpha 取值来决定两个图像的混合程度。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">im1 = Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im2 = Image.<span class="built_in">open</span>(<span class="string">&quot;test2.webp&quot;</span>)</span><br><span class="line">im3 = im2.resize(im1.size)</span><br><span class="line"></span><br><span class="line">Image.blend(im1, im3, <span class="number">0.3</span>)</span><br><span class="line">Image.blend(im3, im1, <span class="number">0.3</span>)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_20_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_20_1.webp">
+    
+<h2 id="composite-混合图片"><a href="#composite-混合图片" class="headerlink" title="composite  混合图片"></a>composite  混合图片</h2><p>通过使用透明蒙版混合图像来创建合成图像</p>
+<p><code> Image.composite(im2, im1, im2)</code></p>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ol>
+<li>im1 – 第一张图片。。</li>
+<li>im2 – 第二张图片。必须是RGBA</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开两张图片</span></span><br><span class="line">im1 = Image.<span class="built_in">open</span>(<span class="string">&quot;test2.webp&quot;</span>)</span><br><span class="line"></span><br><span class="line">im2 = Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im2 = im2.convert(<span class="string">&quot;RGBA&quot;</span>)</span><br><span class="line"></span><br><span class="line">im3 = Image.<span class="built_in">open</span>(<span class="string">&#x27;test.webp_no_bg.webp&#x27;</span>)</span><br><span class="line"></span><br><span class="line">Image.composite(im2,im1,im2)</span><br><span class="line"></span><br><span class="line">Image.composite(im3,im1,im3)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_22_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_22_1.webp">
+    
+<h2 id="更改图片尺寸"><a href="#更改图片尺寸" class="headerlink" title="更改图片尺寸"></a>更改图片尺寸</h2><ul>
+<li>可以放大可以缩小</li>
+<li>resize()函数讲解</li>
+<li>函数img.resize((width, height),Image.ANTIALIAS)<ul>
+<li>第二个参数：<br>  Image.NEAREST ：低质量<br>  Image.BILINEAR：双线性<br>  Image.BICUBIC ：三次样条插值<br>  Image.ANTIALIAS：高质量</li>
+</ul>
+</li>
+</ul>
+<h3 id="按指定的尺寸-不保持纵横比"><a href="#按指定的尺寸-不保持纵横比" class="headerlink" title="按指定的尺寸,不保持纵横比"></a>按指定的尺寸,不保持纵横比</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">out = im.resize((<span class="number">300</span>, <span class="number">300</span>))</span><br><span class="line">out</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_25_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">im=Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">w, h = im.size</span><br><span class="line"></span><br><span class="line">out = im.resize((w //<span class="number">2</span>, h // <span class="number">2</span>))</span><br><span class="line">out</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_26_0.webp">
+    
+<h4 id="保持比例"><a href="#保持比例" class="headerlink" title="保持比例"></a>保持比例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">im.thumbnail((<span class="number">200</span>, <span class="number">800</span>))</span><br><span class="line">im.size</span><br><span class="line">im</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(200, 263)
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_28_1.webp">
+    
+<h4 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h4><p>第二个参数：</p>
+<ul>
+<li>Image.NEAREST ：低质量</li>
+<li>Image.BILINEAR：双线性</li>
+<li>Image.BICUBIC ：三次样条插值</li>
+<li>Image.LANCZOS：高质量</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 低质量</span></span><br><span class="line">im=Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im.size</span><br><span class="line">im.thumbnail((<span class="number">300</span>, <span class="number">800</span>), Image.NEAREST)</span><br><span class="line">im.size</span><br><span class="line">im</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(487, 640)
+
+(300, 394)
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_30_2.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 双线性</span></span><br><span class="line">im=Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im.thumbnail((<span class="number">300</span>, <span class="number">800</span>), Image.BILINEAR)</span><br><span class="line">im.size</span><br><span class="line">im</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(300, 394)
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_31_1.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 三次样条插值</span></span><br><span class="line">im=Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im.thumbnail((<span class="number">300</span>, <span class="number">800</span>), Image.BICUBIC)</span><br><span class="line">im.size</span><br><span class="line">im</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(300, 394)
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_32_1.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 高质量</span></span><br><span class="line">im=Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im.thumbnail((<span class="number">300</span>, <span class="number">800</span>), Image.LANCZOS)</span><br><span class="line">im.size</span><br><span class="line">im</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(300, 394)
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_33_1.webp">
+    
+<h2 id="图像的复制"><a href="#图像的复制" class="headerlink" title="图像的复制"></a>图像的复制</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制图像</span></span><br><span class="line">a = im.copy()</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_35_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">out = im.rotate(<span class="number">45</span>)</span><br><span class="line">out</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_36_0.webp">
+    
+<h3 id="expand-x3D-True"><a href="#expand-x3D-True" class="headerlink" title="expand&#x3D;True"></a>expand&#x3D;True</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">im.rotate(<span class="number">45</span>, expand=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_38_0.webp">
+    
+<h2 id="图像的镜面翻转"><a href="#图像的镜面翻转" class="headerlink" title="图像的镜面翻转"></a>图像的镜面翻转</h2><ul>
+<li>Image.FLIP_LEFT_RIGHT 水平翻转</li>
+<li>Image.FLIP_TOP_BOTTOM，垂直翻转</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im.thumbnail((<span class="number">300</span>, <span class="number">800</span>), Image.LANCZOS)</span><br><span class="line">im.transpose(Image.FLIP_LEFT_RIGHT)</span><br><span class="line">im.transpose(Image.FLIP_TOP_BOTTOM)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_40_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_40_1.webp">
+    
+<h2 id="获取rgb值及alpha"><a href="#获取rgb值及alpha" class="headerlink" title="获取rgb值及alpha"></a>获取rgb值及alpha</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(ImageColor.getcolor(<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;RGBA&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以只以RBG的方式查看</span></span><br><span class="line"><span class="built_in">print</span>(ImageColor.getcolor(<span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;RGB&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(255, 0, 0, 255)
+(0, 0, 0)
+</code></pre>
+<h2 id="新建图像"><a href="#新建图像" class="headerlink" title="新建图像"></a>新建图像</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通常使用RGB模式就可以了</span></span><br><span class="line">a = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (<span class="number">100</span>, <span class="number">100</span>), <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以用RGBA模式，还有其他模式查文档吧</span></span><br><span class="line">b = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (<span class="number">200</span>, <span class="number">100</span>), <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">b</span><br><span class="line"><span class="comment"># 十六进制颜色</span></span><br><span class="line">c = Image.new(<span class="string">&#x27;RGBA&#x27;</span>, (<span class="number">200</span>, <span class="number">100</span>), <span class="string">&#x27;#FF00b0&#x27;</span>)</span><br><span class="line">c</span><br><span class="line"><span class="comment"># 传入元组形式的RGBA值或者RGB值</span></span><br><span class="line"><span class="comment"># 在RGB模式下，第四个参数失效，默认255，在RGBA模式下，也可只传入前三个值，A值默认255</span></span><br><span class="line">d = Image.new(<span class="string">&#x27;RGBA&#x27;</span>, (<span class="number">200</span>, <span class="number">100</span>), (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">200</span>))</span><br><span class="line">d</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_44_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_44_1.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_44_2.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_44_3.webp">
+    
+<h2 id="裁剪图片"><a href="#裁剪图片" class="headerlink" title="裁剪图片"></a>裁剪图片</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">im=Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im.crop((<span class="number">500</span>, <span class="number">700</span>, <span class="number">1000</span>, <span class="number">1000</span>))</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_46_0.webp">
+    
+<h2 id="图片粘贴"><a href="#图片粘贴" class="headerlink" title="图片粘贴"></a>图片粘贴</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = im.crop((<span class="number">700</span>, <span class="number">700</span>, <span class="number">1000</span>, <span class="number">1000</span>))</span><br><span class="line">im.paste(a, (<span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">im</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_48_0.webp">
+    
+<h2 id="图像过滤"><a href="#图像过滤" class="headerlink" title="图像过滤"></a>图像过滤</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im.thumbnail((<span class="number">200</span>,<span class="number">1000</span>),Image.LANCZOS)</span><br><span class="line"><span class="comment"># 高斯模糊</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.GaussianBlur)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_50_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 普通模糊</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.BLUR)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_51_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 边缘增强</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.EDGE_ENHANCE)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_52_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到边缘</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.FIND_EDGES)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_53_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 浮雕</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.EMBOSS)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_54_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 轮廓</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.CONTOUR)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_55_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 锐化</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.SHARPEN)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_56_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 平滑</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.SMOOTH)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_57_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 细节</span></span><br><span class="line">im.<span class="built_in">filter</span>(ImageFilter.DETAIL)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_58_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageDraw, ImageFont</span><br><span class="line"></span><br><span class="line"><span class="comment"># 产生一个有４个颜色channels的空白图像</span></span><br><span class="line">b = Image.new(<span class="string">&#x27;RGBA&#x27;</span>, (<span class="number">200</span>, <span class="number">100</span>), <span class="string">&#x27;BLUE&#x27;</span>)</span><br><span class="line">b</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_59_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在blank_image 图像上绘图</span></span><br><span class="line">c = ImageDraw.Draw(b)</span><br><span class="line">c</span><br><span class="line"></span><br><span class="line"><span class="comment"># 画一个矩形</span></span><br><span class="line">c.rectangle((<span class="number">50</span>,<span class="number">50</span>,<span class="number">100</span>,<span class="number">90</span>),outline=<span class="string">&#x27;red&#x27;</span>,fill=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">b</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>&lt;PIL.ImageDraw.ImageDraw at 0x7f067c1bac10&gt;
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_60_1.webp">
+    
+<h2 id="图像转换"><a href="#图像转换" class="headerlink" title="图像转换"></a>图像转换</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># convert()是图像实例对象的一个方法，接受一个 mode 参数，用以指定一种色彩模式</span></span><br><span class="line"><span class="comment"># 1 ------------------（1位像素，黑白，每字节一个像素存储）</span></span><br><span class="line"><span class="comment"># L ------------------（8位像素，黑白）</span></span><br><span class="line"><span class="comment"># P ------------------（8位像素，使用调色板映射到任何其他模式）</span></span><br><span class="line"><span class="comment"># RGB------------------（3x8位像素，真彩色）</span></span><br><span class="line"><span class="comment"># RGBA------------------（4x8位像素，带透明度掩模的真彩色）</span></span><br><span class="line"><span class="comment"># CMYK--------------------（4x8位像素，分色）</span></span><br><span class="line"><span class="comment"># YCbCr--------------------（3x8位像素，彩色视频格式）</span></span><br><span class="line"><span class="comment"># I-----------------------（32位有符号整数像素）</span></span><br><span class="line"><span class="comment"># F------------------------（32位浮点像素）</span></span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将彩色转换成灰阶</span></span><br><span class="line">im = Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im.thumbnail((<span class="number">200</span>, <span class="number">1000</span>), Image.LANCZOS)</span><br><span class="line">a = im.convert(<span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">a</span><br><span class="line">s=im.convert(<span class="string">&#x27;RGBA&#x27;</span>)</span><br><span class="line">s.getbands</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_63_0.webp">
+    
+<pre><code>&lt;bound method Image.getbands of &lt;PIL.Image.Image image mode=RGBA size=200x263 at 0x7F067F5C91D0&gt;&gt;
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_63_2.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Image.<span class="built_in">open</span>(<span class="string">&#x27;test.webp&#x27;</span>).convert(<span class="string">&quot;RGB&quot;</span>).save(<span class="string">&quot;test.webp&quot;</span>,<span class="string">&quot;WEBP&quot;</span>)</span><br><span class="line">img3=Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">img3.size</span><br><span class="line">img3</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.getsize(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">os.path.getsize(<span class="string">&quot;test.webp&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(487, 640)
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_64_1.webp">
+    
+<pre><code>113104
+
+66374
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">im1=Image.<span class="built_in">open</span>(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line">im1.size</span><br><span class="line">w,h=im1.size</span><br><span class="line">im2=im1.resize((w*<span class="number">3</span>,h*<span class="number">3</span>))</span><br><span class="line">im2.size</span><br><span class="line">im1</span><br><span class="line">im2.save(<span class="string">&quot;test_1.webp&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<pre><code>(487, 640)
+
+(1461, 1920)
+</code></pre>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_65_2.webp">
+    
+<h2 id="更改图像尺寸后另存为webp"><a href="#更改图像尺寸后另存为webp" class="headerlink" title="更改图像尺寸后另存为webp"></a>更改图像尺寸后另存为webp</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageColor, ImageFilter</span><br><span class="line"><span class="keyword">import</span> os,re</span><br><span class="line"></span><br><span class="line">path=<span class="string">r&#x27;/home/xiaoyx/图片/&#x27;</span></span><br><span class="line">files=[i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(path) <span class="keyword">if</span> re.search(<span class="string">&#x27;\.webp$&#x27;</span>,i)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> files:</span><br><span class="line">    file=os.path.join(path,i)</span><br><span class="line">    sz=os.path.getsize(file)/<span class="number">1000</span></span><br><span class="line">   </span><br><span class="line">    pic=Image.<span class="built_in">open</span>(file)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;i&#125;</span>的大小是：<span class="subst">&#123;sz&#125;</span> kb,照片的尺寸大小是：<span class="subst">&#123;pic.size&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment">#     pic.thumbnail((800, 800),  Image.LANCZOS)</span></span><br><span class="line">    pic=pic.resize((<span class="number">1800</span>, <span class="number">1800</span>),  Image.LANCZOS)</span><br><span class="line">    newname=os.path.join(path,i.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line">    pic.save(<span class="string">f&#x27;<span class="subst">&#123;newname&#125;</span>.webp&#x27;</span>,<span class="string">&#x27;WEBP&#x27;</span>)</span><br><span class="line">    pic.close()</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<h3 id="绘制文字"><a href="#绘制文字" class="headerlink" title="绘制文字"></a>绘制文字</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">icon = Image.new(<span class="string">&#x27;RGBA&#x27;</span>, (<span class="number">50</span>, <span class="number">35</span>),(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">180</span>) )</span><br><span class="line">icon</span><br><span class="line">draw = ImageDraw.Draw(icon)</span><br><span class="line">font=ImageFont.truetype(font= <span class="string">&quot;malayalam.ttf&quot;</span>  ,size=<span class="number">28</span>)</span><br><span class="line">draw.text((<span class="number">0</span>,<span class="number">0</span>),<span class="string">&#x27;888&#x27;</span>,fill=(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>),font=font)</span><br><span class="line">icon.save(<span class="string">&#x27;textpictest.webp&#x27;</span>)</span><br><span class="line">icon</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_69_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_69_1.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">creat_icon</span>(<span class="params">text</span>):</span><br><span class="line">    icon = Image.new(<span class="string">&#x27;RGBA&#x27;</span>, (<span class="number">75</span>, <span class="number">45</span>),(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">180</span>) )</span><br><span class="line">    draw = ImageDraw.Draw(icon)</span><br><span class="line">    font=ImageFont.truetype(font= <span class="string">&quot;malayalam.ttf&quot;</span>  ,size=<span class="number">32</span>)</span><br><span class="line">    draw.text((<span class="number">0</span>,<span class="number">0</span>),text,fill=(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>),font=font)</span><br><span class="line">    <span class="keyword">return</span> icon</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建ICON</span></span><br><span class="line">icon=creat_icon(<span class="string">&#x27;Paste&#x27;</span>)</span><br><span class="line">icon</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开图片</span></span><br><span class="line">im2=Image.<span class="built_in">open</span>(<span class="string">&#x27;test.webp&#x27;</span>)</span><br><span class="line">im2</span><br><span class="line">im2.paste(icon,(<span class="number">0</span>,<span class="number">0</span>),icon)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 贴上ICON后</span></span><br><span class="line">im2</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_71_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_71_1.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_71_2.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 贴图片 </span></span><br><span class="line"><span class="comment"># im1=Image.open(&#x27;test.webp&#x27;)</span></span><br><span class="line"><span class="comment"># # im1</span></span><br><span class="line"><span class="comment"># # im1.size</span></span><br><span class="line"></span><br><span class="line">im2 =Image.<span class="built_in">open</span>(<span class="string">&#x27;test2.webp&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># im2.paste(im1)</span></span><br><span class="line"><span class="comment"># im2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">im3 = Image.<span class="built_in">open</span>(<span class="string">&#x27;test3.webp_no_bg.webp&#x27;</span>)</span><br><span class="line"></span><br><span class="line">size  = (np.array(im2.size) - np.array(im3.size))/<span class="number">2</span></span><br><span class="line">pos = <span class="built_in">tuple</span>([<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">tuple</span>(size)])</span><br><span class="line"></span><br><span class="line">im2.paste(im3,pos,im3)</span><br><span class="line">im2</span><br><span class="line"></span><br><span class="line">im2 =Image.<span class="built_in">open</span>(<span class="string">&#x27;test2.webp&#x27;</span>)</span><br><span class="line">Image.composite(im3,im2,im3)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_72_0.webp">
+    
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_72_1.webp">
+    
+<h2 id="抠图"><a href="#抠图" class="headerlink" title="抠图"></a>抠图</h2><h3 id="removebg模块"><a href="#removebg模块" class="headerlink" title="removebg模块"></a>removebg模块</h3><p>– 好像有每天不超过50张的限制</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 此模块测试成功</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">path = <span class="string">&#x27;%s/picture&#x27;</span>%os.getcwd()</span><br><span class="line"><span class="comment"># path</span></span><br><span class="line"></span><br><span class="line">file=<span class="string">&quot;test3.webp&quot;</span></span><br><span class="line">Image.<span class="built_in">open</span>(<span class="string">&quot;test3.webp&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> removebg <span class="keyword">import</span> RemoveBg</span><br><span class="line">rmbg = RemoveBg(<span class="string">&quot;HbFjA4LMQXLTZCnG6TzWuH7R&quot;</span>, <span class="string">&quot;error.log&quot;</span>) <span class="comment"># 引号内是获取的API</span></span><br><span class="line">rmbg.remove_background_from_img_file(file)</span><br><span class="line"></span><br><span class="line">rmbg.remove_background_from_img_file(<span class="string">&quot;test.webp&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_75_0.webp">
+    
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Image.<span class="built_in">open</span>(<span class="string">&quot;test3.webp_no_bg.webp&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>Output Content:</p>
+<img src="/2023/12/18/Pillow_Note/Pillow_Note_76_0.webp">
+    
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/18/python_jupyter%E7%BC%96%E8%BE%91%E5%99%A8/" rel="prev" title="Jupyter编辑器">
+                  <i class="fa fa-chevron-left"></i> Jupyter编辑器
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
