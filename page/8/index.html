@@ -174,7 +174,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -224,6 +224,548 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2021/03/23/python-str/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/03/23/python-str/" class="post-title-link" itemprop="url">python-str</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-03-23 22:34:19" itemprop="dateCreated datePublished" datetime="2021-03-23T22:34:19+08:00">2021-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 style="text-align:center">字符串</h1>
+
+<h2 id="认识字符串"><a href="#认识字符串" class="headerlink" title="认识字符串"></a>认识字符串</h2><ul>
+<li>字符串是一个序列。一种不可变序列，它包含的字符存在从左到右的位置顺序。</li>
+<li>不可变是指：字符串创建以后无法修改它的内容。</li>
+<li>字符串由一对双引号或者单引号包围</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;hell , python&#x27;</span></span><br><span class="line"><span class="string">&quot;你好！北京&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;hell , python&#x27;</span></span><br><span class="line"><span class="string">&#x27;你好！北京&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><h3 id="‘-‘-‘-字符串中的引号处理"><a href="#‘-‘-‘-字符串中的引号处理" class="headerlink" title="‘  \‘  ‘  字符串中的引号处理"></a>‘  \‘  ‘  字符串中的引号处理</h3><ul>
+<li>如果字符串中含有引号要用转义字符处理</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;who\&#x27;re you&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;who&#x27;re you&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="‘-‘-转义反斜杠"><a href="#‘-‘-转义反斜杠" class="headerlink" title="‘ \\ ‘ 转义反斜杠"></a>‘ \\ ‘ 转义反斜杠</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;判断对错！是\\否&quot;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">判断对错！是\否</span><br></pre></td></tr></table></figure>
+
+<h3 id="‘-n-‘-换行符"><a href="#‘-n-‘-换行符" class="headerlink" title="‘ \n ‘ 换行符"></a>‘ \n ‘ 换行符</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># \n在输出时换行，</span></span><br><span class="line">str1 = <span class="string">&quot;Where are you from ？ \nbeijing&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="‘-t-‘-退格符"><a href="#‘-t-‘-退格符" class="headerlink" title="‘ \t ‘ 退格符"></a>‘ \t ‘ 退格符</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Where are you from ？\tbeijing&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Where are you from ？\t\tbeijing&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Where are you from ？	beijing</span><br><span class="line">Where are you from ？		beijing</span><br></pre></td></tr></table></figure>
+
+<h3 id="“-“-长字符串换行"><a href="#“-“-长字符串换行" class="headerlink" title="“  \  “ 长字符串换行"></a>“  \  “ 长字符串换行</h3><ul>
+<li>长代码换行，可以把一个长字符串写成多行</li>
+<li>实际输出还是一行</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;Where are you from ？\</span></span><br><span class="line"><span class="string">beijing&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(str1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Where are you from ？beijing</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串原样输出"><a href="#字符串原样输出" class="headerlink" title="字符串原样输出"></a>字符串原样输出</h2><h3 id="“””-“””-x2F-‘’’-‘’’-三引号或三单引号包围"><a href="#“””-“””-x2F-‘’’-‘’’-三引号或三单引号包围" class="headerlink" title="“””  “”” &#x2F; ‘’’  ‘’’ 三引号或三单引号包围"></a>“””  “”” &#x2F; ‘’’  ‘’’ 三引号或三单引号包围</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#x27;&#x27;你学会了吗？Y or N?</span></span><br><span class="line"><span class="string">有什么明白的？ ---- 请及时提出来！</span></span><br><span class="line"><span class="string">OK! </span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">你学会了吗？Y <span class="keyword">or</span> N?</span><br><span class="line">有什么明白的？ ---- 请及时提出来！</span><br><span class="line">OK! </span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h2 id="r’-‘模式输出"><a href="#r’-‘模式输出" class="headerlink" title="r’ ‘模式输出"></a>r’ ‘模式输出</h2><ul>
+<li>关闭转义机制</li>
+<li>raw 字符串块</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">r&#x27;你学会了吗？Y or N? \n 有什么明白的？\t\t 请及时提出来！OK! &#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;你学会了吗？Y or N? \\n 有什么明白的？\\t\\t 请及时提出来！OK! &#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">r&#x27;D:\GTJA\RichEZ\newVer\files\f11\tdxf11_zs.htm&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;D:\\GTJA\\RichEZ\\newVer\\files\\f11\\tdxf11_zs.htm&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">f&#x27;D:\GTJA\RichEZ\newVer\files\f11\tdxf11_zs.htm&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;D:\\GTJA\\RichEZ\newVer\x0ciles\x0c11\tdxf11_zs.htm&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="字符串的操作"><a href="#字符串的操作" class="headerlink" title="字符串的操作"></a>字符串的操作</h2><ul>
+<li>字符串是一个序列，可以像序列一样操作</li>
+</ul>
+<h3 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python_ string&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># len（）函数获取字符串的长度,任意符号以及空格占位符都是一个元素</span></span><br><span class="line"><span class="built_in">len</span>(str1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python  _ string&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以索引,可以切片</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(str1[<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(str1[<span class="number">2</span>:<span class="number">9</span>])</span><br><span class="line"><span class="built_in">print</span>(str1[::<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(str1[::-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h</span><br><span class="line">thon  _</span><br><span class="line">pto _srn</span><br><span class="line">gnirts _  nohtyp</span><br></pre></td></tr></table></figure>
+
+<h4 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str1.count(<span class="string">&#x27;n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">str1.count(<span class="string">&#x27;t&#x27;</span>, <span class="number">3</span>)</span><br><span class="line">str1.count(<span class="string">&#x27;t&#x27;</span>, <span class="number">3</span>, -<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h3><h4 id="以连续书写的形式拼接字符串"><a href="#以连续书写的形式拼接字符串" class="headerlink" title="以连续书写的形式拼接字符串"></a>以连续书写的形式拼接字符串</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;htmml&#x27;</span> <span class="string">&#x27;css&#x27;</span> <span class="string">&#x27;c++&#x27;</span> <span class="string">&#x27;Java&#x27;</span></span><br><span class="line">s1</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;htmmlcssc++Java&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="运算符拼接字符串"><a href="#运算符拼接字符串" class="headerlink" title="+运算符拼接字符串"></a>+运算符拼接字符串</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;html&#x27;</span></span><br><span class="line">s2 = <span class="string">&#x27;python&#x27;</span></span><br><span class="line">s1 + s2</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;htmlpython&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="字符串的分割"><a href="#字符串的分割" class="headerlink" title="字符串的分割"></a>字符串的分割</h3><ul>
+<li><p>str.split(sep,maxsplit)</p>
+</li>
+<li><p>str：表示要进行分割的字符串；</p>
+</li>
+<li><p>sep：用于指定分隔符，可以包含多个字符。此参数默认为 None，表示所有空字符，包括空格、换行符“\n”、制表符“\t”等。</p>
+</li>
+<li><p>maxsplit：可选参数，用于指定分割的次数，最后列表中子串的个数最多为 maxsplit+1。如果不指定或者指定为 -1，则表示分割次数没有限制。</p>
+</li>
+<li><p>在 split 方法中，如果不指定 sep 参数，那么也不能指定 maxsplit 参数。</p>
+</li>
+</ul>
+<h4 id="默认分隔符为空格"><a href="#默认分隔符为空格" class="headerlink" title="默认分隔符为空格"></a>默认分隔符为空格</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python  _ string&#x27;</span></span><br><span class="line"></span><br><span class="line">str1.split()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;python&#x27;</span>, <span class="string">&#x27;_&#x27;</span>, <span class="string">&#x27;string&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python_string&#x27;</span></span><br><span class="line"></span><br><span class="line">str1.split()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;python_string&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="指定分隔符"><a href="#指定分隔符" class="headerlink" title="指定分隔符"></a>指定分隔符</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python  _ python.string&#x27;</span></span><br><span class="line"></span><br><span class="line">str1.split(<span class="string">&#x27;_&#x27;</span>)</span><br><span class="line">str1.split(<span class="string">&#x27;.&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;python  &#x27;</span>, <span class="string">&#x27; python.string&#x27;</span>]</span><br><span class="line">[<span class="string">&#x27;python  _ python&#x27;</span>, <span class="string">&#x27;string&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="同时指定分隔符和最大分割数量"><a href="#同时指定分隔符和最大分割数量" class="headerlink" title="同时指定分隔符和最大分割数量"></a>同时指定分隔符和最大分割数量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">r&#x27;my\name\is\hell\kety&#x27;</span></span><br><span class="line">str1.split(<span class="string">&#x27;\\&#x27;</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;my&#x27;</span>, <span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;is&#x27;</span>, <span class="string">&#x27;hell\\kety&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="字符串的合并"><a href="#字符串的合并" class="headerlink" title="字符串的合并"></a>字符串的合并</h3><ul>
+<li>str.join(iterable)</li>
+<li>相当于split的反向操作</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = [<span class="string">&#x27;my&#x27;</span>, <span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;is&#x27;</span>, <span class="string">&#x27;hell&#x27;</span>, <span class="string">&#x27;kety&#x27;</span>]</span><br><span class="line"><span class="built_in">str</span>.join(<span class="string">&#x27;/&#x27;</span>, s1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;my/name/is/hell/kety&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="查找指定字符串"><a href="#查找指定字符串" class="headerlink" title="查找指定字符串"></a>查找指定字符串</h3><h4 id="find-方法"><a href="#find-方法" class="headerlink" title=".find()方法"></a>.find()方法</h4><ul>
+<li>.find(sub[, start[, end]]) -&gt; int</li>
+<li>找什么？</li>
+<li>从哪个位置开始，哪个位置结束</li>
+<li>返回找到的数量</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python  _ string&#x27;</span></span><br><span class="line"></span><br><span class="line">str1.find(<span class="string">&#x27;t&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="index-方法"><a href="#index-方法" class="headerlink" title="index() 方法"></a>index() 方法</h4><ul>
+<li>返回查找值首次出现的位置索引。</li>
+<li>可以用于检索是否包含指定的字符串，不同之处在于，当指定的字符串不存在时，index() 方法会抛出异常。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;python  _ string&#x27;</span></span><br><span class="line">str1.index(<span class="string">&#x27;h&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="字符串对齐"><a href="#字符串对齐" class="headerlink" title="字符串对齐"></a>字符串对齐</h3><h4 id="ljust-方法"><a href="#ljust-方法" class="headerlink" title="ljust() 方法"></a>ljust() 方法</h4><ul>
+<li>S.ljust(width[, fillchar])</li>
+<li>S：表示要进行填充的字符串；</li>
+<li>width：表示包括 S 本身长度在内，字符串要占的总长度；</li>
+<li>fillchar：作为可选参数，用来指定填充字符串时所用的字符，默认情况使用空格。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;guangzhou&#x27;</span></span><br><span class="line">s2 = <span class="string">&#x27;bj&#x27;</span></span><br><span class="line">s1.ljust(<span class="number">20</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">s2.ljust(<span class="number">20</span>, <span class="string">&#x27;-&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;guangzhou***********&#x27;</span></span><br><span class="line"><span class="string">&#x27;bj------------------&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="rjust-方法"><a href="#rjust-方法" class="headerlink" title="rjust() 方法"></a>rjust() 方法</h4><ul>
+<li>S.rjust(width[, fillchar])</li>
+<li>参数含义同ljust（）</li>
+<li>rjust() 方法是向字符串的左侧填充指定字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;guangzhou&#x27;</span></span><br><span class="line">s2 = <span class="string">&#x27;bj&#x27;</span></span><br><span class="line">s1.rjust(<span class="number">20</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">s2.rjust(<span class="number">20</span>, <span class="string">&#x27;-&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;***********guangzhou&#x27;</span></span><br><span class="line"><span class="string">&#x27;------------------bj&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="center-方法"><a href="#center-方法" class="headerlink" title="center() 方法"></a>center() 方法</h4><ul>
+<li>S.center(width[, fillchar])</li>
+<li>参数同</li>
+<li>让文本居中，而不是左对齐或右对齐</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;guangzhou&#x27;</span></span><br><span class="line">s2 = <span class="string">&#x27;bj&#x27;</span></span><br><span class="line">s1.center(<span class="number">20</span>, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">s2.center(<span class="number">20</span>, <span class="string">&#x27;-&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;*****guangzhou******&#x27;</span></span><br><span class="line"><span class="string">&#x27;---------bj---------&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="检索字符串开头结尾"><a href="#检索字符串开头结尾" class="headerlink" title="检索字符串开头结尾"></a>检索字符串开头结尾</h3><h4 id="startswith-方法"><a href="#startswith-方法" class="headerlink" title="startswith()方法"></a>startswith()方法</h4><ul>
+<li>str.startswith(sub[,start[,end]])</li>
+<li>检索是否以指定字符串开头</li>
+<li>str：表示原字符串；</li>
+<li>sub：要检索的子串；</li>
+<li>start：指定检索开始的起始位置索引，如果不指定，则默认从头开始检索；</li>
+<li>end：指定检索的结束位置索引，如果不指定，则默认一直检索在结束。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;guangzhou&#x27;</span></span><br><span class="line">s1.startswith(<span class="string">&#x27;s&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">False</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="endswith-方法"><a href="#endswith-方法" class="headerlink" title="endswith()方法"></a>endswith()方法</h4><ul>
+<li>str.endswith(sub[,start[,end]])</li>
+<li>检索是否以指定字符串结尾</li>
+<li>参数同</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;guangzhou&#x27;</span></span><br><span class="line">s1.endswith(<span class="string">&#x27;ou&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">True</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="大小写转换"><a href="#大小写转换" class="headerlink" title="大小写转换"></a>大小写转换</h3><h4 id="title-方法"><a href="#title-方法" class="headerlink" title="title()方法"></a>title()方法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;guangzhOu shenzhEn&#x27;</span></span><br><span class="line">s1.title()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;Guangzhou Shenzhen&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="lower-方法"><a href="#lower-方法" class="headerlink" title="lower()方法"></a>lower()方法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;guangzhOu shenzhEn&#x27;</span></span><br><span class="line">s1.lower()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;guangzhou shenzhen&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="upper-方法"><a href="#upper-方法" class="headerlink" title="upper()方法"></a>upper()方法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;guangzhOu shenzhEn&#x27;</span></span><br><span class="line">s1.upper()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;GUANGZHOU SHENZHEN&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="删除特殊字符"><a href="#删除特殊字符" class="headerlink" title="删除特殊字符"></a>删除特殊字符</h3><h4 id="strip-方法"><a href="#strip-方法" class="headerlink" title="strip()方法"></a>strip()方法</h4><ul>
+<li>str.strip([chars])</li>
+<li>str 表示原字符串</li>
+<li>[chars] 用来指定要删除的字符，可以同时指定多个，如果不手动指定，则默认会删除空格以及制表符、回车符、换行符等特殊字符。</li>
+<li>删除字符串前后（左右两侧）的空格或特殊字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">r&#x27;  guang  zhou &#x27;</span></span><br><span class="line"></span><br><span class="line">s1.strip()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;guang  zhou&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="lstrip-方法"><a href="#lstrip-方法" class="headerlink" title="lstrip()方法"></a>lstrip()方法</h4><ul>
+<li>删除字符串左侧的空格和特殊字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">r&#x27;  guang  zhou &#x27;</span></span><br><span class="line">s1.lstrip()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;guang  zhou &#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="rstrip-方法"><a href="#rstrip-方法" class="headerlink" title="rstrip()方法"></a>rstrip()方法</h4><ul>
+<li>删除字符串右侧的空格和特殊字符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">r&#x27;  guang  zhou &#x27;</span></span><br><span class="line">s1.rstrip()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;  guang  zhou&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2021/01/07/hexo_%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/01/07/hexo_%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">hexo_异常处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-07T00:00:00+08:00">2021-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="warning-LF-will-be-replaced-by-CRLF"><a href="#warning-LF-will-be-replaced-by-CRLF" class="headerlink" title="warning: LF will be replaced by CRLF"></a>warning: LF will be replaced by CRLF</h2><p>Git 可以在你提交时自动地把回车（CR）和换行（LF）转换成换行（LF），而在检出代码时把换行（LF）转换成回车（CR）和换行（LF）。 你可以用<code>git config --global core.autocrlf true</code> 来打开此项功能。 如果是在 Windows 系统上，把它设置成 true，这样在检出代码时，换行会被转换成回车和换行：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#提交时转换为LF，检出时转换为CRLF</span></span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="error：spawn-failed…"><a href="#error：spawn-failed…" class="headerlink" title="error：spawn failed…"></a>error：spawn failed…</h2><ol>
+<li><p>删除<code>.deploy_git</code>文件夹;</p>
+</li>
+<li><p>输入<code>git config --global core.autocrlf false</code></p>
+</li>
+<li><p>然后，依次执行：<br><code>hexo clean</code><br><code>hexo g</code><br><code>hexo d</code></p>
+</li>
+<li><p>或者：修改_config.yml配置文件：</p>
+<p>deploy:</p>
+<p>type: git</p>
+<p>repo: <a target="_blank" rel="noopener" href="https://github.com/yourname/yourname.github.io.git">https://github.com/yourname/yourname.github.io.git</a></p>
+<p>branch: master</p>
+<p>其中的repo修改为</p>
+<p><a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:yourname&#x2F;yourname.github.io.git</p>
+</li>
+</ol>
+<h2 id="Validating-config"><a href="#Validating-config" class="headerlink" title="Validating config"></a>Validating config</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-deployer-git </span><br><span class="line">npm i hexojs/hexo-deployer-git</span><br><span class="line"></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<h2 id="fatal-unable-to-access-“https-x2F-x2F-…”-OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#fatal-unable-to-access-“https-x2F-x2F-…”-OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="fatal: unable to access “https:&#x2F;&#x2F;…”: OpenSSL SSL_read: Connection was reset, errno 10054"></a>fatal: unable to access “https:&#x2F;&#x2F;…”: OpenSSL SSL_read: Connection was reset, errno 10054</h2><h4 id="1、可能用户名及邮箱错误，重新配置"><a href="#1、可能用户名及邮箱错误，重新配置" class="headerlink" title="1、可能用户名及邮箱错误，重新配置"></a>1、可能用户名及邮箱错误，重新配置</h4><p><em><strong>查看用户名及邮箱</strong></em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure>
+
+<p><em><strong>修改用户名、邮箱</strong></em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;xxx&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;xxx&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><em><strong>移除仓库，重新添加</strong></em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br><span class="line">git remote add origin https:<span class="comment">//github.com/XXX</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2、修改解除SSL认证。"><a href="#2、修改解除SSL认证。" class="headerlink" title="2、修改解除SSL认证。"></a>2、修改解除SSL认证。</h3><p><em><strong>在Git Bash中输入以下命令：</strong></em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.sslVerify <span class="string">&quot;false&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3、文件体积太大"><a href="#3、文件体积太大" class="headerlink" title="3、文件体积太大"></a>3、文件体积太大</h3><p><em><strong>改为500MB，在Git Bash中输入以下命令：</strong></em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config http.postBuffer <span class="number">5242880003</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4、更新DNS缓存"><a href="#4、更新DNS缓存" class="headerlink" title="4、更新DNS缓存"></a>4、更新DNS缓存</h3><p><em><strong>在cmd中输入以下命令：</strong></em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/10/04/html_padding/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/10/04/html_padding/" class="post-title-link" itemprop="url">html_padding</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-04 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-04T00:00:00+08:00">2020-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="padding属性"><a href="#padding属性" class="headerlink" title="padding属性"></a>padding属性</h4><p>padding值是元素的内容和边界之间的空间。与margin的区别在于一个是指定自己与外部其他元素之间的边距，一个是指定内部元素与边界之间的边距。 两者的属性值相同，只是对象不同。padding属性是以下内容的简写属性：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/04/html_padding/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1222,3197 +1764,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/03/23/%E5%92%8C%E9%81%93&%E5%85%A8%E5%BE%B7%E5%90%88%E4%BD%9C%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/23/%E5%92%8C%E9%81%93&%E5%85%A8%E5%BE%B7%E5%90%88%E4%BD%9C%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">广州和道&全德合作协议</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="合作意向书"><a href="#合作意向书" class="headerlink" title="合作意向书"></a>合作意向书</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/23/%E5%92%8C%E9%81%93&%E5%85%A8%E5%BE%B7%E5%90%88%E4%BD%9C%E5%8D%8F%E8%AE%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/03/23/%E5%88%80%E7%89%87%E6%9D%90%E8%B4%A8%E5%AF%B9%E7%85%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/23/%E5%88%80%E7%89%87%E6%9D%90%E8%B4%A8%E5%AF%B9%E7%85%A7/" class="post-title-link" itemprop="url">刀片材质对照</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%93%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">专业</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h5 id="CVD系列："><a href="#CVD系列：" class="headerlink" title="CVD系列："></a>CVD系列：</h5><table>
-<thead>
-<tr>
-<th>分类</th>
-<th>ZCCCT</th>
-<th>SANDVIK</th>
-<th>KORLOY</th>
-<th>TeaguTec</th>
-<th>WALTER</th>
-<th>MITSUBISHI</th>
-<th>SUMITOMO</th>
-<th>TUNGALOY</th>
-<th>KYOCERA</th>
-<th>DIJET</th>
-<th>HITACHI</th>
-<th>KENNAMETAL</th>
-<th>SECO</th>
-<th>ISCAR</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>代号</td>
-<td>株洲钻石</td>
-<td>山特维克</td>
-<td>可乐伊</td>
-<td>特固克</td>
-<td>瓦尔特</td>
-<td>三菱</td>
-<td>住友电工</td>
-<td>泰珂洛</td>
-<td>京瓷</td>
-<td>黛杰</td>
-<td>日立工具</td>
-<td>肯纳金属</td>
-<td>山高工具</td>
-<td>伊斯卡</td>
-</tr>
-<tr>
-<td>P01</td>
-<td></td>
-<td>GC4005      GC4205</td>
-<td>NC3010</td>
-<td>TT8105</td>
-<td>WPP01 WPP05 WXN10</td>
-<td>UE6105</td>
-<td>AC810P</td>
-<td>T9105</td>
-<td>CA510     CA5505</td>
-<td>JC110V</td>
-<td></td>
-<td>KCP05 KCK05 KC9105</td>
-<td>TP0501     TP1501</td>
-<td>IC428     IC9150     IC8005</td>
-</tr>
-<tr>
-<td>P10</td>
-<td>YBC151 YBC152  YBC103 YB6315</td>
-<td>GC4205       GC4015      GC4215     GC4315</td>
-<td>NC3010  NC3220 NC3120</td>
-<td>TT8115</td>
-<td>WPP01  WPP05 WPP10S     WPP10 WKK10S WKK20S WAK20</td>
-<td>UE6110UE6020UE6025MC6015MC6025</td>
-<td>AC810P</td>
-<td>T9105 T9115</td>
-<td>CA510     CA515     CA5505     CA5515</td>
-<td>JC110V JC215V</td>
-<td>HG8010</td>
-<td>KCP10  KC9105 KCP10B     KC9110 KCM15</td>
-<td>TP0501     TP1501     TP2501     TK2001</td>
-<td>IC9150     IC9015     IC8150</td>
-</tr>
-<tr>
-<td>P20</td>
-<td>YBC251 YBC252  YBC103</td>
-<td>GC4025       GC4215      GC4220     GC4255     GC4325</td>
-<td>NC3010  NC3220 NC3120 NC3030 NC5330 NC500H</td>
-<td>TT8125</td>
-<td>WAP20  WPP20S     WPP20 WKP25S WMP20S</td>
-<td>MC6025     UE6020</td>
-<td>AC820P</td>
-<td>T9115 T9125 T313V</td>
-<td>CA525     CA5515     CA5525     CR9025</td>
-<td>JC110V JC215V</td>
-<td>GM8020 HG8025 GM25</td>
-<td>KCP25  KCP25B KC9125 KC9325</td>
-<td>TP1501     TP2501     TP3500     TP200     TM2000     TK2001</td>
-<td>IC9250     IC9025     IC9054     IC8350</td>
-</tr>
-<tr>
-<td>P30</td>
-<td>YBC252 YBC351 YBC352</td>
-<td>GC4225     GC4230     GC4235     GC2135</td>
-<td>NC3220  NC3120 NC3030 NC5330 NC500H</td>
-<td>TT5100TT8135</td>
-<td>WKP35S  WPP30S     WPP30</td>
-<td>UE6020UE6035</td>
-<td>AC820P  AC830P</td>
-<td>T9125  T9135 T313V</td>
-<td>CA525     CA5525     CA530     CA5535     CR9025</td>
-<td>JC215V JC325V</td>
-<td>GM8035</td>
-<td>KCP30  KCP40 KCM25 KC8050 KC9040 KC9140</td>
-<td>TP1501     TP2501     TP3500     TP200     TP40     TM2000     TM4000</td>
-<td>IC8350     IC9350     IC8025     IC635</td>
-</tr>
-<tr>
-<td>P40</td>
-<td>YBC351 YBC352</td>
-<td>GC4235     GC4240     GC235</td>
-<td>NC3030  NC5330</td>
-<td>TT7100</td>
-<td>WPP30 WPP30S   WKP35 WKP35S WAK30</td>
-<td>UE6035UH6400</td>
-<td>AC830P</td>
-<td>T9135</td>
-<td>CA530     CA5535</td>
-<td>JC325V  JC450V   JC540V</td>
-<td>GX30</td>
-<td>KCP30  KCP40 KC9140 KC9040 KC9240 KC9245</td>
-<td>TP2501     TP3500     TP200     TP40     TM4000</td>
-<td>IC8350     IC9350     IC8025     IC635</td>
-</tr>
-<tr>
-<td>M10</td>
-<td></td>
-<td>GC2015</td>
-<td></td>
-<td></td>
-<td>WSM10     WAM10 WXN10 WMP20S</td>
-<td>MP7015</td>
-<td>AC610M</td>
-<td>T6120  T9115</td>
-<td>CA6615</td>
-<td>JC110V</td>
-<td>IP050S  IP100S</td>
-<td>KCM15 KC9010   KC9110 KC9210</td>
-<td>TP2501     TP2000     TK2001</td>
-<td>IC9250</td>
-</tr>
-<tr>
-<td>M20</td>
-<td>YBM151 YBM153</td>
-<td>GC1515     GC2015     GC2025</td>
-<td>NC9025</td>
-<td>TT5100TT9215</td>
-<td>WSM20     WAM20</td>
-<td>MP7025</td>
-<td>AC610M  AC630M AC830P</td>
-<td>T6120  T6130 T6020 T9125 T313V</td>
-<td>CA6525</td>
-<td>JC110V JC215V</td>
-<td>IP100S</td>
-<td>KCM15  KC9025 KC9125 KC9225</td>
-<td>TP2501     TP3500     TP200     TM2000     TM4000</td>
-<td>IC9250     IC9025     IC9054</td>
-</tr>
-<tr>
-<td>M30</td>
-<td>YBM151 YBM251</td>
-<td>GC2135     GC235</td>
-<td>NC9025</td>
-<td>TT9225</td>
-<td>WSM30     WAM30</td>
-<td>US7020UP20M  AP25N</td>
-<td></td>
-<td>T6130  T6030</td>
-<td></td>
-<td>JC215V JC325V  JC525X</td>
-<td>GX30</td>
-<td>KCP40  KCM35 KC9240</td>
-<td>TP3500     TP200     TM2000     TM4000</td>
-<td>IC9350     IC9025</td>
-</tr>
-<tr>
-<td>M40</td>
-<td>YBM253</td>
-<td>GC2025</td>
-<td>NC9025</td>
-<td>TT9235TT7100</td>
-<td></td>
-<td>US735</td>
-<td></td>
-<td></td>
-<td></td>
-<td>JC525X</td>
-<td></td>
-<td>KCM35  KC9045 KC9245</td>
-<td>TP3500     TP40     TM4000</td>
-<td>IC656     IC635     IC9350</td>
-</tr>
-<tr>
-<td>K01</td>
-<td>YBD052</td>
-<td>GC3205     GC3210</td>
-<td>NC6205  NC6210</td>
-<td>TT1300TT7005</td>
-<td>WAK10</td>
-<td>UC5105MC5005</td>
-<td>AC405K</td>
-<td></td>
-<td>CA4010     CA4505     CA5505</td>
-<td>JC105V  JC605X   JC605W  JC050W</td>
-<td>HX3505</td>
-<td>KCK05  KC9105   KC9315</td>
-<td>TK1001     TH1500</td>
-<td>IC9150     IC428     IC5010     IC9007</td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YBD102 YBD151</td>
-<td>GC3205     GC3210     GC3215     GC3115</td>
-<td>NC6205  NC6210 NC315K</td>
-<td>TT7015TT8115TT7310</td>
-<td>WPP01  WKK10S     WAK10</td>
-<td>UC5115MC5015</td>
-<td>AC415K</td>
-<td>T5105</td>
-<td>CA4010     CA4115     CA4505     CA4515     CA5505</td>
-<td>JC050W  JC110V   JC605X  JC605W  JC610</td>
-<td>HX3515  HG8010</td>
-<td>KCP10 KCK15    KCK20  KC9110 KC120   KC9315</td>
-<td>TP0501     TP1501     TK1001     TK2001     TH1500</td>
-<td>IC9150     IC9015     IC9007     IC418     IC428</td>
-</tr>
-<tr>
-<td>K20</td>
-<td>YBD152 YBD252</td>
-<td>GC4225     GC3215     GC3220</td>
-<td>NC6210  NC315K NC5330</td>
-<td>TT7015     TT7310</td>
-<td>WPP10S  WPP10 WPP20 WKK20S     WAK20</td>
-<td></td>
-<td>AC415K  AC420K</td>
-<td>T5115  T515</td>
-<td>CA4115     CA4120     CA4515</td>
-<td>JC110V  JC215V    JC605X  JC605W  JC610</td>
-<td>HX3515  HG8010</td>
-<td>KCP25  KCK15B KCK20 KC9125 KC9320 KC9325</td>
-<td>TP0501     TP1501     TP2501     TP200     TK1001     TK2001</td>
-<td>IC418     IC9015</td>
-</tr>
-<tr>
-<td>K30</td>
-<td></td>
-<td></td>
-<td>NC6210  NC5330</td>
-<td></td>
-<td>WAK30  WPP20 WPP20S</td>
-<td></td>
-<td>AC420K  AC820P</td>
-<td>T5125  T9125 T313V</td>
-<td></td>
-<td>JC215V  JC610</td>
-<td></td>
-<td></td>
-<td>TP2501     TP200     TK2001</td>
-<td></td>
-</tr>
-<tr>
-<td>K40</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>TP2501     TP200</td>
-<td></td>
-</tr>
-<tr>
-<td>P01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P10</td>
-<td></td>
-<td>GC1025     GC1010</td>
-<td>NC5330  NCM325</td>
-<td>TT2510</td>
-<td>WHH15     WXM15</td>
-<td></td>
-<td>ACP100</td>
-<td>T313W</td>
-<td></td>
-<td>JC5003</td>
-<td></td>
-<td>KC510M     KC522M     KC635M</td>
-<td>MP1500</td>
-<td>IC9080     IC4100</td>
-</tr>
-<tr>
-<td>P20</td>
-<td>YBM251 YBM253</td>
-<td>GC1030     GC4220     GC4020     GC4030</td>
-<td>NC5330  NCM325</td>
-<td>TT2510</td>
-<td>WKP25  WKP25S     WAM10     WAM20</td>
-<td></td>
-<td>ACP100</td>
-<td>T3130  T313W</td>
-<td></td>
-<td>JC5015</td>
-<td></td>
-<td>KC9225  KC9325</td>
-<td>MP1500     MP2500     T25M</td>
-<td>IC520M</td>
-</tr>
-<tr>
-<td>P30</td>
-<td>YBM351</td>
-<td>GC4040     GC4230</td>
-<td>NC5330  NCM325 NCM335</td>
-<td>TT7800</td>
-<td>WKP26  WAM30 WKP35 WKP35S</td>
-<td></td>
-<td></td>
-<td>T3130</td>
-<td></td>
-<td>JC5030</td>
-<td></td>
-<td>KC930M  KC522M     KC635M</td>
-<td>MP1500     MP2500     T25M     T350M</td>
-<td>IC4050</td>
-</tr>
-<tr>
-<td>P40</td>
-<td>YBC302</td>
-<td>GC4040     GC42340</td>
-<td>NCM335</td>
-<td>TT7800</td>
-<td>WKP35  WKP35S     WXP45     WSP45</td>
-<td></td>
-<td></td>
-<td>T3130</td>
-<td></td>
-<td>JC5040</td>
-<td></td>
-<td>KC930M KC935M  KC725M KC735M     KCPM20</td>
-<td>MM4500     T350M</td>
-<td></td>
-</tr>
-<tr>
-<td>M01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>M10</td>
-<td></td>
-<td></td>
-<td>NC5330  NCM325</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>JC5003</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>M20</td>
-<td>YBM251 YBM253</td>
-<td>GC2030</td>
-<td>NC5330  NCM325 NCM335</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>T3130</td>
-<td></td>
-<td>JC5015</td>
-<td></td>
-<td>KC925M</td>
-<td>MP2500     T350M     T25M</td>
-<td>IC520M</td>
-</tr>
-<tr>
-<td>M30</td>
-<td>YBM351</td>
-<td>GC2030</td>
-<td>MCM335</td>
-<td>TT7800</td>
-<td>WAM30     WXM35</td>
-<td></td>
-<td></td>
-<td>T3130</td>
-<td>CA6535</td>
-<td>JC5030</td>
-<td></td>
-<td>KC930M  KC635M</td>
-<td>MP2500     T350M     T25M</td>
-<td>IC4050</td>
-</tr>
-<tr>
-<td>M40</td>
-<td>YBC302</td>
-<td>GC2040</td>
-<td></td>
-<td>TT7800</td>
-<td>WXM35     WSM35     WSP45</td>
-<td></td>
-<td></td>
-<td>T3130</td>
-<td></td>
-<td>JC5040</td>
-<td></td>
-<td>KC930M  KC935M KC725M</td>
-<td>MM4500     T350M</td>
-<td></td>
-</tr>
-<tr>
-<td>K01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>ACK200</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>MK1500</td>
-<td>IC9080</td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YBD152</td>
-<td>GC1010     GC3220</td>
-<td></td>
-<td></td>
-<td>WAK15</td>
-<td>MC5020</td>
-<td>ACK200</td>
-<td>T1115</td>
-<td></td>
-<td>JC5003</td>
-<td></td>
-<td></td>
-<td>MK1500     MP1500</td>
-<td>IC4100</td>
-</tr>
-<tr>
-<td>K20</td>
-<td>YBD252</td>
-<td>GC1020     GC3020     GC3330</td>
-<td>NC5330</td>
-<td></td>
-<td>WAK20 WKP25 WKP25S</td>
-<td></td>
-<td>ACK200</td>
-<td>T1115</td>
-<td></td>
-<td>JC5015</td>
-<td></td>
-<td>KC915M      KCK15</td>
-<td>MK1500     MP1500</td>
-<td>IC520M     IC5100     IC9150</td>
-</tr>
-<tr>
-<td>K30</td>
-<td>YBC302</td>
-<td>GC3040     GC4040</td>
-<td>NC5330</td>
-<td></td>
-<td>WKP25     WKP35 WKP35S</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>KC920M KC925M  KC930M KC935M KCK15     KC520M</td>
-<td></td>
-<td>IC4050     IC520M</td>
-</tr>
-</tbody></table>
-<!--- more --->
-
-
-
-
-
-<h5 id="PVD系列："><a href="#PVD系列：" class="headerlink" title="PVD系列："></a>PVD系列：</h5><table>
-<thead>
-<tr>
-<th>分类</th>
-<th>ZCCCT</th>
-<th>SANDVIK</th>
-<th>KORLOY</th>
-<th>TeaguTec</th>
-<th>WALTER</th>
-<th>MITSUBISHI</th>
-<th>SUMITOMO</th>
-<th>TUNGALOY</th>
-<th>KYOCERA</th>
-<th>DIJET</th>
-<th>HITACHI</th>
-<th>KENNAMETAL</th>
-<th>SECO</th>
-<th>ISCAR</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>代号</td>
-<td>株洲钻石</td>
-<td>山特维克</td>
-<td>可乐伊</td>
-<td>特固克</td>
-<td>瓦尔特</td>
-<td>三菱</td>
-<td>住友电工</td>
-<td>泰珂洛</td>
-<td>京瓷</td>
-<td>黛杰</td>
-<td>日立工具</td>
-<td>肯纳金属</td>
-<td>山高工具</td>
-<td>伊斯卡</td>
-</tr>
-<tr>
-<td>P01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>WXN10</td>
-<td></td>
-<td>AC503U</td>
-<td></td>
-<td>PR1005</td>
-<td>JC5003</td>
-<td></td>
-<td>KC5510</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P10</td>
-<td>YBG102</td>
-<td>GC1025     GC1525</td>
-<td></td>
-<td></td>
-<td>WSM10 WSM21</td>
-<td></td>
-<td></td>
-<td>AH710     AH120</td>
-<td>PR930     PR1005     PR1025     PR1115     PR1215     PR1425     PR1225</td>
-<td>JC5003  JC5030</td>
-<td></td>
-<td>KC5010 KC5510   KU10T</td>
-<td>TS2000     TS2500     CP200</td>
-<td>IC250     IC507     IC570     IC907     IC807</td>
-</tr>
-<tr>
-<td>P20</td>
-<td>YBG202 YBG203 YB9320</td>
-<td>GC1020     GC1025     GC1125     GC1525</td>
-<td></td>
-<td>TT9020</td>
-<td>WSM20 WSM21   WHH15 WXM15</td>
-<td>VP15TF</td>
-<td></td>
-<td>AH710  AH725 AH120S H730 GH730 GH130     AH120</td>
-<td>PR930     PR1025     PR1115     PR1215     PR1425     PR1225</td>
-<td>JC5015  JC5030   JC5040</td>
-<td>IP2000</td>
-<td>KC5025 KC5525 KC7215 KC7315 KU25T</td>
-<td>TS2000     TS2500     CP200     CP500</td>
-<td>IC908     IC928     IC1008     IC1028     IC3028</td>
-</tr>
-<tr>
-<td>P30</td>
-<td>YBG202  YBG203</td>
-<td>GC1125     GC1145     GC1115     GC1105</td>
-<td></td>
-<td>TT9020</td>
-<td>WMP35 WSM30</td>
-<td>VP30RT</td>
-<td>AC630M     AC530U</td>
-<td>AH725  AH120S H730 GH730 GH130 AH740 J740     AH120</td>
-<td>PR1025     PR1225</td>
-<td>JC5015   JC5040</td>
-<td>IP3000</td>
-<td>KC7015  KC7020 KC7235 KU25T</td>
-<td>TS2500     CP500     CP600</td>
-<td>IC328     IC928     IC3028</td>
-</tr>
-<tr>
-<td>P40</td>
-<td>YBG302</td>
-<td>GC1145     GC2145</td>
-<td></td>
-<td>TT9020</td>
-<td>WSP45 WSP46</td>
-<td></td>
-<td>AC530U</td>
-<td>AH740  J740</td>
-<td></td>
-<td>JC5040</td>
-<td></td>
-<td>KC7030  KC7040 KC7140</td>
-<td>CP500     CP600</td>
-<td>IC328          IC3028</td>
-</tr>
-<tr>
-<td>M01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>WXM10</td>
-<td></td>
-<td>AC610M</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>TS2000     CP200</td>
-<td></td>
-</tr>
-<tr>
-<td>M10</td>
-<td>YBG102</td>
-<td>GC1005     GC1025     GC1125     GC15</td>
-<td>PC8110</td>
-<td>TT5080</td>
-<td>WSM10 WSM20   WSM21 WXM15</td>
-<td></td>
-<td>AC520U</td>
-<td>AH710</td>
-<td>PR1025     PR1215     PR1225</td>
-<td>JC5003</td>
-<td>IP050S</td>
-<td>KC5010  KC5510 KC6005 KCU11</td>
-<td>TS2000     TS2500     CP200     CP500</td>
-<td>IC807     IC507     IC907     IC520</td>
-</tr>
-<tr>
-<td>M20</td>
-<td>YBG202 YBG205 YBG203  YB9320</td>
-<td>GC1025     GC1115     GC1125     GC30</td>
-<td>PC8110  PC5300 PC9030</td>
-<td>TT5080     TT9020     TT9080</td>
-<td>WSM20  WSM21  WXM15</td>
-<td>VP15TFMP7030</td>
-<td>AC520U  AC530U</td>
-<td>AH710  AH630 AH725 AH120 GH330</td>
-<td>PR930     PR1025     PR1125     PR1215     PR1425     PR1225</td>
-<td>JC5015  JC5030   JC5040  JC8015</td>
-<td>IP100S</td>
-<td>KC5025  KC5525 KC7020 KC7025 KCU25</td>
-<td>TS2000     TS2500     CP200     CP500     CP600</td>
-<td>IC308     IC807     IC507     IC907     IC520     IC3208</td>
-</tr>
-<tr>
-<td>M30</td>
-<td>YBG302</td>
-<td>GC1020     GC2035     GC2030</td>
-<td>PC8110  PC5300 PC9030 PC5400</td>
-<td>TT9020     TT9080</td>
-<td>WSM30  WSM35  WXM15 WMP35</td>
-<td>MP7035</td>
-<td>AC530U     AC6030M</td>
-<td>AH630  AH645 AH725 AH120 GH330 GH730 SH730 GH130</td>
-<td>PR1125</td>
-<td>JC5015  JC5030   JC5040</td>
-<td></td>
-<td>KC7030  KC7225</td>
-<td>TS2500     CP500     CP600</td>
-<td>IC908     IC928     IC1008     IC1028     IC3028</td>
-</tr>
-<tr>
-<td>M40</td>
-<td></td>
-<td>GC2145     GC1145     GC2035</td>
-<td>PC5300  PC9030 PC5400</td>
-<td>TT9020     TT9080</td>
-<td>WSM30 WSM35 WSP45   WSP46  WSP36</td>
-<td></td>
-<td>AC6040M</td>
-<td>AH645  J740</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>CP500     CP600</td>
-<td>IC328     IC928     IC228</td>
-</tr>
-<tr>
-<td>K01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>JC5003</td>
-<td></td>
-<td>KC5515</td>
-<td></td>
-<td>IC910</td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YBG102</td>
-<td>GC1010</td>
-<td></td>
-<td></td>
-<td>WHH15 WXM15</td>
-<td></td>
-<td></td>
-<td>GH110  AH110 AH710</td>
-<td>PR905     PR1215     PR1510</td>
-<td>JC5003  JC5015</td>
-<td></td>
-<td>KC5010  KC7210</td>
-<td>TS2000     TS2500     CP200</td>
-<td>IC807     IC910     IC507     IC908</td>
-</tr>
-<tr>
-<td>K20</td>
-<td>YBG202      YBG203</td>
-<td>GC1020     GC1120</td>
-<td>PC5300</td>
-<td></td>
-<td>WSM10 WKK25</td>
-<td>VP15TF</td>
-<td></td>
-<td>GH110  AH110 AH710 AH725 AH120 GH730 GH130</td>
-<td>PR905     PR1215</td>
-<td>JC5015</td>
-<td></td>
-<td>KC5025  KC5525 KC7015 KC7215 KC7315</td>
-<td>TS2000     TS2500     CP200     CP500</td>
-<td>IC928     IC1008     IC508     IC908</td>
-</tr>
-<tr>
-<td>K30</td>
-<td></td>
-<td>GC1030     GC4125</td>
-<td>PC5300</td>
-<td></td>
-<td>WSM10 WKK25</td>
-<td></td>
-<td></td>
-<td>AH725  AH120 GH730 GH130</td>
-<td></td>
-<td></td>
-<td></td>
-<td>KC7225</td>
-<td>TS2500     CP500</td>
-<td>IC928     IC1008     IC908     IC508</td>
-</tr>
-<tr>
-<td>K40</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>CP500</td>
-<td></td>
-</tr>
-<tr>
-<td>S01</td>
-<td></td>
-<td>GC1105</td>
-<td></td>
-<td></td>
-<td>WS10</td>
-<td>MP9005</td>
-<td>AC510U</td>
-<td>AH905</td>
-<td>PR1305     SW05</td>
-<td></td>
-<td></td>
-<td></td>
-<td>TH1000</td>
-<td>IC507</td>
-</tr>
-<tr>
-<td>S10</td>
-<td>YBG102 YBG105</td>
-<td>GC1005     GC1025     GC1125</td>
-<td>PC8110</td>
-<td>TT5080TT9080TT5030</td>
-<td>WSM10 WSM20   WSM21</td>
-<td>MP9015</td>
-<td>AC510U     AC520U</td>
-<td>AH905  SH730 AH110 AH120</td>
-<td>PR1310     SW10</td>
-<td></td>
-<td></td>
-<td>KC5010 KC5025</td>
-<td>TS2000     TS2500     TH1000     CP200     CP500</td>
-<td>IC903</td>
-</tr>
-<tr>
-<td>S20</td>
-<td></td>
-<td>GC4125</td>
-<td>PC8110  PC5300</td>
-<td>TT9080</td>
-<td>WSM20 WSM21</td>
-<td>VP15TF</td>
-<td>AC520U</td>
-<td>AH120  AH725</td>
-<td></td>
-<td></td>
-<td></td>
-<td>KC5025 KC5525   KU25T</td>
-<td>TS2000     TS2500     CP200     CP500     CP600</td>
-<td>IC300     IC808     IC928</td>
-</tr>
-<tr>
-<td>S30</td>
-<td></td>
-<td>GC1125     GC2145</td>
-<td>PC5300  PC5400</td>
-<td>TT8020     TT9080</td>
-<td>WSM30  WSM35 WSM36 WMP35</td>
-<td></td>
-<td></td>
-<td>AH725</td>
-<td>PR1325     SW25</td>
-<td></td>
-<td></td>
-<td></td>
-<td>CP500     CP600</td>
-<td></td>
-</tr>
-<tr>
-<td>S40</td>
-<td></td>
-<td></td>
-<td>PC5400</td>
-<td>TT9080</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P01</td>
-<td></td>
-<td></td>
-<td></td>
-<td>TT2510</td>
-<td></td>
-<td></td>
-<td></td>
-<td>AH330  GH330</td>
-<td></td>
-<td></td>
-<td>ATH80D  PTH08M   PCA08M  PCS08M</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P10</td>
-<td></td>
-<td>GC1025     GC1010</td>
-<td>PC3600</td>
-<td>TT6800</td>
-<td>WHH15  WXM15</td>
-<td></td>
-<td>ACP200</td>
-<td>AH330  GH330 AH725 AH120 AH730</td>
-<td>PR830     PR1025     PR1225</td>
-<td>JC5003</td>
-<td>ACS05E  PCA12M   PC20M  JP4005  JX1020   JP4020  CY9020</td>
-<td>KC715M</td>
-<td></td>
-<td>IC250     IC903     IC950</td>
-</tr>
-<tr>
-<td>P20</td>
-<td>YBG202 YBG205 YB9320</td>
-<td>GC1030     GC1025     GC1010     GC2030</td>
-<td>PC3600  PC5300</td>
-<td>TT7220     TT9030     TT9080</td>
-<td>WHH15 WXM15 WSM20</td>
-<td>VP15TF</td>
-<td>ACP200  ACP300</td>
-<td>AH725  AH120 AH130 GH130 AH730</td>
-<td>PR1525     PR830     PR1025     PR1225     PR1230</td>
-<td>JC5015</td>
-<td>JX1015 CY150 CY15</td>
-<td>KCM522M KUC20M KC525M KCPM20</td>
-<td>MP3000     F25M</td>
-<td>IC950     IC900     IC908     IC910</td>
-</tr>
-<tr>
-<td>P30</td>
-<td>YBG302</td>
-<td>GC1010     GC1030     GC2030</td>
-<td>PC3600  PC5300 PC5400</td>
-<td>TT7030TT9030     TT8080     TT9030     TT9080</td>
-<td>WSP35 WSP46   WSM35S</td>
-<td></td>
-<td>ACP300</td>
-<td>AH130  GH130 AH140</td>
-<td>PR1230</td>
-<td>JC5030</td>
-<td>JS4060  JX1045   JS4045 CY250  CY25    HC844  PTH30E</td>
-<td>KC994M KC725M   KC792M KC530M KCPK30</td>
-<td>MP3000     F25M     F30M     F40M</td>
-<td>IC900     IC928     IC300     IC328     IC1008</td>
-</tr>
-<tr>
-<td>P40</td>
-<td></td>
-<td>GC1030     GC1040</td>
-<td>PC5300  PC5400 PC3545</td>
-<td>TT8020     TT8080     TT9030     TT9080</td>
-<td>WSP45  WSP45S WSP46 WKP45S</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>JC5040</td>
-<td>JS4060  JX1060    GX2140 JM4060  PTH40H   GF30  GX30</td>
-<td>KC735M</td>
-<td>MP3000     F40M     T60M</td>
-<td>IC900     IC928     IC300     IC328</td>
-</tr>
-<tr>
-<td>M01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>ACP200</td>
-<td>GH110</td>
-<td></td>
-<td></td>
-<td>PCS08M</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>M10</td>
-<td></td>
-<td>GC1025     GC1030</td>
-<td></td>
-<td>TT6800</td>
-<td>WXM15</td>
-<td></td>
-<td>AC520U  ACP200 ACP300</td>
-<td>GH110  AH330 GH330 AH725 AH120</td>
-<td>PR1025     PR1225</td>
-<td>JC5003</td>
-<td>JX1020  CY9020   JP4020</td>
-<td>KC522  KC5510</td>
-<td></td>
-<td>IC903</td>
-</tr>
-<tr>
-<td>M20</td>
-<td>YBG202 YBG205 YB9320</td>
-<td>GC1025     GC2030     GC1040</td>
-<td>PC5300  PC9530</td>
-<td>TT9030TT8020     TT9080</td>
-<td>WXM15</td>
-<td>VP15TFMP7030</td>
-<td>AC520U  AC530U ACP300</td>
-<td>AH724  AH120 AH130 GH130 GH340 AH730</td>
-<td>PR1525     PR1025     PR1225</td>
-<td>JC5015</td>
-<td>JX1015  CY150    CY15</td>
-<td>KC7020 KC730M   KC525M</td>
-<td>MP3000     MS2050     F25M     F30M</td>
-<td>IC900     IC903     IC908     IC928</td>
-</tr>
-<tr>
-<td>M30</td>
-<td>YBG302</td>
-<td>GC1040     GC2030</td>
-<td>PC5300  PC9530 PC5400 PC3545</td>
-<td>TT8020     TT8080     TT9030     TT9080</td>
-<td>WQM35  WXM35 WSM35 WSM36 WSM35S</td>
-<td></td>
-<td>AC530U</td>
-<td>AH130  AH140 GH130 GH340 AH730</td>
-<td>PR1535</td>
-<td>JC5030</td>
-<td>JX1045  CY250   CY25  HC844</td>
-<td>KC994M KC725M KC735M KC7030 KCPK30</td>
-<td>MP3000     MS2050     F30M     F40M</td>
-<td>IC928     IC328     IC1008</td>
-</tr>
-<tr>
-<td>M40</td>
-<td></td>
-<td>GC1040</td>
-<td>PC5400  PC3545</td>
-<td>TT8020     TT8080     TT9030     TT9080</td>
-<td>WSP45  WSP46 WSP45S</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>JC5040</td>
-<td>JX1060     GX2160     JM4060     GF30     GX30</td>
-<td>KC722</td>
-<td></td>
-<td>IC928     IC328</td>
-</tr>
-<tr>
-<td>K01</td>
-<td></td>
-<td></td>
-<td>PC8110</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>GH110  AH110 AH330</td>
-<td></td>
-<td></td>
-<td>ATH80D PTH08M   PCA08M  PCS08M</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YBG102</td>
-<td>GC1010</td>
-<td>PC8110  PC6510</td>
-<td>TT6080</td>
-<td>WHH15 WXM15</td>
-<td></td>
-<td>ACK300</td>
-<td>GH110  AH110 AH330 AH725 AH120 GH130</td>
-<td>PR1510     PR905     PR1210</td>
-<td>JC5003</td>
-<td>ACS05E     JP4005     JP4020     JX1020     CY9020     CY100H     CY10H</td>
-<td>KCK15 KC915M</td>
-<td>MK2050</td>
-<td>IC900     IC910</td>
-</tr>
-<tr>
-<td>K20</td>
-<td>YBG202 YBG152</td>
-<td>GC1010     GC1020</td>
-<td>PC6510 PC5300  PC5400</td>
-<td></td>
-<td>WKK25</td>
-<td></td>
-<td>ACK300</td>
-<td>GH130</td>
-<td>PR905     PR1210</td>
-<td>JC5015</td>
-<td>JX1015     GX2120     CY150     CY15     PTH13S</td>
-<td>KC520M KC920M   KC925M KC992M</td>
-<td>MK2050</td>
-<td>IC910     IC950</td>
-</tr>
-<tr>
-<td>K30</td>
-<td></td>
-<td></td>
-<td>PC5300 PC5400</td>
-<td></td>
-<td></td>
-<td></td>
-<td>ACK300</td>
-<td></td>
-<td></td>
-<td></td>
-<td>JX1045     CY250     CY25     PTH30E     PTH40H     GX2140     GX30</td>
-<td>KC930M</td>
-<td>MK2050</td>
-<td>IC908     IC950     IC928</td>
-</tr>
-<tr>
-<td>S01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>ACK300 ACP300</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>S10</td>
-<td>YBG102</td>
-<td>GC1025</td>
-<td>PC5300</td>
-<td>TT5030</td>
-<td></td>
-<td></td>
-<td>ACP300</td>
-<td></td>
-<td></td>
-<td></td>
-<td>PCS08M     PTH13S     JS1025</td>
-<td>KC510M</td>
-<td>MS2050</td>
-<td>IC908</td>
-</tr>
-<tr>
-<td>S20</td>
-<td></td>
-<td>GC1025</td>
-<td>PC5300 PC5400  PC3545</td>
-<td>TT8020</td>
-<td>WSM35  WXM35</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>CY100H     CY10H</td>
-<td>KC522M KC525M</td>
-<td>MS2050     F40M</td>
-<td>IC908</td>
-</tr>
-<tr>
-<td>S30</td>
-<td></td>
-<td>GC2030     S30T</td>
-<td>PC5400 PC3545</td>
-<td></td>
-<td>WSM35S WSM36</td>
-<td></td>
-<td></td>
-<td></td>
-<td>PR1535</td>
-<td></td>
-<td></td>
-<td>KC725M</td>
-<td>MS2050     F40M</td>
-<td>IC328     IC928</td>
-</tr>
-<tr>
-<td>H01</td>
-<td></td>
-<td></td>
-<td>PC210F</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>MH1000</td>
-<td></td>
-</tr>
-<tr>
-<td>H10</td>
-<td></td>
-<td>GC1010     GC1030</td>
-<td>PC210F</td>
-<td>AB2010</td>
-<td>WHH15</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>BH200     BH250</td>
-<td>KC5010 KC5510 KU10T KC635M</td>
-<td>MH1000     F15M</td>
-<td>IC900</td>
-</tr>
-<tr>
-<td>H20</td>
-<td></td>
-<td>GC1010</td>
-<td></td>
-<td></td>
-<td>WXP45</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>ATH80D     PTH08M     PCA08M     JP4005</td>
-<td>KC635M</td>
-<td>F15M</td>
-<td>IC1008     IC808</td>
-</tr>
-<tr>
-<td>H30</td>
-<td></td>
-<td>GC1030</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>MP3000     F30M</td>
-<td>IC1008     IC908</td>
-</tr>
-</tbody></table>
-<h5 id="金属陶瓷："><a href="#金属陶瓷：" class="headerlink" title="金属陶瓷："></a>金属陶瓷：</h5><table>
-<thead>
-<tr>
-<th>分类</th>
-<th>ZCCCT</th>
-<th>SANDVIK</th>
-<th>KORLOY</th>
-<th>TeaguTec</th>
-<th>WALTER</th>
-<th>MITSUBISHI</th>
-<th>SUMITOMO</th>
-<th>TUNGALOY</th>
-<th>KYOCERA</th>
-<th>DIJET</th>
-<th>HITACHI</th>
-<th>KENNAMETAL</th>
-<th>SECO</th>
-<th>ISCAR</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>代号</td>
-<td>株洲钻石</td>
-<td>山特维克</td>
-<td>可乐伊</td>
-<td>特固克</td>
-<td>瓦尔特</td>
-<td>三菱</td>
-<td>住友电气工业</td>
-<td>泰珂洛</td>
-<td>京瓷</td>
-<td>黛杰</td>
-<td>日立工具</td>
-<td>肯纳金属</td>
-<td>山高工具</td>
-<td>伊斯卡</td>
-</tr>
-<tr>
-<td>P01</td>
-<td></td>
-<td></td>
-<td>CN1000</td>
-<td></td>
-<td></td>
-<td></td>
-<td>T1500Z(涂层) T1000A</td>
-<td></td>
-<td>TN30     PV30     TN6010     PV7010</td>
-<td>LN10   CX50</td>
-<td></td>
-<td>KT1120 KT125 HTX</td>
-<td></td>
-<td>IC20N     IC520N</td>
-</tr>
-<tr>
-<td>P10</td>
-<td>YNG151 YNG151C  YNT251</td>
-<td>CT5015     CT525</td>
-<td>CN1000       CN1500     CN2000</td>
-<td>CT3000PV3010     PV3030</td>
-<td>WTA41 WTA43   WCE10</td>
-<td>VP25N     AP25N</td>
-<td>T1500Z  T3000Z（涂层） T1000A T1500A</td>
-<td>NS520  GT530 AT530     NS9530     GT9530</td>
-<td>TN60     TN6010     TN6020     PV7010     PV7020     PV7025     TN620     PV620</td>
-<td>LN10   CX50    CX75   NIT  PX75</td>
-<td>CH350</td>
-<td>KT125  KT315 KT175 HT2</td>
-<td>TP1030     TP1020</td>
-<td>IC20N     IC520N     IC530N</td>
-</tr>
-<tr>
-<td>P20</td>
-<td>YNT251</td>
-<td>CT525     CT530</td>
-<td>CN1500 CN2000 CN20</td>
-<td>CT3000</td>
-<td>WCE10</td>
-<td>NX2525     NX3035VP25N     AP25N</td>
-<td>T1500Z  T3000Z T1500A</td>
-<td>GT530  AT530 NS530 J530 GT730 NS730     NS9530     GT9530</td>
-<td>TN90     TN6020     PV7020     PV7025     TN620     PV620</td>
-<td>CX50   CX75    CX90  NAT  PX90</td>
-<td>CH550     CZ1025</td>
-<td>PS5 KT5020</td>
-<td>TP1030     TP1020</td>
-<td>IC20N     IC75T     IC30N     IC520N     IC530N</td>
-</tr>
-<tr>
-<td>P30</td>
-<td></td>
-<td>CT530</td>
-<td></td>
-<td></td>
-<td></td>
-<td>MP3025     VP45N</td>
-<td>T3000Z</td>
-<td></td>
-<td></td>
-<td>CX90   CX99   SUZ</td>
-<td>CH570</td>
-<td></td>
-<td></td>
-<td>IC75T     IC30N</td>
-</tr>
-<tr>
-<td>M01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>AP25N  UP20M US7020</td>
-<td>T1000A T1500A</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>M10</td>
-<td></td>
-<td>CT5015     CT525</td>
-<td></td>
-<td>PV3010</td>
-<td></td>
-<td></td>
-<td></td>
-<td>GT530  GT730 NS530 NS730 J530</td>
-<td>TN60     TN6020     PV7020     PV7025</td>
-<td>LN10</td>
-<td></td>
-<td>KT125  KT1120 KT315</td>
-<td>TP1030     TP1020</td>
-<td>IC20N     IC520N</td>
-</tr>
-<tr>
-<td>M20</td>
-<td></td>
-<td>CT530</td>
-<td></td>
-<td>CT3000</td>
-<td></td>
-<td></td>
-<td></td>
-<td>NS530 NS730 J530</td>
-<td>TN90     TN6020     PV7020     PV7025</td>
-<td>CX50 CX75   PX75    NIT   NAT</td>
-<td></td>
-<td>KT175 HT2    PS5 KT5020</td>
-<td>TP1020</td>
-<td>IC30N     IC530N</td>
-</tr>
-<tr>
-<td>M30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K01</td>
-<td></td>
-<td></td>
-<td>CN1000</td>
-<td></td>
-<td></td>
-<td></td>
-<td>T1000A</td>
-<td>NS520  GT530 GT730</td>
-<td>TN30     PV30     PV7005</td>
-<td>LN10</td>
-<td></td>
-<td>KT1120</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K10</td>
-<td></td>
-<td>CT5015</td>
-<td>CN1000</td>
-<td>CT3000PV3010</td>
-<td></td>
-<td></td>
-<td></td>
-<td>NS520 GT530 GT730 NS530</td>
-<td>TN60     TN6010     PV7005     PV7010</td>
-<td>LN10</td>
-<td></td>
-<td>KT125  KT315 HTX</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K20</td>
-<td></td>
-<td></td>
-<td></td>
-<td>AW20  AB20 AB30 AS10 SC10</td>
-<td></td>
-<td></td>
-<td></td>
-<td>NS530</td>
-<td></td>
-<td>NIT</td>
-<td></td>
-<td>KT5020</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P10</td>
-<td>YNG151 YNG151C</td>
-<td></td>
-<td>CN2000</td>
-<td>CT7000</td>
-<td></td>
-<td></td>
-<td>T250A</td>
-<td></td>
-<td>TN60</td>
-<td>NIT   CX75</td>
-<td>CH550</td>
-<td>KT530M KT195M</td>
-<td>MP1020</td>
-<td>IC30N</td>
-</tr>
-<tr>
-<td>P20</td>
-<td></td>
-<td>CT530</td>
-<td>CN20</td>
-<td>CT520</td>
-<td></td>
-<td></td>
-<td>T250A T4500A</td>
-<td>NS530 NS740</td>
-<td>TN60     TN100M</td>
-<td>NAT    CX75   CX90</td>
-<td>CH7030     MZ1000</td>
-<td>HT7  KT530M   KT605M</td>
-<td>MP1020</td>
-<td>IC30N</td>
-</tr>
-<tr>
-<td>P30</td>
-<td></td>
-<td></td>
-<td>CN30</td>
-<td></td>
-<td></td>
-<td></td>
-<td>T4500A</td>
-<td>NS740 N308 X407</td>
-<td></td>
-<td>CX90   CX99   SC30</td>
-<td>CH7035</td>
-<td></td>
-<td></td>
-<td>IC30N</td>
-</tr>
-<tr>
-<td>M01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>T250A</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>M10</td>
-<td>YNG151 YNG151C</td>
-<td></td>
-<td></td>
-<td>CT7000</td>
-<td></td>
-<td></td>
-<td>T4500A     ACM100</td>
-<td></td>
-<td>TN60</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>IC30N</td>
-</tr>
-<tr>
-<td>M20</td>
-<td></td>
-<td>CT530</td>
-<td></td>
-<td>CT7000</td>
-<td></td>
-<td></td>
-<td>T4500A     ACM200</td>
-<td>NS530 NS740</td>
-<td>TN60     TN100M</td>
-<td>NIT    CX75   NAT</td>
-<td></td>
-<td>KT7  KT530M   KT605M</td>
-<td>MP1020</td>
-<td>IC30N</td>
-</tr>
-<tr>
-<td>M30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>ACM300</td>
-<td>NS740 N308</td>
-<td></td>
-<td>CX75 CX90     CX99   SC30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>LN10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YNG151 YNG151C</td>
-<td></td>
-<td></td>
-<td>CT520</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>LN10   CX75</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K20</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>NIT</td>
-<td></td>
-<td>KT530M HT7</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h5 id="CBN"><a href="#CBN" class="headerlink" title="CBN:"></a>CBN:</h5><table>
-<thead>
-<tr>
-<th>分类</th>
-<th>ZCCCT</th>
-<th>SANDVIK</th>
-<th>KORLOY</th>
-<th>TeaguTec</th>
-<th>WALTER</th>
-<th>MITSUBISHI</th>
-<th>SUMITOMO</th>
-<th>TUNGALOY</th>
-<th>KYOCERA</th>
-<th>DIJET</th>
-<th>HITACHI</th>
-<th>KENNAMETAL</th>
-<th>SECO</th>
-<th>ISCAR</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>代号</td>
-<td>株洲钻石</td>
-<td>山特维克</td>
-<td>可乐伊</td>
-<td>特固克</td>
-<td>瓦尔特</td>
-<td>三菱</td>
-<td>住友电工</td>
-<td>泰珂洛</td>
-<td>京瓷</td>
-<td>黛杰</td>
-<td>日立工具</td>
-<td>肯纳金属</td>
-<td>山高工具</td>
-<td>伊斯卡</td>
-</tr>
-<tr>
-<td>H01</td>
-<td></td>
-<td>CB20</td>
-<td>KB320 KB330</td>
-<td>KB50</td>
-<td>WCB30</td>
-<td></td>
-<td>BN1000     BNC100</td>
-<td></td>
-<td>KBN510     KBN05M     KBN10M</td>
-<td></td>
-<td></td>
-<td>KB1610</td>
-<td>CBN050C     CBN100</td>
-<td></td>
-</tr>
-<tr>
-<td>H10</td>
-<td>YCB012</td>
-<td>CB7015     CB7050     CB50</td>
-<td>KB320 KB330</td>
-<td>TB610TB650</td>
-<td>WCB50  WCB80</td>
-<td>BC8110</td>
-<td>BNC160     BNC200     BNC2000     BNC2010</td>
-<td></td>
-<td>KBN525     KBN05M     KBN25M</td>
-<td>JBN300  JBN500</td>
-<td></td>
-<td>KB1615  KB1625</td>
-<td>CBN10     CBN200</td>
-<td></td>
-</tr>
-<tr>
-<td>H20</td>
-<td>YCB121 YZB121</td>
-<td>CB7025     CB7525</td>
-<td></td>
-<td>TB670TB730</td>
-<td>WCB50 WCB80   WWS20</td>
-<td></td>
-<td>BNC2020</td>
-<td></td>
-<td>KBN30M     KBN35M     KBN900</td>
-<td>JBN425</td>
-<td></td>
-<td>KB1340</td>
-<td>CBN150     CBN200</td>
-<td></td>
-</tr>
-<tr>
-<td>H30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>BNC300     BN350     BNX25</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>CBN300     CBN350</td>
-<td></td>
-</tr>
-<tr>
-<td>S01</td>
-<td>YCB011</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>BN700     BN7000</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>S10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>WIS10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>S20</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>WWS20</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>S30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K01</td>
-<td></td>
-<td>CB7535     CB50     CB7050</td>
-<td>KB350  KB360</td>
-<td></td>
-<td>WCB80</td>
-<td></td>
-<td>BNC500</td>
-<td>BX930  BX870 X910</td>
-<td>KBN60M</td>
-<td>JBN795</td>
-<td></td>
-<td></td>
-<td>CBN300     CBN300P</td>
-<td>IB50     IB85</td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YCB011</td>
-<td>CB50     CB7050</td>
-<td>KB350  KB360</td>
-<td>TB610TB650</td>
-<td>WCB50</td>
-<td></td>
-<td>BN700     BN7000     BN7500</td>
-<td>BX950</td>
-<td>KBN60M     KBN900</td>
-<td>JBN330</td>
-<td></td>
-<td>KB1630</td>
-<td>CBN200</td>
-<td>IB55     IB90</td>
-</tr>
-<tr>
-<td>K20</td>
-<td>YCB211 YZB221</td>
-<td></td>
-<td></td>
-<td>TB670TB730</td>
-<td>WCN10</td>
-<td></td>
-<td>BN700     BN7000     BNS800</td>
-<td>BXC90  BX90S</td>
-<td>KBN900</td>
-<td></td>
-<td></td>
-<td></td>
-<td>CBN300</td>
-<td></td>
-</tr>
-<tr>
-<td>K30</td>
-<td>YZB231</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>BNS800</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>CBN350</td>
-<td></td>
-</tr>
-<tr>
-<td>H01</td>
-<td></td>
-<td></td>
-<td>KB350</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>KBN510     KBN05M     KBN10M</td>
-<td></td>
-<td></td>
-<td></td>
-<td>CBN300P     CBN400C</td>
-<td>IB20H     IB25HC     IB50</td>
-</tr>
-<tr>
-<td>IB50</td>
-<td>YCB012</td>
-<td></td>
-<td>KB350</td>
-<td>KB90</td>
-<td>WCB50 WCB80</td>
-<td></td>
-<td></td>
-<td></td>
-<td>KBN525     KBN05M     KBN25M</td>
-<td></td>
-<td></td>
-<td>KB5610 KB9610</td>
-<td>CBN160C     CBN300P     CBN400C</td>
-<td>IB50</td>
-</tr>
-<tr>
-<td>H20</td>
-<td>YCB211</td>
-<td></td>
-<td></td>
-<td></td>
-<td>WSM20</td>
-<td></td>
-<td></td>
-<td></td>
-<td>KBN30M     KBN35M     KBN900</td>
-<td></td>
-<td></td>
-<td>KB5625 KB9640</td>
-<td>CBN160C     CBN300P     CBN400C</td>
-<td>IB55     IB26HA</td>
-</tr>
-<tr>
-<td>H30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>WCB80</td>
-<td></td>
-<td>BNS800  BN7000 BN500</td>
-<td>BX870  BX910</td>
-<td>KBN60M</td>
-<td></td>
-<td></td>
-<td></td>
-<td>CBN300P     CBN400C</td>
-<td></td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YCB011</td>
-<td></td>
-<td></td>
-<td>KB90</td>
-<td>WCB50</td>
-<td></td>
-<td>BNS800</td>
-<td>BX870  BX910 BX950</td>
-<td>KBN60M     KBN900</td>
-<td></td>
-<td></td>
-<td>KB9610</td>
-<td>CBN300P     CBN400C</td>
-<td></td>
-</tr>
-<tr>
-<td>K20</td>
-<td>YZB221</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>BX950</td>
-<td>KBN900</td>
-<td></td>
-<td></td>
-<td>KB9640</td>
-<td>CBN300P     CBN400C</td>
-<td></td>
-</tr>
-<tr>
-<td>K30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>CBN300P     CBN400C</td>
-<td></td>
-</tr>
-</tbody></table>
-<h5 id="PCD"><a href="#PCD" class="headerlink" title="PCD:"></a>PCD:</h5><table>
-<thead>
-<tr>
-<th>分类</th>
-<th>ZCCCT</th>
-<th>SANDVIK</th>
-<th>KORLOY</th>
-<th>TeaguTec</th>
-<th>WALTER</th>
-<th>MITSUBISHI</th>
-<th>SUMITOMO</th>
-<th>TUNGALOY</th>
-<th>KYOCERA</th>
-<th>DIJET</th>
-<th>HITACHI</th>
-<th>KENNAMETAL</th>
-<th>SECO</th>
-<th>ISCAR</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>代号</td>
-<td>株洲钻石</td>
-<td>山特维克</td>
-<td>可乐伊</td>
-<td>特固克</td>
-<td>瓦尔特</td>
-<td>三菱</td>
-<td>住友电工</td>
-<td>泰珂洛</td>
-<td>京瓷</td>
-<td>黛杰</td>
-<td>日立工具</td>
-<td>肯纳金属</td>
-<td>山高工具</td>
-<td>伊斯卡</td>
-</tr>
-<tr>
-<td>N01</td>
-<td></td>
-<td>CD05     CD10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>DA90</td>
-<td>DX160  DX180</td>
-<td>KPD001</td>
-<td>JDA30  JDA735</td>
-<td></td>
-<td>PD100</td>
-<td>1700     1800</td>
-<td></td>
-</tr>
-<tr>
-<td>N10</td>
-<td>YCD011 YCD411  YCD511</td>
-<td>CD10</td>
-<td>DP150</td>
-<td>KP300</td>
-<td>WCD10</td>
-<td></td>
-<td>DA150     DA1000     DA2200</td>
-<td>DX160  DX180 DX140 DX120</td>
-<td>KPD001     KPD010     KPD230     KPD250</td>
-<td>JDA40   JDA745</td>
-<td></td>
-<td>PD100</td>
-<td>1500</td>
-<td>ID5</td>
-</tr>
-<tr>
-<td>N20</td>
-<td>YCD421</td>
-<td></td>
-<td></td>
-<td></td>
-<td>WCD10</td>
-<td>MP3025</td>
-<td>DA1000     DA2200</td>
-<td>DX120  DX110</td>
-<td>KPD001     KPD010     KPD230     KPD250</td>
-<td>JDA10  JDA715</td>
-<td></td>
-<td></td>
-<td>1300</td>
-<td></td>
-</tr>
-<tr>
-<td>N30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>DA1000     DA2200</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>1600</td>
-<td></td>
-</tr>
-<tr>
-<td>N01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>KD1400 KD1405</td>
-<td>PCD05</td>
-<td></td>
-</tr>
-<tr>
-<td>N10</td>
-<td>YCD411 YCD511</td>
-<td></td>
-<td></td>
-<td></td>
-<td>WCD10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>KD1400 KD1415</td>
-<td>PCD05     PCD20</td>
-<td></td>
-</tr>
-<tr>
-<td>N20</td>
-<td></td>
-<td></td>
-<td>DP150</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>KD1425</td>
-<td>PCD05     PCD20     PCD30     PCD30M</td>
-<td></td>
-</tr>
-<tr>
-<td>N30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>PCD05     PCD20     PCD30M</td>
-<td></td>
-</tr>
-</tbody></table>
-<h5 id="硬质合金："><a href="#硬质合金：" class="headerlink" title="硬质合金："></a>硬质合金：</h5><table>
-<thead>
-<tr>
-<th>分类</th>
-<th>ZCCCT</th>
-<th>SANDVIK</th>
-<th>KORLOY</th>
-<th>TeaguTec</th>
-<th>WALTER</th>
-<th>MITSUBISHI</th>
-<th>SUMITOMO</th>
-<th>TUNGALOY</th>
-<th>KYOCERA</th>
-<th>DIJET</th>
-<th>HITACHI</th>
-<th>KENNAMETAL</th>
-<th>SECO</th>
-<th>ISCAR</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>代号</td>
-<td>株洲钻石</td>
-<td>山特维克</td>
-<td>可乐伊</td>
-<td>特固克</td>
-<td>瓦尔特</td>
-<td>三菱</td>
-<td>住友电工</td>
-<td>泰珂洛</td>
-<td>京瓷</td>
-<td>黛杰</td>
-<td>日立工具</td>
-<td>肯纳金属</td>
-<td>山高工具</td>
-<td>伊斯卡</td>
-</tr>
-<tr>
-<td>P01</td>
-<td></td>
-<td></td>
-<td>ST05</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P10</td>
-<td>YC10</td>
-<td>S1P</td>
-<td>ST10</td>
-<td></td>
-<td></td>
-<td></td>
-<td>ST10P</td>
-<td></td>
-<td></td>
-<td>SR10  SRT</td>
-<td>WS10</td>
-<td>K2885</td>
-<td></td>
-<td>IC70</td>
-</tr>
-<tr>
-<td>P20</td>
-<td></td>
-<td>SMA</td>
-<td>ST15  ST20</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td>ST20E</td>
-<td></td>
-<td></td>
-<td>SRT   SR20   DX30</td>
-<td>EX35</td>
-<td>K125M</td>
-<td></td>
-<td>IC70     IC50M</td>
-</tr>
-<tr>
-<td>P30</td>
-<td></td>
-<td>SM30</td>
-<td>ST30N  ST30</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td>A30</td>
-<td>UX30</td>
-<td>PW30</td>
-<td>SR30   DX30   DX35</td>
-<td>EX40</td>
-<td>KMF</td>
-<td></td>
-<td>IC50M     IC54</td>
-</tr>
-<tr>
-<td>P40</td>
-<td>YC40</td>
-<td>S6</td>
-<td>ST40 ST45 ST46</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>SR30   DX35</td>
-<td>EX45</td>
-<td>PVA</td>
-<td></td>
-<td>IC54</td>
-</tr>
-<tr>
-<td>M10</td>
-<td>YC10</td>
-<td>H10A</td>
-<td>U10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>UMN     UM10</td>
-<td>WA10B</td>
-<td>KU10  K313    K68</td>
-<td>890</td>
-<td></td>
-</tr>
-<tr>
-<td>M20</td>
-<td></td>
-<td>H13A</td>
-<td>U20</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td></td>
-<td></td>
-<td></td>
-<td>UM20     DX25     DTU</td>
-<td>EX35</td>
-<td>KU10  K313    K68</td>
-<td>HX     883</td>
-<td>IC08</td>
-</tr>
-<tr>
-<td>M30</td>
-<td>YC40</td>
-<td>H10F  SM30</td>
-<td></td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td></td>
-<td>UX30</td>
-<td></td>
-<td>DTU     UMS</td>
-<td>EX45</td>
-<td></td>
-<td></td>
-<td>IC08     IC28</td>
-</tr>
-<tr>
-<td>M40</td>
-<td></td>
-<td>S6</td>
-<td>U40</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>IC28</td>
-</tr>
-<tr>
-<td>K01</td>
-<td>YD051</td>
-<td>H1P</td>
-<td>H02</td>
-<td></td>
-<td>WXK05</td>
-<td>UTi05T</td>
-<td></td>
-<td></td>
-<td></td>
-<td>KG03</td>
-<td>WH01     WH05</td>
-<td>K68   KU10    K313</td>
-<td></td>
-<td>IC04</td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YD101</td>
-<td>HIP     H10     HM</td>
-<td>H01  H05</td>
-<td>K10</td>
-<td></td>
-<td>UTi10</td>
-<td>G10E</td>
-<td>TH10</td>
-<td>KW10</td>
-<td>KG10     KT9     CR1</td>
-<td>WH10</td>
-<td>KMI  K8735   K313</td>
-<td>890</td>
-<td>IC20</td>
-</tr>
-<tr>
-<td>K20</td>
-<td>YD201</td>
-<td>H13A</td>
-<td>H10  G10</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td></td>
-<td>UX30</td>
-<td>GW10</td>
-<td>KG20     KT9     CR1</td>
-<td>WH20</td>
-<td>KMF</td>
-<td>890     HX     883</td>
-<td>IC20     IC10</td>
-</tr>
-<tr>
-<td>K30</td>
-<td></td>
-<td></td>
-<td>G10</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td></td>
-<td></td>
-<td></td>
-<td>KG30</td>
-<td></td>
-<td>THR</td>
-<td></td>
-<td>IC10     IC28</td>
-</tr>
-<tr>
-<td>N01</td>
-<td></td>
-<td>H10  H13A</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>KS05F</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>N10</td>
-<td>YD101</td>
-<td></td>
-<td>H01</td>
-<td>K10</td>
-<td>WK1</td>
-<td>HTi10</td>
-<td>H1</td>
-<td>KS05F KS15F TH10</td>
-<td></td>
-<td></td>
-<td>WH10</td>
-<td>KU10  K313    K68</td>
-<td>890     H15</td>
-<td></td>
-</tr>
-<tr>
-<td>N20</td>
-<td>YD201</td>
-<td></td>
-<td>H01</td>
-<td></td>
-<td></td>
-<td></td>
-<td>H1</td>
-<td>KS15F TH10</td>
-<td></td>
-<td></td>
-<td></td>
-<td>KU10  K313    K68</td>
-<td>HX     KX     883     H15     H25</td>
-<td></td>
-</tr>
-<tr>
-<td>N30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>RT9005</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>H25</td>
-<td></td>
-</tr>
-<tr>
-<td>S01</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>RT9005RT9010</td>
-<td>EH510</td>
-<td></td>
-<td></td>
-<td>FB10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>S10</td>
-<td>YD101</td>
-<td>H10 H10A     H10F H13A</td>
-<td></td>
-<td>K10</td>
-<td>WK1  WS10</td>
-<td>RT9010</td>
-<td>EH510  EH520</td>
-<td>TH10</td>
-<td></td>
-<td>FB10     FB15</td>
-<td></td>
-<td></td>
-<td>890</td>
-<td></td>
-</tr>
-<tr>
-<td>S20</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>TF15</td>
-<td>EH520</td>
-<td>KS20</td>
-<td></td>
-<td>FB15     FB20</td>
-<td></td>
-<td></td>
-<td>890     HX     883     H25</td>
-<td></td>
-</tr>
-<tr>
-<td>S30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>FB20</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P10</td>
-<td>YC10</td>
-<td>S1P</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>SR10  SRT</td>
-<td>WS10</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>P20</td>
-<td></td>
-<td></td>
-<td>ST20</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td>A30N</td>
-<td></td>
-<td></td>
-<td>SRT   SR20   DX30</td>
-<td>EX35</td>
-<td>K125M</td>
-<td></td>
-<td>IC50M     IC28</td>
-</tr>
-<tr>
-<td>P30</td>
-<td></td>
-<td></td>
-<td>ST30A ST30N</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td>A30N</td>
-<td>UX30</td>
-<td>PW30</td>
-<td>SR30   DX30   DX35</td>
-<td>EX40</td>
-<td>GX</td>
-<td></td>
-<td>IC50M     IC28</td>
-</tr>
-<tr>
-<td>P40</td>
-<td>YC40</td>
-<td></td>
-<td>ST40</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>PW30</td>
-<td>SR30   DX35</td>
-<td>EX45</td>
-<td></td>
-<td></td>
-<td>IC28</td>
-</tr>
-<tr>
-<td>M10</td>
-<td>YC10</td>
-<td></td>
-<td>U10</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>UMN     UM10</td>
-<td>WA10B</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>M20</td>
-<td></td>
-<td></td>
-<td>U20</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td></td>
-<td></td>
-<td></td>
-<td>UM20     DX25     DTU</td>
-<td>EX35</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>M30</td>
-<td>YC40</td>
-<td></td>
-<td>U30</td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td>A30N</td>
-<td>UX30</td>
-<td></td>
-<td>DTU     UMS</td>
-<td>EX45</td>
-<td></td>
-<td></td>
-<td>IC28</td>
-</tr>
-<tr>
-<td>M40</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>A30N</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>IC28</td>
-</tr>
-<tr>
-<td>K01</td>
-<td>YD051</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>UTi05T</td>
-<td></td>
-<td></td>
-<td></td>
-<td>KG03</td>
-<td>WH01     WH05</td>
-<td>K115M  K313</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>K10</td>
-<td>YD101</td>
-<td>H1P</td>
-<td></td>
-<td></td>
-<td></td>
-<td>UTi10</td>
-<td></td>
-<td>TH10</td>
-<td>KW10</td>
-<td>KG10     KT9     CR1</td>
-<td>WH10</td>
-<td>K115M  K313</td>
-<td></td>
-<td>IC20</td>
-</tr>
-<tr>
-<td>K20</td>
-<td>YD201</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td>G10E</td>
-<td>UX30</td>
-<td></td>
-<td>KG20     KT9     CR1</td>
-<td>WH20</td>
-<td></td>
-<td>HX</td>
-<td>IC20     IC10</td>
-</tr>
-<tr>
-<td>K30</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>UTi20T</td>
-<td>G10E</td>
-<td></td>
-<td></td>
-<td>KG30</td>
-<td></td>
-<td></td>
-<td></td>
-<td>IC10     IC28</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2020/03/23/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/23/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" class="post-title-link" itemprop="url">python_网络爬虫</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="所需要的模块："><a href="#所需要的模块：" class="headerlink" title="所需要的模块："></a>所需要的模块：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> requests          <span class="number">2.23</span><span class="number">.0</span> </span><br><span class="line"><span class="number">2.</span> urllib3           <span class="number">1.25</span><span class="number">.8</span> </span><br><span class="line"><span class="number">3.</span> urlopen           <span class="number">1.0</span><span class="number">.0</span></span><br><span class="line"><span class="number">4.</span> beautifulsoup4    <span class="number">4.8</span><span class="number">.2</span></span><br><span class="line"><span class="number">5.</span> lxml              <span class="number">4.5</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="举例讲解"><a href="#举例讲解" class="headerlink" title="举例讲解"></a>举例讲解</h3><h5 id="用正则表达式："><a href="#用正则表达式：" class="headerlink" title="用正则表达式："></a>用正则表达式：</h5><p>解析网页的步骤：</p>
-<ol>
-<li>指定要爬的网址 (url)</li>
-<li>使用 python 登录上这个网址 (urlopen等)</li>
-<li>读取网页信息 (read() 出来)</li>
-</ol>
-<p>获取网页的Html代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">html = <span class="built_in">urlopen</span>(‘url’).<span class="built_in">read</span>().<span class="built_in">decoad</span>(‘utf<span class="number">-8</span>’)    </span><br></pre></td></tr></table></figure>
-
-<h5 id="exp"><a href="#exp" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#读取网站的HTML代码。导入模块后用urlopen即可以读取指定网页的html代码</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line">html = urlopen(</span><br><span class="line">    <span class="string">&quot;https://morvanzhou.github.io/static/scraping/basic-structure.html&quot;</span></span><br><span class="line">).read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(html)</span><br></pre></td></tr></table></figure>
-
-<p>从已经提取的网页信息中匹配网页的title:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = re.<span class="built_in">findall</span>(r<span class="string">&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;</span>, html)</span><br></pre></td></tr></table></figure>
-
-<h5 id="exp-1"><a href="#exp-1" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line">html = urlopen(</span><br><span class="line">    <span class="string">&quot;https://morvanzhou.github.io/static/scraping/basic-structure.html&quot;</span></span><br><span class="line">).read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">res = re.findall(<span class="string">r&quot;&lt;title&gt;(.+?)&lt;/title&gt;&quot;</span>, html)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nPage title is: &quot;</span>, res[<span class="number">0</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>从已经提取的网页信息中匹配网页的href</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res = re.<span class="built_in">findall</span>(r<span class="number">&#x27;</span>href=<span class="string">&quot;(.*?)&quot;</span><span class="string">&#x27;, html)</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="exp-2"><a href="#exp-2" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">res = re.findall(<span class="string">r&#x27;href=&quot;(.*?)&quot;&#x27;</span>, html)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;\nAll links: &quot;</span>, res)</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="用BeautifulSoup-解析网页："><a href="#用BeautifulSoup-解析网页：" class="headerlink" title="用BeautifulSoup 解析网页："></a>用BeautifulSoup 解析网页：</h5><ol>
-<li><p>导入模块:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">import</span> requests</span><br><span class="line"><span class="number">2.</span> <span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="number">3.</span> <span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>解析网页的步骤：</p>
-<ol>
-<li>指定要爬的网址 (url)</li>
-<li>使用 python 登录上这个网址 (urlopen等)</li>
-<li>读取网页信息 (read() 出来)</li>
-<li>将读取的信息放入 BeautifulSoup</li>
-<li>使用 BeautifulSoup 选取 tag 信息等 (代替正则表达式)</li>
-</ol>
-<h5 id="exp-3"><a href="#exp-3" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">html = urlopen(</span><br><span class="line">    <span class="string">&quot;https://morvanzhou.github.io/static/scraping/basic-structure.html&quot;</span></span><br><span class="line">).read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">soup = BeautifulSoup(html,features=<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;打印网页的一级标题&#x27;</span>,soup.h1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;打印网页段落内容&#x27;</span>,soup.p.contents)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;打印网页链接&#x27;</span>,soup.a)</span><br></pre></td></tr></table></figure>
-
-<p>BeautifulSoup的工作原理：</p>
-<ol>
-<li><p>读取这个网页信息, 我们将要加载进 BeautifulSoup, 以 lxml 的这种形式加载. 除了 lxml, 其实还有很多形式的解析器, 不过大家都推荐使用 lxml 的形式. 然后 soup 里面就有着这个 HTML 的所有信息. 如果你要输出 </p><h1> 标题, 可以就直接 soup.h1.<p></p>
-</h1></li>
-<li><p>如果网页中有多个同样的 tag, 比如链接 <a>, 我们可以使用 find_all() 来找到所有的选项. 因为我们真正的 link 不是在 <a> 中间 </a>, 而是在 <a href="link"> 里面, 也可以看做是 <a> 的一个属性. 我们能用像 Python 字典的形式, 用 key 来读取 l[“href”].</a></a></a></p>
-</li>
-</ol>
-<p><strong>上面是用html的标签进行解析，也可以通过网页的css解析</strong></p>
-<h6 id="按-Class-匹配"><a href="#按-Class-匹配" class="headerlink" title="按 Class 匹配"></a>按 Class 匹配</h6><p>按 Class 匹配很简单. 比如我要找所有 class&#x3D;month 的信息. 并打印出它们的 tag 内文字.</p>
-<p>或者找到 class&#x3D;jan 的信息. 然后在 <ul> 下面继续找 <ul> 内部的 <li> 信息. 这样一层层嵌套的信息, 非常容易找到.</li></ul></ul></p>
-<h5 id="exp-4"><a href="#exp-4" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">soup = BeautifulSoup(html, features=<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">month = soup.find_all(<span class="string">&#x27;li&#x27;</span>, &#123;<span class="string">&quot;class&quot;</span>: <span class="string">&quot;month&quot;</span>&#125;)</span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> month:</span><br><span class="line">    <span class="built_in">print</span>(m.get_text())</span><br><span class="line"></span><br><span class="line">jan = soup.find(<span class="string">&#x27;ul&#x27;</span>, &#123;<span class="string">&quot;class&quot;</span>: <span class="string">&#x27;jan&#x27;</span>&#125;)</span><br><span class="line">d_jan = jan.find_all(<span class="string">&#x27;li&#x27;</span>)            </span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> d_jan:</span><br><span class="line">    <span class="built_in">print</span>(d.get_text())</span><br></pre></td></tr></table></figure>
-
-<h6 id="正则匹配："><a href="#正则匹配：" class="headerlink" title="正则匹配："></a>正则匹配：</h6><p>我们先读取这个网页. 导入正则模块 re.</p>
-<h5 id="exp-5"><a href="#exp-5" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">html = urlopen(<span class="string">&quot;https://morvanzhou.github.io/static/scraping/table.html&quot;</span>).read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>比如图片, 它们都藏在这样一个<img> 标签中，但是每个标签的src（图片地址）可能不同。或者图片的格式也不同，有JPG,PNG,WEBP等等。如果只需要某一类的图片呢？可以用正则表达式。<code>r’.*?\.webp</code>找出所有webp格式的图片链接。把正则的 compile 形式放到 BeautifulSoup 的功能中, 就能选到符合要求的图片链接了.</p>
-<h5 id="exp-6"><a href="#exp-6" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">soup = BeautifulSoup(html, features=<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">img_links = soup.find_all(<span class="string">&quot;img&quot;</span>, &#123;<span class="string">&quot;src&quot;</span>: re.<span class="built_in">compile</span>(<span class="string">&#x27;.*?\.webp&#x27;</span>)&#125;)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> img_links:</span><br><span class="line">    <span class="built_in">print</span>(link[<span class="string">&#x27;src&#x27;</span>])</span><br></pre></td></tr></table></figure>
-
-<p>又或者我们发现, 我想选一些课程的链接, 而这些链接都有统一的形式, 就是开头都会有 https://morvan., 那我就将这个定为一个正则的规则, 让 BeautifulSoup 帮我找到符合这个规则的链接.</p>
-<h5 id="exp-7"><a href="#exp-7" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">course_links = soup.find_all(<span class="string">&#x27;a&#x27;</span>, &#123;<span class="string">&#x27;href&#x27;</span>: re.<span class="built_in">compile</span>(<span class="string">&#x27;https://morvan.*&#x27;</span>)&#125;)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> course_links:</span><br><span class="line">    <span class="built_in">print</span>(link[<span class="string">&#x27;href&#x27;</span>])</span><br></pre></td></tr></table></figure>
-
-<h4 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h4><p>获取网页的方式 :其实在加载网页的时候, 有几种类型, 而这几种类型就是你打开网页的关键. 最重要的类型 (method) 就是 get 和 post (当然还有其他的, 比如 head, delete). 刚接触网页构架的朋友可能又会觉得有点懵逼了. 这些请求的方式到底有什么不同? 他们又有什么作用?</p>
-<p>我们就来说两个重要的, get, post, 95% 的时间, 你都是在使用这两个来请求一个网页.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> post</span><br><span class="line">   <span class="number">1.</span> 账号登录</span><br><span class="line">   <span class="number">2.</span> 搜索内容</span><br><span class="line">   <span class="number">3.</span> 上传图片</span><br><span class="line">   <span class="number">4.</span> 上传文件</span><br><span class="line">   <span class="number">5.</span> 往服务器传数据 等</span><br><span class="line"><span class="number">2.</span> get</span><br><span class="line">   <span class="number">1.</span> 正常打开网页</span><br><span class="line">   <span class="number">2.</span> 不往服务器传数据</span><br></pre></td></tr></table></figure>
-
-<p>这样看来, 很多网页使用 get 就可以了, 比如 莫烦Python 里的所有页面, 都是只是 get 发送请求. 而 post, 我们则是给服务器发送个性化请求, 比如将你的账号密码传给服务器, 让它给你返回一个含有你个人信息的 HTML.</p>
-<p>从主动和被动的角度来说, post 中文是发送, 比较主动, 你控制了服务器返回的内容. 而 get 中文是取得, 是被动的, 你没有发送给服务器个性化的信息, 它不会根据你个性化的信息返回不一样的 HTML.</p>
-<h6 id="requests-get-请求"><a href="#requests-get-请求" class="headerlink" title="requests get 请求"></a>requests get 请求</h6><p>有了 requests, 我们可以发送个中 method 的请求. 比如 get. 我们想模拟一下百度的搜索. 首先我们需要观看一下百度搜索的规律. 在百度搜索框中写上 “莫烦python” 我们发现它弹出了一串这么长的网址.</p>
-<p>但是仔细一看, 和 “莫烦Python” 有关的信息, 只有前面一小段 (“s?wd&#x3D;莫烦python”), 其他的对我们来说都是无用的信息. 所以我们现在来尝试一下如果把后面的”无用” url 都去掉会怎样? Duang! 我们还是能搜到 “莫烦python”.</p>
-<p>所以 “s?wd&#x3D;莫烦python” 这就是我们搜索需要的关键信息. 我们就能用 <code>get</code> 来搭配一些自定义的搜索关键词来用 python 个性化搜索. 首先, 我们固定不动的网址部分是 “http://www.baidu.com/s”, <code>?</code> 后面的东西都是一些参数 (parameters), 所以我们将这些 parameters 用 python 的字典代替, 然后传入 requests.get() 功能. 然后我们还能用 python (webbrowser模块) 打开一个你的默认浏览器, 观看你是否在百度的搜索页面.</p>
-<h5 id="exp-8"><a href="#exp-8" class="headerlink" title="exp:"></a>exp:</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> webbrowser</span><br><span class="line">param = &#123;<span class="string">&quot;wd&quot;</span>: <span class="string">&quot;莫烦Python&quot;</span>&#125;  <span class="comment"># 搜索的信息</span></span><br><span class="line">r = requests.get(<span class="string">&#x27;http://www.baidu.com/s&#x27;</span>, params=param)</span><br><span class="line"><span class="built_in">print</span>(r.url)</span><br><span class="line">webbrowser.<span class="built_in">open</span>(r.url)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

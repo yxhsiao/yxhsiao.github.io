@@ -174,7 +174,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -224,6 +224,2033 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/11/11/Python%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/11/Python%E5%88%A4%E6%96%AD%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">Python判断对象类型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-11 10:29:26" itemprop="dateCreated datePublished" datetime="2023-11-11T10:29:26+08:00">2023-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> re,os,random</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> date,time,timedelta,datetime</span><br></pre></td></tr></table></figure>
+
+<h3 id="str-isdigit"><a href="#str-isdigit" class="headerlink" title="str.isdigit()"></a><code>str.isdigit()</code></h3><ul>
+<li>如果字符串只包含数字则返回 True 否则返回 False。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;&#x27;</span></span><br><span class="line">c = <span class="string">&#x27;37&#x27;</span></span><br><span class="line"></span><br><span class="line">a.isdigit()</span><br></pre></td></tr></table></figure>
+
+<pre><code>False
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.isdigit()</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+</code></pre>
+<h3 id="str-isnumeric"><a href="#str-isnumeric" class="headerlink" title="str.isnumeric()"></a><code>str.isnumeric()</code></h3><ul>
+<li>如果字符串中只包含数字字符，则返回 True，否则返回 False</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;18&#x27;</span></span><br><span class="line"></span><br><span class="line">a.isnumeric()</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;</span>.isnumeric()</span><br></pre></td></tr></table></figure>
+
+<pre><code>False
+</code></pre>
+<h3 id="str-isspace"><a href="#str-isspace" class="headerlink" title="str.isspace()"></a><code>str.isspace()</code></h3><ul>
+<li>如果字符串中只包含空格，则返回 True，否则返回 False.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;</span>.isspace()</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27; &#x27;</span>.isspace()</span><br></pre></td></tr></table></figure>
+
+<pre><code>False
+
+True
+</code></pre>
+<h3 id="str-isalnum"><a href="#str-isalnum" class="headerlink" title="str.isalnum()"></a><code>str.isalnum()</code></h3><ul>
+<li>如果 string 至少有一个字符并且所有字符都是字母或数字则返回 True,否则返回 False</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 至少有 1 个字母或数字；没有字母和数字之外的符号</span></span><br><span class="line"><span class="string">&#x27;abc&#x27;</span>.isalnum()</span><br><span class="line"><span class="string">&#x27;123&#x27;</span>.isalnum()</span><br><span class="line"><span class="string">&#x27;a2b3ccc&#x27;</span>.isalnum()</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+
+True
+
+True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 有空格</span></span><br><span class="line"><span class="string">&#x27; a2b3ccc&#x27;</span>.isalnum()</span><br><span class="line"><span class="string">&#x27;a 2b3ccc&#x27;</span>.isalnum()</span><br></pre></td></tr></table></figure>
+
+<pre><code>False
+
+False
+</code></pre>
+<h3 id="isidentifier"><a href="#isidentifier" class="headerlink" title=".isidentifier()"></a><code>.isidentifier()</code></h3><ul>
+<li>字符串是有效标识符，则 isidentifier() 方法返回 True，否则返回 False</li>
+<li>如果字符串仅包含字母数字字母（a-z）和（0-9）或下划线（_），则该字符串被视为有效标识符。有效的标识符不能以数字开头或包含任何空格。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字母和数字以及 `_`组成，且非数字开头</span></span><br><span class="line"><span class="string">&#x27;abc345&#x27;</span>.isidentifier()</span><br><span class="line"><span class="string">&#x27;abc_345&#x27;</span>.isidentifier()</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+
+True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 包含有除 `_` 之外的其他符号</span></span><br><span class="line"><span class="string">&#x27;abc_|345&#x27;</span>.isidentifier()</span><br></pre></td></tr></table></figure>
+
+<pre><code>False
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 包含有空格</span></span><br><span class="line"><span class="string">&#x27;abc_ 345&#x27;</span>.isidentifier()</span><br></pre></td></tr></table></figure>
+
+<pre><code>False
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数字开头</span></span><br><span class="line"><span class="string">&#x27;1abc_ 345&#x27;</span>.isidentifier()</span><br></pre></td></tr></table></figure>
+
+<pre><code>False
+</code></pre>
+<h3 id="set-issubset-sequence"><a href="#set-issubset-sequence" class="headerlink" title="set.issubset(sequence)"></a><code>set.issubset(sequence)</code></h3><ul>
+<li>如果集合中的所有项目都存在于指定集合中，则 issubset() 方法将返回 True，否则返回 False。</li>
+<li>set: {}</li>
+<li>sequence: 序列</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据集 set 是否包为 序列的子集</span></span><br><span class="line"><span class="comment"># set 是否被 seq 包含</span></span><br><span class="line">a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>&#125; </span><br><span class="line">b = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">c = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">a.issubset(b)</span><br><span class="line">a.issubset(c)</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+
+False
+</code></pre>
+<h3 id="判断是否为空"><a href="#判断是否为空" class="headerlink" title="判断是否为空"></a>判断是否为空</h3><ol>
+<li>df.empty</li>
+<li>not seq</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DataFrame.empty</span></span><br><span class="line">df = pd.DataFrame()</span><br><span class="line">df.empty</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># seq 是否为空。 not seq</span></span><br><span class="line">lst = []</span><br><span class="line">st = &#123;&#125;</span><br><span class="line">dct = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">not</span> lst</span><br><span class="line"><span class="keyword">not</span> st</span><br><span class="line"><span class="keyword">not</span> dct</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+
+True
+
+True
+</code></pre>
+<h3 id="type-isinstance"><a href="#type-isinstance" class="headerlink" title="type() / isinstance()"></a><code>type() / isinstance()</code></h3><ol>
+<li>type()  </li>
+<li>isinstance(obj,type)</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># type str,int,float,Nan,</span></span><br><span class="line"><span class="built_in">type</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="built_in">type</span>(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"><span class="built_in">type</span>(np.nan)</span><br><span class="line"><span class="built_in">type</span>(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line"><span class="built_in">type</span>(<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>str
+
+str
+
+float
+
+str
+
+int
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># type() seq</span></span><br><span class="line"><span class="built_in">type</span>([])</span><br><span class="line"><span class="built_in">type</span>(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<pre><code>list
+
+dict
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># type() df,sr</span></span><br><span class="line"><span class="built_in">type</span>(pd.DataFrame())</span><br><span class="line"><span class="built_in">type</span>(pd.Series())</span><br></pre></td></tr></table></figure>
+
+<pre><code>pandas.core.frame.DataFrame
+
+pandas.core.series.Series
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># datetime</span></span><br><span class="line"><span class="built_in">type</span>(date.today())</span><br></pre></td></tr></table></figure>
+
+<pre><code>datetime.date
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># str,int,float,Nan</span></span><br><span class="line"><span class="built_in">isinstance</span>(<span class="string">&#x27;a&#x27;</span>,<span class="built_in">str</span>)</span><br><span class="line"><span class="built_in">isinstance</span>(<span class="number">1</span>,<span class="built_in">int</span>)</span><br><span class="line"><span class="built_in">isinstance</span>(<span class="number">1</span>,<span class="built_in">float</span>)</span><br><span class="line"><span class="built_in">isinstance</span>(np.nan,<span class="built_in">float</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+
+True
+
+False
+
+True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># seq</span></span><br><span class="line"><span class="built_in">isinstance</span>([<span class="string">&#x27;a&#x27;</span>],<span class="built_in">list</span>)</span><br><span class="line"><span class="built_in">isinstance</span>(&#123;<span class="string">&#x27;a&#x27;</span>&#125;,<span class="built_in">set</span>)</span><br><span class="line"><span class="built_in">isinstance</span>(&#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">45</span>&#125;,<span class="built_in">dict</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+
+True
+
+True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># df,sr</span></span><br><span class="line"><span class="built_in">isinstance</span>(pd.Series(),pd.core.series.Series)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类型可以指定多个。判断一个值或集合是否为多个类型</span></span><br><span class="line"><span class="built_in">isinstance</span>(<span class="number">123</span>,<span class="built_in">float</span>|<span class="built_in">int</span>)</span><br><span class="line"></span><br><span class="line">a = np.pi</span><br><span class="line"><span class="built_in">isinstance</span>(a,<span class="built_in">float</span>|<span class="built_in">int</span>)</span><br><span class="line"><span class="built_in">type</span>(a)</span><br></pre></td></tr></table></figure>
+
+<pre><code>True
+
+True
+
+float
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/11/11/Pandas%E7%BC%BA%E5%A4%B1%E5%80%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/11/Pandas%E7%BC%BA%E5%A4%B1%E5%80%BC/" class="post-title-link" itemprop="url">Pandas缺失值</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-11 00:23:38" itemprop="dateCreated datePublished" datetime="2023-11-11T00:23:38+08:00">2023-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> re,os,random</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dct = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;Python&#x27;</span>,<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>,<span class="string">&#x27;Sql&#x27;</span>,<span class="string">&#x27;Html&#x27;</span>,<span class="string">&#x27;Css&#x27;</span>],</span><br><span class="line">       <span class="string">&#x27;score&#x27;</span>:[<span class="number">90</span>,<span class="number">30</span>,np.nan,np.nan,<span class="number">78</span>,np.nan],<span class="string">&#x27;pop&#x27;</span>:[<span class="number">65</span>,<span class="number">43</span>,np.nan,<span class="number">88</span>,np.nan,<span class="number">90</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(dct)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>NaN</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="检查缺失值"><a href="#检查缺失值" class="headerlink" title="检查缺失值"></a>检查缺失值</h3><ol>
+<li>isnull()</li>
+<li>isna</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.isnull().<span class="built_in">sum</span>()</span><br><span class="line"></span><br><span class="line">df.isna().<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+<pre><code>name     0
+score    3
+pop      2
+dtype: int64
+
+
+
+
+
+
+name     0
+score    3
+pop      2
+dtype: int64
+</code></pre>
+<h2 id="处理缺失值"><a href="#处理缺失值" class="headerlink" title="处理缺失值"></a>处理缺失值</h2><h3 id="平均值填充缺失值"><a href="#平均值填充缺失值" class="headerlink" title="平均值填充缺失值"></a>平均值填充缺失值</h3><ol>
+<li>fillna(Series.mean())</li>
+<li>fillna(Series.interpolate())</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 填充缺失值：该列的平均值</span></span><br><span class="line">df[<span class="string">&#x27;score&#x27;</span>] = df[<span class="string">&#x27;score&#x27;</span>].fillna(df[<span class="string">&#x27;score&#x27;</span>].mean())</span><br><span class="line">df</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>66.0</td>
+      <td>65.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>66.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>89.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>66.0</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dct = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;Python&#x27;</span>,<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>,<span class="string">&#x27;Sql&#x27;</span>,<span class="string">&#x27;Html&#x27;</span>,<span class="string">&#x27;Css&#x27;</span>],</span><br><span class="line">       <span class="string">&#x27;score&#x27;</span>:[<span class="number">90</span>,<span class="number">30</span>,np.nan,np.nan,<span class="number">78</span>,np.nan],<span class="string">&#x27;pop&#x27;</span>:[<span class="number">65</span>,<span class="number">43</span>,np.nan,<span class="number">88</span>,np.nan,<span class="number">90</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(dct)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line"><span class="comment"># 填充缺失值：缺失值上下的数字平均值。</span></span><br><span class="line">df[<span class="string">&#x27;score&#x27;</span>] = df[<span class="string">&#x27;score&#x27;</span>].fillna(df[<span class="string">&#x27;score&#x27;</span>].interpolate())</span><br><span class="line"><span class="comment"># df</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;pop&#x27;</span>] = df[<span class="string">&#x27;pop&#x27;</span>].fillna(df[<span class="string">&#x27;pop&#x27;</span>].interpolate())</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>NaN</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>46.0</td>
+      <td>65.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>62.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>89.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>78.0</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="缺失值前后的值填充"><a href="#缺失值前后的值填充" class="headerlink" title="缺失值前后的值填充"></a>缺失值前后的值填充</h3><ol>
+<li>fillna(axis&#x3D;0&#x2F;1,method &#x3D; ‘ffill&#x2F;bfill&#x2F;pad’)</li>
+<li>axis ： 0： 纵向， 1：横向</li>
+<li>method: ffill: 填充前值，bfill:填充后值，pad:优先取前值，否则取后值</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dct = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;Python&#x27;</span>,<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>,<span class="string">&#x27;Sql&#x27;</span>,<span class="string">&#x27;Html&#x27;</span>,<span class="string">&#x27;Css&#x27;</span>],</span><br><span class="line">       <span class="string">&#x27;score&#x27;</span>:[<span class="number">90</span>,<span class="number">30</span>,np.nan,np.nan,<span class="number">78</span>,np.nan],<span class="string">&#x27;pop&#x27;</span>:[<span class="number">65</span>,<span class="number">43</span>,np.nan,<span class="number">88</span>,np.nan,<span class="number">90</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(dct)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">df.fillna(axis=<span class="number">0</span>,method=<span class="string">&#x27;ffill&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>NaN</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>30.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>78.0</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dct = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;Python&#x27;</span>,<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>,<span class="string">&#x27;Sql&#x27;</span>,<span class="string">&#x27;Html&#x27;</span>,<span class="string">&#x27;Css&#x27;</span>],</span><br><span class="line">       <span class="string">&#x27;score&#x27;</span>:[<span class="number">90</span>,<span class="number">30</span>,np.nan,np.nan,<span class="number">78</span>,np.nan],<span class="string">&#x27;pop&#x27;</span>:[<span class="number">65</span>,<span class="number">43</span>,np.nan,<span class="number">88</span>,np.nan,<span class="number">90</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(dct)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">df.fillna(axis=<span class="number">0</span>,method=<span class="string">&#x27;bfill&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>NaN</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>78.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>78.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>90.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dct = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;Python&#x27;</span>,<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>,<span class="string">&#x27;Sql&#x27;</span>,<span class="string">&#x27;Html&#x27;</span>,<span class="string">&#x27;Css&#x27;</span>],</span><br><span class="line">       <span class="string">&#x27;score&#x27;</span>:[<span class="number">90</span>,<span class="number">30</span>,np.nan,np.nan,<span class="number">78</span>,np.nan],<span class="string">&#x27;pop&#x27;</span>:[<span class="number">65</span>,<span class="number">43</span>,np.nan,<span class="number">88</span>,np.nan,<span class="number">90</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(dct)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">df.fillna(axis=<span class="number">0</span>,method=<span class="string">&#x27;pad&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>NaN</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>30.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>78.0</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="删除缺失值"><a href="#删除缺失值" class="headerlink" title="删除缺失值"></a>删除缺失值</h3><ol>
+<li><code>df.dropna(axis,how,threst,subset,inplace)</code></li>
+<li>axis:0为行 1为列，default 0，数据删除维度</li>
+<li>how:{‘any’, ‘all’}, default ‘any’，any：删除带有nan的行；all：删除全为nan的行</li>
+<li>threst:int，保留至少 int 个非nan行</li>
+<li>subset:list，在特定列缺失值处理</li>
+<li>inplace:bool，是否修改源文件</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dct = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;Python&#x27;</span>,<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>,<span class="string">&#x27;Sql&#x27;</span>,<span class="string">&#x27;Html&#x27;</span>,<span class="string">&#x27;Css&#x27;</span>],</span><br><span class="line">       <span class="string">&#x27;score&#x27;</span>:[<span class="number">90</span>,<span class="number">30</span>,np.nan,np.nan,<span class="number">78</span>,np.nan],<span class="string">&#x27;pop&#x27;</span>:[<span class="number">65</span>,<span class="number">43</span>,np.nan,<span class="number">88</span>,np.nan,<span class="number">90</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(dct)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除缺失值所在的行</span></span><br><span class="line">df.dropna(axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除缺失值所在的列</span></span><br><span class="line">df.dropna(axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>NaN</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># thresh 和 how 不能同时使用</span></span><br><span class="line">df.dropna(axis=<span class="number">0</span>,</span><br><span class="line">          <span class="comment"># how=&#x27;any&#x27;,</span></span><br><span class="line">          thresh=<span class="number">2</span>,</span><br><span class="line">          )</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>NaN</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df.dropna(axis=<span class="number">0</span>,</span><br><span class="line">          how=<span class="string">&#x27;any&#x27;</span>,</span><br><span class="line">          subset=[<span class="string">&#x27;score&#x27;</span>],</span><br><span class="line">          )</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="na-action"><a href="#na-action" class="headerlink" title="na_action"></a><code>na_action</code></h3><ol>
+<li>主要应用在 map函数下</li>
+<li>None：默认值  忽略NA</li>
+<li>ignore:NA值将不会被传递给映射函数</li>
+<li>raise:如果存在缺失值，则抛出异常</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">dct = &#123;<span class="string">&#x27;name&#x27;</span>:[<span class="string">&#x27;Python&#x27;</span>,<span class="string">&#x27;Java&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>,<span class="string">&#x27;Sql&#x27;</span>,<span class="string">&#x27;Html&#x27;</span>,<span class="string">&#x27;Css&#x27;</span>],</span><br><span class="line">       <span class="string">&#x27;score&#x27;</span>:[<span class="number">90</span>,<span class="number">30</span>,np.nan,np.nan,<span class="number">78</span>,np.nan],<span class="string">&#x27;pop&#x27;</span>:[<span class="number">65</span>,<span class="number">43</span>,np.nan,<span class="number">88</span>,np.nan,<span class="number">90</span>]&#125;</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(dct)</span><br><span class="line">df</span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;score&#x27;</span>] = df[<span class="string">&#x27;score&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: <span class="string">f&#x27;<span class="subst">&#123;x:<span class="number">.2</span>f&#125;</span>&#x27;</span>, na_action=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;pop&#x27;</span>] = df[<span class="string">&#x27;pop&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: <span class="string">f&#x27;<span class="subst">&#123;x:g&#125;</span>&#x27;</span>, na_action=<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.0</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.0</td>
+      <td>43.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>NaN</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>NaN</td>
+      <td>90.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>score</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Python</td>
+      <td>90.00</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Java</td>
+      <td>30.00</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>C++</td>
+      <td>nan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sql</td>
+      <td>nan</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Html</td>
+      <td>78.00</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Css</td>
+      <td>nan</td>
+      <td>90</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/11/11/Python%E6%9B%BF%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/11/Python%E6%9B%BF%E6%8D%A2/" class="post-title-link" itemprop="url">Python替换</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-11 00:20:33" itemprop="dateCreated datePublished" datetime="2023-11-11T00:20:33+08:00">2023-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="字符串的替换-replace-函数"><a href="#字符串的替换-replace-函数" class="headerlink" title="字符串的替换 replace 函数"></a>字符串的替换 replace 函数</h3><p>语法：</p>
+<ol>
+<li><code>string.replace(old,new,count)</code><ul>
+<li>string：要替换的字符串</li>
+<li>old: （必选，字符串类型）被替换的字符串</li>
+<li>new: （必选，字符串类型）替换后的字符串</li>
+<li>count: （可选，整型）替换的次数</li>
+</ul>
+</li>
+<li><code>str.replace(string,old,new,count)</code><ul>
+<li>old: （必选，字符串类型）被替换的字符串</li>
+<li>new: （必选，字符串类型）替换后的字符串</li>
+<li>count: （可选，整型）替换的次数</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 要做替换的字符串</span></span><br><span class="line">a = <span class="string">&#x27;2023-11-10&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换方式1</span></span><br><span class="line">a.replace(<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换次数 例如只替换 1 次</span></span><br><span class="line">a.replace(<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定替换次数为负数，则会全部替换.但是必须是整型int</span></span><br><span class="line">a.replace(<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#x27;</span>,-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>&#39;20231110&#39;
+
+&#39;202311-10&#39;
+
+&#39;20231110&#39;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 替换方式2</span></span><br><span class="line"><span class="built_in">str</span>.replace(a,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># replace() 不会改变原字符串的内容，而是返回一个新的字符串</span></span><br><span class="line">a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连续替换</span></span><br><span class="line">b =<span class="string">&#x27;I Love python&#x27;</span></span><br><span class="line">b.replace(<span class="string">&#x27;python&#x27;</span>,<span class="string">&#x27;C++&#x27;</span>).replace(<span class="string">&#x27;I&#x27;</span>,<span class="string">&#x27;You&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>&#39;20231110&#39;
+
+&#39;2023-11-10&#39;
+
+&#39;You Love C++&#39;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 替换列表中的元素，获得新的列表</span></span><br><span class="line">lst = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">&#x27;ABC&#x27;</span>]</span><br><span class="line">lst </span><br><span class="line">[i.replace(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;a&#x27;</span>) <span class="keyword">for</span> i <span class="keyword">in</span> lst]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换字典中的键或值</span></span><br><span class="line">dct =&#123;k:v <span class="keyword">for</span> v,k <span class="keyword">in</span> <span class="built_in">enumerate</span>(lst)&#125;</span><br><span class="line">dct</span><br><span class="line"></span><br><span class="line">&#123;k.replace(<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;aa&#x27;</span>):<span class="built_in">str</span>(v).replace(<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;100&#x27;</span>) <span class="keyword">for</span> k,v <span class="keyword">in</span> dct.items()&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+
+[&#39;a&#39;, &#39;B&#39;, &#39;C&#39;]
+
+&#123;&#39;A&#39;: 0, &#39;B&#39;: 1, &#39;C&#39;: 2&#125;
+
+&#123;&#39;aa&#39;: &#39;0&#39;, &#39;B&#39;: &#39;100&#39;, &#39;C&#39;: &#39;2&#39;&#125;
+</code></pre>
+<h3 id="字符串的替换-re-sub"><a href="#字符串的替换-re-sub" class="headerlink" title="字符串的替换 re.sub"></a>字符串的替换 re.sub</h3><p>语法：<br><code>re.sub(pattern, repl, string, count=0, flags=0)</code></p>
+<ul>
+<li>pattern : 正则中的模式字符串。</li>
+<li>repl : 替换的字符串，也可为一个函数。</li>
+<li>string : 要被查找替换的原始字符串。</li>
+<li>count : 模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;address:123;number:456;date:789&#x27;</span></span><br><span class="line"><span class="comment"># 简单替换，将字符串中的 `:` 替换成 ` = `</span></span><br><span class="line">re.sub(<span class="string">r&#x27;:&#x27;</span>,<span class="string">&#x27; = &#x27;</span>,a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># reple 也可以是一个函数. 注意其中的函数 group()</span></span><br><span class="line">repl = <span class="keyword">lambda</span> x: <span class="string">&#x27;****&#x27;</span> <span class="keyword">if</span> x.group() == <span class="string">&#x27;123&#x27;</span> <span class="keyword">else</span> (<span class="string">&#x27;不允许公开的号码&#x27;</span> <span class="keyword">if</span> x.group() == <span class="string">&#x27;456&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;???&#x27;</span>)</span><br><span class="line">re.sub(<span class="string">r&#x27;\d+&#x27;</span>,repl,a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">repl = <span class="keyword">lambda</span> x: <span class="built_in">str</span>(<span class="built_in">int</span>(x.group()) + <span class="number">100</span>)  </span><br><span class="line">re.sub(<span class="string">r&#x27;\d+&#x27;</span>,repl,a)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>&#39;address = 123;number = 456;date = 789&#39;
+
+&#39;address:****;number:不允许公开的号码;date:???&#39;
+
+&#39;address:223;number:556;date:889&#39;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">file = <span class="string">r&quot;C:\Users\xiaoyx\Desktop\231110\近三天均多头\231110_list.txt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file) <span class="keyword">as</span> f1, <span class="built_in">open</span>(<span class="string">f&#x27;<span class="subst">&#123;file&#125;</span>.bak&#x27;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f2:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f1:</span><br><span class="line">        <span class="comment"># print(line)</span></span><br><span class="line">        <span class="comment"># repl = lambda x :</span></span><br><span class="line">        f2.write(re.sub(<span class="string">r&#x27;\D+&#x27;</span>,<span class="string">&#x27;&#x27;</span>,line))</span><br><span class="line">os.remove(file)</span><br><span class="line">os.rename(<span class="string">f&#x27;<span class="subst">&#123;file&#125;</span>.bak&#x27;</span>,file)</span><br><span class="line">f1.close()</span><br><span class="line">f2.close()</span><br></pre></td></tr></table></figure>
+
+<pre><code>54
+</code></pre>
+<h3 id="DataFrme-的值替换"><a href="#DataFrme-的值替换" class="headerlink" title="DataFrme 的值替换"></a>DataFrme 的值替换</h3><ol>
+<li><p>replace</p>
+<ul>
+<li><code>df.replace(old,new)</code></li>
+<li><code>df.replace(&#123;old:new,old,new&#125;)</code></li>
+</ul>
+</li>
+<li><p>map</p>
+<ul>
+<li><code>Series.map(arg,na_action =None)</code><ul>
+<li>arg : 映射一个 Series。它可以是一个集合或一个函数</li>
+<li>na_action:处理 NaN（非数字）值。它可以取两个值-None 或 ignore。None 是默认值，map() 将把映射应用于所有值，包括 Nan 值；ignore 将 NaN 值留在列中，而不传递给映射方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>applymap</p>
+<ul>
+<li>语法：DataFrame.applymap(func, na_action&#x3D;None, **kwargs)</li>
+<li>func : 传入的函数</li>
+<li></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">file = <span class="string">&#x27;ddd.csv&#x27;</span></span><br><span class="line">df = pd.read_csv(file,</span><br><span class="line">                <span class="comment">#  skiprows=[i for i in range(1,11)],</span></span><br><span class="line">                 nrows=<span class="number">2</span>,</span><br><span class="line">                 parse_dates=[<span class="string">&#x27;date&#x27;</span>], </span><br><span class="line">                 index_col=<span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">                 )</span><br><span class="line">df</span><br><span class="line"><span class="comment"># 将 bs列的 `0` 替换成 ` `, 将 `1` 替换成 `建仓`</span></span><br><span class="line">df.replace(<span class="number">0</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="number">1</span>,<span class="string">&#x27;建仓&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将多个值替换成一个相同的值</span></span><br><span class="line">df.replace([<span class="number">0</span>,<span class="number">1</span>],<span class="number">333</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典形式， 字典的键:被替换的字符串，字典的值：替换后的字符串</span></span><br><span class="line"><span class="comment">##  实现用多个数值替换多个数值</span></span><br><span class="line">df.replace(&#123;<span class="number">0</span>:<span class="string">&#x27;&#x27;</span>,<span class="number">1</span>:<span class="string">&#x27;建仓&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>建仓</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>333</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>333</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>建仓</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(file,</span><br><span class="line">                 nrows=<span class="number">2</span>,</span><br><span class="line">                 parse_dates=[<span class="string">&#x27;date&#x27;</span>], </span><br><span class="line">                 index_col=<span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;open&#x27;</span>] = df[<span class="string">&#x27;open&#x27;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x :<span class="string">f&#x27;<span class="subst">&#123;x :<span class="number">.2</span>f&#125;</span>&#x27;</span>,na_action=<span class="literal">None</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.18</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.50</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(file,</span><br><span class="line">                 nrows=<span class="number">2</span>,</span><br><span class="line">                 parse_dates=[<span class="string">&#x27;date&#x27;</span>], </span><br><span class="line">                 index_col=<span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">df</span><br><span class="line">df.applymap(<span class="keyword">lambda</span> x :<span class="string">f&#x27;<span class="subst">&#123;x:<span class="number">.2</span>f&#125;</span>&#x27;</span>,na_action=<span class="literal">None</span>)</span><br><span class="line">df.applymap(<span class="keyword">lambda</span> x :<span class="string">f&#x27;<span class="subst">&#123;x:<span class="number">.2</span>f&#125;</span>&#x27;</span>,na_action=<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line">df.applymap(<span class="keyword">lambda</span> x :<span class="built_in">round</span>(x,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.18</td>
+      <td>3.18</td>
+      <td>3.14</td>
+      <td>3.16</td>
+      <td>9718154.00</td>
+      <td>0.93</td>
+      <td>3.13</td>
+      <td>3.10</td>
+      <td>3.12</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.50</td>
+      <td>3.52</td>
+      <td>3.45</td>
+      <td>3.52</td>
+      <td>10729909.00</td>
+      <td>0.59</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.18</td>
+      <td>3.18</td>
+      <td>3.14</td>
+      <td>3.16</td>
+      <td>9718154.00</td>
+      <td>0.93</td>
+      <td>3.13</td>
+      <td>3.10</td>
+      <td>3.12</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.50</td>
+      <td>3.52</td>
+      <td>3.45</td>
+      <td>3.52</td>
+      <td>10729909.00</td>
+      <td>0.59</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.18</td>
+      <td>3.18</td>
+      <td>3.14</td>
+      <td>3.16</td>
+      <td>9718154</td>
+      <td>0.93</td>
+      <td>3.13</td>
+      <td>3.10</td>
+      <td>3.12</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.50</td>
+      <td>3.52</td>
+      <td>3.45</td>
+      <td>3.52</td>
+      <td>10729909</td>
+      <td>0.59</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>3.46</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="loc方法替换列的值"><a href="#loc方法替换列的值" class="headerlink" title="loc方法替换列的值"></a>loc方法替换列的值</h3><p>语法：<br><code>DataFrame.loc[condition, column_label] = new_value</code></p>
+<ol>
+<li>condition：这个参数返回使条件为真的值。</li>
+<li>column_label：该参数用于指定要更新的目标列。<br>通过参数确定值后，我们将其更新为 new_value。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(file,</span><br><span class="line">                 nrows=<span class="number">2</span>,</span><br><span class="line">                 parse_dates=[<span class="string">&#x27;date&#x27;</span>], </span><br><span class="line">                 index_col=<span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">                 )</span><br><span class="line"></span><br><span class="line">df.loc[df.<span class="built_in">open</span> &gt; df.close,<span class="string">&#x27;bs&#x27;</span>] = <span class="string">&#x27;收阴线&#x27;</span></span><br><span class="line"></span><br><span class="line">df.loc[df.volume &gt; <span class="number">10000000</span>, <span class="string">&#x27;bs&#x27;</span>] = <span class="string">&#x27;大成交量&#x27;</span></span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>volume</th>
+      <th>turn</th>
+      <th>ma05</th>
+      <th>ma10</th>
+      <th>ma20</th>
+      <th>bs</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-02-21</th>
+      <td>3.180605</td>
+      <td>3.180605</td>
+      <td>3.143274</td>
+      <td>3.158207</td>
+      <td>9718154</td>
+      <td>0.9316</td>
+      <td>3.134315</td>
+      <td>3.099970</td>
+      <td>3.123489</td>
+      <td>收阴线</td>
+    </tr>
+    <tr>
+      <th>2020-06-18</th>
+      <td>3.499128</td>
+      <td>3.518568</td>
+      <td>3.450529</td>
+      <td>3.518568</td>
+      <td>10729909</td>
+      <td>0.5944</td>
+      <td>3.464137</td>
+      <td>3.463165</td>
+      <td>3.464623</td>
+      <td>大成交量</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -30675,532 +32702,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/10/26/%E8%87%AA%E5%8A%A8%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/26/%E8%87%AA%E5%8A%A8%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9/" class="post-title-link" itemprop="url">自动替换文件内容</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-10-26 15:26:04" itemprop="dateCreated datePublished" datetime="2023-10-26T15:26:04+08:00">2023-10-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, re</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">change_to_webp</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    将 source\_posts目录下的所有图片格式(webp/webp)转换成webp。</span></span><br><span class="line"><span class="string">    并将对应的md文件中插入图片的语句相应的更改成webp.如：&lt;img src=&quot;./1.webp&quot; /&gt; ==&gt;&gt;&gt; &lt;img src=&quot;./1.webp&quot; /&gt;</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    fold = <span class="string">r&quot;D:\BLOG\yxhsiao\source\_posts&quot;</span></span><br><span class="line">    imgs = [os.path.join(p,j) <span class="keyword">for</span> p,d,f <span class="keyword">in</span> os.walk(fold)  <span class="keyword">for</span> j <span class="keyword">in</span> f <span class="keyword">if</span> re.search(<span class="string">&#x27;\.webp$|\.webp$&#x27;</span>,j)]</span><br><span class="line">    <span class="keyword">for</span> img <span class="keyword">in</span> imgs:</span><br><span class="line">        im = Image.<span class="built_in">open</span>(img).convert(<span class="string">&#x27;RGB&#x27;</span>)</span><br><span class="line">        im.save(re.sub(<span class="string">&#x27;webp|webp&#x27;</span>,<span class="string">&#x27;webp&#x27;</span>,img))</span><br><span class="line">        os.remove(img)</span><br><span class="line">      </span><br><span class="line">    files = [os.path.join(fold, i) <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(fold) <span class="keyword">if</span> re.search(<span class="string">&#x27;\.md$&#x27;</span>, i)]</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(file, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f,<span class="built_in">open</span>(<span class="string">f&#x27;<span class="subst">&#123;file&#125;</span>.bak&#x27;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> newfile:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():      </span><br><span class="line">                newfile.write(re.sub(<span class="string">&#x27;webp|webp&#x27;</span>,<span class="string">&#x27;webp&#x27;</span>,line))</span><br><span class="line">        os.remove(file)</span><br><span class="line">        os.rename(<span class="string">f&#x27;<span class="subst">&#123;file&#125;</span>.bak&#x27;</span>,file)</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    change_to_webp() </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/10/24/%E4%B8%80%E8%A1%8C%E8%A1%A8%E8%BE%BE%EF%BC%9Aif-else/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/24/%E4%B8%80%E8%A1%8C%E8%A1%A8%E8%BE%BE%EF%BC%9Aif-else/" class="post-title-link" itemprop="url">一行表达：if...else</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-10-24 23:32:43" itemprop="dateCreated datePublished" datetime="2023-10-24T23:32:43+08:00">2023-10-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,re,random</span><br><span class="line"></span><br><span class="line">a = random.randint(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="string">f&quot;随机产生的变量 a = <span class="subst">&#123;a&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;a = 1&quot;</span> <span class="keyword">if</span> a &lt;<span class="number">2</span> <span class="keyword">else</span> ( <span class="string">&quot;a = 3&quot;</span> <span class="keyword">if</span> a &gt;<span class="number">2</span> <span class="keyword">else</span> <span class="string">&quot;a = 2&quot;</span> )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘随机产生的变量 a &#x3D; 1’</p>
-<pre><code>&#39;a = 1&#39;
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/10/24/python-os%E6%A8%A1%E5%9D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/24/python-os%E6%A8%A1%E5%9D%97/" class="post-title-link" itemprop="url">python_os模块</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-10-24 23:15:59" itemprop="dateCreated datePublished" datetime="2023-10-24T23:15:59+08:00">2023-10-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1>Table of Contents<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#os.name" data-toc-modified-id="os.name-1"><span class="toc-item-num">1  </span>os.name</a></span></li><li><span><a href="#os.sep" data-toc-modified-id="os.sep-2"><span class="toc-item-num">2  </span>os.sep</a></span></li><li><span><a href="#os.environ" data-toc-modified-id="os.environ-3"><span class="toc-item-num">3  </span>os.environ</a></span></li><li><span><a href="#os.getcwd()" data-toc-modified-id="os.getcwd()-4"><span class="toc-item-num">4  </span>os.getcwd()</a></span></li><li><span><a href="#os.chdir()" data-toc-modified-id="os.chdir()-5"><span class="toc-item-num">5  </span>os.chdir()</a></span></li><li><span><a href="#os.getlogin()" data-toc-modified-id="os.getlogin()-6"><span class="toc-item-num">6  </span>os.getlogin()</a></span></li><li><span><a href="#os.walk()" data-toc-modified-id="os.walk()-7"><span class="toc-item-num">7  </span>os.walk()</a></span><ul class="toc-item"><li><span><a href="#用列表推导式来盛放结果" data-toc-modified-id="用列表推导式来盛放结果-7.1"><span class="toc-item-num">7.1  </span>用列表推导式来盛放结果</a></span></li><li><span><a href="#列出路径下的文件" data-toc-modified-id="列出路径下的文件-7.2"><span class="toc-item-num">7.2  </span>列出路径下的文件</a></span></li><li><span><a href="#列出路径下的目录" data-toc-modified-id="列出路径下的目录-7.3"><span class="toc-item-num">7.3  </span>列出路径下的目录</a></span></li><li><span><a href="#列出路径下的某类文件" data-toc-modified-id="列出路径下的某类文件-7.4"><span class="toc-item-num">7.4  </span>列出路径下的某类文件</a></span></li></ul></li><li><span><a href="#os.scandir()" data-toc-modified-id="os.scandir()-8"><span class="toc-item-num">8  </span>os.scandir()</a></span></li><li><span><a href="#os.listdir()" data-toc-modified-id="os.listdir()-9"><span class="toc-item-num">9  </span>os.listdir()</a></span><ul class="toc-item"><li><span><a href="#只提取目录" data-toc-modified-id="只提取目录-9.1"><span class="toc-item-num">9.1  </span>只提取目录</a></span></li><li><span><a href="#只提取文件" data-toc-modified-id="只提取文件-9.2"><span class="toc-item-num">9.2  </span>只提取文件</a></span></li></ul></li><li><span><a href="#os.mkdir()" data-toc-modified-id="os.mkdir()-10"><span class="toc-item-num">10  </span>os.mkdir()</a></span></li><li><span><a href="#os.makedirs()" data-toc-modified-id="os.makedirs()-11"><span class="toc-item-num">11  </span>os.makedirs()</a></span></li><li><span><a href="#os.remove()" data-toc-modified-id="os.remove()-12"><span class="toc-item-num">12  </span>os.remove()</a></span></li><li><span><a href="#os.rmdir()" data-toc-modified-id="os.rmdir()-13"><span class="toc-item-num">13  </span>os.rmdir()</a></span></li><li><span><a href="#os.removedirs()" data-toc-modified-id="os.removedirs()-14"><span class="toc-item-num">14  </span>os.removedirs()</a></span></li><li><span><a href="#os.rename()" data-toc-modified-id="os.rename()-15"><span class="toc-item-num">15  </span>os.rename()</a></span></li><li><span><a href="#os.path-模块" data-toc-modified-id="os.path-模块-16"><span class="toc-item-num">16  </span>os.path 模块</a></span><ul class="toc-item"><li><span><a href="#os.path.join()" data-toc-modified-id="os.path.join()-16.1"><span class="toc-item-num">16.1  </span>os.path.join()</a></span></li><li><span><a href="#os.path.abspath()" data-toc-modified-id="os.path.abspath()-16.2"><span class="toc-item-num">16.2  </span>os.path.abspath()</a></span></li><li><span><a href="#os.path.basename()" data-toc-modified-id="os.path.basename()-16.3"><span class="toc-item-num">16.3  </span>os.path.basename()</a></span></li><li><span><a href="#os.path.dirname()" data-toc-modified-id="os.path.dirname()-16.4"><span class="toc-item-num">16.4  </span>os.path.dirname()</a></span></li><li><span><a href="#os.path.split()" data-toc-modified-id="os.path.split()-16.5"><span class="toc-item-num">16.5  </span>os.path.split()</a></span></li><li><span><a href="#os.path.splitex()" data-toc-modified-id="os.path.splitex()-16.6"><span class="toc-item-num">16.6  </span>os.path.splitex()</a></span></li><li><span><a href="#os.path.exists()" data-toc-modified-id="os.path.exists()-16.7"><span class="toc-item-num">16.7  </span>os.path.exists()</a></span></li><li><span><a href="#os.path.isabs()" data-toc-modified-id="os.path.isabs()-16.8"><span class="toc-item-num">16.8  </span>os.path.isabs()</a></span></li><li><span><a href="#os.path.isfile()-和-os.path.isdir()" data-toc-modified-id="os.path.isfile()-和-os.path.isdir()-16.9"><span class="toc-item-num">16.9  </span>os.path.isfile() 和 os.path.isdir()</a></span></li><li><span><a href="#os.path.getsize()" data-toc-modified-id="os.path.getsize()-16.10"><span class="toc-item-num">16.10  </span>os.path.getsize()</a></span></li></ul></li></ul></div>
-
-<h1 id="OS模块"><a href="#OS模块" class="headerlink" title="OS模块"></a>OS模块</h1><ul>
-<li>该模块提供了一些方便使用操作系统相关功能的函数。</li>
-<li>想读写一个文件，open()，</li>
-<li>操作路径， os.path</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
-
-<h2 id="os-name"><a href="#os-name" class="headerlink" title="os.name"></a><code>os.name</code></h2><ul>
-<li>该属性宽泛地指明了当前 Python 运行所在的环境，实际上是导入的操作系统相关模块的名称。这个名称也决定了模块中哪些功能是可用的，哪些是没有相应实现的。</li>
-<li>目前有效名称为以下三个：posix，nt，java。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.name</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘nt’</p>
-<h2 id="os-sep"><a href="#os-sep" class="headerlink" title="os.sep"></a><code>os.sep</code></h2><ul>
-<li>主要用于系统路径的分隔符：</li>
-<li>Windows系统通过是 <code>\</code>，Linux类系统如Ubuntu的分隔符是 <code>/</code>，</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.sep</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<pre><code>&#39;\\&#39;
-</code></pre>
-<h3 id="os-path-dirname-ph"><a href="#os-path-dirname-ph" class="headerlink" title="os.path.dirname(ph)"></a><code>os.path.dirname(ph)</code></h3><ol>
-<li>语法：os.path.dirname(path)</li>
-<li>功能：去掉文件名，返回目录</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.path.dirname(<span class="string">r&#x27;d:\software&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘d:\‘</p>
-<h2 id="os-path-basename-ph"><a href="#os-path-basename-ph" class="headerlink" title="os.path.basename(ph)"></a><code>os.path.basename(ph)</code></h2><ol>
-<li>语法：os.path.basename(path)</li>
-<li>功能：返回path最后的文件名</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.path.basename(<span class="string">r&#x27;d:\software&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘software’</p>
-<h2 id="os-pardir"><a href="#os-pardir" class="headerlink" title="os.pardir"></a><code>os.pardir</code></h2><ol>
-<li>语法</li>
-<li>参数:无。</li>
-<li>返回值:返回当前目录的父目录（上一级目录），默认值为  <code>..</code> 。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">os.pardir</span><br><span class="line">os.getcwd()</span><br><span class="line">os.path.abspath(os.path.join(os.getcwd(), os.pardir))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘..’</p>
-<p>Output:</p>
-<pre><code>&#39;d:\\&#39;
-</code></pre>
-<p>Output:<br>    ‘d:\‘</p>
-<h2 id="os-environ"><a href="#os-environ" class="headerlink" title="os.environ"></a><code>os.environ</code></h2><ul>
-<li><code>os.environ</code>属性可以返回环境相关的信息，主要是各类环境变量。返回值是一个映射（类似字典类型），具体的值为第一次导入os模块时的快照；其中的各个键值对，键是环境变量名，值则是环境变量对应的值。在第一次导入os模块之后，除非直接修改os.environ的值，否则该属性的值不再发生变化。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&#x27;HOMEPATH&#x27;</span>]</span><br><span class="line"></span><br><span class="line">os.environ</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘\Users\xiaoyx’</p>
-<p>Output:<br>    environ{‘ALLUSERSPROFILE’: ‘C:\ProgramData’,<br>            ‘APPDATA’: ‘C:\Users\xiaoyx\AppData\Roaming’,<br>            ‘APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL’: ‘1’,<br>            ‘CHOCOLATEYINSTALL’: ‘C:\ProgramData\chocolatey’,<br>            ‘CHOCOLATEYLASTPATHUPDATE’: ‘133302881561848781’,<br>            ‘CHROME_CRASHPAD_PIPE_NAME’: ‘\\.\pipe\crashpad_26876_GMWMILBKGJTUSXKS’,<br>            ‘COMMONPROGRAMFILES’: ‘C:\Program Files\Common Files’,<br>            ‘COMMONPROGRAMFILES(X86)’: ‘C:\Program Files (x86)\Common Files’,<br>            ‘COMMONPROGRAMW6432’: ‘C:\Program Files\Common Files’,</p>
-<h2 id="os-getcwd"><a href="#os-getcwd" class="headerlink" title="os.getcwd()"></a><code>os.getcwd()</code></h2><ul>
-<li>返回当前工作目录</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘d:\‘</p>
-<h2 id="os-chdir"><a href="#os-chdir" class="headerlink" title="os.chdir()"></a><code>os.chdir()</code></h2><ul>
-<li>“chdir”其实是“change the directory”的简写，因此 <code>os.chdir()</code>的用处实际上是切换当前工作路径为指定路径。其中“指定路径”需要作为参数传入函数 <code>os.chdir()</code>，该参数既可以是文本或字节型字符串，也可以是一个文件描述符，还可以是一个广义的类路径（path-like）对象。若指定路径不存在，则会抛出FileNotFoundError异常。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">os.chdir(<span class="string">&#x27;d:\\&#x27;</span>)</span><br><span class="line">os.getcwd()</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>Output:<br>    ‘d:\‘</p>
-<h2 id="os-getlogin"><a href="#os-getlogin" class="headerlink" title="os.getlogin()"></a><code>os.getlogin()</code></h2><ul>
-<li>返回当前系统的实际登录名</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.getlogin()</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘xiaoyx’</p>
-<h2 id="os-walk-ph"><a href="#os-walk-ph" class="headerlink" title="os.walk(ph)"></a><code>os.walk(ph)</code></h2><ul>
-<li>这个函数需要传入一个路径作为top参数，函数的作用是在以top为根节点的目录树中游走，对树中的每个目录生成一个由(dirpath, dirnames, filenames)三项组成的三元组。</li>
-<li><code>os.walk(top, topdown=True, onerror=None, followlinks=False)</code></li>
-<li>得到的是一个生成器<ul>
-<li>第一层：目录路径</li>
-<li>第二层：目录名</li>
-<li>第三层：目录下的文件名</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 得到的是一个生成器</span></span><br><span class="line">os.walk(<span class="string">&quot;.\\&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    &lt;generator object _walk at 0x0000017805566FF0&gt;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ph = <span class="string">&quot;D:\\BLOG\\yxhsiao\\themes\\next\\docs&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用for循环</span></span><br><span class="line"><span class="keyword">for</span> path, dirs, files <span class="keyword">in</span> os.walk(ph):</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> files:</span><br><span class="line">        <span class="built_in">print</span>(os.path.join(path, name))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表推导式：</span></span><br><span class="line">[</span><br><span class="line">    os.path.join(path, file) <span class="keyword">for</span> path, <span class="built_in">dir</span>, files <span class="keyword">in</span> os.walk(ph)</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files <span class="keyword">if</span> re.search(<span class="string">r&#x27;\.\w+$&#x27;</span>, file)</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    D:\BLOG\yxhsiao\themes\next\docs\AGPL3.md<br>    D:\BLOG\yxhsiao\themes\next\docs\AUTHORS.md<br>    D:\BLOG\yxhsiao\themes\next\docs\LICENSE.txt<br>    D:\BLOG\yxhsiao\themes\next\docs\ru\README.md<br>    D:\BLOG\yxhsiao\themes\next\docs\zh-CN\CODE_OF_CONDUCT.md<br>    D:\BLOG\yxhsiao\themes\next\docs\zh-CN\CONTRIBUTING.md<br>    D:\BLOG\yxhsiao\themes\next\docs\zh-CN\README.md</p>
-<p>Output:</p>
-<pre><code>[&#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AGPL3.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AUTHORS.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\LICENSE.txt&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\ru\\README.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\CODE_OF_CONDUCT.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\CONTRIBUTING.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\README.md&#39;]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ph = <span class="string">&quot;D:\\BLOG\\yxhsiao\\themes\\next\\docs&quot;</span></span><br><span class="line"><span class="comment"># 获取所有目录</span></span><br><span class="line">[ph <span class="keyword">for</span> ph, <span class="built_in">dir</span>, files <span class="keyword">in</span> os.walk(ph)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取子目录</span></span><br><span class="line">[os.path.join(ph,x) <span class="keyword">for</span> ph, <span class="built_in">dir</span>, files <span class="keyword">in</span> os.walk(ph) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">dir</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取所有文件</span></span><br><span class="line">[os.path.join(ph, file) <span class="keyword">for</span> ph, <span class="built_in">dir</span>, files <span class="keyword">in</span> os.walk(ph) <span class="keyword">for</span> file <span class="keyword">in</span> files]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    [‘D:\BLOG\yxhsiao\themes\next\docs’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\ru’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN’]</p>
-<p>Output:</p>
-<pre><code>[&#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\ru&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN&#39;]
-</code></pre>
-<p>Output:</p>
-<pre><code>[&#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AGPL3.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AUTHORS.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\LICENSE.txt&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\ru\\README.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\CODE_OF_CONDUCT.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\CONTRIBUTING.md&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN\\README.md&#39;]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 既然生成器的结果是一个二维列表，那么就可以用list[0],list[1],list[2]分别获取其路径、目录名、文件</span></span><br><span class="line"><span class="comment"># list[0]：路径</span></span><br><span class="line"><span class="comment"># list[1]：目录名列表</span></span><br><span class="line"><span class="comment"># list[2]：文件列表</span></span><br><span class="line"></span><br><span class="line">[i[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> os.walk(ph)]</span><br><span class="line">[i[<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> os.walk(ph)]</span><br><span class="line">[i[<span class="number">2</span>] <span class="keyword">for</span> i <span class="keyword">in</span> os.walk(ph)]</span><br><span class="line"></span><br><span class="line">[os.path.join(i[<span class="number">0</span>],x) <span class="keyword">for</span> i <span class="keyword">in</span> os.walk(ph) <span class="keyword">for</span> x <span class="keyword">in</span> i[<span class="number">2</span>]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<pre><code>[&#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\ru&#39;,
- &#39;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\zh-CN&#39;]
-</code></pre>
-<p>Output:</p>
-<pre><code>[[&#39;ru&#39;, &#39;zh-CN&#39;], [], []]
-</code></pre>
-<p>Output:<br>    [[‘AGPL3.md’, ‘AUTHORS.md’, ‘LICENSE.txt’],<br>     [‘README.md’],<br>     [‘CODE_OF_CONDUCT.md’, ‘CONTRIBUTING.md’, ‘README.md’]]</p>
-<p>Output:<br>    [‘D:\BLOG\yxhsiao\themes\next\docs\AGPL3.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\AUTHORS.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\LICENSE.txt’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\ru\README.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN\CODE_OF_CONDUCT.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN\CONTRIBUTING.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN\README.md’]</p>
-<h2 id="os-scandir-ph"><a href="#os-scandir-ph" class="headerlink" title="os.scandir(ph)"></a><code>os.scandir(ph)</code></h2><ol>
-<li>返回path目录树中对应的os.DirEntry对象的迭代器（文件夹或文件），</li>
-<li>不包含子文件夹里的文件夹和文件，</li>
-<li>运行效率比os.walk高，Python官方推荐使用os.scandir来遍历目录树。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">find_dir</span>(<span class="params">ph</span>):</span><br><span class="line">    <span class="keyword">return</span> [i.path <span class="keyword">for</span> i <span class="keyword">in</span> os.scandir(ph) <span class="keyword">if</span> i.is_dir()]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_file</span>(<span class="params">ph</span>):</span><br><span class="line">    <span class="keyword">return</span> [i.path <span class="keyword">for</span> i <span class="keyword">in</span> os.scandir(ph) <span class="keyword">if</span> i.is_file()]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">find_dir(ph)</span><br><span class="line">find_file(ph)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    [‘D:\BLOG\yxhsiao\themes\next\docs\ru’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\zh-CN’]<br>Output:<br>    [‘D:\BLOG\yxhsiao\themes\next\docs\AGPL3.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\AUTHORS.md’,<br>     ‘D:\BLOG\yxhsiao\themes\next\docs\LICENSE.txt’]</p>
-<h2 id="os-listdir"><a href="#os-listdir" class="headerlink" title="os.listdir()"></a><code>os.listdir()</code></h2><ul>
-<li>列出（当前）目录下的全部路径（及文件）。</li>
-<li>该函数存在一个参数，用以指定要列出子目录的路径，默认为“.”，即“当前路径”。</li>
-<li>函数返回值是一个列表，其中各元素均为字符串，分别是各路径名和文件名。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不指定路径的情况下默认当前目录</span></span><br><span class="line">ph = <span class="string">r&quot;D:\BLOG\yxhsiao\themes\next\docs&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_dir</span>(<span class="params">ph</span>):</span><br><span class="line">    <span class="keyword">return</span> [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(ph) <span class="keyword">if</span> re.search(<span class="string">r&#x27;\.\w+$&#x27;</span>, i) == <span class="literal">None</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_file</span>(<span class="params">ph</span>):</span><br><span class="line">    <span class="keyword">return</span> [i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(ph) <span class="keyword">if</span> re.search(<span class="string">r&#x27;\.\w+$&#x27;</span>, i)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">find_dir(ph)</span><br><span class="line">find_file(ph)</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<pre><code>[&#39;ru&#39;, &#39;zh-CN&#39;]
-
-[&#39;AGPL3.md&#39;, &#39;AUTHORS.md&#39;, &#39;LICENSE.txt&#39;]
-</code></pre>
-<h2 id="os-mkdir"><a href="#os-mkdir" class="headerlink" title="os.mkdir()"></a><code>os.mkdir()</code></h2><ul>
-<li>新建一个目录。需要传入一个类路径参数用以指定新建路径的位置和名称，</li>
-<li>如果指定路径已存在，则会抛出FileExistsError异常。</li>
-<li>该函数只能在已有的路径下新建一级路径，新建多级路径会抛出FileNotFoundError异常。</li>
-<li>需要新建多级路径的场景下，使用 <code>os.makedirs()</code>来完成任务。函数 <code>os.makedirs()</code>执行的是递归创建，若有必要，会分别新建指定路径经过的中间路径，直到最后创建出末端的“叶子路径”。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dir</span> = <span class="string">&#x27;D:\\OneDrive\\Code\\Note\\python_module&#x27;</span></span><br><span class="line">[i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(<span class="built_in">dir</span>)]</span><br><span class="line"></span><br><span class="line">newdir = os.path.join(<span class="built_in">dir</span>, <span class="string">&#x27;test_makedir&#x27;</span>)</span><br><span class="line"></span><br><span class="line">os.rmdir(newdir) <span class="keyword">if</span> os.path.exists(newdir) <span class="keyword">else</span> os.mkdir(newdir)</span><br><span class="line">[i <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(<span class="built_in">dir</span>)]</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    [‘.ipynb_checkpoints’,<br>     ‘Datetime’,<br>     ‘Numpy’,<br>     ‘Openpyxl_处理Excel’,<br>     ‘Os’,<br>     ‘Pandas’,<br>     ‘Pillow’,<br>     ‘pychart’,<br>     ‘Random’,<br>     ‘Regex’,<br>     ‘Sys’,<br>     ‘xlwings’,<br>     ‘Yagmail’]</p>
-<p>Output:<br>    [‘.ipynb_checkpoints’,<br>     ‘Datetime’,<br>     ‘Numpy’,<br>     ‘Openpyxl_处理Excel’,<br>     ‘Os’,<br>     ‘Pandas’,<br>     ‘Pillow’,<br>     ‘pychart’,<br>     ‘Random’,<br>     ‘Regex’,<br>     ‘Sys’,<br>     ‘test_makedir’,<br>     ‘xlwings’,<br>     ‘Yagmail’]</p>
-<h2 id="os-makedirs"><a href="#os-makedirs" class="headerlink" title="os.makedirs()"></a><code>os.makedirs()</code></h2><ul>
-<li>同时创建多级目录</li>
-</ul>
-<h2 id="os-remove"><a href="#os-remove" class="headerlink" title="os.remove()"></a><code>os.remove()</code></h2><ul>
-<li>用于删除文件。</li>
-<li>如果指定路径是目录而非文件的话，就会抛出IsADirectoryError异常。删除目录应该使用 <code>os.rmdir()</code>函数。</li>
-</ul>
-<h2 id="os-rmdir"><a href="#os-rmdir" class="headerlink" title="os.rmdir()"></a><code>os.rmdir()</code></h2><ul>
-<li>删除单级目录</li>
-</ul>
-<h2 id="os-removedirs"><a href="#os-removedirs" class="headerlink" title="os.removedirs()"></a><code>os.removedirs()</code></h2><ul>
-<li>删除多级目录</li>
-</ul>
-<h2 id="os-rename-和-os-renames"><a href="#os-rename-和-os-renames" class="headerlink" title="os.rename() 和 os.renames()"></a><code>os.rename()</code> 和 <code>os.renames()</code></h2><ul>
-<li>该函数的作用是将文件或路径重命名</li>
-<li><code>os.rename(src, dst)</code>，即将src指向的文件或路径重命名为dst指定的名称。</li>
-<li>注意，如果指定的目标路径在其他目录下，该函数还可实现文件或路径的“剪切并粘贴”功能。但无论直接原地重命名还是“剪切粘贴”，中间路径都必须要存在，否则就会抛出FileNotFoundError异常。如果目标路径已存在，Windows 下会抛出FileExistsError异常；Linux 下，如果目标路径为空且用户权限允许，则会静默覆盖原路径，否则抛出OSError异常，</li>
-<li>和上两个函数一样，该函数也有对应的递归版本 <code>os.renames()</code>，能够创建缺失的中间路径。</li>
-<li>注意，这两种情况下，如果函数执行成功，都会调用 <code>os.removedir()</code>函数来递归删除源路径的最下级目录。</li>
-</ul>
-<h2 id="os-path"><a href="#os-path" class="headerlink" title="os.path"></a><code>os.path</code></h2><ul>
-<li>其实这个模块是os模块根据系统类型从另一个模块导入的，并非直接由os模块实现，比如 <code>os.name</code>值为nt，则在os模块中执行 <code>import ntpath as path</code>；如果 <code>os.name</code>值为posix，则导入posixpath。</li>
-<li>使用该模块要注意一个很重要的特性：<code>os.path</code>中的函数基本上是纯粹的字符串操作。换句话说，传入该模块函数的参数甚至不需要是一个有效路径，该模块也不会试图访问这个路径，而仅仅是按照“路径”的通用格式对字符串进行处理。</li>
-<li>更进一步地说，<code>os.path</code>模块的功能我们都可以自己使用字符串操作手动实现，该模块的作用是让我们在实现相同功能的时候不必考虑具体的系统，尤其是不需要过多关注文件系统分隔符的问题。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    &lt;module ‘ntpath’ from ‘c:\Users\xiaoyx\AppData\Local\Programs\Python\Python310\lib\ntpath.py’&gt;</p>
-<h3 id="os-path-join"><a href="#os-path-join" class="headerlink" title="os.path.join()"></a><code>os.path.join()</code></h3><ul>
-<li>可以将多个传入路径组合为一个路径。实际上是将传入的几个字符串用系统的分隔符连接起来，组合成一个新的字符串，所以一般的用法是将第一个参数作为父目录，之后每一个参数即使下一级目录，从而组合成一个新的符合逻辑的路径。</li>
-<li>但如果传入路径中存在一个“绝对路径”格式的字符串，且这个字符串不是函数的第一个参数，那么其他在这个参数之前的所有参数都会被丢弃，余下的参数再进行组合。更准确地说，只有最后一个“绝对路径”及其之后的参数才会体现在返回结果中。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p1 = <span class="string">&#x27;home&#x27;</span></span><br><span class="line">p2 = <span class="string">&#x27;fm&#x27;</span></span><br><span class="line">p3 = <span class="string">&#x27;note&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  按照传入参数的顺序连接，并且用系统分隔符隔开</span></span><br><span class="line">os.path.join(p1, p2, p3)</span><br><span class="line">os.path.join(p3, p2, p1)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘home\fm\note’<br>    ‘note\fm\home’</p>
-<h3 id="os-path-abspath"><a href="#os-path-abspath" class="headerlink" title="os.path.abspath()"></a><code>os.path.abspath()</code></h3><ul>
-<li>将传入路径规范化，返回一个相应的绝对路径格式的字符串。</li>
-<li>也就是说当传入路径符合“绝对路径”的格式时，该函数仅仅将路径分隔符替换为适应当前系统的字符，不做其他任何操作，并将结果返回。所谓“绝对路径的格式”，其实指的就是一个字母加冒号，之后跟分隔符和字符串序列的格式：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当前目录的绝对路径</span></span><br><span class="line">os.path.abspath(<span class="string">r&quot;.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上级目录的绝对路径</span></span><br><span class="line">os.path.abspath(<span class="string">r&quot;..&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定目录</span></span><br><span class="line">os.path.abspath(<span class="string">r&quot;D:\BLOG\yxhsiao\themes\next\docs&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘d:\‘<br>    ‘d:\‘<br>    ‘D:\BLOG\yxhsiao\themes\next\docs’</p>
-<h3 id="os-path-basename"><a href="#os-path-basename" class="headerlink" title="os.path.basename()"></a><code>os.path.basename()</code></h3><ul>
-<li>该函数返回传入路径的“基名”，即传入路径的最下级目录。</li>
-<li>整这个函数要注意的一点是，返回的“基名”实际上是传入路径最后一个分隔符之后的子字符串，也就是说，如果最下级目录之后还有一个分隔符，得到的就会是一个空字符串：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.basename(<span class="string">r&#x27;D:\OneDrive\SOFT\FormatFactory&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘FormatFactory’</p>
-<h3 id="os-path-dirname"><a href="#os-path-dirname" class="headerlink" title="os.path.dirname()"></a><code>os.path.dirname()</code></h3><ul>
-<li>与 <code>os.path.basename()</code>函数正好相反，返回的是最后一个分隔符前的整个字符串：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.dirname(<span class="string">r&#x27;D:\OneDrive\SOFT\FormatFactory&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    ‘D:\OneDrive\SOFT’</p>
-<h3 id="os-path-split"><a href="#os-path-split" class="headerlink" title="os.path.split()"></a><code>os.path.split()</code></h3><ul>
-<li>实际上前两个函数都是弟弟，这个函数才是老大。</li>
-<li>函数 <code>os.path.split()</code>的功能就是将传入路径以最后一个分隔符为界，分成两个字符串，并打包成元组的形式返回.</li>
-<li>前两个函数 <code>os.path.dirname()</code>和 <code>os.path.basename()</code>的返回值分别是函数 <code>os.path.split()</code>返回值的第一个、第二个元素。就连二者的具体实现都十分真实：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.split(<span class="string">r&#x27;D:\OneDrive\SOFT\FormatFactory&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    (‘D:\OneDrive\SOFT’, ‘FormatFactory’)</p>
-<h3 id="os-path-splitex"><a href="#os-path-splitex" class="headerlink" title="os.path.splitex()"></a><code>os.path.splitex()</code></h3><ul>
-<li>分离文件名与扩展名；默认返回(fname,fextension)元组，可做分片操作</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ph = <span class="string">r&quot;D:\3D\export\test3.pdf&quot;</span></span><br><span class="line">os.path.splitext(ph)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    (‘D:\3D\export\test3’, ‘.pdf’)</p>
-<h3 id="os-path-exists"><a href="#os-path-exists" class="headerlink" title="os.path.exists()"></a><code>os.path.exists()</code></h3><ul>
-<li>这个函数用于判断路径所指向的位置是否存在。若存在则返回True，不存在则返回False</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.exists(<span class="string">r&#x27;D:\OneDrive\SOFT\134&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    False</p>
-<h3 id="os-path-isabs"><a href="#os-path-isabs" class="headerlink" title="os.path.isabs()"></a><code>os.path.isabs()</code></h3><ul>
-<li>该函数判断传入路径是否是绝对路径，若是则返回True，否则返回False。当然，仅仅是检测格式，同样不对其有效性进行任何核验：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.isabs(<span class="string">r&#x27;D:\OneDrive\SOFT\FormatFactory&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    True</p>
-<h3 id="os-path-isfile-和-os-path-isdir"><a href="#os-path-isfile-和-os-path-isdir" class="headerlink" title="os.path.isfile() 和 os.path.isdir()"></a><code>os.path.isfile() 和 os.path.isdir()</code></h3><ul>
-<li>这两个函数分别判断传入路径是否是文件或路径，注意，此处会核验路径的有效性，如果是无效路径将会持续返回False。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;D:\\OneDrive\\Code\\Note\\python_module&#x27;</span></span><br><span class="line"></span><br><span class="line">os.path.isfile(a)</span><br><span class="line">os.path.isdir(a)</span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    False<br>    True</p>
-<h3 id="os-path-getsize"><a href="#os-path-getsize" class="headerlink" title="os.path.getsize()"></a><code>os.path.getsize()</code></h3><ul>
-<li>返回指定文件的大小,以字节为单位。</li>
-<li>仅仅对文件有效。使用前最好先判断是否是文件</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;D:\\BLOG\\yxhsiao\\themes\\next\\docs\\AGPL3.md&#x27;</span></span><br><span class="line">b = <span class="string">&#x27;D:\\BLOG\\yxhsiao\\themes&#x27;</span></span><br><span class="line"></span><br><span class="line">os.path.getsize(a) <span class="keyword">if</span> os.path.isfile(a) <span class="keyword">else</span> <span class="string">&#x27;The is not file&#x27;</span></span><br><span class="line">os.path.getsize(b) <span class="keyword">if</span> os.path.isfile(b) <span class="keyword">else</span> <span class="string">&#x27;The is not file&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>Output:<br>    34490<br>    ‘The is not file’</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

@@ -174,7 +174,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">123</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -224,6 +224,2071 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/01/23/Pandas%E7%AD%9B%E9%80%89%E4%B9%8Bquery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/23/Pandas%E7%AD%9B%E9%80%89%E4%B9%8Bquery/" class="post-title-link" itemprop="url">Pandas筛选之query</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-23 00:00:00" itemprop="dateCreated datePublished" datetime="2023-01-23T00:00:00+08:00">2023-01-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> nlargest,nsmallest</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载数据"><a href="#下载数据" class="headerlink" title="下载数据"></a>下载数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&quot;http://www.51chanlun.com/hot.html&quot;</span></span><br><span class="line">df = pd.read_html(url, header=<span class="number">0</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)[<span class="number">3</span>]</span><br><span class="line">df.head(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>概念类别</th>
+      <th>新高个股数</th>
+      <th>板块是否强势</th>
+      <th>板块强弱指标</th>
+      <th>强弱变化%</th>
+      <th>近10日分</th>
+      <th>中10日分</th>
+      <th>远10日分</th>
+      <th>1110</th>
+      <th>1109</th>
+      <th>...</th>
+      <th>0412</th>
+      <th>0411</th>
+      <th>0410</th>
+      <th>0407</th>
+      <th>0406</th>
+      <th>0405</th>
+      <th>0404</th>
+      <th>0403</th>
+      <th>0331</th>
+      <th>0330</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>汽车类</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4.2240</td>
+      <td>-12.66</td>
+      <td>26</td>
+      <td>27</td>
+      <td>23</td>
+      <td>001=5</td>
+      <td>003=5</td>
+      <td>...</td>
+      <td>015=2</td>
+      <td>015=1</td>
+      <td>N</td>
+      <td>N</td>
+      <td>N</td>
+      <td>N</td>
+      <td>N</td>
+      <td>013=3</td>
+      <td>018=1</td>
+      <td>001=5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>工业机械</td>
+      <td>9</td>
+      <td>0</td>
+      <td>4.5852</td>
+      <td>-3.58</td>
+      <td>20</td>
+      <td>20</td>
+      <td>20</td>
+      <td>002=4</td>
+      <td>018=1</td>
+      <td>...</td>
+      <td>006=7</td>
+      <td>009=3</td>
+      <td>006=3</td>
+      <td>013=3</td>
+      <td>004=7</td>
+      <td>008=3</td>
+      <td>008=3</td>
+      <td>015=3</td>
+      <td>004=5</td>
+      <td>014=1</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 159 columns</p>
+</div>
+
+<h2 id="过滤需要的数据列"><a href="#过滤需要的数据列" class="headerlink" title="过滤需要的数据列"></a>过滤需要的数据列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df = df.<span class="built_in">filter</span>(</span><br><span class="line">    [<span class="string">&quot;概念类别&quot;</span>, <span class="string">&quot;新高个股数&quot;</span>, <span class="string">&quot;板块是否强势&quot;</span>, <span class="string">&quot;板块强弱指标&quot;</span>])</span><br><span class="line"></span><br><span class="line">df.columns = [<span class="string">&#x27;type&#x27;</span>,<span class="string">&#x27;num&#x27;</span>,<span class="string">&#x27;strong&#x27;</span>,<span class="string">&#x27;index&#x27;</span>]</span><br><span class="line">df.sample(<span class="number">8</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>32</th>
+      <td>多元金融</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2.1333</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>电信运营</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.0000</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>家居用品</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4.5714</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>交通设施</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3.1395</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>半导体</td>
+      <td>10</td>
+      <td>0</td>
+      <td>5.1925</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>文教休闲</td>
+      <td>2</td>
+      <td>0</td>
+      <td>3.5660</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>通信设备</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4.9091</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>酒店餐饮</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="Query-函数筛选"><a href="#Query-函数筛选" class="headerlink" title="Query 函数筛选"></a>Query 函数筛选</h2><ul>
+<li>query : 查询的意思</li>
+</ul>
+<p>语法：<code>df.query(expr,inplace = False,** kwargs)</code> # 使用布尔表达式查询帧的列<br>参数:</p>
+<ul>
+<li>expr:str要评估的查询字符串。你可以在环境中引用变量,在它们前面添加一个‘@’字符 。@a + b</li>
+<li>inplace&#x3D;False:是否修改数据或返回副本</li>
+<li>kwargs:dict关键字参数</li>
+<li>返回:DataFrame</li>
+</ul>
+<p>注意:</p>
+<ul>
+<li><p>默认修改Python语法’&amp;’&#x2F;‘and’和’|’&#x2F;‘or’位运算符优先级高于布尔表达式,不同于Python</p>
+</li>
+<li><p>关键字参数parser&#x3D;’python’执行Python评估。</p>
+</li>
+<li><p>engine&#x3D;’python’ 用Python本身作为后端来传递评估表达式。不建议效率低。</p>
+</li>
+<li><p>默认实例df.index和 df.columns属性 DataFrame放在查询命名空间中,</p>
+</li>
+<li><p>这允许您将框架的索引和列视为框架中的列。标识符index用于帧索引;</p>
+</li>
+<li><p>您还可以使用索引的名称在查询中标识它。</p>
+</li>
+</ul>
+<p>性能:</p>
+<ul>
+<li>涉及NumPy数组或Pandas DataFrames的复合表达式都会导致隐式创建临时数组</li>
+<li>eval&#x2F;query用在数据(df.values.nbytes&gt;1万)性能提升明显;传统方法在小数组时运行得更快;</li>
+<li>eval&#x2F;query好处主要时节省内存,以及有时候简洁得语法</li>
+<li>可用指定不同解析器和引擎来运行这些查询；参见”Enhancing Performance” 。</li>
+</ul>
+<h2 id="条件是一个字符串的形式"><a href="#条件是一个字符串的形式" class="headerlink" title="条件是一个字符串的形式"></a>条件是一个字符串的形式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="string">&quot;num &gt;= 10&quot;</span>)  <span class="comment"># 等价于  df[df[&#x27;num&#x27;]&gt;=10]</span></span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>化工</td>
+      <td>16</td>
+      <td>1</td>
+      <td>4.5868</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>半导体</td>
+      <td>10</td>
+      <td>0</td>
+      <td>5.1925</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>元器件</td>
+      <td>12</td>
+      <td>0</td>
+      <td>5.7186</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="string">&quot;type.str.contains(&#x27;电&#x27;)  &amp; num &gt;= 5&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>电气设备</td>
+      <td>6</td>
+      <td>0</td>
+      <td>4.1577</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>家用电器</td>
+      <td>6</td>
+      <td>0</td>
+      <td>4.4304</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="符号来标记本地变量"><a href="#符号来标记本地变量" class="headerlink" title="@ 符号来标记本地变量"></a><code>@</code> 符号来标记本地变量</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设定条件</span></span><br><span class="line">Bmean = df[<span class="string">&quot;num&quot;</span>].mean() + <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 列 num 的值 `&gt;` 条件Beam</span></span><br><span class="line">df.query(<span class="string">&quot;num&gt;@Bmean&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>汽车类</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4.2240</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>工业机械</td>
+      <td>9</td>
+      <td>0</td>
+      <td>4.5852</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>电气设备</td>
+      <td>6</td>
+      <td>0</td>
+      <td>4.1577</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>化工</td>
+      <td>16</td>
+      <td>1</td>
+      <td>4.5868</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>半导体</td>
+      <td>10</td>
+      <td>0</td>
+      <td>5.1925</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>软件服务</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4.5000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>家用电器</td>
+      <td>6</td>
+      <td>0</td>
+      <td>4.4304</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>元器件</td>
+      <td>12</td>
+      <td>0</td>
+      <td>5.7186</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>医药</td>
+      <td>8</td>
+      <td>0</td>
+      <td>5.3627</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 或者：</span></span><br><span class="line">Beam = df[<span class="string">&#x27;num&#x27;</span>] &gt; df[<span class="string">&#x27;num&#x27;</span>].mean() + <span class="number">3</span></span><br><span class="line">df.query(<span class="string">&quot;@Beam&quot;</span>)  <span class="comment"># 同上等价</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>汽车类</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4.2240</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>工业机械</td>
+      <td>9</td>
+      <td>0</td>
+      <td>4.5852</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>电气设备</td>
+      <td>6</td>
+      <td>0</td>
+      <td>4.1577</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>化工</td>
+      <td>16</td>
+      <td>1</td>
+      <td>4.5868</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>半导体</td>
+      <td>10</td>
+      <td>0</td>
+      <td>5.1925</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>软件服务</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4.5000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>家用电器</td>
+      <td>6</td>
+      <td>0</td>
+      <td>4.4304</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>元器件</td>
+      <td>12</td>
+      <td>0</td>
+      <td>5.7186</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>医药</td>
+      <td>8</td>
+      <td>0</td>
+      <td>5.3627</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="eval-的应用"><a href="#eval-的应用" class="headerlink" title="eval 的应用"></a><code>eval</code> 的应用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># num 列的值 &gt; 10</span></span><br><span class="line">tj = df.<span class="built_in">eval</span>(<span class="string">&quot;num &gt;10 &quot;</span>)</span><br><span class="line">df.query(<span class="string">&quot;@tj&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>化工</td>
+      <td>16</td>
+      <td>1</td>
+      <td>4.5868</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>元器件</td>
+      <td>12</td>
+      <td>0</td>
+      <td>5.7186</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># num 列的值 &gt; 10 并且 strong == 1</span></span><br><span class="line">tj = df.<span class="built_in">eval</span>(<span class="string">&quot;(num &gt;=10) &amp; (strong ==1)&quot;</span>)</span><br><span class="line">df.query(<span class="string">&quot;@tj&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>化工</td>
+      <td>16</td>
+      <td>1</td>
+      <td>4.5868</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># NUM 、Index列的值均大于其平均值</span></span><br><span class="line">tj = df.<span class="built_in">eval</span>(<span class="string">&#x27;num &gt; num.mean() &amp; index &gt; index.mean()&#x27;</span>)</span><br><span class="line">df.query(<span class="string">&#x27;@tj&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>汽车类</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4.2240</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>工业机械</td>
+      <td>9</td>
+      <td>0</td>
+      <td>4.5852</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>电气设备</td>
+      <td>6</td>
+      <td>0</td>
+      <td>4.1577</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>化工</td>
+      <td>16</td>
+      <td>1</td>
+      <td>4.5868</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>半导体</td>
+      <td>10</td>
+      <td>0</td>
+      <td>5.1925</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>软件服务</td>
+      <td>7</td>
+      <td>0</td>
+      <td>4.5000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>供气供热</td>
+      <td>5</td>
+      <td>1</td>
+      <td>5.0233</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>家用电器</td>
+      <td>6</td>
+      <td>0</td>
+      <td>4.4304</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>元器件</td>
+      <td>12</td>
+      <td>0</td>
+      <td>5.7186</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>通用机械</td>
+      <td>3</td>
+      <td>0</td>
+      <td>4.6172</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>煤炭</td>
+      <td>5</td>
+      <td>1</td>
+      <td>5.7273</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>医疗保健</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5.0788</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>医药</td>
+      <td>8</td>
+      <td>0</td>
+      <td>5.3627</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>通信设备</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4.9091</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># num列的值排名其前3 ,index列值大于其平均值</span></span><br><span class="line">nlg = nlargest(<span class="number">3</span>,df[<span class="string">&#x27;num&#x27;</span>])</span><br><span class="line">tj = df.<span class="built_in">eval</span>(<span class="string">&#x27;num in @nlg &amp; index &gt; index.mean()&#x27;</span>)</span><br><span class="line">df.query(<span class="string">&#x27;@tj&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>num</th>
+      <th>strong</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>化工</td>
+      <td>16</td>
+      <td>1</td>
+      <td>4.5868</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>半导体</td>
+      <td>10</td>
+      <td>0</td>
+      <td>5.1925</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>元器件</td>
+      <td>12</td>
+      <td>0</td>
+      <td>5.7186</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="比较运算符和逻辑运算符"><a href="#比较运算符和逻辑运算符" class="headerlink" title="比较运算符和逻辑运算符"></a>比较运算符和逻辑运算符</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(np.random.randint(<span class="number">100</span>, size=(<span class="number">6</span>, <span class="number">6</span>)),</span><br><span class="line">                  columns=<span class="built_in">list</span>(<span class="string">&quot;ABCDEF&quot;</span>),</span><br><span class="line">                  index=<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">7</span>))</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>79</td>
+      <td>33</td>
+      <td>60</td>
+      <td>33</td>
+      <td>34</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>66</td>
+      <td>45</td>
+      <td>18</td>
+      <td>43</td>
+      <td>52</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>98</td>
+      <td>67</td>
+      <td>35</td>
+      <td>53</td>
+      <td>67</td>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>23</td>
+      <td>48</td>
+      <td>31</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 条件 A &lt; B (A列值 &lt; B列值) 并且B&lt;Ｃ</span></span><br><span class="line">df.query(<span class="string">&quot;A&lt;B &amp; B&lt;C &quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>23</td>
+      <td>48</td>
+      <td>31</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 连续比较</span></span><br><span class="line">df.query(<span class="string">&quot;A&lt;B&lt;C&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>23</td>
+      <td>48</td>
+      <td>31</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="类似于-isin-isin-的用法"><a href="#类似于-isin-isin-的用法" class="headerlink" title="类似于 isin / ~isin 的用法"></a>类似于 <code>isin / ~isin</code> 的用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lst = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>) <span class="keyword">if</span> i%<span class="number">5</span>==<span class="number">0</span>]</span><br><span class="line">df.query(<span class="string">&quot;A ==@lst &amp; B== @lst&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于:</span></span><br><span class="line">df[df[<span class="string">&quot;A&quot;</span>].isin(lst) &amp; (df[<span class="string">&quot;B&quot;</span>].isin(lst))]</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="string">&quot;A ==@lst &amp; F!= @lst&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等价于:</span></span><br><span class="line">df[df[<span class="string">&quot;A&quot;</span>].isin(lst) &amp;  ~df[<span class="string">&quot;F&quot;</span>].isin(lst)]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>23</td>
+      <td>48</td>
+      <td>31</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>23</td>
+      <td>48</td>
+      <td>31</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="类似于-in-not-in"><a href="#类似于-in-not-in" class="headerlink" title="类似于 in / not in"></a>类似于 <code>in / not in</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A 列的值包含在 B 列 或 C 列中</span></span><br><span class="line">df.query(<span class="string">&quot;A in B | A in C&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>23</td>
+      <td>48</td>
+      <td>31</td>
+      <td>48</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># A 列的值不在 B 列中</span></span><br><span class="line">df.query(<span class="string">&quot;A not in B&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>79</td>
+      <td>33</td>
+      <td>60</td>
+      <td>33</td>
+      <td>34</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>66</td>
+      <td>45</td>
+      <td>18</td>
+      <td>43</td>
+      <td>52</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>98</td>
+      <td>67</td>
+      <td>35</td>
+      <td>53</td>
+      <td>67</td>
+      <td>82</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lst = [i <span class="keyword">for</span> i <span class="keyword">in</span> df[<span class="string">&#x27;A&#x27;</span>] <span class="keyword">if</span> i%<span class="number">2</span>==<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># A 列的值不在 lst 中</span></span><br><span class="line">df.query(<span class="string">&quot;A not in @lst&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>79</td>
+      <td>33</td>
+      <td>60</td>
+      <td>33</td>
+      <td>34</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> nlargest,nsmallest</span><br><span class="line"></span><br><span class="line"><span class="comment"># A 列值前3 并且 B 列值前3</span></span><br><span class="line">tj1 = nlargest(<span class="number">3</span>,df.A) </span><br><span class="line">tj2 = nlargest(<span class="number">3</span>,df.B)</span><br><span class="line"></span><br><span class="line">df.query(<span class="string">&quot;A in @tj &amp; B in @tj2&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<h2 id="布尔运算符-not-或-运算符否定布尔表达式"><a href="#布尔运算符-not-或-运算符否定布尔表达式" class="headerlink" title="布尔运算符 not 或 ~ 运算符否定布尔表达式"></a>布尔运算符 <code>not</code> 或 <code>~</code> 运算符否定布尔表达式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">&quot;bools&quot;</span>] = df.<span class="built_in">eval</span>(<span class="string">&quot;C&gt; C.mean()&quot;</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+      <th>bools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>79</td>
+      <td>33</td>
+      <td>60</td>
+      <td>33</td>
+      <td>34</td>
+      <td>63</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>66</td>
+      <td>45</td>
+      <td>18</td>
+      <td>43</td>
+      <td>52</td>
+      <td>46</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>98</td>
+      <td>67</td>
+      <td>35</td>
+      <td>53</td>
+      <td>67</td>
+      <td>82</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>23</td>
+      <td>48</td>
+      <td>31</td>
+      <td>48</td>
+      <td>47</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="string">&quot;not bools&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+      <th>bools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>66</td>
+      <td>45</td>
+      <td>18</td>
+      <td>43</td>
+      <td>52</td>
+      <td>46</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="string">&quot;~bools&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+      <th>bools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>66</td>
+      <td>45</td>
+      <td>18</td>
+      <td>43</td>
+      <td>52</td>
+      <td>46</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tj = df.<span class="built_in">eval</span>(<span class="string">&quot;C&gt; C.mean()&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 条件成立</span></span><br><span class="line">df.query(<span class="string">&quot;@tj&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+      <th>bools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>79</td>
+      <td>33</td>
+      <td>60</td>
+      <td>33</td>
+      <td>34</td>
+      <td>63</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>98</td>
+      <td>67</td>
+      <td>35</td>
+      <td>53</td>
+      <td>67</td>
+      <td>82</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>23</td>
+      <td>48</td>
+      <td>31</td>
+      <td>48</td>
+      <td>47</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 条件不成立</span></span><br><span class="line">tj = df.<span class="built_in">eval</span>(<span class="string">&quot;C&gt; C.mean()&quot;</span>)</span><br><span class="line">df.query(<span class="string">&quot;~@tj&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+      <th>bools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>66</td>
+      <td>45</td>
+      <td>18</td>
+      <td>43</td>
+      <td>52</td>
+      <td>46</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 条件不成立</span></span><br><span class="line">tj = df.<span class="built_in">eval</span>(<span class="string">&quot;C&gt; C.mean()&quot;</span>)</span><br><span class="line">df.query(<span class="string">&quot;not @tj&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+      <th>E</th>
+      <th>F</th>
+      <th>bools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>66</td>
+      <td>45</td>
+      <td>18</td>
+      <td>43</td>
+      <td>52</td>
+      <td>46</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>75</td>
+      <td>0</td>
+      <td>31</td>
+      <td>56</td>
+      <td>71</td>
+      <td>50</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>60</td>
+      <td>23</td>
+      <td>12</td>
+      <td>29</td>
+      <td>25</td>
+      <td>57</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/04/05/Pandas%E6%95%B0%E6%8D%AE%E9%87%8D%E6%8E%92stack%20unstack%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/05/Pandas%E6%95%B0%E6%8D%AE%E9%87%8D%E6%8E%92stack%20unstack%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">Pandas数据重排stack/unstack函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-05 17:26:11" itemprop="dateCreated datePublished" datetime="2022-04-05T17:26:11+08:00">2022-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ar1 = np.random.randint(<span class="number">46</span>, <span class="number">99</span>, size=<span class="number">20</span>).reshape(<span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">lst1 = [<span class="string">&quot;语文&quot;</span>, <span class="string">&quot;数学&quot;</span>, <span class="string">&quot;英语&quot;</span>, <span class="string">&quot;物理&quot;</span>, <span class="string">&quot;化学&quot;</span>]</span><br><span class="line">lst2 = [<span class="string">&quot;周明&quot;</span>, <span class="string">&quot;王鹏&quot;</span>, <span class="string">&quot;刘华&quot;</span>, <span class="string">&quot;罗宾&quot;</span>]</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(ar1, index=lst2, columns=lst1)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<p>out&gt;&gt;&gt;&gt;&gt;</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>语文</th>
+      <th>数学</th>
+      <th>英语</th>
+      <th>物理</th>
+      <th>化学</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>周明</th>
+      <td>95</td>
+      <td>85</td>
+      <td>48</td>
+      <td>93</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>王鹏</th>
+      <td>72</td>
+      <td>50</td>
+      <td>50</td>
+      <td>80</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>刘华</th>
+      <td>96</td>
+      <td>67</td>
+      <td>60</td>
+      <td>80</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>罗宾</th>
+      <td>83</td>
+      <td>51</td>
+      <td>84</td>
+      <td>68</td>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="行列转置"><a href="#行列转置" class="headerlink" title="行列转置"></a>行列转置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.T</span><br></pre></td></tr></table></figure>
+
+<p>out&gt;&gt;&gt;&gt;&gt;</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>周明</th>
+      <th>王鹏</th>
+      <th>刘华</th>
+      <th>罗宾</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>语文</th>
+      <td>95</td>
+      <td>72</td>
+      <td>96</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>数学</th>
+      <td>85</td>
+      <td>50</td>
+      <td>67</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>英语</th>
+      <td>48</td>
+      <td>50</td>
+      <td>60</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <th>物理</th>
+      <td>93</td>
+      <td>80</td>
+      <td>80</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>化学</th>
+      <td>54</td>
+      <td>47</td>
+      <td>97</td>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack()"></a>stack()</h2><p><code>df.stack(level: &#39;Level&#39; = -1, dropna: &#39;bool&#39; = True)</code></p>
+<ul>
+<li>将指定级别从列堆叠到索引.将数据的列索引转换为行索引</li>
+<li>stack和unstack默认操作为最内层，可以用level参数指定操作层</li>
+<li>stack转换dataframe时，若只有一层列索引则转换后的类型为series，否则为dataframe</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.stack()</span><br><span class="line"><span class="built_in">type</span>(df.stack())</span><br></pre></td></tr></table></figure>
+
+<p>out&gt;&gt;&gt;&gt;&gt;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">周明  语文    95</span><br><span class="line">    数学    85</span><br><span class="line">    英语    48</span><br><span class="line">    物理    93</span><br><span class="line">    化学    54</span><br><span class="line">王鹏  语文    72</span><br><span class="line">    数学    50</span><br><span class="line">    英语    50</span><br><span class="line">    物理    80</span><br><span class="line">    化学    47</span><br><span class="line">刘华  语文    96</span><br><span class="line">    数学    67</span><br><span class="line">    英语    60</span><br><span class="line">    物理    80</span><br><span class="line">    化学    97</span><br><span class="line">罗宾  语文    83</span><br><span class="line">    数学    51</span><br><span class="line">    英语    84</span><br><span class="line">    物理    68</span><br><span class="line">    化学    71</span><br><span class="line">dtype: int32</span><br><span class="line">pandas.core.series.Series</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.stack().to_frame()</span><br><span class="line"><span class="built_in">type</span>(df.stack().to_frame())</span><br></pre></td></tr></table></figure>
+
+<p>out&gt;&gt;&gt;&gt;&gt;</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">周明</th>
+      <th>语文</th>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>数学</th>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>英语</th>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>物理</th>
+      <td>93</td>
+    </tr>
+    <tr>
+      <th>化学</th>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">王鹏</th>
+      <th>语文</th>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>数学</th>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>英语</th>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>物理</th>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>化学</th>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">刘华</th>
+      <th>语文</th>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>数学</th>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>英语</th>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>物理</th>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>化学</th>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">罗宾</th>
+      <th>语文</th>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>数学</th>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>英语</th>
+      <td>84</td>
+    </tr>
+    <tr>
+      <th>物理</th>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>化学</th>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandas.core.frame.DataFrame</span><br></pre></td></tr></table></figure>
+
+<h2 id="unstack"><a href="#unstack" class="headerlink" title="unstack()"></a>unstack()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.stack().unstack()</span><br></pre></td></tr></table></figure>
+
+<p>out&gt;&gt;&gt;&gt;&gt;</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>语文</th>
+      <th>数学</th>
+      <th>英语</th>
+      <th>物理</th>
+      <th>化学</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>周明</th>
+      <td>95</td>
+      <td>85</td>
+      <td>48</td>
+      <td>93</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>王鹏</th>
+      <td>72</td>
+      <td>50</td>
+      <td>50</td>
+      <td>80</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>刘华</th>
+      <td>96</td>
+      <td>67</td>
+      <td>60</td>
+      <td>80</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>罗宾</th>
+      <td>83</td>
+      <td>51</td>
+      <td>84</td>
+      <td>68</td>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.unstack()</span><br><span class="line"><span class="built_in">type</span>(df.unstack())</span><br></pre></td></tr></table></figure>
+
+<p>out&gt;&gt;&gt;&gt;&gt;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">语文  周明    95</span><br><span class="line">    王鹏    72</span><br><span class="line">    刘华    96</span><br><span class="line">    罗宾    83</span><br><span class="line">数学  周明    85</span><br><span class="line">    王鹏    50</span><br><span class="line">    刘华    67</span><br><span class="line">    罗宾    51</span><br><span class="line">英语  周明    48</span><br><span class="line">    王鹏    50</span><br><span class="line">    刘华    60</span><br><span class="line">    罗宾    84</span><br><span class="line">物理  周明    93</span><br><span class="line">    王鹏    80</span><br><span class="line">    刘华    80</span><br><span class="line">    罗宾    68</span><br><span class="line">化学  周明    54</span><br><span class="line">    王鹏    47</span><br><span class="line">    刘华    97</span><br><span class="line">    罗宾    71</span><br><span class="line">dtype: int32</span><br><span class="line">pandas.core.series.Series</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.unstack().to_frame()</span><br></pre></td></tr></table></figure>
+
+<p>out&gt;&gt;&gt;&gt;&gt;</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">语文</th>
+      <th>周明</th>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>王鹏</th>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>刘华</th>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>罗宾</th>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">数学</th>
+      <th>周明</th>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>王鹏</th>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>刘华</th>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>罗宾</th>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">英语</th>
+      <th>周明</th>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>王鹏</th>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>刘华</th>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>罗宾</th>
+      <td>84</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">物理</th>
+      <th>周明</th>
+      <td>93</td>
+    </tr>
+    <tr>
+      <th>王鹏</th>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>刘华</th>
+      <td>80</td>
+    </tr>
+    <tr>
+      <th>罗宾</th>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">化学</th>
+      <th>周明</th>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>王鹏</th>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>刘华</th>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>罗宾</th>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/04/05/Jupyter%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%9B%BE%E7%89%87%E6%88%96PDF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/05/Jupyter%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%9B%BE%E7%89%87%E6%88%96PDF/" class="post-title-link" itemprop="url">Jupyter中嵌入图片或PDF</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-05 16:39:44" itemprop="dateCreated datePublished" datetime="2022-04-05T16:39:44+08:00">2022-04-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> IFrame, Image</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ph=os.getcwd()</span><br><span class="line">webp_files=[x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(ph) <span class="keyword">if</span> re.search(<span class="string">&#x27;.webp&#x27;</span>,x)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> webp_files:</span><br><span class="line">    Image(i,width=<span class="string">&#x27;300px&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<img src="/2022/04/05/Jupyter%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%9B%BE%E7%89%87%E6%88%96PDF/1.webp">
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IFrame(<span class="string">&#x27;./readme.pdf&#x27;</span>, width=<span class="string">&#x27;1200&#x27;</span>, height=<span class="string">&#x27;800px&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2349,291 +4414,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/14/%E8%BF%9E%E6%9D%86%E9%94%AA%E9%9D%A2%E5%88%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/14/%E8%BF%9E%E6%9D%86%E9%94%AA%E9%9D%A2%E5%88%80/" class="post-title-link" itemprop="url">连杆锪面刀</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-14 23:29:47" itemprop="dateCreated datePublished" datetime="2022-03-14T23:29:47+08:00">2022-03-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="6C1连杆"><a href="#6C1连杆" class="headerlink" title="6C1连杆"></a>6C1连杆</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/14/%E8%BF%9E%E6%9D%86%E9%94%AA%E9%9D%A2%E5%88%80/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/" class="post-title-link" itemprop="url">钴领ER刀柄</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-11 17:18:20" itemprop="dateCreated datePublished" datetime="2022-03-11T17:18:20+08:00">2022-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="ER刀柄"><a href="#ER刀柄" class="headerlink" title="ER刀柄"></a>ER刀柄</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    HSK A:<span class="number">4304</span></span><br><span class="line">    HSK C:<span class="number">4303</span></span><br><span class="line">    HSK A MQL<span class="number">-1</span>:<span class="number">4330</span></span><br><span class="line">    HSK A MQL<span class="number">-2</span>:<span class="number">4341</span></span><br><span class="line">    MAS/BT:<span class="number">4245</span></span><br><span class="line">丝锥专用：密封</span><br><span class="line">	HSK A: <span class="number">4324</span></span><br><span class="line">	HSK C: <span class="number">4323</span></span><br><span class="line">	MAS/BT:<span class="number">4318</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="4304-系列总览"><a href="#4304-系列总览" class="headerlink" title="4304 系列总览"></a>4304 系列总览</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ER螺母：<span class="number">4306</span></span><br><span class="line">调整螺丝：<span class="number">4902</span></span><br><span class="line">内冷管：<span class="number">4949</span></span><br><span class="line">扳手：<span class="number">4913</span></span><br><span class="line">夹头：</span><br><span class="line">	<span class="number">4175</span>：密封夹头	夹持直径范围：<span class="number">3.0</span>~<span class="number">20.0</span>	ER20~ER32	<span class="number">0.0</span>~<span class="number">0.5</span>的弹性</span><br><span class="line">	<span class="number">4307</span>：普通夹头	夹持直径范围：<span class="number">1.0</span>~<span class="number">26.0</span>	ER11~ER40	<span class="number">0.5</span>~<span class="number">1.0</span>的弹性</span><br><span class="line">	<span class="number">4308</span>：丝锥夹头	夹持直径范围：<span class="number">4.0</span>~<span class="number">22.0</span>	ER16~ER40	适配丝锥柄径</span><br></pre></td></tr></table></figure>
-<h3 id="ER刀柄-HSK-A-4304系列"><a href="#ER刀柄-HSK-A-4304系列" class="headerlink" title="ER刀柄 HSK-A , 4304系列"></a>ER刀柄 HSK-A , 4304系列</h3><iframe src="https://www.guhring.com/ProductsServices/SeriesDetails?Series=4304&fromResults=True" style="width:100%;height:1000px"></iframe>
-
-<h4 id="刀柄-4304"><a href="#刀柄-4304" class="headerlink" title="刀柄 :4304"></a>刀柄 :4304</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/4304.webp" style="width:100%; "></p>
-<h4 id="锁紧螺母-4306"><a href="#锁紧螺母-4306" class="headerlink" title="锁紧螺母: 4306"></a>锁紧螺母: 4306</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/4306.webp" style="width:100%; "></p>
-<h4 id="普通夹头-4307"><a href="#普通夹头-4307" class="headerlink" title="普通夹头:4307"></a>普通夹头:4307</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/4307.webp" style="width:100%; "></p>
-<h4 id="丝锥夹头：4308"><a href="#丝锥夹头：4308" class="headerlink" title="丝锥夹头：4308"></a>丝锥夹头：4308</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/4308.webp" style="width:100%; "></p>
-<h4 id="调整螺丝：4902"><a href="#调整螺丝：4902" class="headerlink" title="调整螺丝：4902"></a>调整螺丝：4902</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/4902.webp" style="width:100%; "></p>
-<h4 id="锁紧扳手：4913"><a href="#锁紧扳手：4913" class="headerlink" title="锁紧扳手：4913"></a>锁紧扳手：4913</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/4913.webp" style="width:100%; "></p>
-<h4 id="内冷管：4949"><a href="#内冷管：4949" class="headerlink" title="内冷管：4949"></a>内冷管：4949</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/4949.webp" style="width:100%; "></p>
-<h3 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h3><h4 id="4304016063"><a href="#4304016063" class="headerlink" title="4304016063"></a>4304016063</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/9043040160630.webp" style="width:100%; "></p>
-<h4 id="4307008016"><a href="#4307008016" class="headerlink" title="4307008016"></a>4307008016</h4><p><img src="/2022/03/11/%E9%92%B4%E9%A2%86ER%E5%88%80%E6%9F%84/9043070080160.webp" style="width:100%; "></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/09/hexo-backup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/09/hexo-backup/" class="post-title-link" itemprop="url">Hexo_backup</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-09 10:44:00" itemprop="dateCreated datePublished" datetime="2022-03-09T10:44:00+08:00">2022-03-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>  由于 Hexo 博客是静态托管的，所有的原始数据都保存在本地，如果哪一天电脑坏了，或者是误删了本地数据，那就是叫天天不应叫地地不灵了，此时定时备份就显得比较重要了，使用备份插件：hexo-git-backup ，只需要一个命令就可以将所有数据包括主题文件备份到 github 了</p>
-<h2 id="安装备份插件"><a href="#安装备份插件" class="headerlink" title="安装备份插件"></a>安装备份插件</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-git-backup --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改配置文件：-config-yml"><a href="#修改配置文件：-config-yml" class="headerlink" title="修改配置文件：.config.yml"></a>修改配置文件：.config.yml</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#在末尾添加：</span><br><span class="line">backup:</span><br><span class="line">  type: git</span><br><span class="line">  message: backup my blog of https:<span class="comment">//yxhsiao.github.io/</span></span><br><span class="line">  repository:</span><br><span class="line">    github: http:<span class="comment">//github.com/yxhsiao/yxhsiao.github.io.git,backup</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="备份命令"><a href="#备份命令" class="headerlink" title="备份命令"></a>备份命令</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo backup  <span class="meta"># hexo b</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
