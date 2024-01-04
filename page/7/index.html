@@ -174,13 +174,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -224,6 +224,1006 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/08/Dos%E6%89%A7%E8%A1%8C%E5%A4%9A%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/08/Dos%E6%89%A7%E8%A1%8C%E5%A4%9A%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Dos-执行多命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-08 21:20:36" itemprop="dateCreated datePublished" datetime="2022-03-08T21:20:36+08:00">2022-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="“-amp-”-的使用方法（最推荐大家使用它了，容错率最好）"><a href="#“-amp-”-的使用方法（最推荐大家使用它了，容错率最好）" class="headerlink" title="“&amp;” 的使用方法（最推荐大家使用它了，容错率最好）"></a>“&amp;” 的使用方法（最推荐大家使用它了，容错率最好）</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command <span class="number">1</span> &amp; command <span class="number">2</span> &amp; command <span class="number">3.</span>.....</span><br></pre></td></tr></table></figure>
+
+<p>可以同时执行多条命令，即使这3个命令中有任何一个执行失败，其他任意2个命令都会执行成功。abcd命令是一个不存在的错误命令，就是显示下效果。如图所示：</p>
+<img src="/2022/03/08/Dos%E6%89%A7%E8%A1%8C%E5%A4%9A%E5%91%BD%E4%BB%A4/dos&.webp">
+
+<h2 id="“-amp-amp-“的使用方法"><a href="#“-amp-amp-“的使用方法" class="headerlink" title="“&amp;&amp; “的使用方法"></a>“&amp;&amp; “的使用方法</h2> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command <span class="number">1</span> &amp;&amp; command <span class="number">2</span> &amp;&amp; command <span class="number">3.</span>.....</span><br></pre></td></tr></table></figure>
+
+<p>可以同时执行多条命令，如果这3个中有一处命令执行失败，那么当碰到执行失败的命令之后的其他任何命令都不会被执行。第一个calc命令会被正确执行，第二个abcd是不存在的错误命令，它执行失败后，第三个mspaint(画图程序)命令及之后的其他任何命令都不会被执行。如图：</p>
+<img src="/2022/03/08/Dos%E6%89%A7%E8%A1%8C%E5%A4%9A%E5%91%BD%E4%BB%A4/dos&&.webp">
+
+ 
+
+<h2 id="“-”-的使用方法（这个方法的使用意义最不大，容错率为0）"><a href="#“-”-的使用方法（这个方法的使用意义最不大，容错率为0）" class="headerlink" title="“|” 的使用方法（这个方法的使用意义最不大，容错率为0）"></a>“|” 的使用方法（这个方法的使用意义最不大，容错率为0）</h2> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command <span class="number">1</span> | command <span class="number">2</span> | command <span class="number">3.</span>.....</span><br></pre></td></tr></table></figure>
+
+<p>可以同时执行多条命令，这些命令中只要有一个错误的命令，不管是第几条命令，所有的命令都不会被执行。</p>
+<img src="/2022/03/08/Dos%E6%89%A7%E8%A1%8C%E5%A4%9A%E5%91%BD%E4%BB%A4/dos,.webp">
+
+<h2 id="“-”-的使用方法"><a href="#“-”-的使用方法" class="headerlink" title="“||” 的使用方法"></a>“||” 的使用方法</h2> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command <span class="number">1</span> || command <span class="number">2</span> || command <span class="number">3.</span>.....</span><br></pre></td></tr></table></figure>
+
+<p>可以同时执行多条命令，无论有多少个命令并存，只要多条命令中有一个命令被正确执行，其他的任何命令都不会被执行。下图中第一条abcd是不存在的错误命令，但是第二条calc命令被正确执行，那么之后的mspaint命令不会再被执行，即使后面多条命令都是正确的。它只执行一条正确的命令。</p>
+<img src="/2022/03/08/Dos%E6%89%A7%E8%A1%8C%E5%A4%9A%E5%91%BD%E4%BB%A4/dos,,.webp">
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/06/%E9%9F%A9%E5%86%B0%E6%9C%8D%E5%8A%A1%E5%8C%85%E8%82%A1%E7%A5%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/06/%E9%9F%A9%E5%86%B0%E6%9C%8D%E5%8A%A1%E5%8C%85%E8%82%A1%E7%A5%A8/" class="post-title-link" itemprop="url">韩冰服务包股票</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-06 13:25:42" itemprop="dateCreated datePublished" datetime="2022-03-06T13:25:42+08:00">2022-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%82%A1%E7%A5%A8/" itemprop="url" rel="index"><span itemprop="name">股票</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="2022-03-10更新："><a href="#2022-03-10更新：" class="headerlink" title="2022-03-10更新："></a>2022-03-10更新：</h2><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Code</th>
+<th>Name</th>
+<th>Price1</th>
+<th>Price2</th>
+<th>中间价</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2022-03-10  00:00:00</td>
+<td>300094.SZ</td>
+<td>国联水产</td>
+<td>5</td>
+<td>5.5</td>
+<td>5.25</td>
+</tr>
+<tr>
+<td>2022-03-10  00:00:00</td>
+<td>600986.SH</td>
+<td>浙文互联</td>
+<td>5</td>
+<td>5.5</td>
+<td>5.25</td>
+</tr>
+<tr>
+<td>2022-03-10  00:00:00</td>
+<td>600138.SH</td>
+<td>中青旅</td>
+<td>11</td>
+<td>11.6</td>
+<td>11.3</td>
+</tr>
+<tr>
+<td>2022-03-10  00:00:00</td>
+<td>002550.SZ</td>
+<td>千红制药</td>
+<td>4.5</td>
+<td>4.9</td>
+<td>4.7</td>
+</tr>
+<tr>
+<td>2022-03-07  00:00:00</td>
+<td>002217.SZ</td>
+<td>合力泰</td>
+<td>3.5</td>
+<td>3.6</td>
+<td>3.55</td>
+</tr>
+<tr>
+<td>2022-03-04  00:00:00</td>
+<td>002183.SZ</td>
+<td>怡亚通</td>
+<td>5.2</td>
+<td>5.35</td>
+<td>5.275</td>
+</tr>
+<tr>
+<td>2022-03-03  00:00:00</td>
+<td>002440.SZ</td>
+<td>闰土股份</td>
+<td>8.6</td>
+<td>8.88</td>
+<td>8.74</td>
+</tr>
+<tr>
+<td>2022-03-02  00:00:00</td>
+<td>002422.SZ</td>
+<td>科伦药业</td>
+<td>17</td>
+<td>17.5</td>
+<td>17.25</td>
+</tr>
+<tr>
+<td>2022-03-01  00:00:00</td>
+<td>300466.SZ</td>
+<td>赛摩智能</td>
+<td>5.9</td>
+<td>6.07</td>
+<td>5.985</td>
+</tr>
+<tr>
+<td>2022-02-28  00:00:00</td>
+<td>002170.SZ</td>
+<td>芭田股份</td>
+<td>6</td>
+<td>6.1</td>
+<td>6.05</td>
+</tr>
+<tr>
+<td>2022-02-24  00:00:00</td>
+<td>600409.SH</td>
+<td>三友化工</td>
+<td>8.5</td>
+<td>8.8</td>
+<td>8.65</td>
+</tr>
+<tr>
+<td>2022-02-24  00:00:00</td>
+<td>601678.SH</td>
+<td>滨化股份</td>
+<td>7</td>
+<td>7.3</td>
+<td>7.15</td>
+</tr>
+<tr>
+<td>2022-02-23  00:00:00</td>
+<td>603838.SH</td>
+<td>四通股份</td>
+<td>6.8</td>
+<td>7</td>
+<td>6.9</td>
+</tr>
+<tr>
+<td>2022-02-22  00:00:00</td>
+<td>603000.SH</td>
+<td>人民网</td>
+<td>13.5</td>
+<td>14</td>
+<td>13.75</td>
+</tr>
+<tr>
+<td>2022-02-22  00:00:00</td>
+<td>002092.SZ</td>
+<td>中泰化学</td>
+<td>10</td>
+<td>10.4</td>
+<td>10.2</td>
+</tr>
+<tr>
+<td>2022-02-21  00:00:00</td>
+<td>601992.SH</td>
+<td>金隅集团</td>
+<td>2.85</td>
+<td>2.95</td>
+<td>2.9</td>
+</tr>
+<tr>
+<td>2022-02-16  00:00:00</td>
+<td>600763.SH</td>
+<td>通策医疗</td>
+<td>145</td>
+<td>153</td>
+<td>149</td>
+</tr>
+<tr>
+<td>2022-02-16  00:00:00</td>
+<td>601828.SH</td>
+<td>美凯龙</td>
+<td>8.3</td>
+<td>8.55</td>
+<td>8.425</td>
+</tr>
+<tr>
+<td>2022-02-15  00:00:00</td>
+<td>603533.SH</td>
+<td>掌阅科技</td>
+<td>18.5</td>
+<td>19.2</td>
+<td>18.85</td>
+</tr>
+<tr>
+<td>2022-02-10  00:00:00</td>
+<td>002042.SZ</td>
+<td>华孚时尚</td>
+<td>4.5</td>
+<td>4.75</td>
+<td>4.625</td>
+</tr>
+<tr>
+<td>2022-02-08  00:00:00</td>
+<td>000837.SZ</td>
+<td>秦川机床</td>
+<td>9</td>
+<td>9.2</td>
+<td>9.1</td>
+</tr>
+<tr>
+<td>2022-01-28  00:00:00</td>
+<td>600031.SH</td>
+<td>三一重工</td>
+<td>19</td>
+<td>20.5</td>
+<td>19.75</td>
+</tr>
+<tr>
+<td>2022-01-28  00:00:00</td>
+<td>600425.SH</td>
+<td>青松建化</td>
+<td>3.3</td>
+<td>3.6</td>
+<td>3.45</td>
+</tr>
+<tr>
+<td>2022-01-18  00:00:00</td>
+<td>600881.SH</td>
+<td>亚泰集团</td>
+<td>3.2</td>
+<td>3.3</td>
+<td>3.25</td>
+</tr>
+<tr>
+<td>2022-01-13  00:00:00</td>
+<td>002697.SZ</td>
+<td>红旗连锁</td>
+<td>5.4</td>
+<td>5.7</td>
+<td>5.55</td>
+</tr>
+<tr>
+<td>2022-01-10  00:00:00</td>
+<td>603020.SH</td>
+<td>爱普股份</td>
+<td>12</td>
+<td>13.5</td>
+<td>12.75</td>
+</tr>
+<tr>
+<td>2022-01-05  00:00:00</td>
+<td>000617.SZ</td>
+<td>中油资本</td>
+<td>5</td>
+<td>5.2</td>
+<td>5.1</td>
+</tr>
+</tbody></table>
+<h2 id="2022-03-08复盘"><a href="#2022-03-08复盘" class="headerlink" title="2022-03-08复盘"></a>2022-03-08复盘</h2><table>
+<thead>
+<tr>
+<th>2022&#x2F;1&#x2F;13</th>
+<th>红旗连锁</th>
+<th>5.4</th>
+<th>5.7</th>
+<th>中线</th>
+<th>社区团购，地摊经济，新零售，彩票概念，参股银行，预制菜</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2022&#x2F;1&#x2F;18</td>
+<td>亚泰集团</td>
+<td>3.2</td>
+<td>3.3</td>
+<td>中长线</td>
+<td>水泥建材，举牌，机构重仓，重要概念，参股银行、券商，3.2元强支撑</td>
+</tr>
+<tr>
+<td>2022&#x2F;1&#x2F;28</td>
+<td>青松建化</td>
+<td>3.3</td>
+<td>3.6</td>
+<td>中线</td>
+<td>水泥建材，证金持股，一带一路，化工原料。</td>
+</tr>
+<tr>
+<td>2022&#x2F;1&#x2F;28</td>
+<td>三一重工</td>
+<td>19</td>
+<td>20.5</td>
+<td>中线</td>
+<td>工程机械概念，工业互联，军民融合，新能源车，参股银行，军工</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;8</td>
+<td>秦川机床</td>
+<td>9</td>
+<td>9.2</td>
+<td>中线</td>
+<td>通用设备，工业母机，工业大麻，工业互联，智能机器，3D打印，军工。</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;10</td>
+<td>华孚时尚</td>
+<td>4.5</td>
+<td>4.75</td>
+<td>短线</td>
+<td>纺织服装，深股通，农业种植，贬值受益，参股银行、创投。</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;15</td>
+<td>掌阅科技</td>
+<td>18.5</td>
+<td>19.2</td>
+<td>短线</td>
+<td>文化传媒，机构重仓，数字阅读，鸿蒙概念，字节概念，华为概念，手游概念</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;16</td>
+<td>美凯龙</td>
+<td>8.3</td>
+<td>8.55</td>
+<td>短线</td>
+<td>商业百货，股权激励，AH股</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;16</td>
+<td>通策医疗</td>
+<td>145</td>
+<td>153</td>
+<td>中线</td>
+<td>辅助生殖，区块链，健康中国，医疗器械概念，婴童概念</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;21</td>
+<td>金隅集团</td>
+<td>2.85</td>
+<td>2.95</td>
+<td>中长线</td>
+<td>水泥建材，ISCI中国，证金持股，国家重点支持的12家水泥企业</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;22</td>
+<td>中泰化学</td>
+<td>10</td>
+<td>10.4</td>
+<td>短线</td>
+<td>化学原料，碳交易，消毒剂，降解塑料，石墨烯，煤化工，一带一路</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;22</td>
+<td>人民网</td>
+<td>13.5</td>
+<td>14</td>
+<td>中线</td>
+<td>文化传媒，人民日报控股，国际互联网最大的综合性网络媒体</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;23</td>
+<td>四通股份</td>
+<td>6.8</td>
+<td>7</td>
+<td>中长线</td>
+<td>装修建材，集研发、设计、生产、销售一体的新型家居生活陶瓷供应商</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;24</td>
+<td>滨化股份</td>
+<td>7</td>
+<td>7.3</td>
+<td>中长线</td>
+<td>化学化工原料，氢能源，燃料电池，参股保险、银行，锂电池</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;24</td>
+<td>三友化工</td>
+<td>8.5</td>
+<td>8.8</td>
+<td>中长线</td>
+<td>化学化工原料，化纤，纯碱，氯碱，有机硅。</td>
+</tr>
+<tr>
+<td>2022&#x2F;2&#x2F;28</td>
+<td>芭田股份</td>
+<td>6</td>
+<td>6.1</td>
+<td>中长线</td>
+<td>化肥行业，磷化工，转基因，垃圾分类，乡村振兴，生态农业</td>
+</tr>
+<tr>
+<td>2022&#x2F;3&#x2F;1</td>
+<td>赛摩智能</td>
+<td>5.9</td>
+<td>6.07</td>
+<td>短线</td>
+<td>电网设备，华为概念，工业互联，工业4.0，无人机，智能机器，燃料电池</td>
+</tr>
+<tr>
+<td>2022&#x2F;3&#x2F;2</td>
+<td>科伦药业</td>
+<td>17</td>
+<td>17.5</td>
+<td>长线</td>
+<td>化学制药，机构重仓，新冠药物，分拆预期</td>
+</tr>
+<tr>
+<td>2022&#x2F;3&#x2F;3</td>
+<td>闰土股份</td>
+<td>8.6</td>
+<td>8.88</td>
+<td>中长线</td>
+<td>化学制品，纺织染料，印染助剂。产品市占率全国第二</td>
+</tr>
+<tr>
+<td>2022&#x2F;3&#x2F;4</td>
+<td>怡亚通</td>
+<td>5.2</td>
+<td>5.35</td>
+<td>中线</td>
+<td>乡村振兴，新零售，粤港自贸，大数据，物联网</td>
+</tr>
+<tr>
+<td>2022&#x2F;3&#x2F;7</td>
+<td>合力泰</td>
+<td>3.5</td>
+<td>3.6</td>
+<td>中长线</td>
+<td>无线充电，新能源车，3D玻璃，智能穿戴</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Date</th>
+<th>Code</th>
+<th>Name</th>
+<th>Price1</th>
+<th>Price2</th>
+<th>中间价</th>
+<th>现价</th>
+<th>期间最高价</th>
+<th>盈亏</th>
+<th>盈亏max</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>2022&#x2F;1&#x2F;5</td>
+<td>000617.SZ</td>
+<td>中油资本</td>
+<td>5</td>
+<td>5.2</td>
+<td>5.1</td>
+<td>5.25</td>
+<td>5.93</td>
+<td>2.94%</td>
+<td>16.27%</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2022&#x2F;1&#x2F;10</td>
+<td>603020.SH</td>
+<td>爱普股份</td>
+<td>12</td>
+<td>13.5</td>
+<td>12.75</td>
+<td>11.14</td>
+<td>15.4</td>
+<td>-12.63%</td>
+<td>20.78%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2022&#x2F;1&#x2F;13</td>
+<td>002697.SZ</td>
+<td>红旗连锁</td>
+<td>5.4</td>
+<td>5.7</td>
+<td>5.55</td>
+<td>4.6</td>
+<td>5.82</td>
+<td>-17.12%</td>
+<td>4.86%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2022&#x2F;1&#x2F;18</td>
+<td>600881.SH</td>
+<td>亚泰集团</td>
+<td>3.2</td>
+<td>3.3</td>
+<td>3.25</td>
+<td>2.94</td>
+<td>3.4</td>
+<td>-9.54%</td>
+<td>4.62%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2022&#x2F;1&#x2F;28</td>
+<td>600425.SH</td>
+<td>青松建化</td>
+<td>3.3</td>
+<td>3.6</td>
+<td>3.45</td>
+<td>3.98</td>
+<td>4.17</td>
+<td>15.36%</td>
+<td>20.87%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2022&#x2F;1&#x2F;28</td>
+<td>600031.SH</td>
+<td>三一重工</td>
+<td>19</td>
+<td>20.5</td>
+<td>19.75</td>
+<td>17.66</td>
+<td>21.38</td>
+<td>-10.58%</td>
+<td>8.25%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2022&#x2F;2&#x2F;8</td>
+<td>000837.SZ</td>
+<td>秦川机床</td>
+<td>9</td>
+<td>9.2</td>
+<td>9.1</td>
+<td>9.38</td>
+<td>10.44</td>
+<td>3.08%</td>
+<td>14.73%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2022&#x2F;2&#x2F;10</td>
+<td>002042.SZ</td>
+<td>华孚时尚</td>
+<td>4.5</td>
+<td>4.75</td>
+<td>4.625</td>
+<td>4.38</td>
+<td>4.79</td>
+<td>-5.30%</td>
+<td>3.57%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2022&#x2F;2&#x2F;15</td>
+<td>603533.SH</td>
+<td>掌阅科技</td>
+<td>18.5</td>
+<td>19.2</td>
+<td>18.85</td>
+<td>16.9</td>
+<td>19.54</td>
+<td>-10.34%</td>
+<td>3.66%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>2022&#x2F;2&#x2F;16</td>
+<td>601828.SH</td>
+<td>美凯龙</td>
+<td>8.3</td>
+<td>8.55</td>
+<td>8.425</td>
+<td>8.32</td>
+<td>8.77</td>
+<td>-1.25%</td>
+<td>4.09%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2022&#x2F;2&#x2F;16</td>
+<td>600763.SH</td>
+<td>通策医疗</td>
+<td>145</td>
+<td>153</td>
+<td>149</td>
+<td>135.46</td>
+<td>163.69</td>
+<td>-9.09%</td>
+<td>9.86%</td>
+</tr>
+<tr>
+<td>11</td>
+<td>2022&#x2F;2&#x2F;21</td>
+<td>601992.SH</td>
+<td>金隅集团</td>
+<td>2.85</td>
+<td>2.95</td>
+<td>2.9</td>
+<td>2.89</td>
+<td>3.04</td>
+<td>-0.34%</td>
+<td>4.83%</td>
+</tr>
+<tr>
+<td>12</td>
+<td>2022&#x2F;2&#x2F;22</td>
+<td>002092.SZ</td>
+<td>中泰化学</td>
+<td>10</td>
+<td>10.4</td>
+<td>10.2</td>
+<td>10.75</td>
+<td>11.39</td>
+<td>5.39%</td>
+<td>11.67%</td>
+</tr>
+<tr>
+<td>13</td>
+<td>2022&#x2F;2&#x2F;22</td>
+<td>603000.SH</td>
+<td>人民网</td>
+<td>13.5</td>
+<td>14</td>
+<td>13.75</td>
+<td>12.61</td>
+<td>14.36</td>
+<td>-8.29%</td>
+<td>4.44%</td>
+</tr>
+<tr>
+<td>14</td>
+<td>2022&#x2F;2&#x2F;23</td>
+<td>603838.SH</td>
+<td>四通股份</td>
+<td>6.8</td>
+<td>7</td>
+<td>6.9</td>
+<td>6.9</td>
+<td>7.53</td>
+<td>0.00%</td>
+<td>9.13%</td>
+</tr>
+<tr>
+<td>15</td>
+<td>2022&#x2F;2&#x2F;24</td>
+<td>601678.SH</td>
+<td>滨化股份</td>
+<td>7</td>
+<td>7.3</td>
+<td>7.15</td>
+<td>6.78</td>
+<td>7.48</td>
+<td>-5.17%</td>
+<td>4.62%</td>
+</tr>
+<tr>
+<td>16</td>
+<td>2022&#x2F;2&#x2F;24</td>
+<td>600409.SH</td>
+<td>三友化工</td>
+<td>8.5</td>
+<td>8.8</td>
+<td>8.65</td>
+<td>9.17</td>
+<td>9.7</td>
+<td>6.01%</td>
+<td>12.14%</td>
+</tr>
+<tr>
+<td>17</td>
+<td>2022&#x2F;2&#x2F;28</td>
+<td>002170.SZ</td>
+<td>芭田股份</td>
+<td>6</td>
+<td>6.1</td>
+<td>6.05</td>
+<td>5.82</td>
+<td>6.42</td>
+<td>-3.80%</td>
+<td>6.12%</td>
+</tr>
+<tr>
+<td>18</td>
+<td>2022&#x2F;3&#x2F;1</td>
+<td>300466.SZ</td>
+<td>赛摩智能</td>
+<td>5.9</td>
+<td>6.07</td>
+<td>5.985</td>
+<td>5.64</td>
+<td>6.18</td>
+<td>-5.76%</td>
+<td>3.26%</td>
+</tr>
+<tr>
+<td>19</td>
+<td>2022&#x2F;3&#x2F;2</td>
+<td>002422.SZ</td>
+<td>科伦药业</td>
+<td>17</td>
+<td>17.5</td>
+<td>17.25</td>
+<td>16.4</td>
+<td>18.12</td>
+<td>-4.93%</td>
+<td>5.04%</td>
+</tr>
+<tr>
+<td>20</td>
+<td>2022&#x2F;3&#x2F;3</td>
+<td>002440.SZ</td>
+<td>闰土股份</td>
+<td>8.6</td>
+<td>8.88</td>
+<td>8.74</td>
+<td>8.3</td>
+<td>8.85</td>
+<td>-5.03%</td>
+<td>1.26%</td>
+</tr>
+<tr>
+<td>21</td>
+<td>2022&#x2F;3&#x2F;4</td>
+<td>002183.SZ</td>
+<td>怡亚通</td>
+<td>5.2</td>
+<td>5.35</td>
+<td>5.275</td>
+<td>5.02</td>
+<td>5.36</td>
+<td>-4.83%</td>
+<td>1.61%</td>
+</tr>
+<tr>
+<td>22</td>
+<td>2022&#x2F;3&#x2F;7</td>
+<td>002217.SZ</td>
+<td>合力泰</td>
+<td>3.5</td>
+<td>3.6</td>
+<td>3.55</td>
+<td>3.46</td>
+<td>3.56</td>
+<td>-2.54%</td>
+<td>0.28%</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/06/%E8%82%A1%E7%A5%A8%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/06/%E8%82%A1%E7%A5%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">股票笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-06 13:09:02" itemprop="dateCreated datePublished" datetime="2022-03-06T13:09:02+08:00">2022-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-30 14:32:17" itemprop="dateModified" datetime="2023-12-30T14:32:17+08:00">2023-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%82%A1%E7%A5%A8/" itemprop="url" rel="index"><span itemprop="name">股票</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="股票交易"><a href="#股票交易" class="headerlink" title="股票交易"></a>股票交易</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/06/%E8%82%A1%E7%A5%A8%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2354,950 +3354,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/04/NexT-8-1%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/04/NexT-8-1%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">NexT_8.1主题配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-04 12:01:13" itemprop="dateCreated datePublished" datetime="2022-03-04T12:01:13+08:00">2022-03-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="站点配置文件-config-yml"><a href="#站点配置文件-config-yml" class="headerlink" title="站点配置文件 .config.yml"></a>站点配置文件 .config.yml</h2><h3 id="1、site-部分"><a href="#1、site-部分" class="headerlink" title="1、site 部分"></a>1、site 部分</h3><p>*修改站点配置文件里面的 *</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: 标题</span><br><span class="line">subtitle: 副标题</span><br><span class="line">description: 描述</span><br><span class="line">author: 作者</span><br><span class="line">language: 语言（简体中文是zh-CN）</span><br><span class="line">timezone: 网站时区（Hexo 默认使用您电脑的时区，不用写）</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改生成的链接"><a href="#修改生成的链接" class="headerlink" title="修改生成的链接"></a>修改生成的链接</h3><p><em>默认连接太长，而且不是同一个链接。丢失原来的访问次数</em></p>
-<p><em>方便分享和管理，推荐设置如下：</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: :year/:month/:day/:second/</span><br></pre></td></tr></table></figure>
-
-<h3 id="文章按创建时间排序"><a href="#文章按创建时间排序" class="headerlink" title="文章按创建时间排序"></a>文章按创建时间排序</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Home page setting</span><br><span class="line"><span class="meta"># path: Root path for your blogs index page. (default = <span class="string">&#x27;&#x27;)</span></span></span><br><span class="line"><span class="string"><span class="meta"># per_page: Posts displayed per page. (0 = disable pagination)</span></span></span><br><span class="line"><span class="string"><span class="meta"># order_by: Posts order. (Order by date descending by default)</span></span></span><br><span class="line"><span class="string"><span class="meta">index_generator:</span></span></span><br><span class="line"><span class="string"><span class="meta">  path: &quot;&quot;</span></span></span><br><span class="line"><span class="string"><span class="meta">  per_page: 10 # 每页数量</span></span></span><br><span class="line"><span class="string"><span class="meta">  order_by: -date</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="修改网站图标"><a href="#修改网站图标" class="headerlink" title="修改网站图标"></a>修改网站图标</h3><p><em>修改主题配置文件的 favicon 部分</em></p>
-<h3 id="修改文章模板"><a href="#修改文章模板" class="headerlink" title="修改文章模板"></a>修改文章模板</h3><p><em>自定义 hexo new file 时生成的 .md文件的模板</em></p>
-<p><em>修改站点文件夹下的 <code>scaffolds/post.md</code> 和 <code>scaffolds/draft.md</code> 如下</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">updated: &#123;&#123; date &#125;&#125;</span><br><span class="line">permalink: </span><br><span class="line">top: <span class="number">0</span></span><br><span class="line">password:</span><br><span class="line">comments: </span><br><span class="line">copyright: <span class="literal">true</span></span><br><span class="line">tags:</span><br><span class="line">categories: </span><br><span class="line">keywords:</span><br><span class="line">description:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="推送设置"><a href="#推送设置" class="headerlink" title="推送设置"></a>推送设置</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="comment">//github.com/yxhsiao/yxhsiao.github.io</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h2 id="主题配置文件-config-yml"><a href="#主题配置文件-config-yml" class="headerlink" title="主题配置文件 .config.yml"></a>主题配置文件 .config.yml</h2><h3 id="选择主题样式："><a href="#选择主题样式：" class="headerlink" title="选择主题样式："></a>选择主题样式：</h3><p><em>Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以 在 Scheme 之间共用。目前 NexT 支持三种 Scheme</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</span><br><span class="line">#Mist - Muse 的紧凑版本，整洁有序的单栏外观</span><br><span class="line">#Pisces - 双栏 Scheme，小家碧玉似的清新</span><br><span class="line"></span><br><span class="line">Scheme Settings</span><br><span class="line"># Schemes</span><br><span class="line"><span class="meta"># scheme: Muse</span></span><br><span class="line"><span class="meta"># scheme: Mist</span></span><br><span class="line"><span class="meta"># scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
-
-<h3 id="修改菜单栏"><a href="#修改菜单栏" class="headerlink" title="修改菜单栏"></a>修改菜单栏</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home		<span class="comment">//首页</span></span><br><span class="line">  archives: /archives/ || fa fa-archive		<span class="comment">//归档</span></span><br><span class="line">  categories: /categories/ || fa fa-th		<span class="comment">//分类</span></span><br><span class="line">  tags: /tags/ || a fa-tags		<span class="comment">//标签</span></span><br><span class="line">  about: /about/ || fa fa-user		<span class="comment">//关于</span></span><br><span class="line">  <span class="meta">#schedule: /schedule/ || fa fa-calendar		<span class="comment">//日程表</span></span></span><br><span class="line">  <span class="meta">#sitemap: /sitemap.xml || fa fa-sitemap		<span class="comment">//站点地图</span></span></span><br><span class="line">  <span class="meta">#commonweal: /404/ || fa fa-heartbeat		<span class="comment">//公益404</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id><a href="#" class="headerlink" title></a></h3><h3 id="设置侧边栏"><a href="#设置侧边栏" class="headerlink" title="设置侧边栏"></a>设置侧边栏</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sidebar:</span><br><span class="line"># Sidebar Position - 侧栏位置（只对Pisces | Gemini两种风格有效）</span><br><span class="line">  position: left        <span class="comment">//靠左放置</span></span><br><span class="line">  <span class="meta">#position: right      <span class="comment">//靠右放置</span></span></span><br><span class="line"></span><br><span class="line"># Sidebar Display - 侧栏显示时机（只对Muse | Mist两种风格有效）</span><br><span class="line">  <span class="meta">#display: post        <span class="comment">//默认行为，在文章页面（拥有目录列表）时显示</span></span></span><br><span class="line">  display: always       <span class="comment">//在所有页面中都显示</span></span><br><span class="line">  <span class="meta">#display: hide        <span class="comment">//在所有页面中都隐藏（可以手动展开）</span></span></span><br><span class="line">  <span class="meta">#display: remove      <span class="comment">//完全移除</span></span></span><br><span class="line">  offset: <span class="number">12</span>            <span class="comment">//文章间距（只对Pisces | Gemini两种风格有效）</span></span><br><span class="line">  b2t: <span class="literal">false</span>            <span class="comment">//返回顶部按钮（只对Pisces | Gemini两种风格有效）</span></span><br><span class="line">  scrollpercent: <span class="literal">true</span>   <span class="comment">//返回顶部按钮的百分比</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<h3 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h3><p><em>要安装插件</em></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-<p><em>然后修改<strong>站点</strong>配置文件中的 search:</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: <span class="number">10000</span></span><br></pre></td></tr></table></figure>
-
-<p><em>修改主题配置文件：</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Local Search</span><br><span class="line"># Dependencies: https:<span class="comment">//github.com/next-theme/hexo-generator-searchdb</span></span><br><span class="line">local_search:</span><br><span class="line">  enable: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="隐藏页脚的-“由-xxxx-强力驱动”"><a href="#隐藏页脚的-“由-xxxx-强力驱动”" class="headerlink" title="隐藏页脚的 “由 xxxx 强力驱动”"></a>隐藏页脚的 “由 xxxx 强力驱动”</h3><p><em>修改主题配置文件 footer 部分的 powered 的值为你想要的</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">footer:</span><br><span class="line"> powered: <span class="literal">false</span> <span class="meta"># false: 不显示 true: 显示</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="博客主题跟随系统主题"><a href="#博客主题跟随系统主题" class="headerlink" title="博客主题跟随系统主题"></a>博客主题跟随系统主题</h3><p><em>修改主题配置文件的 darkmode 部分</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Dark Mode</span><br><span class="line">darkmode: <span class="keyword">auto</span>   <span class="meta"># dark|light|auto</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="加载条阅读进度提示"><a href="#加载条阅读进度提示" class="headerlink" title="加载条阅读进度提示"></a>加载条阅读进度提示</h3><p><em>修改主题配置文件 reading_progress 部分</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reading_progress:</span><br><span class="line">  enable: <span class="literal">true</span> # 是否启用</span><br><span class="line">  # Available values: top | bottom</span><br><span class="line">  position: bottom <span class="meta"># top: 顶部 bottom: 底部</span></span><br><span class="line">  color: <span class="string">&quot;#37c6c0&quot;</span> #颜色</span><br><span class="line">  height: <span class="number">3</span>px #高度</span><br></pre></td></tr></table></figure>
-
-<h3 id="侧栏回到顶部按钮"><a href="#侧栏回到顶部按钮" class="headerlink" title="侧栏回到顶部按钮"></a>侧栏回到顶部按钮</h3><p><em>修改主题配置文件 <code>back2top</code> 部分</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: <span class="literal">true</span> # 是否启用</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="侧栏阅读进度提示"><a href="#侧栏阅读进度提示" class="headerlink" title="侧栏阅读进度提示"></a>侧栏阅读进度提示</h3><p><em>修改主题配置文件 <code>back2top</code> 部分</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: <span class="literal">true</span> # 是否显示阅读进度</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="边栏显示图像和社交信息"><a href="#边栏显示图像和社交信息" class="headerlink" title="边栏显示图像和社交信息"></a>边栏显示图像和社交信息</h3><p><em>修改主题配置文件的 avatar 和 social 部分</em>  </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Sidebar Avatar</span><br><span class="line">avatar:</span><br><span class="line">  url: /images/site/avatar.jpeg # 图片地址</span><br><span class="line">  rounded: <span class="literal">true</span> # 是否可旋转</span><br><span class="line">  rotated: <span class="literal">true</span> # 是否圆角</span><br><span class="line">  # Posts / Categories / Tags in sidebar.</span><br><span class="line">  site_state: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https:<span class="comment">//github.com/iitii || fab fa-github</span></span><br><span class="line">  E-Mail: mailto:ccmejx@gmail.com || fa fa-envelope</span><br><span class="line">  Telegram: https:<span class="comment">//t.me/callmehelp || fab fa-telegram</span></span><br><span class="line"></span><br><span class="line">social_icons:</span><br><span class="line">  enable: <span class="literal">true</span> # 是否启用</span><br><span class="line">  icons_only: <span class="literal">false</span> # 只显示图标</span><br><span class="line">  transition: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="添加书签-记录阅读位置"><a href="#添加书签-记录阅读位置" class="headerlink" title="添加书签(记录阅读位置)"></a>添加书签(记录阅读位置)</h4><ul>
-<li>修改主题配置文件 <code>bookmark</code> 部分</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bookmark:</span><br><span class="line">  enable: <span class="literal">true</span> # 是否启用</span><br><span class="line">  color: <span class="string">&quot;#222&quot;</span> # 颜色</span><br><span class="line">  save: <span class="keyword">auto</span> <span class="meta"># auto: 自动保存 manual: 手动保存</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="页脚设置站点建立时间"><a href="#页脚设置站点建立时间" class="headerlink" title="页脚设置站点建立时间"></a>页脚设置站点建立时间</h3><blockquote>
-<p>比如文章底部的: <code>© 2018 – 2021</code></p>
-</blockquote>
-<p><em>修改主题配置文件 footer 部分的 since 的值为你想要的</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">footer:</span><br><span class="line">  # Specify the year when the site was setup. If <span class="keyword">not</span> defined, current year will be used.</span><br><span class="line">  since: <span class="number">2021</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="修改页脚时间和作者之间的图标"><a href="#修改页脚时间和作者之间的图标" class="headerlink" title="修改页脚时间和作者之间的图标"></a>修改页脚时间和作者之间的图标</h4><p><em>修改主题配置文件 footer 部分的 icon 的值为你想要的</em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">footer:</span><br><span class="line">  icon:</span><br><span class="line">    name: fa fa-heart # 图标 See: https:<span class="comment">//fontawesome.com/icons</span></span><br><span class="line">    animated: <span class="literal">true</span> # 是否有动画效果</span><br><span class="line">    color: <span class="string">&quot;#ff0000&quot;</span> #图标颜色</span><br><span class="line"></span><br><span class="line">  copyright: # 不填写将以站点配置文件里面的作者填充</span><br></pre></td></tr></table></figure>
-
-<h3 id="版权信息"><a href="#版权信息" class="headerlink" title="版权信息"></a>版权信息</h3><p>搜索creative_commons：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: false #首页边栏是否显示</span><br><span class="line">  post: true #文章底部是否显示</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="站点访问人数和总访问量"><a href="#站点访问人数和总访问量" class="headerlink" title="站点访问人数和总访问量"></a>站点访问人数和总访问量</h3><p>修改next主题配置文件，搜索busuanzi_count：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  total_visitors: <span class="literal">true</span></span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: <span class="literal">true</span></span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: <span class="literal">true</span></span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="修改文章底部的标签带标签图标"><a href="#修改文章底部的标签带标签图标" class="headerlink" title="修改文章底部的标签带标签图标"></a>修改文章底部的标签带标签图标</h4><p><em>修改主题配置文件 <code>tag_icon</code> 部分</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tag_icon: true # true: 显示为图标</span><br></pre></td></tr></table></figure>
-
-<h3 id="自定义文件的路径"><a href="#自定义文件的路径" class="headerlink" title="自定义文件的路径"></a>自定义文件的路径</h3><p><em>修改主题配置文件 <code>custom_file_path</code> 部分</em></p>
-<p><em><strong>路径为根目录，而非主题目录</strong></em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">  head: source/_data/head.njk #添加自定义内容在 head</span><br><span class="line">  <span class="meta">#header: source/_data/header.njk #添加自定义内容在顶栏</span></span><br><span class="line">  <span class="meta">#sidebar: source/_data/sidebar.njk #添加自定义内容在边栏</span></span><br><span class="line">  #postMeta: source/_data/post-meta.njk #添加自定义文章的 meta 信息</span><br><span class="line">  postBodyEnd: source/_data/post-body-end.njk #添加自定义内容在文章尾部</span><br><span class="line">  <span class="meta">#footer: source/_data/footer.njk #添加自定义内容在页脚</span></span><br><span class="line">  #bodyEnd: source/_data/body-end.njk</span><br><span class="line">  <span class="meta">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="meta">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  style: source/_data/styles.styl #添加自定义css</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="页脚添加运行时间"><a href="#页脚添加运行时间" class="headerlink" title="页脚添加运行时间"></a>页脚添加运行时间</h4><p><em>添加如下内容到 <code>source/_data/footer.njk</code></em></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;br /&gt; #换行</span><br><span class="line">&lt;!-- 网站运行时间的设置 --&gt;</span><br><span class="line">&lt;span id=<span class="string">&quot;timeDate&quot;</span>&gt;载入天数...&lt;/span&gt;</span><br><span class="line">&lt;span id=<span class="string">&quot;times&quot;</span>&gt;载入时分秒...&lt;/span&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="function">function <span class="title">createtime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        var grt= <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;04/21/2019 15:54:40&quot;</span>);<span class="comment">//此处修改你的建站时间或者网站上线时间</span></span><br><span class="line">        now.<span class="built_in">setTime</span>(now.<span class="built_in">getTime</span>()+<span class="number">250</span>);</span><br><span class="line">        days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = Math.<span class="built_in">floor</span>(days);</span><br><span class="line">        hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = Math.<span class="built_in">floor</span>(hours);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">String</span>(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span><br><span class="line">        mnum = Math.<span class="built_in">floor</span>(minutes); <span class="keyword">if</span>(<span class="built_in">String</span>(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span><br><span class="line">        seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span><br><span class="line">        snum = Math.<span class="built_in">round</span>(seconds); <span class="keyword">if</span>(<span class="built_in">String</span>(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span><br><span class="line">        document.<span class="built_in">getElementById</span>(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span><br><span class="line">        document.<span class="built_in">getElementById</span>(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="页脚添加总访问量"><a href="#页脚添加总访问量" class="headerlink" title="页脚添加总访问量"></a>页脚添加总访问量</h3><p>修改next主题配置文件，搜索busuanzi_count：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">busuanzi_count:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  total_visitors: <span class="literal">true</span></span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: <span class="literal">true</span></span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: <span class="literal">true</span></span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
-
-<h3 id="文章尾部添加本文结束标记"><a href="#文章尾部添加本文结束标记" class="headerlink" title="文章尾部添加本文结束标记"></a>文章尾部添加本文结束标记</h3><p>在博客根目录&#x2F;source&#x2F;_data下新建post-body-end.njk文件写入以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;div class=&quot;end-slogan&quot; style=&quot;text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb&quot;&gt;----------- 本文结束&lt;i class=&quot;fa fa-star&quot;&gt;&lt;/i&gt;感谢阅读-----------&lt;/div&gt;		</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>然后在主题配置文件中取消注释：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- #postBodyEnd: source/_data/post-body-end.njk</span><br><span class="line">+ postBodyEnd: source/_data/post-body-end.njk</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2021/11/21/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/21/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-title-link" itemprop="url">python_正则表达式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-11-21 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-21T00:00:00+08:00">2021-11-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><blockquote>
-<p>正则表达式（称为RE，或正则，或正则表达式模式）本质上是嵌入在Python中的一种微小的、高度专业化的编程语言，可通过 re 模块获得。 使用这种小语言，你可以为要匹配的可能字符串集指定规则；此集可能包含英语句子，电子邮件地址，TeX命令或你喜欢的任何内容。 然后，您可以询问诸如“此字符串是否与模式匹配？”或“此字符串中的模式是否匹配？”等问题。 你还可以使用正则修改字符串或以各种方式将其拆分。<br>正则表达式模式被编译成一系列字节码，然后由用 C 编写的匹配引擎执行。对于高级用途，可能需要特别注意引擎如何执行给定的正则，并将正则写入以某种方式生成运行速度更快的字节码。 本文档未涉及优化，因为它要求你充分了解匹配引擎的内部结构。<br>正则表达式语言相对较小且受限制，因此并非所有可能的字符串处理任务都可以使用正则表达式完成。 还有一些任务 可以 用正则表达式完成，但表达式变得非常复杂。 在这些情况下，你最好编写 Python 代码来进行处理；虽然 Python 代码比精心设计的正则表达式慢，但它也可能更容易理解。</p>
-</blockquote>
-<h2 id="正则表达式的语法"><a href="#正则表达式的语法" class="headerlink" title="正则表达式的语法"></a>正则表达式的语法</h2><blockquote>
-<p>正则表达式（或 RE）指定了一组与之匹配的字符串；模块内的函数可以检查某个字符串是否与给定的正则表达式匹配<br>python中的正则表达式有内置的模块re. 只要导入就能使用。(<code>import re</code>)</p>
-</blockquote>
-<h3 id="re模块的方法"><a href="#re模块的方法" class="headerlink" title="re模块的方法"></a>re模块的方法</h3><p>有了准备知识，我们就可以在Python中使用正则表达式了。Python提供re模块，包含所有正则表达式的功能。由于Python的字符串本身也用\转义，所以要特别注意。 因此强烈建议使用Python的r前缀（raw模式），就不用考虑转义的问题了</p>
-<table>
-<thead>
-<tr>
-<th>方法 &#x2F; 属性</th>
-<th>目的</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>match()</td>
-<td>确定正则是否从字符串的开头匹配。</td>
-</tr>
-<tr>
-<td>search()</td>
-<td>扫描字符串，查找此正则匹配的任何位置。</td>
-</tr>
-<tr>
-<td>findall()</td>
-<td>找到正则匹配的所有子字符串，并将它们作为列表返回。</td>
-</tr>
-<tr>
-<td>finditer()</td>
-<td>找到正则匹配的所有子字符串，并将它们返回为一个 iterator。</td>
-</tr>
-<tr>
-<td>sub()</td>
-<td>用于替换字符串中的匹配项</td>
-</tr>
-<tr>
-<td>split()</td>
-<td>将字符串拆分成列表</td>
-</tr>
-</tbody></table>
-<h3 id="match-方法"><a href="#match-方法" class="headerlink" title="match()方法"></a>match()方法</h3><ul>
-<li>判断是否匹配，如果匹配成功，返回一个Match对象，否则返回None。</li>
-<li>从头开始匹配</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">re.match(<span class="string">r&#x27;^\d&#123;3&#125;-\d&#123;3,8&#125;$&#x27;</span>, <span class="string">&#x27;010-12345&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;re.Match object; span=(<span class="number">0</span>, <span class="number">9</span>), match=<span class="string">&#x27;010-12345&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看匹配结果"><a href="#查看匹配结果" class="headerlink" title="查看匹配结果"></a>查看匹配结果</h4><table>
-<thead>
-<tr>
-<th>方法 &#x2F; 属性</th>
-<th>目的</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>group()</td>
-<td>返回正则匹配的字符串</td>
-</tr>
-<tr>
-<td>start()</td>
-<td>返回匹配的开始位置</td>
-</tr>
-<tr>
-<td>end()</td>
-<td>返回匹配的结束位置</td>
-</tr>
-<tr>
-<td>span()</td>
-<td>返回包含匹配 (start, end) 位置的元组</td>
-</tr>
-</tbody></table>
-<blockquote>
-<ul>
-<li>group() 返回正则匹配的子字符串。</li>
-<li>start() 和 end() 返回匹配的起始和结束索引。</li>
-<li>span() 在单个元组中返回开始和结束索引。</li>
-<li>由于 match() 方法只检查正则是否在字符串的开头匹配，所以 start() 将始终为零。</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>如果正则表达式中定义了组，就可以在Match对象上用group()方法提取出子串来。<br>注意到group(0)永远是原始字符串，group(1)、group(2)……表示第1、2、……个子串。</p>
-</blockquote>
-<blockquote>
-<p>但是，模式的 search() 方法会扫描字符串，因此在这种情况下匹配可能不会从零开始。:</p>
-</blockquote>
-<h5 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">result=re.match(<span class="string">r&#x27;\d&#123;3&#125;-\d&#123;3,8&#125;&#x27;</span>, <span class="string">&#x27;010-12345678&#x27;</span>)</span><br><span class="line">result</span><br><span class="line"></span><br><span class="line">result.group()</span><br><span class="line">result.start(),result.end()</span><br><span class="line">result.span()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;re.Match object; span=(<span class="number">0</span>, <span class="number">12</span>), match=<span class="string">&#x27;010-12345678&#x27;</span>&gt;</span><br><span class="line"><span class="string">&#x27;010-12345678&#x27;</span></span><br><span class="line">(<span class="number">0</span>, <span class="number">12</span>)</span><br><span class="line">(<span class="number">0</span>, <span class="number">12</span>)   </span><br></pre></td></tr></table></figure>
-
-<h5 id="exp-1"><a href="#exp-1" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">result=re.match(<span class="string">r&#x27;(\d&#123;3&#125;)-\d&#123;3,8&#125;&#x27;</span>, <span class="string">&#x27;010-1234567890&#x27;</span>)</span><br><span class="line">result</span><br><span class="line"></span><br><span class="line">result.group(),result.group(<span class="number">0</span>),result.group(<span class="number">1</span>)</span><br><span class="line">result.start(),result.end()</span><br><span class="line"><span class="comment"># result.span()</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;re.Match object; span=(<span class="number">0</span>, <span class="number">12</span>), match=<span class="string">&#x27;010-12345678&#x27;</span>&gt;</span><br><span class="line">(<span class="string">&#x27;010-12345678&#x27;</span>, <span class="string">&#x27;010-12345678&#x27;</span>, <span class="string">&#x27;010&#x27;</span>)</span><br><span class="line">(<span class="number">0</span>, <span class="number">12</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="serch-方法"><a href="#serch-方法" class="headerlink" title="serch()方法"></a>serch()方法</h3><ul>
-<li>在要查找的字符串中从左到右开始查找，找到1个后就返回匹配对象，否则None</li>
-</ul>
-<h5 id="exp-2"><a href="#exp-2" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">result=re.search (<span class="string">r&#x27;(\d&#123;3&#125;)-(\d&#123;3,8&#125;)&#x27;</span>, <span class="string">&#x27;087010-123456789013579-1234678902468&#x27;</span>)</span><br><span class="line">result</span><br><span class="line"></span><br><span class="line">result.group(),result.group(<span class="number">0</span>),result.group(<span class="number">1</span>),result.group(<span class="number">2</span>)</span><br><span class="line">result.start(),result.end()</span><br><span class="line">result.span()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;re.Match object; span=(<span class="number">3</span>, <span class="number">15</span>), match=<span class="string">&#x27;010-12345678&#x27;</span>&gt;</span><br><span class="line">(<span class="string">&#x27;010-12345678&#x27;</span>, <span class="string">&#x27;010-12345678&#x27;</span>, <span class="string">&#x27;010&#x27;</span>, <span class="string">&#x27;12345678&#x27;</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">15</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">15</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="findall-方法"><a href="#findall-方法" class="headerlink" title="findall()方法"></a>findall()方法</h3><ul>
-<li>在查找范围内找出所有符合条件的匹配对象</li>
-<li>返回一个列表</li>
-</ul>
-<h5 id="exp-3"><a href="#exp-3" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result=re.findall (<span class="string">r&#x27;(\d&#123;3&#125;)-(\d&#123;3,8&#125;)&#x27;</span>, <span class="string">&#x27;087010-123456789013579-1234678902468&#x27;</span>)</span><br><span class="line">result</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(<span class="string">&#x27;010&#x27;</span>, <span class="string">&#x27;12345678&#x27;</span>), (<span class="string">&#x27;579&#x27;</span>, <span class="string">&#x27;12346789&#x27;</span>)]</span><br></pre></td></tr></table></figure>
-
-<h3 id="finditer-方法"><a href="#finditer-方法" class="headerlink" title="finditer() 方法"></a>finditer() 方法</h3><ul>
-<li>将一个 匹配对象 的序列返回为一个 iterator</li>
-</ul>
-<h5 id="exp-4"><a href="#exp-4" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">result = re.finditer(<span class="string">r&#x27;(\d&#123;3&#125;)-(\d&#123;3,8&#125;)&#x27;</span>,</span><br><span class="line">                     <span class="string">&#x27;087010-123456789013579-1234678902468&#x27;</span>)</span><br><span class="line">result</span><br><span class="line"></span><br><span class="line">[x <span class="keyword">for</span> x <span class="keyword">in</span> result]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;callable_iterator at <span class="number">0x67c3238</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<h5 id="exp-5"><a href="#exp-5" class="headerlink" title="exp"></a>exp</h5><pre><code>[&lt;re.Match object; span=(3, 15), match=&#39;010-12345678&#39;&gt;,
- &lt;re.Match object; span=(19, 31), match=&#39;579-12346789&#39;&gt;]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">result = re.finditer(<span class="string">r&#x27;(\d&#123;3&#125;)-(\d&#123;3,8&#125;)&#x27;</span>,</span><br><span class="line">                     <span class="string">&#x27;087010-123456789013579-1234678902468&#x27;</span>)</span><br><span class="line">result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[x.groups() <span class="keyword">for</span> x <span class="keyword">in</span> result]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;callable_iterator at <span class="number">0x66ae9b8</span>&gt;</span><br><span class="line">[(<span class="string">&#x27;010&#x27;</span>, <span class="string">&#x27;12345678&#x27;</span>), (<span class="string">&#x27;579&#x27;</span>, <span class="string">&#x27;12346789&#x27;</span>)]</span><br></pre></td></tr></table></figure>
-
-<h3 id="sub-方法"><a href="#sub-方法" class="headerlink" title="sub()方法"></a>sub()方法</h3><ul>
-<li>用于替换字符串中的匹配项</li>
-</ul>
-<h5 id="exp-6"><a href="#exp-6" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将‘-’ 替换成空格‘***’</span></span><br><span class="line">result = re.sub(<span class="string">r&#x27;-&#x27;</span>,<span class="string">&#x27;***&#x27;</span>,</span><br><span class="line">                     <span class="string">&#x27;087010-123456789013579-1234678902468&#x27;</span>)</span><br><span class="line">result</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;087010***123456789013579***1234678902468&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="exp-7"><a href="#exp-7" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将大于4的数字 替换成空格‘***’</span></span><br><span class="line">result = re.sub(<span class="string">r&#x27;[5-9]&#x27;</span>,<span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">                     <span class="string">&#x27;087010-123456789013579-1234678902468&#x27;</span>)</span><br><span class="line">result</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;0**010-1234*****013***-1234****024**&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="split方法"><a href="#split方法" class="headerlink" title="split方法"></a>split方法</h3><ul>
-<li>能够按照所能匹配的字串将字符串进行切分，返回切分后的字符串列表</li>
-<li><code>re.split(pattern, string, maxsplit=0, flags=0)</code></li>
-<li>pattern:匹配的字符串</li>
-<li>string:需要切分的字符串</li>
-<li>maxsplit:分隔次数，默认为0(即不限次数)</li>
-<li>flags:标志位，用于控制正则表达式的匹配方式，比如：是否区分大小写</li>
-</ul>
-<h5 id="exp-8"><a href="#exp-8" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;ab cde f  gHi&#x27;</span></span><br><span class="line">re.split(<span class="string">r&#x27;\s&#x27;</span>,str1)</span><br><span class="line"></span><br><span class="line">re.split(<span class="string">r&#x27;\s+&#x27;</span>,str1)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;ab&#x27;</span>, <span class="string">&#x27;cde&#x27;</span>, <span class="string">&#x27;f&#x27;</span>, <span class="string">&#x27;&#x27;, &#x27;</span>gHi<span class="number">&#x27;</span>]</span><br><span class="line">[<span class="string">&#x27;ab&#x27;</span>, <span class="string">&#x27;cde&#x27;</span>, <span class="string">&#x27;f&#x27;</span>, <span class="string">&#x27;gHi&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<h5 id="exp-9"><a href="#exp-9" class="headerlink" title="exp"></a>exp</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="string">&#x27;ab cde f  gHi&#x27;</span></span><br><span class="line">re.split(<span class="string">r&#x27;\s+&#x27;</span>,str1,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;ab&#x27;</span>, <span class="string">&#x27;cde&#x27;</span>, <span class="string">&#x27;f  gHi&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><p><code>. ^ $ * + ? &#123; &#125; [ ] \ | ( )</code></p>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>.</code></td>
-<td>半角句号，匹配任意单个字符，除了换行符。</td>
-</tr>
-<tr>
-<td>[ ]</td>
-<td>字符种类。匹配方括号内的任意字符</td>
-</tr>
-<tr>
-<td><code>[^]</code></td>
-<td>否定的字符种类。匹配除了方括号内的任意字符</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>匹配 &gt;&#x3D; 0 个重复的 在 <code>*</code> 号之前的字符</td>
-</tr>
-<tr>
-<td><code>+</code></td>
-<td>匹配 &gt;&#x3D; 1 个重复的 在 <code>+</code> 号之前的字符</td>
-</tr>
-<tr>
-<td><code>?</code></td>
-<td>匹配 0 ~1 个重复的 在 <code>?</code> 号之前的字符</td>
-</tr>
-<tr>
-<td><code>&#123;n&#125;</code></td>
-<td>匹配 &#x3D; n 个 <code>&#123;&#125;</code> 号之前的字符或字符集</td>
-</tr>
-<tr>
-<td><code>&#123;n,&#125;</code></td>
-<td>匹配 &gt;&#x3D;n 个 <code>&#123;&#125;</code> 号之前的字符或字符集</td>
-</tr>
-<tr>
-<td><code>&#123;n,m&#125;</code></td>
-<td>匹配 &gt;&#x3D;n ~ &lt;&#x3D;m 个 <code>&#123;&#125;</code> 号之前的字符或字符集</td>
-</tr>
-<tr>
-<td><code>(abc)</code></td>
-<td>字符集。匹配与 abc 相等的字符串</td>
-</tr>
-<tr>
-<td><code>|</code></td>
-<td><code>或</code>运算符。匹配符号前或后的字符</td>
-</tr>
-<tr>
-<td><code>^</code></td>
-<td>从首位开始匹配</td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td>从末尾开始匹配</td>
-</tr>
-<tr>
-<td><code>\</code></td>
-<td>转义字符。用于匹配一些保留的字符 如：<code>[] () &#123; &#125; . * + ? ^ $ \ |</code></td>
-</tr>
-</tbody></table>
-<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><h4 id><a href="#" class="headerlink" title="(...)"></a><code>(...)</code></h4><blockquote>
-<p>（组合），匹配括号内的任意正则表达式，并标识出组合的开始和结尾。匹配完成后，组合的内容可以被获取，并可以在之后用 \number 转义序列进行再次匹配，之后进行详细说明。要匹配字符 ‘(‘ 或者 ‘)’, 用 ( 或 ), 或者把它们包含在字符集合里: [(], [)].</p>
-</blockquote>
-<h4 id="…"><a href="#…" class="headerlink" title="(?…)"></a><code>(?…)</code></h4><p>这是个扩展标记法 （一个 ‘?’ 跟随 ‘(‘ 并无含义）。 ‘?’ 后面的第一个字符决定了这个构建采用什么样的语法。这种扩展通常并不创建新的组合； (?P <code>&lt;name&gt;</code>…) 是唯一的例外。 以下是目前支持的扩展。</p>
-<h4 id="aiLmsux"><a href="#aiLmsux" class="headerlink" title="(?aiLmsux)"></a><code>(?aiLmsux)</code></h4><blockquote>
-<p>( ‘a’, ‘i’, ‘L’, ‘m’, ‘s’, ‘u’, ‘x’ 中的一个或多个) 这个组合匹配一个空字符串；这些字符对正则表达式设置以下标记 re.A (只匹配ASCII字符), re.I (忽略大小写), re.L (语言依赖), re.M (多行模式), re.S (点dot匹配全部字符), re.U (Unicode匹配), and re.X (冗长模式)。 (这些标记在 模块内容 中描述) 如果你想将这些标记包含在正则表达式中，这个方法就很有用，免去了在 re.compile() 中传递 flag 参数。标记应该在表达式字符串首位表示。</p>
-</blockquote>
-<h4 id="…-1"><a href="#…-1" class="headerlink" title="(?:…)"></a><code>(?:…)</code></h4><blockquote>
-<p>正则括号的非捕获版本。 匹配在括号内的任何正则表达式，但该分组所匹配的子字符串 不能 在执行匹配后被获取或是之后在模式中被引用。</p>
-</blockquote>
-<h4 id="aiLmsux-imsx-…"><a href="#aiLmsux-imsx-…" class="headerlink" title="(?aiLmsux-imsx:…)"></a><code>(?aiLmsux-imsx:…)</code></h4><blockquote>
-<p>(‘a’, ‘i’, ‘L’, ‘m’, ‘s’, ‘u’, ‘x’ 中的0或者多个， 之后可选跟随 ‘-‘ 在后面跟随 ‘i’ , ‘m’ , ‘s’ , ‘x’ 中的一到多个 .) 这些字符为表达式的其中一部分 设置 或者 去除 相应标记 re.A (只匹配ASCII), re.I (忽略大小写), re.L (语言依赖), re.M (多行), re.S (点匹配所有字符), re.U (Unicode匹配), and re.X (冗长模式)。(标记描述在 模块内容 .)</p>
-</blockquote>
-<blockquote>
-<p>‘a’, ‘L’ and ‘u’ 作为内联标记是相互排斥的， 所以它们不能结合在一起，或者跟随 ‘-‘ 。 当他们中的某个出现在内联组中，它就覆盖了括号组内的匹配模式。在Unicode样式中， (?a:…) 切换为 只匹配ASCII， (?u:…) 切换为Unicode匹配 (默认). 在byte样式中 (?L:…) 切换为语言依赖模式， (?a:…) 切换为 只匹配ASCII (默认)。这种方式只覆盖组合内匹配，括号外的匹配模式不受影响。</p>
-</blockquote>
-<h4 id="P-lt-name-gt-…"><a href="#P-lt-name-gt-…" class="headerlink" title="(?P&lt;name&gt;…)"></a><code>(?P&lt;name&gt;…)</code></h4><blockquote>
-<p>（命名组合）类似正则组合，但是匹配到的子串组在外部是通过定义的 name 来获取的。组合名必须是有效的Python标识符，并且每个组合名只能用一个正则表达式定义，只能定义一次。一个符号组合同样是一个数字组合，就像这个组合没有被命名一样。</p>
-</blockquote>
-<blockquote>
-<p>命名组合可以在三种上下文中引用。如果样式是 (?P <code>&lt;quote&gt;</code>[‘“]).*?(?P&#x3D;quote) （也就是说，匹配单引号或者双引号括起来的字符串)：</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="left">引用组合 “quote” 的上下文</th>
-<th align="left">引用方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">在正则式自身内</td>
-<td align="left"><code>(?P=quote)</code> (如示)<code>\1</code></td>
-</tr>
-<tr>
-<td align="left">处理匹配对象<em>m</em></td>
-<td align="left"><code>m.group(&#39;quote&#39;)``m.end(&#39;quote&#39;)</code> (等)</td>
-</tr>
-<tr>
-<td align="left">传递到 <code>re.sub()</code> 里的 <em>repl</em> 参数中</td>
-<td align="left"><code>\g&lt;quote&gt;``\g&lt;1&gt;``\1</code></td>
-</tr>
-</tbody></table>
-<h4 id="P-name"><a href="#P-name" class="headerlink" title="(?P=name)"></a><code>(?P=name)</code></h4><blockquote>
-<p>反向引用一个命名组合；它匹配前面那个叫 name 的命名组中匹配到的串同样的字串。</p>
-</blockquote>
-<h4 id="…-2"><a href="#…-2" class="headerlink" title="(?#…)"></a><code>(?#…)</code></h4><blockquote>
-<p>(?#…)<br>注释；里面的内容会被忽略。</p>
-</blockquote>
-<blockquote>
-<p>(?&#x3D;…)<br>匹配 … 的内容，但是并不消费样式的内容。这个叫做 lookahead assertion。比如， Isaac (?&#x3D;Asimov) 匹配 ‘Isaac ‘ 只有在后面是 ‘Asimov’ 的时候。</p>
-</blockquote>
-<blockquote>
-<p>(?!…)<br>匹配 … 不符合的情况。这个叫 negative lookahead assertion （前视取反）。比如说， Isaac (?!Asimov) 只有后面 不 是 ‘Asimov’ 的时候才匹配 ‘Isaac ‘ 。</p>
-</blockquote>
-<h4 id="lt-…"><a href="#lt-…" class="headerlink" title="(?&lt;=…)"></a><code>(?&lt;=…)</code></h4><blockquote>
-<p>匹配字符串的当前位置，它的前面匹配 … 的内容到当前位置。这叫 positive lookbehind assertion （正向后视断定）。 (?&lt;&#x3D;abc)def 会在 ‘abcdef’ 中找到一个匹配，因为后视会往后看3个字符并检查是否包含匹配的样式。包含的匹配样式必须是定长的，意思就是 abc 或 a|b 是允许的，但是 a* 和 a{3,4} 不可以。注意以 positive lookbehind assertions 开始的样式，如 (?&lt;&#x3D;abc)def ，并不是从 a 开始搜索，而是从 d 往回看的。你可能更加愿意使用 search() 函数，而不是 match() 函数：</p>
-</blockquote>
-<h4 id="lt-…-1"><a href="#lt-…-1" class="headerlink" title="(?&lt;!…)"></a><code>(?&lt;!…)</code></h4><blockquote>
-<p>匹配当前位置之前不是 … 的样式。这个叫 negative lookbehind assertion （后视断定取非）。类似正向后视断定，包含的样式匹配必须是定长的。由 negative lookbehind assertion 开始的样式可以从字符串搜索开始的位置进行匹配.</p>
-</blockquote>
-<h4 id="id-name-yes-pattern-no-pattern"><a href="#id-name-yes-pattern-no-pattern" class="headerlink" title="(?(id/name)yes-pattern|no-pattern)"></a><code>(?(id/name)yes-pattern|no-pattern)</code></h4><blockquote>
-<p>如果给定的 id 或 name 存在，将会尝试匹配 yes-pattern ，否则就尝试匹配 no-pattern，no-pattern 可选，也可以被忽略。<br>比如，(<a href>)?(\w+@\w+(?:.\w+)+)(?(1)</a>?(%5Cw+@%5Cw+(?:%5C.%5Cw+)+)(?(1))|$)<br>是一个email样式匹配，将匹配 ‘<a href="mailto:&#x75;&#115;&#101;&#x72;&#64;&#x68;&#111;&#115;&#116;&#46;&#99;&#111;&#109;">&#x75;&#115;&#101;&#x72;&#64;&#x68;&#111;&#115;&#116;&#46;&#99;&#111;&#109;</a>‘ 或 ‘<a href="mailto:&#117;&#115;&#101;&#x72;&#x40;&#x68;&#111;&#x73;&#x74;&#46;&#99;&#x6f;&#109;">&#117;&#115;&#101;&#x72;&#x40;&#x68;&#111;&#x73;&#x74;&#46;&#99;&#x6f;&#109;</a>‘ ，但不会匹配 ‘&lt;<a href="mailto:&#x75;&#x73;&#101;&#114;&#64;&#x68;&#111;&#115;&#116;&#46;&#99;&#x6f;&#x6d;">&#x75;&#x73;&#101;&#114;&#64;&#x68;&#111;&#115;&#116;&#46;&#99;&#x6f;&#x6d;</a>‘ ，也不会匹配 ‘<a href="mailto:&#117;&#115;&#x65;&#114;&#x40;&#x68;&#111;&#x73;&#x74;&#x2e;&#x63;&#x6f;&#109;">&#117;&#115;&#x65;&#114;&#x40;&#x68;&#111;&#x73;&#x74;&#x2e;&#x63;&#x6f;&#109;</a>&gt;’。</p>
-</blockquote>
-<h3 id="和字母的特殊序列"><a href="#和字母的特殊序列" class="headerlink" title="\ 和字母的特殊序列"></a><code>\</code> 和字母的特殊序列</h3><h4 id="number"><a href="#number" class="headerlink" title="\number"></a><code>\number</code></h4><blockquote>
-<p>匹配数字代表的组合。每个括号是一个组合，组合从1开始编号。比如 <code>(.+) \1</code> 匹配 ‘the the’ 或者 ‘55 55’, 但不会匹配 ‘thethe’ (注意组合后面的空格)。这个特殊序列只能用于匹配前面99个组合。如果 number 的第一个数位是0， 或者 number 是三个八进制数，它将不会被看作是一个组合，而是八进制的数字值。在 ‘[‘ 和 ‘]’ 字符集合内，任何数字转义都被看作是字符。</p>
-</blockquote>
-<h4 id="A"><a href="#A" class="headerlink" title="\A"></a><code>\A</code></h4><p>只匹配字符串开始。</p>
-<h4 id="b-和-B"><a href="#b-和-B" class="headerlink" title="\b 和 \B"></a><code>\b</code> 和 <code>\B</code></h4><blockquote>
-<p><code>\b</code>匹配空字符串，但只在单词开始或结尾的位置。一个单词被定义为一个单词字符的序列。注意，通常 \b 定义为 \w 和 \W 字符之间，或者 \w 和字符串开始&#x2F;结尾的边界， 意思就是 r’\bfoo\b’ 匹配 ‘foo’, ‘foo.’, ‘(foo)’, ‘bar foo baz’ 但不匹配 ‘foobar’ 或者 ‘foo3’。</p>
-</blockquote>
-<blockquote>
-<p><code>\B</code> 匹配空字符串，但不能在词的开头或者结尾。意思就是 r’py\B’ 匹配 ‘python’, ‘py3’, ‘py2’, 但不匹配 ‘py’, ‘py.’, 或者 ‘py!’. \B 是 \b 的取非，所以Unicode样式的词语是由Unicode字母，数字或下划线构成的，虽然可以用 ASCII 标志来改变。如果使用了 LOCALE 标志，则词的边界由当前语言区域设置。</p>
-</blockquote>
-<h4 id="d-和-D"><a href="#d-和-D" class="headerlink" title="\d 和 \D"></a><code>\d</code> 和 <code>\D</code></h4><blockquote>
-<p><code>\d</code> 对于 Unicode (str) 样式：<br>匹配任何Unicode十进制数（就是在Unicode字符目录[Nd]里的字符）。这包括了 [0-9] ，和很多其他的数字字符。如果设置了 ASCII 标志，就只匹配 [0-9] 。对于8位(bytes)样式：匹配任何十进制数，就是 [0-9]。</p>
-</blockquote>
-<blockquote>
-<p><code>\D</code> 匹配任何非十进制数字的字符。就是 \d 取非。 如果设置了 ASCII 标志，就相当于 [^0-9] 。</p>
-</blockquote>
-<h4 id="s-和-S"><a href="#s-和-S" class="headerlink" title="\s 和 \S"></a><code>\s</code> 和 <code>\S</code></h4><blockquote>
-<p><code>\s</code> 对于 Unicode (str) 样式：匹配任何Unicode空白字符（包括 [ \t\n\r\f\v] ，还有很多其他字符，比如不同语言排版规则约定的不换行空格）。如果 ASCII 被设置，就只匹配 [ \t\n\r\f\v] 。对于8位(bytes)样式：匹配ASCII中的空白字符，就是 [ \t\n\r\f\v] 。</p>
-</blockquote>
-<blockquote>
-<p><code>\S</code> 匹配任何非空白字符。就是 \s 取非。如果设置了 ASCII 标志，就相当于 [^ \t\n\r\f\v] 。</p>
-</blockquote>
-<h4 id="w-和-W"><a href="#w-和-W" class="headerlink" title="\w 和 \W"></a><code>\w</code> 和 <code>\W</code></h4><blockquote>
-<p><code>\w</code>对于 Unicode (str) 样式：匹配Unicode词语的字符，包含了可以构成词语的绝大部分字符，也包括数字和下划线。如果设置了 ASCII 标志，就只匹配 <code>[a-zA-Z0-9_]</code> 。对于8位(bytes)样式：匹配ASCII字符中的数字和字母和下划线，就是 <code>[a-zA-Z0-9_]</code> 。如果设置了 LOCALE 标记，就匹配当前语言区域的数字和字母和下划线。</p>
-</blockquote>
-<blockquote>
-<p><code>\W</code> 匹配非单词字符的字符。这与 <code>\w</code>正相反。如果使用了 ASCII 旗标，这就等价于 <code>[^a-zA-Z0-9_]</code>。如果使用了 LOCALE 旗标，则会匹配当前区域中既非字母数字也非下划线的字符。</p>
-</blockquote>
-<h4 id="Z"><a href="#Z" class="headerlink" title="\Z"></a><code>\Z</code></h4><blockquote>
-<p>只匹配字符串尾。</p>
-</blockquote>
-<h2 id="常用表达式"><a href="#常用表达式" class="headerlink" title="常用表达式"></a>常用表达式</h2><h3 id="校验字符"><a href="#校验字符" class="headerlink" title="校验字符"></a>校验字符</h3><table>
-<thead>
-<tr>
-<th align="left">匹配内容</th>
-<th align="right">表达式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">汉字</td>
-<td align="right"><code>^[\u4e00-\u9fa5]&#123;0,&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">英文和数字</td>
-<td align="right"><code>^[A-Za-z0-9]+$</code> &#96;&#96;或 <code>^[A-Za-z0-9]&#123;4,40&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">长度为3-20的所有字符</td>
-<td align="right"><code>^.&#123;3,20&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">由26个英文字母组成的字符串</td>
-<td align="right"><code>^[A-Za-z]+$</code></td>
-</tr>
-<tr>
-<td align="left">由26个大写英文字母组成的字符串</td>
-<td align="right"><code>^[A-Z]+$</code></td>
-</tr>
-<tr>
-<td align="left">由26个小写英文字母组成的字符串</td>
-<td align="right"><code>^[a-z]+$</code></td>
-</tr>
-<tr>
-<td align="left">由数字和26个英文字母组成的字符串</td>
-<td align="right"><code>^[A-Za-z0-9]+$</code></td>
-</tr>
-<tr>
-<td align="left">由数字、26个英文字母或者下划线组成的字符串</td>
-<td align="right"><code>^\w+$ 或 ^\w&#123;3,20&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">中文、英文、数字包括下划线</td>
-<td align="right"><code>^[\u4E00-\u9FA5A-Za-z0-9_]+$</code></td>
-</tr>
-<tr>
-<td align="left">中文、英文、数字但不包括下划线等符号</td>
-<td align="right"><code>^[\u4E00-\u9FA5A-Za-z0-9]+$</code> &#96;&#96;或 <code>^[\u4E00-\u9FA5A-Za-z0-9]&#123;2,20&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">可以输入含有^%&amp;’,;&#x3D;?$&quot;等字符</td>
-<td align="right"><code>[^%&amp;&#39;,;=?$\x22]+ 12</code></td>
-</tr>
-<tr>
-<td align="left">禁止输入含有~的字符</td>
-<td align="right"><code>[^~\x22]+</code></td>
-</tr>
-<tr>
-<td align="left">全角符号</td>
-<td align="right"><code>[\uFF00-\uFFFF]</code></td>
-</tr>
-<tr>
-<td align="left">半角符号</td>
-<td align="right"><code>[\u0000-\u00FF]</code></td>
-</tr>
-</tbody></table>
-<h3 id="校验数字"><a href="#校验数字" class="headerlink" title="校验数字"></a>校验数字</h3><table>
-<thead>
-<tr>
-<th align="left">匹配内容</th>
-<th align="right">表达式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">数字</td>
-<td align="right"><code>^[0-9]*$</code></td>
-</tr>
-<tr>
-<td align="left">n位的数字</td>
-<td align="right"><code>^\d&#123;n&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">至少n位的数字</td>
-<td align="right"><code>^\d&#123;n,&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">m-n位的数字</td>
-<td align="right"><code>^\d&#123;m,n&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">零和非零开头的数字</td>
-<td align="right"><code>^(0|[1-9][0-9]*)$</code></td>
-</tr>
-<tr>
-<td align="left">非零开头的最多带两位小数的数字</td>
-<td align="right"><code>^([1-9][0-9]*)+(.[0-9]&#123;1,2&#125;)?$</code></td>
-</tr>
-<tr>
-<td align="left">带1-2位小数的正数或负数</td>
-<td align="right"><code>^(\-)?\d+(\.\d&#123;1,2&#125;)?$</code></td>
-</tr>
-<tr>
-<td align="left">正数、负数、和小数</td>
-<td align="right"><code>^(\-|\+)?\d+(\.\d+)?$</code></td>
-</tr>
-<tr>
-<td align="left">有两位小数的正实数</td>
-<td align="right"><code>^[0-9]+(.[0-9]&#123;2&#125;)?$</code></td>
-</tr>
-<tr>
-<td align="left">有1~3位小数的正实数</td>
-<td align="right"><code>^[0-9]+(.[0-9]&#123;1,3&#125;)?$</code></td>
-</tr>
-<tr>
-<td align="left">非零的正整数</td>
-<td align="right"><code>^[1-9]\d*$</code>或 <code>^([1-9][0-9]*)&#123;1,3&#125;$</code>或 <code>^\+?[1-9][0-9]*$</code></td>
-</tr>
-<tr>
-<td align="left">非零的负整数</td>
-<td align="right"><code>^\-[1-9][]0-9&quot;*$</code>或 <code>^-[1-9]\d*$</code></td>
-</tr>
-<tr>
-<td align="left">非负整数</td>
-<td align="right"><code>^\d+$</code>或 <code>^[1-9]\d*|0$</code></td>
-</tr>
-<tr>
-<td align="left">非正整数</td>
-<td align="right"><code>^-[1-9]\d*|0$</code>&lt;或 <code>^((-\d+)|(0+))$</code></td>
-</tr>
-<tr>
-<td align="left">非负浮点数</td>
-<td align="right"><code>^\d+(\.\d+)?$</code>或 <code>^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</code></td>
-</tr>
-<tr>
-<td align="left">非正浮点数</td>
-<td align="right"><code>^((-\d+(\.\d+)?)|(0+(\.0+)?))$</code>或 <code>^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</code></td>
-</tr>
-<tr>
-<td align="left">正浮点数</td>
-<td align="right"><code>^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$</code>或 <code>^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</code></td>
-</tr>
-<tr>
-<td align="left">负浮点数</td>
-<td align="right"><code>^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$</code>或 <code>^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</code></td>
-</tr>
-<tr>
-<td align="left">浮点数</td>
-<td align="right"><code>^(-?\d+)(\.\d+)?$</code>或 <code>^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</code></td>
-</tr>
-</tbody></table>
-<h3 id="特殊匹配"><a href="#特殊匹配" class="headerlink" title="特殊匹配"></a>特殊匹配</h3><table>
-<thead>
-<tr>
-<th align="left">匹配内容</th>
-<th align="right">表达式</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Email地址</td>
-<td align="right"><code>^\w+([-+]\w+)*@\w+([-]\w+)*\\w+([-]\w+)*$</code></td>
-</tr>
-<tr>
-<td align="left">域名</td>
-<td align="right"><code>[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;(/[a-zA-Z0-9][-a-zA-Z0-9]&#123;0,62&#125;)+/?</code></td>
-</tr>
-<tr>
-<td align="left">InternetURL</td>
-<td align="right"><code>[a-zA-z]+://[^\s]*</code>或 <code>^http://([\w-]+\)+[\w-]+(/[\w-/?%&amp;=]*)?$</code></td>
-</tr>
-<tr>
-<td align="left">手机号码</td>
-<td align="right">&#96;^(13[0-9]</td>
-</tr>
-<tr>
-<td align="left">电话号码</td>
-<td align="right"><code>^(\(\d&#123;3,4&#125;-)|\d&#123;34&#125;-)?\d&#123;7,8&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">国内电话号码(0511-4405222、021-87888822)</td>
-<td align="right">&#96;\d{3}-\d{8}</td>
-</tr>
-<tr>
-<td align="left">身份证号(15位、18位数字)</td>
-<td align="right"><code>^\d&#123;15&#125;|\d&#123;18&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">短身份证号码(数字、字母x结尾)</td>
-<td align="right">&#96;^([0-9]){7,18}(x</td>
-</tr>
-<tr>
-<td align="left">帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)</td>
-<td align="right"><code>^[a-zA-Z][a-zA-Z0-9_]&#123;4,15&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)</td>
-<td align="right"><code>^[a-zA-Z]\w&#123;5,17&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)</td>
-<td align="right"><code>^(?=*\d)(?=*[a-z])(?=*[A-Z])&#123;8,10&#125;$</code></td>
-</tr>
-<tr>
-<td align="left">日期格式</td>
-<td align="right"><code>^\d&#123;4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;</code></td>
-</tr>
-<tr>
-<td align="left">一年的12个月(01～09和1～12)</td>
-<td align="right">&#96;r’^(0?[1-9]</td>
-</tr>
-<tr>
-<td align="left">一个月的31天(01～09和1～31)</td>
-<td align="right">&#96;r’^((0?[1-9])</td>
-</tr>
-<tr>
-<td align="left">xml文件</td>
-<td align="right">&#96;r’^([a-zA-Z]+-?)+[a-zA-Z0-9]+[x</td>
-</tr>
-<tr>
-<td align="left">1到3个数字,后面跟个逗号+3个数字,逗号成为可选,而不是必须</td>
-<td align="right">&#96;r’^([0-9]+</td>
-</tr>
-<tr>
-<td align="left">中文字符的正则表达式</td>
-<td align="right"><code>r&#39;[\u4e00-\u9fa5]&#39;</code></td>
-</tr>
-<tr>
-<td align="left">双字节字符</td>
-<td align="right"><code>[^\x00-\xff]</code>(可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</td>
-</tr>
-<tr>
-<td align="left">空白行的正则表达式</td>
-<td align="right"><code>r &#39;\n\s*\r&#39;</code>(可以用来删除空白行)</td>
-</tr>
-<tr>
-<td align="left">首尾空白字符的正则表达式</td>
-<td align="right"><code>^\s*|\s*$</code>或 <code>(^\s*)|(\s*$)</code>(可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</td>
-</tr>
-<tr>
-<td align="left">腾讯QQ号(腾讯QQ号从10000开始)</td>
-<td align="right"><code>[1-9][0-9]&#123;4,&#125;</code></td>
-</tr>
-<tr>
-<td align="left">中国邮政编码</td>
-<td align="right"><code>[1-9]\d&#123;5&#125;(?!\d)</code></td>
-</tr>
-<tr>
-<td align="left">提取网页图片</td>
-<td align="right"><code>\\&lt;*[img][^\\\\&gt;]*[src]*=*[\\&quot;\\&#39;]&#123;0,1&#125;([^\\&quot;\\&#39;\\&gt;]*)</code></td>
-</tr>
-<tr>
-<td align="left">提取网页颜色代码</td>
-<td align="right">r’^#([A-Fa-f0-9]{6}</td>
-</tr>
-<tr>
-<td align="left">文件扩展名效验</td>
-<td align="right">&#96;r’^([a-zA-Z]:|\)\([^\]+\)<em>[^&#x2F;:</em>?”&lt;&gt;</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2021/11/17/%E8%BF%9E%E6%9D%865ay/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/17/%E8%BF%9E%E6%9D%865ay/" class="post-title-link" itemprop="url">连杆5ay</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-11-17 21:56:41" itemprop="dateCreated datePublished" datetime="2021-11-17T21:56:41+08:00">2021-11-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="小端孔镗孔刀"><a href="#小端孔镗孔刀" class="headerlink" title="小端孔镗孔刀"></a>小端孔镗孔刀</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/17/%E8%BF%9E%E6%9D%865ay/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -3311,7 +3367,7 @@
 
 <div class="copyright">
   &copy; 2020 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

@@ -174,13 +174,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -224,6 +224,2449 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/09/12/%E8%BF%BD%E5%8A%A0%E6%95%B0%E6%8D%AE%E8%A1%8C%E5%88%B0csv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/09/12/%E8%BF%BD%E5%8A%A0%E6%95%B0%E6%8D%AE%E8%A1%8C%E5%88%B0csv/" class="post-title-link" itemprop="url">追加数据行到csv</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2023-09-12T00:00:00+08:00">2023-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">file = <span class="string">r&quot;D:\Stock\market_data\sh.600000.csv&quot;</span></span><br><span class="line">df = pd.read_csv(file)</span><br><span class="line">df.tail()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>code</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>preclose</th>
+      <th>volume</th>
+      <th>amount</th>
+      <th>adjustflag</th>
+      <th>turn</th>
+      <th>tradestatus</th>
+      <th>pctChg</th>
+      <th>peTTM</th>
+      <th>pbMRQ</th>
+      <th>isST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2102</th>
+      <td>2023-10-16</td>
+      <td>sh.600000</td>
+      <td>7.12</td>
+      <td>7.13</td>
+      <td>7.04</td>
+      <td>7.07</td>
+      <td>7.10</td>
+      <td>24907733</td>
+      <td>1.760976e+08</td>
+      <td>2</td>
+      <td>0.0849</td>
+      <td>1</td>
+      <td>-0.4225</td>
+      <td>4.701935</td>
+      <td>0.345631</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2103</th>
+      <td>2023-10-17</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.10</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>7.07</td>
+      <td>19029143</td>
+      <td>1.346301e+08</td>
+      <td>2</td>
+      <td>0.0648</td>
+      <td>1</td>
+      <td>0.2829</td>
+      <td>4.715236</td>
+      <td>0.346609</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2104</th>
+      <td>2023-10-18</td>
+      <td>sh.600000</td>
+      <td>7.07</td>
+      <td>7.11</td>
+      <td>7.05</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>21485721</td>
+      <td>1.520630e+08</td>
+      <td>2</td>
+      <td>0.0732</td>
+      <td>1</td>
+      <td>-0.5642</td>
+      <td>4.688634</td>
+      <td>0.344653</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2105</th>
+      <td>2023-10-19</td>
+      <td>sh.600000</td>
+      <td>7.04</td>
+      <td>7.05</td>
+      <td>6.83</td>
+      <td>6.84</td>
+      <td>7.05</td>
+      <td>61679771</td>
+      <td>4.259569e+08</td>
+      <td>2</td>
+      <td>0.2101</td>
+      <td>1</td>
+      <td>-2.9787</td>
+      <td>4.548972</td>
+      <td>0.334387</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2106</th>
+      <td>2023-10-20</td>
+      <td>sh.600000</td>
+      <td>6.81</td>
+      <td>6.93</td>
+      <td>6.80</td>
+      <td>6.87</td>
+      <td>6.84</td>
+      <td>31067950</td>
+      <td>2.132038e+08</td>
+      <td>2</td>
+      <td>0.1058</td>
+      <td>1</td>
+      <td>0.4386</td>
+      <td>4.568924</td>
+      <td>0.335853</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="使用Pandas追加数据行到源文件中"><a href="#使用Pandas追加数据行到源文件中" class="headerlink" title="使用Pandas追加数据行到源文件中"></a>使用Pandas追加数据行到源文件中</h3><ol>
+<li>举例： 将最后三行再次追加到文件末尾</li>
+<li>恢复源文件，删除刚才追加进去的数据行</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1 = df.tail(<span class="number">3</span>)</span><br><span class="line">df1</span><br></pre></td></tr></table></figure>
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>code</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>preclose</th>
+      <th>volume</th>
+      <th>amount</th>
+      <th>adjustflag</th>
+      <th>turn</th>
+      <th>tradestatus</th>
+      <th>pctChg</th>
+      <th>peTTM</th>
+      <th>pbMRQ</th>
+      <th>isST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2104</th>
+      <td>2023-10-18</td>
+      <td>sh.600000</td>
+      <td>7.07</td>
+      <td>7.11</td>
+      <td>7.05</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>21485721</td>
+      <td>1.520630e+08</td>
+      <td>2</td>
+      <td>0.0732</td>
+      <td>1</td>
+      <td>-0.5642</td>
+      <td>4.688634</td>
+      <td>0.344653</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2105</th>
+      <td>2023-10-19</td>
+      <td>sh.600000</td>
+      <td>7.04</td>
+      <td>7.05</td>
+      <td>6.83</td>
+      <td>6.84</td>
+      <td>7.05</td>
+      <td>61679771</td>
+      <td>4.259569e+08</td>
+      <td>2</td>
+      <td>0.2101</td>
+      <td>1</td>
+      <td>-2.9787</td>
+      <td>4.548972</td>
+      <td>0.334387</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2106</th>
+      <td>2023-10-20</td>
+      <td>sh.600000</td>
+      <td>6.81</td>
+      <td>6.93</td>
+      <td>6.80</td>
+      <td>6.87</td>
+      <td>6.84</td>
+      <td>31067950</td>
+      <td>2.132038e+08</td>
+      <td>2</td>
+      <td>0.1058</td>
+      <td>1</td>
+      <td>0.4386</td>
+      <td>4.568924</td>
+      <td>0.335853</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将截取的三行数据追加到源文件中</span></span><br><span class="line">df1.to_csv(file, mode=<span class="string">&quot;a&quot;</span>, index=<span class="literal">False</span>, header=<span class="number">0</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 查看结果  </span></span><br><span class="line">tmp = pd.read_csv(file)</span><br><span class="line">tmp.tail(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除重复的行，保留第一个。</span></span><br><span class="line">tmp.drop_duplicates(subset=<span class="string">&#x27;date&#x27;</span>,keep=<span class="string">&#x27;first&#x27;</span>,inplace=<span class="literal">True</span>)</span><br><span class="line">tmp.tail(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新写入到csv文件中</span></span><br><span class="line">tmp.to_csv(file,index=<span class="literal">False</span>, encoding=<span class="string">&#x27;utf-8-sig&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>code</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>preclose</th>
+      <th>volume</th>
+      <th>amount</th>
+      <th>adjustflag</th>
+      <th>turn</th>
+      <th>tradestatus</th>
+      <th>pctChg</th>
+      <th>peTTM</th>
+      <th>pbMRQ</th>
+      <th>isST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2100</th>
+      <td>2023-10-12</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.17</td>
+      <td>7.06</td>
+      <td>7.14</td>
+      <td>7.02</td>
+      <td>36346964</td>
+      <td>2.592231e+08</td>
+      <td>2</td>
+      <td>0.1238</td>
+      <td>1</td>
+      <td>1.7094</td>
+      <td>4.748488</td>
+      <td>0.349053</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2101</th>
+      <td>2023-10-13</td>
+      <td>sh.600000</td>
+      <td>7.11</td>
+      <td>7.15</td>
+      <td>7.08</td>
+      <td>7.10</td>
+      <td>7.14</td>
+      <td>19650410</td>
+      <td>1.397720e+08</td>
+      <td>2</td>
+      <td>0.0669</td>
+      <td>1</td>
+      <td>-0.5602</td>
+      <td>4.721886</td>
+      <td>0.347097</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2102</th>
+      <td>2023-10-16</td>
+      <td>sh.600000</td>
+      <td>7.12</td>
+      <td>7.13</td>
+      <td>7.04</td>
+      <td>7.07</td>
+      <td>7.10</td>
+      <td>24907733</td>
+      <td>1.760976e+08</td>
+      <td>2</td>
+      <td>0.0849</td>
+      <td>1</td>
+      <td>-0.4225</td>
+      <td>4.701935</td>
+      <td>0.345631</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2103</th>
+      <td>2023-10-17</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.10</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>7.07</td>
+      <td>19029143</td>
+      <td>1.346301e+08</td>
+      <td>2</td>
+      <td>0.0648</td>
+      <td>1</td>
+      <td>0.2829</td>
+      <td>4.715236</td>
+      <td>0.346609</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2104</th>
+      <td>2023-10-18</td>
+      <td>sh.600000</td>
+      <td>7.07</td>
+      <td>7.11</td>
+      <td>7.05</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>21485721</td>
+      <td>1.520630e+08</td>
+      <td>2</td>
+      <td>0.0732</td>
+      <td>1</td>
+      <td>-0.5642</td>
+      <td>4.688634</td>
+      <td>0.344653</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2105</th>
+      <td>2023-10-19</td>
+      <td>sh.600000</td>
+      <td>7.04</td>
+      <td>7.05</td>
+      <td>6.83</td>
+      <td>6.84</td>
+      <td>7.05</td>
+      <td>61679771</td>
+      <td>4.259569e+08</td>
+      <td>2</td>
+      <td>0.2101</td>
+      <td>1</td>
+      <td>-2.9787</td>
+      <td>4.548972</td>
+      <td>0.334387</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2106</th>
+      <td>2023-10-20</td>
+      <td>sh.600000</td>
+      <td>6.81</td>
+      <td>6.93</td>
+      <td>6.80</td>
+      <td>6.87</td>
+      <td>6.84</td>
+      <td>31067950</td>
+      <td>2.132038e+08</td>
+      <td>2</td>
+      <td>0.1058</td>
+      <td>1</td>
+      <td>0.4386</td>
+      <td>4.568924</td>
+      <td>0.335853</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2107</th>
+      <td>2023-10-18</td>
+      <td>sh.600000</td>
+      <td>7.07</td>
+      <td>7.11</td>
+      <td>7.05</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>21485721</td>
+      <td>1.520630e+08</td>
+      <td>2</td>
+      <td>0.0732</td>
+      <td>1</td>
+      <td>-0.5642</td>
+      <td>4.688634</td>
+      <td>0.344653</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2108</th>
+      <td>2023-10-19</td>
+      <td>sh.600000</td>
+      <td>7.04</td>
+      <td>7.05</td>
+      <td>6.83</td>
+      <td>6.84</td>
+      <td>7.05</td>
+      <td>61679771</td>
+      <td>4.259569e+08</td>
+      <td>2</td>
+      <td>0.2101</td>
+      <td>1</td>
+      <td>-2.9787</td>
+      <td>4.548972</td>
+      <td>0.334387</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2109</th>
+      <td>2023-10-20</td>
+      <td>sh.600000</td>
+      <td>6.81</td>
+      <td>6.93</td>
+      <td>6.80</td>
+      <td>6.87</td>
+      <td>6.84</td>
+      <td>31067950</td>
+      <td>2.132038e+08</td>
+      <td>2</td>
+      <td>0.1058</td>
+      <td>1</td>
+      <td>0.4386</td>
+      <td>4.568924</td>
+      <td>0.335853</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>code</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>preclose</th>
+      <th>volume</th>
+      <th>amount</th>
+      <th>adjustflag</th>
+      <th>turn</th>
+      <th>tradestatus</th>
+      <th>pctChg</th>
+      <th>peTTM</th>
+      <th>pbMRQ</th>
+      <th>isST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2097</th>
+      <td>2023-10-09</td>
+      <td>sh.600000</td>
+      <td>7.08</td>
+      <td>7.08</td>
+      <td>7.00</td>
+      <td>7.03</td>
+      <td>7.10</td>
+      <td>27763130</td>
+      <td>1.952144e+08</td>
+      <td>2</td>
+      <td>0.0946</td>
+      <td>1</td>
+      <td>-0.9859</td>
+      <td>4.675332</td>
+      <td>0.343675</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2098</th>
+      <td>2023-10-10</td>
+      <td>sh.600000</td>
+      <td>7.13</td>
+      <td>7.14</td>
+      <td>7.01</td>
+      <td>7.01</td>
+      <td>7.03</td>
+      <td>24095561</td>
+      <td>1.698562e+08</td>
+      <td>2</td>
+      <td>0.0821</td>
+      <td>1</td>
+      <td>-0.2845</td>
+      <td>4.662031</td>
+      <td>0.342698</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2099</th>
+      <td>2023-10-11</td>
+      <td>sh.600000</td>
+      <td>7.06</td>
+      <td>7.08</td>
+      <td>7.01</td>
+      <td>7.02</td>
+      <td>7.01</td>
+      <td>24057412</td>
+      <td>1.693714e+08</td>
+      <td>2</td>
+      <td>0.0820</td>
+      <td>1</td>
+      <td>0.1427</td>
+      <td>4.668682</td>
+      <td>0.343187</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2100</th>
+      <td>2023-10-12</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.17</td>
+      <td>7.06</td>
+      <td>7.14</td>
+      <td>7.02</td>
+      <td>36346964</td>
+      <td>2.592231e+08</td>
+      <td>2</td>
+      <td>0.1238</td>
+      <td>1</td>
+      <td>1.7094</td>
+      <td>4.748488</td>
+      <td>0.349053</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2101</th>
+      <td>2023-10-13</td>
+      <td>sh.600000</td>
+      <td>7.11</td>
+      <td>7.15</td>
+      <td>7.08</td>
+      <td>7.10</td>
+      <td>7.14</td>
+      <td>19650410</td>
+      <td>1.397720e+08</td>
+      <td>2</td>
+      <td>0.0669</td>
+      <td>1</td>
+      <td>-0.5602</td>
+      <td>4.721886</td>
+      <td>0.347097</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2102</th>
+      <td>2023-10-16</td>
+      <td>sh.600000</td>
+      <td>7.12</td>
+      <td>7.13</td>
+      <td>7.04</td>
+      <td>7.07</td>
+      <td>7.10</td>
+      <td>24907733</td>
+      <td>1.760976e+08</td>
+      <td>2</td>
+      <td>0.0849</td>
+      <td>1</td>
+      <td>-0.4225</td>
+      <td>4.701935</td>
+      <td>0.345631</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2103</th>
+      <td>2023-10-17</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.10</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>7.07</td>
+      <td>19029143</td>
+      <td>1.346301e+08</td>
+      <td>2</td>
+      <td>0.0648</td>
+      <td>1</td>
+      <td>0.2829</td>
+      <td>4.715236</td>
+      <td>0.346609</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2104</th>
+      <td>2023-10-18</td>
+      <td>sh.600000</td>
+      <td>7.07</td>
+      <td>7.11</td>
+      <td>7.05</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>21485721</td>
+      <td>1.520630e+08</td>
+      <td>2</td>
+      <td>0.0732</td>
+      <td>1</td>
+      <td>-0.5642</td>
+      <td>4.688634</td>
+      <td>0.344653</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2105</th>
+      <td>2023-10-19</td>
+      <td>sh.600000</td>
+      <td>7.04</td>
+      <td>7.05</td>
+      <td>6.83</td>
+      <td>6.84</td>
+      <td>7.05</td>
+      <td>61679771</td>
+      <td>4.259569e+08</td>
+      <td>2</td>
+      <td>0.2101</td>
+      <td>1</td>
+      <td>-2.9787</td>
+      <td>4.548972</td>
+      <td>0.334387</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2106</th>
+      <td>2023-10-20</td>
+      <td>sh.600000</td>
+      <td>6.81</td>
+      <td>6.93</td>
+      <td>6.80</td>
+      <td>6.87</td>
+      <td>6.84</td>
+      <td>31067950</td>
+      <td>2.132038e+08</td>
+      <td>2</td>
+      <td>0.1058</td>
+      <td>1</td>
+      <td>0.4386</td>
+      <td>4.568924</td>
+      <td>0.335853</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="不使用Pandas，直接使用-readlines-函数"><a href="#不使用Pandas，直接使用-readlines-函数" class="headerlink" title="不使用Pandas，直接使用 readlines() 函数"></a>不使用Pandas，直接使用 <code>readlines()</code> 函数</h3><ol>
+<li>获取文本文件的行列表</li>
+<li>将列表的最后三个追加到原列表中</li>
+<li>将新列表写入到文件中</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    lst = f.readlines()</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">lst[-<span class="number">10</span>:]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;2023-10-09,sh.600000,7.08,7.08,7.0,7.03,7.1,27763130,195214392.39,2,0.0946,1,-0.9859,4.675332,0.343675,0\n&#39;,
+ &#39;2023-10-10,sh.600000,7.13,7.14,7.01,7.01,7.03,24095561,169856240.67,2,0.0821,1,-0.2845,4.662031,0.342698,0\n&#39;,
+ &#39;2023-10-11,sh.600000,7.06,7.08,7.01,7.02,7.01,24057412,169371363.46,2,0.082,1,0.1427,4.668682,0.343187,0\n&#39;,
+ &#39;2023-10-12,sh.600000,7.09,7.17,7.06,7.14,7.02,36346964,259223143.18,2,0.1238,1,1.7094,4.748488,0.349053,0\n&#39;,
+ &#39;2023-10-13,sh.600000,7.11,7.15,7.08,7.1,7.14,19650410,139771981.93,2,0.0669,1,-0.5602,4.721886,0.347097,0\n&#39;,
+ &#39;2023-10-16,sh.600000,7.12,7.13,7.04,7.07,7.1,24907733,176097574.11,2,0.0849,1,-0.4225,4.701935,0.345631,0\n&#39;,
+ &#39;2023-10-17,sh.600000,7.09,7.1,7.05,7.09,7.07,19029143,134630097.48,2,0.0648,1,0.2829,4.715236,0.346609,0\n&#39;,
+ &#39;2023-10-18,sh.600000,7.07,7.11,7.05,7.05,7.09,21485721,152063023.64,2,0.0732,1,-0.5642,4.688634,0.344653,0\n&#39;,
+ &#39;2023-10-19,sh.600000,7.04,7.05,6.83,6.84,7.05,61679771,425956887.36,2,0.2101,1,-2.9787,4.548972,0.334387,0\n&#39;,
+ &#39;2023-10-20,sh.600000,6.81,6.93,6.8,6.87,6.84,31067950,213203780.58,2,0.1058,1,0.4386,4.568924,0.335853,0\n&#39;]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">add = lst[-<span class="number">3</span>:]</span><br><span class="line">add</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;2023-10-18,sh.600000,7.07,7.11,7.05,7.05,7.09,21485721,152063023.64,2,0.0732,1,-0.5642,4.688634,0.344653,0\n&#39;,
+ &#39;2023-10-19,sh.600000,7.04,7.05,6.83,6.84,7.05,61679771,425956887.36,2,0.2101,1,-2.9787,4.548972,0.334387,0\n&#39;,
+ &#39;2023-10-20,sh.600000,6.81,6.93,6.8,6.87,6.84,31067950,213203780.58,2,0.1058,1,0.4386,4.568924,0.335853,0\n&#39;]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new = lst + add</span><br><span class="line">new[-<span class="number">10</span>:]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;2023-10-12,sh.600000,7.09,7.17,7.06,7.14,7.02,36346964,259223143.18,2,0.1238,1,1.7094,4.748488,0.349053,0\n&#39;,
+ &#39;2023-10-13,sh.600000,7.11,7.15,7.08,7.1,7.14,19650410,139771981.93,2,0.0669,1,-0.5602,4.721886,0.347097,0\n&#39;,
+ &#39;2023-10-16,sh.600000,7.12,7.13,7.04,7.07,7.1,24907733,176097574.11,2,0.0849,1,-0.4225,4.701935,0.345631,0\n&#39;,
+ &#39;2023-10-17,sh.600000,7.09,7.1,7.05,7.09,7.07,19029143,134630097.48,2,0.0648,1,0.2829,4.715236,0.346609,0\n&#39;,
+ &#39;2023-10-18,sh.600000,7.07,7.11,7.05,7.05,7.09,21485721,152063023.64,2,0.0732,1,-0.5642,4.688634,0.344653,0\n&#39;,
+ &#39;2023-10-19,sh.600000,7.04,7.05,6.83,6.84,7.05,61679771,425956887.36,2,0.2101,1,-2.9787,4.548972,0.334387,0\n&#39;,
+ &#39;2023-10-20,sh.600000,6.81,6.93,6.8,6.87,6.84,31067950,213203780.58,2,0.1058,1,0.4386,4.568924,0.335853,0\n&#39;,
+ &#39;2023-10-18,sh.600000,7.07,7.11,7.05,7.05,7.09,21485721,152063023.64,2,0.0732,1,-0.5642,4.688634,0.344653,0\n&#39;,
+ &#39;2023-10-19,sh.600000,7.04,7.05,6.83,6.84,7.05,61679771,425956887.36,2,0.2101,1,-2.9787,4.548972,0.334387,0\n&#39;,
+ &#39;2023-10-20,sh.600000,6.81,6.93,6.8,6.87,6.84,31067950,213203780.58,2,0.1058,1,0.4386,4.568924,0.335853,0\n&#39;]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.writelines(new)</span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">pd.read_csv(file).tail(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>code</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>preclose</th>
+      <th>volume</th>
+      <th>amount</th>
+      <th>adjustflag</th>
+      <th>turn</th>
+      <th>tradestatus</th>
+      <th>pctChg</th>
+      <th>peTTM</th>
+      <th>pbMRQ</th>
+      <th>isST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2100</th>
+      <td>2023-10-12</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.17</td>
+      <td>7.06</td>
+      <td>7.14</td>
+      <td>7.02</td>
+      <td>36346964</td>
+      <td>2.592231e+08</td>
+      <td>2</td>
+      <td>0.1238</td>
+      <td>1</td>
+      <td>1.7094</td>
+      <td>4.748488</td>
+      <td>0.349053</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2101</th>
+      <td>2023-10-13</td>
+      <td>sh.600000</td>
+      <td>7.11</td>
+      <td>7.15</td>
+      <td>7.08</td>
+      <td>7.10</td>
+      <td>7.14</td>
+      <td>19650410</td>
+      <td>1.397720e+08</td>
+      <td>2</td>
+      <td>0.0669</td>
+      <td>1</td>
+      <td>-0.5602</td>
+      <td>4.721886</td>
+      <td>0.347097</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2102</th>
+      <td>2023-10-16</td>
+      <td>sh.600000</td>
+      <td>7.12</td>
+      <td>7.13</td>
+      <td>7.04</td>
+      <td>7.07</td>
+      <td>7.10</td>
+      <td>24907733</td>
+      <td>1.760976e+08</td>
+      <td>2</td>
+      <td>0.0849</td>
+      <td>1</td>
+      <td>-0.4225</td>
+      <td>4.701935</td>
+      <td>0.345631</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2103</th>
+      <td>2023-10-17</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.10</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>7.07</td>
+      <td>19029143</td>
+      <td>1.346301e+08</td>
+      <td>2</td>
+      <td>0.0648</td>
+      <td>1</td>
+      <td>0.2829</td>
+      <td>4.715236</td>
+      <td>0.346609</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2104</th>
+      <td>2023-10-18</td>
+      <td>sh.600000</td>
+      <td>7.07</td>
+      <td>7.11</td>
+      <td>7.05</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>21485721</td>
+      <td>1.520630e+08</td>
+      <td>2</td>
+      <td>0.0732</td>
+      <td>1</td>
+      <td>-0.5642</td>
+      <td>4.688634</td>
+      <td>0.344653</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2105</th>
+      <td>2023-10-19</td>
+      <td>sh.600000</td>
+      <td>7.04</td>
+      <td>7.05</td>
+      <td>6.83</td>
+      <td>6.84</td>
+      <td>7.05</td>
+      <td>61679771</td>
+      <td>4.259569e+08</td>
+      <td>2</td>
+      <td>0.2101</td>
+      <td>1</td>
+      <td>-2.9787</td>
+      <td>4.548972</td>
+      <td>0.334387</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2106</th>
+      <td>2023-10-20</td>
+      <td>sh.600000</td>
+      <td>6.81</td>
+      <td>6.93</td>
+      <td>6.80</td>
+      <td>6.87</td>
+      <td>6.84</td>
+      <td>31067950</td>
+      <td>2.132038e+08</td>
+      <td>2</td>
+      <td>0.1058</td>
+      <td>1</td>
+      <td>0.4386</td>
+      <td>4.568924</td>
+      <td>0.335853</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2107</th>
+      <td>2023-10-18</td>
+      <td>sh.600000</td>
+      <td>7.07</td>
+      <td>7.11</td>
+      <td>7.05</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>21485721</td>
+      <td>1.520630e+08</td>
+      <td>2</td>
+      <td>0.0732</td>
+      <td>1</td>
+      <td>-0.5642</td>
+      <td>4.688634</td>
+      <td>0.344653</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2108</th>
+      <td>2023-10-19</td>
+      <td>sh.600000</td>
+      <td>7.04</td>
+      <td>7.05</td>
+      <td>6.83</td>
+      <td>6.84</td>
+      <td>7.05</td>
+      <td>61679771</td>
+      <td>4.259569e+08</td>
+      <td>2</td>
+      <td>0.2101</td>
+      <td>1</td>
+      <td>-2.9787</td>
+      <td>4.548972</td>
+      <td>0.334387</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2109</th>
+      <td>2023-10-20</td>
+      <td>sh.600000</td>
+      <td>6.81</td>
+      <td>6.93</td>
+      <td>6.80</td>
+      <td>6.87</td>
+      <td>6.84</td>
+      <td>31067950</td>
+      <td>2.132038e+08</td>
+      <td>2</td>
+      <td>0.1058</td>
+      <td>1</td>
+      <td>0.4386</td>
+      <td>4.568924</td>
+      <td>0.335853</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除重复的行</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    lst = f.readlines()</span><br><span class="line">    f.close()</span><br><span class="line">  </span><br><span class="line">new = lst[:-<span class="number">3</span>]</span><br><span class="line">new[-<span class="number">10</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写入新数据到文件  </span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.writelines(new)</span><br><span class="line">    f.close()</span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">pd.read_csv(file).tail(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[&#39;2023-10-09,sh.600000,7.08,7.08,7.0,7.03,7.1,27763130,195214392.39,2,0.0946,1,-0.9859,4.675332,0.343675,0\n&#39;,
+ &#39;2023-10-10,sh.600000,7.13,7.14,7.01,7.01,7.03,24095561,169856240.67,2,0.0821,1,-0.2845,4.662031,0.342698,0\n&#39;,
+ &#39;2023-10-11,sh.600000,7.06,7.08,7.01,7.02,7.01,24057412,169371363.46,2,0.082,1,0.1427,4.668682,0.343187,0\n&#39;,
+ &#39;2023-10-12,sh.600000,7.09,7.17,7.06,7.14,7.02,36346964,259223143.18,2,0.1238,1,1.7094,4.748488,0.349053,0\n&#39;,
+ &#39;2023-10-13,sh.600000,7.11,7.15,7.08,7.1,7.14,19650410,139771981.93,2,0.0669,1,-0.5602,4.721886,0.347097,0\n&#39;,
+ &#39;2023-10-16,sh.600000,7.12,7.13,7.04,7.07,7.1,24907733,176097574.11,2,0.0849,1,-0.4225,4.701935,0.345631,0\n&#39;,
+ &#39;2023-10-17,sh.600000,7.09,7.1,7.05,7.09,7.07,19029143,134630097.48,2,0.0648,1,0.2829,4.715236,0.346609,0\n&#39;,
+ &#39;2023-10-18,sh.600000,7.07,7.11,7.05,7.05,7.09,21485721,152063023.64,2,0.0732,1,-0.5642,4.688634,0.344653,0\n&#39;,
+ &#39;2023-10-19,sh.600000,7.04,7.05,6.83,6.84,7.05,61679771,425956887.36,2,0.2101,1,-2.9787,4.548972,0.334387,0\n&#39;,
+ &#39;2023-10-20,sh.600000,6.81,6.93,6.8,6.87,6.84,31067950,213203780.58,2,0.1058,1,0.4386,4.568924,0.335853,0\n&#39;]
+</code></pre>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>code</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>preclose</th>
+      <th>volume</th>
+      <th>amount</th>
+      <th>adjustflag</th>
+      <th>turn</th>
+      <th>tradestatus</th>
+      <th>pctChg</th>
+      <th>peTTM</th>
+      <th>pbMRQ</th>
+      <th>isST</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2097</th>
+      <td>2023-10-09</td>
+      <td>sh.600000</td>
+      <td>7.08</td>
+      <td>7.08</td>
+      <td>7.00</td>
+      <td>7.03</td>
+      <td>7.10</td>
+      <td>27763130</td>
+      <td>1.952144e+08</td>
+      <td>2</td>
+      <td>0.0946</td>
+      <td>1</td>
+      <td>-0.9859</td>
+      <td>4.675332</td>
+      <td>0.343675</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2098</th>
+      <td>2023-10-10</td>
+      <td>sh.600000</td>
+      <td>7.13</td>
+      <td>7.14</td>
+      <td>7.01</td>
+      <td>7.01</td>
+      <td>7.03</td>
+      <td>24095561</td>
+      <td>1.698562e+08</td>
+      <td>2</td>
+      <td>0.0821</td>
+      <td>1</td>
+      <td>-0.2845</td>
+      <td>4.662031</td>
+      <td>0.342698</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2099</th>
+      <td>2023-10-11</td>
+      <td>sh.600000</td>
+      <td>7.06</td>
+      <td>7.08</td>
+      <td>7.01</td>
+      <td>7.02</td>
+      <td>7.01</td>
+      <td>24057412</td>
+      <td>1.693714e+08</td>
+      <td>2</td>
+      <td>0.0820</td>
+      <td>1</td>
+      <td>0.1427</td>
+      <td>4.668682</td>
+      <td>0.343187</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2100</th>
+      <td>2023-10-12</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.17</td>
+      <td>7.06</td>
+      <td>7.14</td>
+      <td>7.02</td>
+      <td>36346964</td>
+      <td>2.592231e+08</td>
+      <td>2</td>
+      <td>0.1238</td>
+      <td>1</td>
+      <td>1.7094</td>
+      <td>4.748488</td>
+      <td>0.349053</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2101</th>
+      <td>2023-10-13</td>
+      <td>sh.600000</td>
+      <td>7.11</td>
+      <td>7.15</td>
+      <td>7.08</td>
+      <td>7.10</td>
+      <td>7.14</td>
+      <td>19650410</td>
+      <td>1.397720e+08</td>
+      <td>2</td>
+      <td>0.0669</td>
+      <td>1</td>
+      <td>-0.5602</td>
+      <td>4.721886</td>
+      <td>0.347097</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2102</th>
+      <td>2023-10-16</td>
+      <td>sh.600000</td>
+      <td>7.12</td>
+      <td>7.13</td>
+      <td>7.04</td>
+      <td>7.07</td>
+      <td>7.10</td>
+      <td>24907733</td>
+      <td>1.760976e+08</td>
+      <td>2</td>
+      <td>0.0849</td>
+      <td>1</td>
+      <td>-0.4225</td>
+      <td>4.701935</td>
+      <td>0.345631</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2103</th>
+      <td>2023-10-17</td>
+      <td>sh.600000</td>
+      <td>7.09</td>
+      <td>7.10</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>7.07</td>
+      <td>19029143</td>
+      <td>1.346301e+08</td>
+      <td>2</td>
+      <td>0.0648</td>
+      <td>1</td>
+      <td>0.2829</td>
+      <td>4.715236</td>
+      <td>0.346609</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2104</th>
+      <td>2023-10-18</td>
+      <td>sh.600000</td>
+      <td>7.07</td>
+      <td>7.11</td>
+      <td>7.05</td>
+      <td>7.05</td>
+      <td>7.09</td>
+      <td>21485721</td>
+      <td>1.520630e+08</td>
+      <td>2</td>
+      <td>0.0732</td>
+      <td>1</td>
+      <td>-0.5642</td>
+      <td>4.688634</td>
+      <td>0.344653</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2105</th>
+      <td>2023-10-19</td>
+      <td>sh.600000</td>
+      <td>7.04</td>
+      <td>7.05</td>
+      <td>6.83</td>
+      <td>6.84</td>
+      <td>7.05</td>
+      <td>61679771</td>
+      <td>4.259569e+08</td>
+      <td>2</td>
+      <td>0.2101</td>
+      <td>1</td>
+      <td>-2.9787</td>
+      <td>4.548972</td>
+      <td>0.334387</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2106</th>
+      <td>2023-10-20</td>
+      <td>sh.600000</td>
+      <td>6.81</td>
+      <td>6.93</td>
+      <td>6.80</td>
+      <td>6.87</td>
+      <td>6.84</td>
+      <td>31067950</td>
+      <td>2.132038e+08</td>
+      <td>2</td>
+      <td>0.1058</td>
+      <td>1</td>
+      <td>0.4386</td>
+      <td>4.568924</td>
+      <td>0.335853</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/08/07/Pandas_skiprows%E5%8F%82%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/08/07/Pandas_skiprows%E5%8F%82%E6%95%B0/" class="post-title-link" itemprop="url">Pandas_skip_rows参数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-08-07 00:00:00" itemprop="dateCreated datePublished" datetime="2023-08-07T00:00:00+08:00">2023-08-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line"></span><br><span class="line">file = <span class="string">r&quot;D:\Stock\market_data\sz.301379.csv&quot;</span></span><br><span class="line">pd.read_csv(file,index_col=<span class="string">&#x27;date&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>out:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>code</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>preclose</th>
+      <th>volume</th>
+      <th>amount</th>
+      <th>adjustflag</th>
+      <th>turn</th>
+      <th>tradestatus</th>
+      <th>pctChg</th>
+      <th>peTTM</th>
+      <th>pbMRQ</th>
+      <th>isST</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-11-01</th>
+      <td>sz.301379</td>
+      <td>31.51</td>
+      <td>35.00</td>
+      <td>30.98</td>
+      <td>32.10</td>
+      <td>31.51</td>
+      <td>12174623</td>
+      <td>3.954513e+08</td>
+      <td>2</td>
+      <td>50.6603</td>
+      <td>1</td>
+      <td>1.8724</td>
+      <td>27.622495</td>
+      <td>6.457838</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-11-02</th>
+      <td>sz.301379</td>
+      <td>33.50</td>
+      <td>34.38</td>
+      <td>32.55</td>
+      <td>32.63</td>
+      <td>32.10</td>
+      <td>9898625</td>
+      <td>3.297200e+08</td>
+      <td>2</td>
+      <td>41.1896</td>
+      <td>1</td>
+      <td>1.6511</td>
+      <td>28.078567</td>
+      <td>6.564463</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-11-03</th>
+      <td>sz.301379</td>
+      <td>30.70</td>
+      <td>31.08</td>
+      <td>29.88</td>
+      <td>30.95</td>
+      <td>32.63</td>
+      <td>8228578</td>
+      <td>2.516198e+08</td>
+      <td>2</td>
+      <td>34.2403</td>
+      <td>1</td>
+      <td>-5.1486</td>
+      <td>26.632904</td>
+      <td>6.226483</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-11-04</th>
+      <td>sz.301379</td>
+      <td>30.61</td>
+      <td>31.59</td>
+      <td>30.30</td>
+      <td>30.94</td>
+      <td>30.95</td>
+      <td>6517006</td>
+      <td>2.014447e+08</td>
+      <td>2</td>
+      <td>27.1182</td>
+      <td>1</td>
+      <td>-0.0323</td>
+      <td>26.624299</td>
+      <td>6.224471</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-11-07</th>
+      <td>sz.301379</td>
+      <td>30.66</td>
+      <td>31.94</td>
+      <td>30.65</td>
+      <td>31.41</td>
+      <td>30.94</td>
+      <td>6801484</td>
+      <td>2.128195e+08</td>
+      <td>2</td>
+      <td>28.3019</td>
+      <td>1</td>
+      <td>1.5191</td>
+      <td>27.028741</td>
+      <td>6.319025</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2023-10-16</th>
+      <td>sz.301379</td>
+      <td>32.79</td>
+      <td>32.79</td>
+      <td>30.83</td>
+      <td>31.14</td>
+      <td>32.64</td>
+      <td>2875587</td>
+      <td>9.040269e+07</td>
+      <td>2</td>
+      <td>11.3480</td>
+      <td>1</td>
+      <td>-4.5956</td>
+      <td>25.916098</td>
+      <td>2.521440</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-17</th>
+      <td>sz.301379</td>
+      <td>31.37</td>
+      <td>31.37</td>
+      <td>30.50</td>
+      <td>30.63</td>
+      <td>31.14</td>
+      <td>1355321</td>
+      <td>4.168925e+07</td>
+      <td>2</td>
+      <td>5.3485</td>
+      <td>1</td>
+      <td>-1.6378</td>
+      <td>25.491653</td>
+      <td>2.480145</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-18</th>
+      <td>sz.301379</td>
+      <td>30.47</td>
+      <td>30.70</td>
+      <td>29.81</td>
+      <td>29.81</td>
+      <td>30.63</td>
+      <td>1317991</td>
+      <td>3.968151e+07</td>
+      <td>2</td>
+      <td>5.2012</td>
+      <td>1</td>
+      <td>-2.6771</td>
+      <td>24.809213</td>
+      <td>2.413749</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-19</th>
+      <td>sz.301379</td>
+      <td>29.43</td>
+      <td>31.14</td>
+      <td>29.30</td>
+      <td>29.98</td>
+      <td>29.81</td>
+      <td>1548600</td>
+      <td>4.724414e+07</td>
+      <td>2</td>
+      <td>6.1113</td>
+      <td>1</td>
+      <td>0.5703</td>
+      <td>24.950694</td>
+      <td>2.427514</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-20</th>
+      <td>sz.301379</td>
+      <td>30.26</td>
+      <td>30.35</td>
+      <td>29.08</td>
+      <td>29.10</td>
+      <td>29.98</td>
+      <td>1191500</td>
+      <td>3.522436e+07</td>
+      <td>2</td>
+      <td>4.7021</td>
+      <td>1</td>
+      <td>-2.9353</td>
+      <td>24.218319</td>
+      <td>2.356259</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>236 rows × 15 columns</p>
+
+
+<h4 id="如果想跳过其中的某些行，只要读取文件末的10行数据"><a href="#如果想跳过其中的某些行，只要读取文件末的10行数据" class="headerlink" title="如果想跳过其中的某些行，只要读取文件末的10行数据"></a>如果想跳过其中的某些行，只要读取文件末的10行数据</h4><ol>
+<li>首先要知道该文件总共有多少行；</li>
+<li>然后使用skiprows参数跳过倒数第10行前的那些行数</li>
+</ol>
+<h5 id="查看文件的行数"><a href="#查看文件的行数" class="headerlink" title="查看文件的行数"></a>查看文件的行数</h5><p><code>open(csv_file)</code>  +  <code>readlines()</code> 函数读取文件的行数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开csv文件</span></span><br><span class="line">f = <span class="built_in">open</span>(file= file,mode=<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取文件的所有行；每行的数据作为一个字符串元素装入到一个列表中</span></span><br><span class="line">ls = f.readlines()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看列表的长度，其中包含表头的那一行</span></span><br><span class="line">ls[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">len</span>(ls)</span><br></pre></td></tr></table></figure>
+
+<p>out:</p>
+<p>‘\ufeffdate,code,open,high,low,close,preclose,volume,amount,adjustflag,turn,tradestatus,pctChg,peTTM,pbMRQ,isST\n’</p>
+<pre><code>237
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果只要读取文件的最后10行</span></span><br><span class="line">ls_row = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="built_in">len</span>(ls)-<span class="number">10</span>)]</span><br><span class="line">pd.read_csv(file,index_col=<span class="string">&#x27;date&#x27;</span>,skiprows=ls_row)</span><br></pre></td></tr></table></figure>
+
+<p>out:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>code</th>
+      <th>open</th>
+      <th>high</th>
+      <th>low</th>
+      <th>close</th>
+      <th>preclose</th>
+      <th>volume</th>
+      <th>amount</th>
+      <th>adjustflag</th>
+      <th>turn</th>
+      <th>tradestatus</th>
+      <th>pctChg</th>
+      <th>peTTM</th>
+      <th>pbMRQ</th>
+      <th>isST</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2023-10-09</th>
+      <td>sz.301379</td>
+      <td>31.39</td>
+      <td>32.10</td>
+      <td>31.36</td>
+      <td>32.02</td>
+      <td>31.70</td>
+      <td>1512800</td>
+      <td>4.820541e+07</td>
+      <td>2</td>
+      <td>5.9700</td>
+      <td>1</td>
+      <td>1.0095</td>
+      <td>26.648473</td>
+      <td>2.592695</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-10</th>
+      <td>sz.301379</td>
+      <td>32.26</td>
+      <td>32.44</td>
+      <td>31.85</td>
+      <td>32.10</td>
+      <td>32.02</td>
+      <td>1630565</td>
+      <td>5.242501e+07</td>
+      <td>2</td>
+      <td>6.4347</td>
+      <td>1</td>
+      <td>0.2498</td>
+      <td>26.715053</td>
+      <td>2.599173</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-11</th>
+      <td>sz.301379</td>
+      <td>32.60</td>
+      <td>32.90</td>
+      <td>31.85</td>
+      <td>32.42</td>
+      <td>32.10</td>
+      <td>1837178</td>
+      <td>5.939962e+07</td>
+      <td>2</td>
+      <td>7.2501</td>
+      <td>1</td>
+      <td>0.9969</td>
+      <td>26.981371</td>
+      <td>2.625083</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-12</th>
+      <td>sz.301379</td>
+      <td>32.43</td>
+      <td>32.64</td>
+      <td>31.65</td>
+      <td>31.83</td>
+      <td>32.42</td>
+      <td>1323548</td>
+      <td>4.227372e+07</td>
+      <td>2</td>
+      <td>5.2232</td>
+      <td>1</td>
+      <td>-1.8199</td>
+      <td>26.490347</td>
+      <td>2.577310</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-13</th>
+      <td>sz.301379</td>
+      <td>31.76</td>
+      <td>33.58</td>
+      <td>31.45</td>
+      <td>32.64</td>
+      <td>31.83</td>
+      <td>3304300</td>
+      <td>1.081152e+08</td>
+      <td>2</td>
+      <td>13.0399</td>
+      <td>1</td>
+      <td>2.5448</td>
+      <td>27.164465</td>
+      <td>2.642897</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-16</th>
+      <td>sz.301379</td>
+      <td>32.79</td>
+      <td>32.79</td>
+      <td>30.83</td>
+      <td>31.14</td>
+      <td>32.64</td>
+      <td>2875587</td>
+      <td>9.040269e+07</td>
+      <td>2</td>
+      <td>11.3480</td>
+      <td>1</td>
+      <td>-4.5956</td>
+      <td>25.916098</td>
+      <td>2.521440</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-17</th>
+      <td>sz.301379</td>
+      <td>31.37</td>
+      <td>31.37</td>
+      <td>30.50</td>
+      <td>30.63</td>
+      <td>31.14</td>
+      <td>1355321</td>
+      <td>4.168925e+07</td>
+      <td>2</td>
+      <td>5.3485</td>
+      <td>1</td>
+      <td>-1.6378</td>
+      <td>25.491653</td>
+      <td>2.480145</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-18</th>
+      <td>sz.301379</td>
+      <td>30.47</td>
+      <td>30.70</td>
+      <td>29.81</td>
+      <td>29.81</td>
+      <td>30.63</td>
+      <td>1317991</td>
+      <td>3.968151e+07</td>
+      <td>2</td>
+      <td>5.2012</td>
+      <td>1</td>
+      <td>-2.6771</td>
+      <td>24.809213</td>
+      <td>2.413749</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-19</th>
+      <td>sz.301379</td>
+      <td>29.43</td>
+      <td>31.14</td>
+      <td>29.30</td>
+      <td>29.98</td>
+      <td>29.81</td>
+      <td>1548600</td>
+      <td>4.724414e+07</td>
+      <td>2</td>
+      <td>6.1113</td>
+      <td>1</td>
+      <td>0.5703</td>
+      <td>24.950694</td>
+      <td>2.427514</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2023-10-20</th>
+      <td>sz.301379</td>
+      <td>30.26</td>
+      <td>30.35</td>
+      <td>29.08</td>
+      <td>29.10</td>
+      <td>29.98</td>
+      <td>1191500</td>
+      <td>3.522436e+07</td>
+      <td>2</td>
+      <td>4.7021</td>
+      <td>1</td>
+      <td>-2.9353</td>
+      <td>24.218319</td>
+      <td>2.356259</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/04/17/Pandas%E7%AD%9B%E9%80%89%E4%B9%8Bstr.contains/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/04/17/Pandas%E7%AD%9B%E9%80%89%E4%B9%8Bstr.contains/" class="post-title-link" itemprop="url">Pandas筛选之.str.contains()</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2023-04-17T00:00:00+08:00">2023-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://www.icauto.com.cn/rank/&quot;</span></span><br><span class="line"></span><br><span class="line">data = pd.read_html(url, index_col=<span class="number">0</span>, header=<span class="number">0</span>)[<span class="number">0</span>]</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>车型</th>
+      <th>资料信息</th>
+      <th>月销量</th>
+      <th>年累计</th>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Model Y</td>
+      <td>品牌:特斯拉，指导价:26.39-34.99万</td>
+      <td>41428</td>
+      <td>320109</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>秦PLUS</td>
+      <td>品牌:比亚迪，指导价:9.98-20.99万</td>
+      <td>39904</td>
+      <td>317115</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>宋PLUS新能源</td>
+      <td>品牌:比亚迪，指导价:15.38-21.98万</td>
+      <td>36773</td>
+      <td>276140</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>海鸥</td>
+      <td>品牌:比亚迪，指导价:7.88-9.58万</td>
+      <td>35011</td>
+      <td>119828</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>朗逸</td>
+      <td>品牌:大众，指导价:9.40-15.19万</td>
+      <td>32105</td>
+      <td>246656</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h3 id="str-contains"><a href="#str-contains" class="headerlink" title=".str.contains()"></a>.str.contains()</h3><ol>
+<li>字符串中包含</li>
+<li>可以使用模糊</li>
+<li>可以使用正则</li>
+<li>仅对字符串格式有效，对数字列不能使用,如果要对数字格式列使用，需要先将其转化成str</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">语法： </span></span><br><span class="line"><span class="string">Series.str.contains(  </span></span><br><span class="line"><span class="string">                pat,            # 要查询的字符串、要查询的或者正则表达式  </span></span><br><span class="line"><span class="string">                case=True,      # 区分大小写 </span></span><br><span class="line"><span class="string">                flags=0,        # 用来传给正则模块的参数，比如 flags=re.INGNORECASE 等价于 case=False  </span></span><br><span class="line"><span class="string">                na=nan,         # 默认对空值不处理，即输出结果还是 NaN  </span></span><br><span class="line"><span class="string">                regex=True      # 即第一个参数 pat部分 要不要按照正则表达式的规则。所以针对特殊符号，默认情况下我们必须使用转义符，或者设置 regex=False  </span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data[data[<span class="string">&#x27;资料信息&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;比亚迪&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>车型</th>
+      <th>资料信息</th>
+      <th>月销量</th>
+      <th>年累计</th>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>秦PLUS</td>
+      <td>品牌:比亚迪，指导价:9.98-20.99万</td>
+      <td>39904</td>
+      <td>317115</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>宋PLUS新能源</td>
+      <td>品牌:比亚迪，指导价:15.38-21.98万</td>
+      <td>36773</td>
+      <td>276140</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>海鸥</td>
+      <td>品牌:比亚迪，指导价:7.88-9.58万</td>
+      <td>35011</td>
+      <td>119828</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>元PLUS</td>
+      <td>品牌:比亚迪，指导价:13.28-15.98万</td>
+      <td>28727</td>
+      <td>217670</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>海豚</td>
+      <td>品牌:比亚迪，指导价:11.68-13.98万</td>
+      <td>24282</td>
+      <td>221579</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>汉</td>
+      <td>品牌:比亚迪，指导价:18.98-33.18万</td>
+      <td>21798</td>
+      <td>166436</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>宋Pro新能源</td>
+      <td>品牌:比亚迪，指导价:12.98-16.98万</td>
+      <td>20798</td>
+      <td>140211</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>唐新能源</td>
+      <td>品牌:比亚迪，指导价:20.98-34.28万</td>
+      <td>11366</td>
+      <td>105694</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>驱逐舰05</td>
+      <td>品牌:比亚迪，指导价:10.18-14.88万</td>
+      <td>7950</td>
+      <td>62832</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>海豹DM-i</td>
+      <td>品牌:比亚迪，指导价:18.68-25.00万</td>
+      <td>3890</td>
+      <td>3890</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>海豹</td>
+      <td>品牌:比亚迪，指导价:18.98-28.00万</td>
+      <td>3401</td>
+      <td>53361</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>护卫舰07</td>
+      <td>品牌:比亚迪，指导价:21.58-28.00万</td>
+      <td>3085</td>
+      <td>56298</td>
+    </tr>
+    <tr>
+      <th>209</th>
+      <td>比亚迪e2</td>
+      <td>品牌:比亚迪，指导价:10.28-14.78万</td>
+      <td>2106</td>
+      <td>14695</td>
+    </tr>
+    <tr>
+      <th>211</th>
+      <td>秦新能源</td>
+      <td>品牌:比亚迪，指导价:12.99-17.48万</td>
+      <td>2070</td>
+      <td>23118</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>元Pro</td>
+      <td>品牌:比亚迪，指导价:9.98-11.98万</td>
+      <td>1996</td>
+      <td>7104</td>
+    </tr>
+    <tr>
+      <th>350</th>
+      <td>比亚迪e6</td>
+      <td>品牌:比亚迪，指导价:0.00万</td>
+      <td>662</td>
+      <td>1391</td>
+    </tr>
+    <tr>
+      <th>386</th>
+      <td>宋MAX新能源</td>
+      <td>品牌:比亚迪，指导价:14.68-17.28万</td>
+      <td>436</td>
+      <td>3679</td>
+    </tr>
+    <tr>
+      <th>450</th>
+      <td>比亚迪e3</td>
+      <td>品牌:比亚迪，指导价:14.98-15.48万</td>
+      <td>211</td>
+      <td>1178</td>
+    </tr>
+    <tr>
+      <th>479</th>
+      <td>比亚迪D1</td>
+      <td>品牌:比亚迪，指导价:15.78-16.98万</td>
+      <td>114</td>
+      <td>583</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 筛选品牌  特斯拉、极氪、极狐、阿维塔、高合</span></span><br><span class="line">data[data[<span class="string">&#x27;资料信息&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;极氪|特斯拉|高合|极狐|阿维塔&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>车型</th>
+      <th>资料信息</th>
+      <th>月销量</th>
+      <th>年累计</th>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Model Y</td>
+      <td>品牌:特斯拉，指导价:26.39-34.99万</td>
+      <td>41428</td>
+      <td>320109</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>极氪001</td>
+      <td>品牌:极氪，指导价:30.00-40.30万</td>
+      <td>8701</td>
+      <td>52998</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>Model 3</td>
+      <td>品牌:特斯拉，指导价:25.99-29.59万</td>
+      <td>2079</td>
+      <td>113620</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>极氪X</td>
+      <td>品牌:极氪，指导价:18.98-22.98万</td>
+      <td>1725</td>
+      <td>12675</td>
+    </tr>
+    <tr>
+      <th>237</th>
+      <td>阿维塔11</td>
+      <td>品牌:阿维塔，指导价:30.00-60.00万</td>
+      <td>1659</td>
+      <td>14744</td>
+    </tr>
+    <tr>
+      <th>239</th>
+      <td>极氪009</td>
+      <td>品牌:极氪，指导价:49.90-58.80万</td>
+      <td>1627</td>
+      <td>13355</td>
+    </tr>
+    <tr>
+      <th>241</th>
+      <td>高合HiPhi Y</td>
+      <td>品牌:高合汽车，指导价:33.90-44.90万</td>
+      <td>1556</td>
+      <td>1556</td>
+    </tr>
+    <tr>
+      <th>254</th>
+      <td>极狐考拉</td>
+      <td>品牌:ARCFOX极狐，指导价:13.38-17.18万</td>
+      <td>1405</td>
+      <td>1612</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>极狐 阿尔法S(ARCFOX αS)</td>
+      <td>品牌:ARCFOX极狐，指导价:18.98-35.63万</td>
+      <td>1245</td>
+      <td>9307</td>
+    </tr>
+    <tr>
+      <th>401</th>
+      <td>极狐 阿尔法T(ARCFOX αT)</td>
+      <td>品牌:ARCFOX极狐，指导价:18.58-33.13万</td>
+      <td>355</td>
+      <td>4137</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>高合HiPhi Z</td>
+      <td>品牌:高合汽车，指导价:60.00-80.00万</td>
+      <td>154</td>
+      <td>154</td>
+    </tr>
+    <tr>
+      <th>531</th>
+      <td>高合HiPhi X</td>
+      <td>品牌:高合汽车，指导价:57.00-80.00万</td>
+      <td>25</td>
+      <td>25</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#筛选起售价60万元的</span></span><br><span class="line">data[data[<span class="string">&#x27;资料信息&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;[6-9]\d+\.\d+\-\d+&#x27;</span>, regex=<span class="literal">True</span>)]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>车型</th>
+      <th>资料信息</th>
+      <th>月销量</th>
+      <th>年累计</th>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>78</th>
+      <td>宝马X5</td>
+      <td>品牌:宝马，指导价:60.50-80.00万</td>
+      <td>8266</td>
+      <td>72738</td>
+    </tr>
+    <tr>
+      <th>466</th>
+      <td>高合HiPhi Z</td>
+      <td>品牌:高合汽车，指导价:60.00-80.00万</td>
+      <td>154</td>
+      <td>154</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#筛选起售价&lt;10万元的,最高价不超过20</span></span><br><span class="line">data[data[<span class="string">&#x27;资料信息&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&#x27;\D+.\.\d+\-[1]+&#x27;</span>, regex=<span class="literal">True</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>车型</th>
+      <th>资料信息</th>
+      <th>月销量</th>
+      <th>年累计</th>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>朗逸</td>
+      <td>品牌:大众，指导价:9.40-15.19万</td>
+      <td>32105</td>
+      <td>246656</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>轩逸</td>
+      <td>品牌:日产，指导价:9.98-17.49万</td>
+      <td>30028</td>
+      <td>257065</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>哈弗H6</td>
+      <td>品牌:哈弗，指导价:9.89-15.70万</td>
+      <td>23423</td>
+      <td>147596</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>新帝豪</td>
+      <td>品牌:吉利汽车，指导价:6.29-12.98万</td>
+      <td>14058</td>
+      <td>102970</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>科鲁泽</td>
+      <td>品牌:雪佛兰，指导价:9.49-10.89万</td>
+      <td>13665</td>
+      <td>90999</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>552</th>
+      <td>无界PRO</td>
+      <td>品牌:奇瑞新能源，指导价:7.99-10.19万</td>
+      <td>12</td>
+      <td>822</td>
+    </tr>
+    <tr>
+      <th>563</th>
+      <td>宝骏RC-5</td>
+      <td>品牌:宝骏，指导价:6.98-11.08万</td>
+      <td>6</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <th>570</th>
+      <td>标致301</td>
+      <td>品牌:标致，指导价:8.47-10.77万</td>
+      <td>4</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>583</th>
+      <td>悦动</td>
+      <td>品牌:现代，指导价:8.49-11.59万</td>
+      <td>1</td>
+      <td>7704</td>
+    </tr>
+    <tr>
+      <th>587</th>
+      <td>宝骏RM-5</td>
+      <td>品牌:宝骏，指导价:7.88-12.08万</td>
+      <td>1</td>
+      <td>35</td>
+    </tr>
+  </tbody>
+</table>
+<p>67 rows × 4 columns</p>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果要对数字格式列使用，需要先将其转化成str</span></span><br><span class="line"><span class="comment"># 到年累计列进行筛选.年累计超过20万的</span></span><br><span class="line">data[data[<span class="string">&#x27;年累计&#x27;</span>].astype(<span class="built_in">str</span>).<span class="built_in">str</span>.contains(<span class="string">&#x27;[2-9][0-9]&#123;5,&#125;&#x27;</span>, regex=<span class="literal">True</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>车型</th>
+      <th>资料信息</th>
+      <th>月销量</th>
+      <th>年累计</th>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Model Y</td>
+      <td>品牌:特斯拉，指导价:26.39-34.99万</td>
+      <td>41428</td>
+      <td>320109</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>秦PLUS</td>
+      <td>品牌:比亚迪，指导价:9.98-20.99万</td>
+      <td>39904</td>
+      <td>317115</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>宋PLUS新能源</td>
+      <td>品牌:比亚迪，指导价:15.38-21.98万</td>
+      <td>36773</td>
+      <td>276140</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>朗逸</td>
+      <td>品牌:大众，指导价:9.40-15.19万</td>
+      <td>32105</td>
+      <td>246656</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>轩逸</td>
+      <td>品牌:日产，指导价:9.98-17.49万</td>
+      <td>30028</td>
+      <td>257065</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>元PLUS</td>
+      <td>品牌:比亚迪，指导价:13.28-15.98万</td>
+      <td>28727</td>
+      <td>217670</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>海豚</td>
+      <td>品牌:比亚迪，指导价:11.68-13.98万</td>
+      <td>24282</td>
+      <td>221579</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -4713,342 +7156,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/22/python-%E8%A7%A3%E6%9E%90%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/22/python-%E8%A7%A3%E6%9E%90%E5%BC%8F/" class="post-title-link" itemprop="url">python-解析式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-22 16:04:38" itemprop="dateCreated datePublished" datetime="2022-03-22T16:04:38+08:00">2022-03-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/" class="post-title-link" itemprop="url">Pandas的筛选</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-20 11:50:34" itemprop="dateCreated datePublished" datetime="2022-03-20T11:50:34+08:00">2022-03-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&quot;http://www.51chanlun.com/hot.html&quot;</span></span><br><span class="line">df = pd.read_html(url, header=<span class="number">0</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)[<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<h2 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h2><p>以网络获取的股票热点板块数据举例</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cols = df.columns</span><br><span class="line">df = df.iloc[:<span class="number">20</span>, :<span class="number">15</span>]</span><br><span class="line">df[:<span class="number">10</span>]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/1.webp">
-
-<h3 id="单个条件"><a href="#单个条件" class="headerlink" title="单个条件"></a>单个条件</h3><h4 id="简单筛选"><a href="#简单筛选" class="headerlink" title="简单筛选"></a>简单筛选</h4><p>某列的值满足条件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">&quot;新高个股数&quot;</span>] &gt;= <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/2.webp">
-
-<h4 id="map-函数"><a href="#map-函数" class="headerlink" title="map 函数"></a>map 函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">&quot;新高个股数&quot;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x &gt;= <span class="number">3</span>)]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/3.webp">
-
-<h4 id="query方法"><a href="#query方法" class="headerlink" title="query方法"></a>query方法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="string">&quot;新高个股数&gt;=3&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/4.webp">
-
-<h3 id="多条件筛选"><a href="#多条件筛选" class="headerlink" title="多条件筛选"></a>多条件筛选</h3><h4 id="简单筛选-1"><a href="#简单筛选-1" class="headerlink" title="简单筛选"></a>简单筛选</h4><ul>
-<li>每个条件要用括号包含起来</li>
-<li>条件与条件之间用连接符 “|”: 或  ，  “&amp;”：与</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[(df[<span class="string">&quot;新高个股数&quot;</span>]&gt;=<span class="number">3</span>) | (df[<span class="string">&quot;板块强弱指标&quot;</span>]&gt;=<span class="number">4</span>) ]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/4.webp">
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[(df[<span class="string">&quot;新高个股数&quot;</span>]&gt;=<span class="number">3</span>) &amp; (df[<span class="string">&quot;板块强弱指标&quot;</span>]&gt;=<span class="number">4</span>) ]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/5.webp">
-
-<h4 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tj1 = df[<span class="string">&quot;新高个股数&quot;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x &gt;= <span class="number">3</span>)</span><br><span class="line">tj2 = df[<span class="string">&quot;板块强弱指标&quot;</span>].<span class="built_in">map</span>(<span class="keyword">lambda</span> x: x &gt;= <span class="number">4</span>)</span><br><span class="line">df[tj1 | tj2]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/6.webp">
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[tj1 &amp; tj2]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/7.webp">
-
-<h3 id="query方法-1"><a href="#query方法-1" class="headerlink" title="query方法"></a>query方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.query(<span class="string">&quot;新高个股数&gt;=3 &amp; 板块强弱指标&gt;=4&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/8.webp">
-
-<h3 id="同列多条件"><a href="#同列多条件" class="headerlink" title="同列多条件"></a>同列多条件</h3><h4 id="isin-及反选"><a href="#isin-及反选" class="headerlink" title=".isin() 及反选"></a>.isin() 及反选</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tj=[<span class="string">&quot;医药&quot;</span>,<span class="string">&quot;医疗保健&quot;</span>,<span class="string">&quot;互联网&quot;</span>,<span class="string">&quot;有色&quot;</span>,<span class="string">&quot;软件服务&quot;</span>]</span><br><span class="line">df[df[<span class="string">&quot;概念类别&quot;</span>].isin(tj)]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/9.webp">
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[~df[<span class="string">&quot;概念类别&quot;</span>].isin(tj)]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/10.webp">
-
-<h4 id="str-contains-及反选"><a href="#str-contains-及反选" class="headerlink" title=".str.contains()及反选"></a>.str.contains()及反选</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">&quot;概念类别&quot;</span>].<span class="built_in">str</span>.contains(<span class="string">&quot;医药|工业机械|汽车类|家居用品&quot;</span>)]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/11.webp">
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[~df[<span class="string">&quot;概念类别&quot;</span>].<span class="built_in">str</span>.contains(<span class="string">&quot;医药|工业机械|汽车类|家居用品&quot;</span>)]</span><br></pre></td></tr></table></figure>
-
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/12.webp">
-
-<h3 id="同条件对多列筛选"><a href="#同条件对多列筛选" class="headerlink" title="同条件对多列筛选"></a>同条件对多列筛选</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27; 每一列的数据中不包含0 和&quot;N&quot; &#x27;&#x27;&#x27;</span></span><br><span class="line">tj = df.apply(<span class="keyword">lambda</span> x: (<span class="string">&quot;N&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> x.to_list())</span><br><span class="line">              &amp; (<span class="number">0</span> <span class="keyword">not</span> <span class="keyword">in</span> x.to_list()), axis=<span class="number">1</span>)</span><br><span class="line">df[tj]</span><br></pre></td></tr></table></figure>
-
-<pre><code>&#39; 每一列的数据中不包含0 和&quot;N&quot; &#39;
-</code></pre>
-<p>Output:</p>
-<img src="/2022/03/20/Pandas%E7%9A%84%E7%AD%9B%E9%80%89/13.webp">
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2022/03/18/NC302-TPGX110308/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/18/NC302-TPGX110308/" class="post-title-link" itemprop="url">NC302-TPGX110308</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-18 15:43:58" itemprop="dateCreated datePublished" datetime="2022-03-18T15:43:58+08:00">2022-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">工作</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>因为TPGX110308 HTI10 三菱公司不做库存，按单生产，导致订货周期增长，而且客户有同一品牌由一家供应商供应的要求（21年8月15日采购会议上提出）。且此款刀片孔型特殊，市场其他品牌不容易直接替换。</p>
-<p>近期出现交货不上的风险，为了寻找替代品，查询三菱资料了解信息后出图如下：</p>
-<img src="/2022/03/18/NC302-TPGX110308/1.webp">
-
-<img src="/2022/03/18/NC302-TPGX110308/2.webp">
-
-<img src="/2022/03/18/NC302-TPGX110308/3.webp">
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -5062,7 +7169,7 @@
 
 <div class="copyright">
   &copy; 2020 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

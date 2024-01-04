@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yxhsiao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="yt-dlp安装12345678# Linux系统下的安装yay -Sy yt-dlp# 更新yt-dlp -U# 使用pip安装pip install yt-dlp  使用123yt-dlp [OPTIONS] [--] URL [URL...]# 选项众多,下面只介绍基本的用法 支持的网站1234567891011# 支持的网站众多,本人常用到的有youtubebilibili去kuwo网易云">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yt-dlp 下载音视频">
+<meta property="og:url" content="https://yxhsiao.github.io/2024/01/03/yt-dlp-%E4%B8%8B%E8%BD%BD%E9%9F%B3%E8%A7%86%E9%A2%91/index.html">
+<meta property="og:site_name" content="静水深流">
+<meta property="og:description" content="yt-dlp安装12345678# Linux系统下的安装yay -Sy yt-dlp# 更新yt-dlp -U# 使用pip安装pip install yt-dlp  使用123yt-dlp [OPTIONS] [--] URL [URL...]# 选项众多,下面只介绍基本的用法 支持的网站1234567891011# 支持的网站众多,本人常用到的有youtubebilibili去kuwo网易云">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-03T13:27:53.000Z">
+<meta property="article:modified_time" content="2024-01-04T04:00:01.324Z">
+<meta property="article:author" content="Xiaoyaoxin">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yxhsiao.github.io/2024/01/03/yt-dlp-%E4%B8%8B%E8%BD%BD%E9%9F%B3%E8%A7%86%E9%A2%91/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yxhsiao.github.io/2024/01/03/yt-dlp-%E4%B8%8B%E8%BD%BD%E9%9F%B3%E8%A7%86%E9%A2%91/","path":"2024/01/03/yt-dlp-下载音视频/","title":"yt-dlp 下载音视频"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>yt-dlp 下载音视频 | 静水深流</title>
+  
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- 文章加密 -->
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">静水深流</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">My Note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#yt-dlp"><span class="nav-number">1.</span> <span class="nav-text">yt-dlp</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E7%BD%91%E7%AB%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">支持的网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">一般下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A7%86%E9%A2%91%E5%8F%AF%E4%BB%A5%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%89%80%E6%9C%89%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">1.2.3.</span> <span class="nav-text">查看视频可以下载的所有分辨率</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E9%80%89%E6%8B%A9"><span class="nav-number">1.3.</span> <span class="nav-text">视频选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%80%89%E9%A1%B9"><span class="nav-number">1.4.</span> <span class="nav-text">下载选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E6%A0%BC%E5%BC%8F%E9%80%89%E9%A1%B9"><span class="nav-number">1.5.</span> <span class="nav-text">视频格式选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E9%80%89%E9%A1%B9"><span class="nav-number">1.6.</span> <span class="nav-text">字母选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E9%80%89%E6%8B%A9"><span class="nav-number">1.7.</span> <span class="nav-text">格式选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E8%BF%87%E6%BB%A4"><span class="nav-number">1.8.</span> <span class="nav-text">格式过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E5%A4%84%E7%90%86%E9%80%89%E9%A1%B9-x"><span class="nav-number">1.9.</span> <span class="nav-text">后处理选项 -x</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E6%8E%92%E5%BA%8F"><span class="nav-number">1.10.</span> <span class="nav-text">格式排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%A4%9A%E4%B8%AA%E8%A7%86%E9%A2%91-I"><span class="nav-number">1.11.</span> <span class="nav-text">下载播放列表中的多个视频 -I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F-S"><span class="nav-number">1.12.</span> <span class="nav-text">文件信息列表排序 -S</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xiaoyaoxin"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Xiaoyaoxin</p>
+  <div class="site-description" itemprop="description">逍遥心</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yxhsiao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yxhsiao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yxhsiao@gmail.com" title="E-Mail → mailto:yxhsiao@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2024/01/03/yt-dlp-%E4%B8%8B%E8%BD%BD%E9%9F%B3%E8%A7%86%E9%A2%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="yt-dlp 下载音视频 | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          yt-dlp 下载音视频
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-03 21:27:53" itemprop="dateCreated datePublished" datetime="2024-01-03T21:27:53+08:00">2024-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-04 12:00:01" itemprop="dateModified" datetime="2024-01-04T12:00:01+08:00">2024-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="yt-dlp"><a href="#yt-dlp" class="headerlink" title="yt-dlp"></a>yt-dlp</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux系统下的安装</span></span><br><span class="line">yay -Sy yt-dlp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">yt-dlp -U</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用pip安装</span></span><br><span class="line">pip install yt-dlp</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp [OPTIONS] [--] URL [URL...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选项众多,下面只介绍基本的用法</span></span><br></pre></td></tr></table></figure>
+<h4 id="支持的网站"><a href="#支持的网站" class="headerlink" title="支持的网站"></a>支持的网站</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 支持的网站众多,本人常用到的有</span></span><br><span class="line"></span><br><span class="line">youtube</span><br><span class="line">bilibili去</span><br><span class="line">kuwo</span><br><span class="line">网易云音乐</span><br><span class="line">QQ音乐</span><br><span class="line">douyin</span><br><span class="line">cctv</span><br><span class="line">others  see: https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="一般下载"><a href="#一般下载" class="headerlink" title="一般下载"></a>一般下载</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认 720P webm</span></span><br><span class="line">yt-dlp url</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载并转换成为mp4</span></span><br><span class="line">yt-dlp –merge-output-format mp4 url</span><br></pre></td></tr></table></figure>
+<h4 id="查看视频可以下载的所有分辨率"><a href="#查看视频可以下载的所有分辨率" class="headerlink" title="查看视频可以下载的所有分辨率"></a>查看视频可以下载的所有分辨率</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp -F url</span><br><span class="line"><span class="comment"># 返回的信息包含:</span></span><br><span class="line">ID              文件ID </span><br><span class="line">EXT             格式 </span><br><span class="line">RESOLUTION      分辨率 </span><br><span class="line">FPS             视频的帧率  </span><br><span class="line">FILESIZE        文件大小 </span><br><span class="line">VCODEC          正在使用的视频编解码器的名称 </span><br><span class="line">ACODEC          正在使用的音频编解码器的名称,像mp4a.40.2（720p）就直接包含了音频</span><br><span class="line">TBR             音频和视频的平均比特率（以 KBit/s 为单位）</span><br><span class="line">VBR             平均视频比特率（以 KBit/s 为单位）</span><br><span class="line">ABR             平均音频比特率（以 KBit/s 为单位） </span><br><span class="line">ASR             以赫兹为单位的音频采样率 </span><br><span class="line">MORE INFO       更多信息  </span><br></pre></td></tr></table></figure>
+<h3 id="视频选择"><a href="#视频选择" class="headerlink" title="视频选择"></a>视频选择</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">--playlist-start NUMBER          播放列表视频开始(默认为1)</span><br><span class="line">--playlist-end NUMBER            播放列表视频结束(默认是最后)</span><br><span class="line">--playlist-items ITEM_SPEC       播放列表视频项目下载。指定</span><br><span class="line">                                 播放列表中视频的索引</span><br><span class="line">                                 用逗号隔开，如:<span class="string">&quot;——playlist-items</span></span><br><span class="line"><span class="string">                                 1 2 5 8英寸，如果你想下载视频</span></span><br><span class="line"><span class="string">                                 在播放列表中索引1,2,5,8。你可以</span></span><br><span class="line"><span class="string">                                 指定范围:”——playlist-items</span></span><br><span class="line"><span class="string">                                 1-3,7,10-13&quot;</span>，它会下载视频</span><br><span class="line">                                 在指数12 3 7 10 11 12和13处</span><br><span class="line">--max-downloads NUMBER           下载NUMBER文件后中止</span><br><span class="line">--min-filesize SIZE              切勿下载任何小于尺寸(如50k或446m)的影片。</span><br><span class="line">--max-filesize SIZE              切勿下载超过大小的影片(例如50k或446m)</span><br><span class="line">--<span class="built_in">date</span> DATE                      只下载在此日期上传的视频。日期可以是“YYYYMMDD”或以下格式<span class="string">&quot;</span></span><br><span class="line"><span class="string">                                 (now l today) [+-][0-9] (day lweek | month l year) (s)?&quot;</span></span><br><span class="line">--datebefore DATE                只下载在此日期或之前上传的视频。接受的日期格式与——<span class="built_in">date</span>相同</span><br><span class="line">--dateafter DATE                 只下载在此日期或之后上传的视频。接受的日期格式与——<span class="built_in">date</span>相同</span><br><span class="line">--match-filter FILTER            通用的视频滤镜。任何领域(见</span><br><span class="line">                                 “输出模板”)可以与</span><br><span class="line">                                 数字或使用运算符的字符串</span><br><span class="line">                                 定义于“过滤格式”。你可以</span><br><span class="line">                                 还可以简单地指定要匹配的字段</span><br><span class="line">                                 Field is present and !字段<span class="string">&quot;来检查是否</span></span><br><span class="line"><span class="string">                                 该字段不存在。此外,</span></span><br><span class="line"><span class="string">                                 Python风格的正则表达式匹配</span></span><br><span class="line"><span class="string">                                 可以使用“~=”和多个</span></span><br><span class="line"><span class="string">                                 过滤器可以用“&amp;”进行检查。使用“\”</span></span><br><span class="line"><span class="string">                                 转义&quot;</span>&amp;<span class="string">&quot;或引号(如果需要)。例如:</span></span><br><span class="line"><span class="string">                                 ——match-filter”!is_live &amp; like_count &gt; ?One hundred.</span></span><br><span class="line"><span class="string">                                 &amp; description~=&#x27;(?i)\bcats \&amp; dogs\b&#x27;&quot;</span></span><br><span class="line">                                 只匹配那些不是直播的视频，有</span><br><span class="line">                                 一个点赞数超过100个(或类似数)</span><br><span class="line">                                 字段不可用)，并具有</span><br><span class="line">                                 包含短语“猫”的描述</span><br><span class="line">                                 &amp;狗”(忽略案例)</span><br><span class="line">--no-match-filter                不要使用通用的视频过滤器(默认)</span><br><span class="line">--no-playlist                    如果URL指的是视频和播放列表，则只下载视频</span><br><span class="line">--yes-playlist                   如果URL是指视频和播放列表，请下载播放列表</span><br><span class="line">--age-limit YEARS                只下载适合特定年龄的视频</span><br><span class="line">--download-archive FILE          只下载档案文件中没有列出的视频。记录所有下载视频的<span class="built_in">id</span></span><br><span class="line">--break-on-existing              当遇到存档中的文件时，停止下载过程</span><br><span class="line">--break-on-reject                当遇到已过滤掉的文件时，停止下载过程</span><br><span class="line">--skip-playlist-after-errors N   允许的失败数，直到跳过播放列表的其余部分</span><br><span class="line">--no-download-archive            不要使用存档文件(默认)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="下载选项"><a href="#下载选项" class="headerlink" title="下载选项"></a>下载选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">-N, --concurrent-fragments N     应该并发下载的dash/ hlnative视频片段数(默认为1)</span><br><span class="line">-r, --limit-rate RATE            最大下载速率(字节/秒)(例如50K或4.2M)</span><br><span class="line">--throttled-rate RATE            最小下载速率(以字节/秒为单位)，低于此速率时将进行节流并重新提取视频数据(例如100K)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-R, --retries RETRIES            重试次数(默认为10)，或“无限”</span><br><span class="line">--fragment-retries RETRIES       一个片段的重试次数(默认为10)，或“无限”(DASH, hLsnative和~ AAAISM)</span><br><span class="line">--skip-unavailable-fragments     跳过DASH hlnative和ISM的不可用片段(默认)</span><br><span class="line">                                 (Alias: --no-abort-on-unavailable-fragment)</span><br><span class="line">--abort-on-unavailable-fragment  如果片段不可用，则中止下载</span><br><span class="line">                                 (Alias: --no-skip-unavailable-fragments)</span><br><span class="line">--keep-fragments                 下载完成后，将下载的片段保存在磁盘上</span><br><span class="line">--no-keep-fragments              下载完成后删除下载的片段(默认)</span><br><span class="line">--buffer-size SIZE               下载缓冲区的大小(例如1024或16K)(默认是1024)</span><br><span class="line">--resize-buffer                  缓冲区大小从初始值——buffer-size(默认值)自动调整</span><br><span class="line">--no-resize-buffer               不自动调整缓冲区大小</span><br><span class="line">--http-chunk-size SIZE           基于块的HTTP下载块的大小(例如10485760或10M)(默认禁用)。</span><br><span class="line">                                 可能对绕过网络服务器施加的带宽节流有用(实验)</span><br><span class="line">--playlist-reverse               按倒序下载播放列表视频</span><br><span class="line">--no-playlist-reverse            按默认顺序下载播放列表视频(默认)</span><br><span class="line">--playlist-random                按随机顺序下载播放列表视频</span><br><span class="line">--xattr-set-filesize             设置文件xattribute ytdl。文件大小与预期的文件大小</span><br><span class="line">--hls-use-mpegts                 对HLS视频使用mpegts容器;允许一些播放器在下载时播放视频，</span><br><span class="line">                                 并减少下载中断时文件损坏的机会。这在默认情况下为实时流启用</span><br><span class="line">--no-hls-use-mpegts              不要在HLS视频中使用mpegts容器。当不下载实时流时，这是默认值</span><br><span class="line">--downloader [PROTO:]NAME        要加载的外部下载程序的名称或路径</span><br><span class="line">                                 使用(可选地)以协议为前缀</span><br><span class="line">                                 (http, ftp, m3u8, dash, rstp, rtmp, mms)到</span><br><span class="line">                                 用它来。目前支持本地,</span><br><span class="line">                                 Aria2c avconv axel curl ffmpeg httpie</span><br><span class="line">                                 wget(推荐:aria2c)。您可以使用</span><br><span class="line">                                 此选项多次设置不同</span><br><span class="line">                                 不同协议的下载程序。为</span><br><span class="line">                                 示例:——downloader aria2c——downloader</span><br><span class="line">                                 <span class="string">&quot;dash,m3u8:native&quot;</span>将使用aria2c</span><br><span class="line">                                 Http /ftp下载，和本机</span><br><span class="line">                                 下载的dash/m3u8下载</span><br><span class="line">                                 (别名:——external-downloader)</span><br><span class="line">--downloader-args NAME:ARGS      把这些论点交给外部</span><br><span class="line">                                 下载器。指定下载器名称和</span><br><span class="line">                                 参数由冒号<span class="string">&quot;:&quot;</span>分隔。为</span><br><span class="line">                                 Ffmpeg，参数可以传递给</span><br><span class="line">                                 不同的位置使用相同的语法</span><br><span class="line">                                 ——postprocessor-args。你可以用这个</span><br><span class="line">                                 选择多次给予不同</span><br><span class="line">                                 不同下载程序的参数</span><br><span class="line">                                 (别名:——external-downloader-args)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="视频格式选项"><a href="#视频格式选项" class="headerlink" title="视频格式选项"></a>视频格式选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-f, --format FORMAT              视频格式代码，详见“格式选择”</span><br><span class="line">-S, --format-sort SORTORDER      根据给定的字段对格式进行排序，详见“格式排序”</span><br><span class="line">--S-force, --format-sort-force   强制用户指定的排序顺序优先于所有字段，详情请参阅“排序格式”</span><br><span class="line">--no-format-sort-force           有些字段优先于用户指定的排序顺序(默认)，请参阅“排序格式”了解更多细节</span><br><span class="line">--video-multistreams             允许多个视频流合并成一个单一的文件</span><br><span class="line">--no-video-multistreams          每个输出文件只下载一个视频流(默认)</span><br><span class="line">--audio-multistreams             允许多个音频流合并成一个单一的文件</span><br><span class="line">--no-audio-multistreams          每个输出文件只下载一个音频流(默认)</span><br><span class="line">--prefer-free-formats            更喜欢带有免费容器的视频格式 而非同等质量的免费产品。使用</span><br><span class="line">                                 与“-S ext”严格偏好免费 集装箱不论质量如何</span><br><span class="line">--no-prefer-free-formats         不要给空闲容器任何特殊的优先级(默认)</span><br><span class="line">--check-formats                  检查所选的格式是否确实可以下载</span><br><span class="line">--no-check-formats               不检查所选的格式实际上是可下载的</span><br><span class="line">-F, --list-formats               列出每个视频的可用格式。模拟除非使用-no- simulation</span><br><span class="line">--merge-output-format FORMAT     如果需要合并(例如，bestvideo+bestaudio)，输出到给定的容器格式。mkv mp4 ogg</span><br><span class="line">                                 webm flv。如果不需要合并，则忽略</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="字母选项"><a href="#字母选项" class="headerlink" title="字母选项"></a>字母选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">--write-subs                     编写字幕文件</span><br><span class="line">--no-write-subs                  不写字幕文件(默认)</span><br><span class="line">--write-auto-subs                写自动生成的字幕文件(别名:——Write -automatic-subs)</span><br><span class="line">--no-write-auto-subs             不写自动生成的字幕(默认)(别名:——no-write-automatic-subs)</span><br><span class="line">--list-subs                      列出每个视频可用的字幕。模拟除非使用-no- simulation</span><br><span class="line">--sub-format FORMAT              字幕格式，接受格式优先，例如:“srt”或“ass/srt/best”</span><br><span class="line">--sub-langs LANGS                语言字幕下载(可以是正则表达式)或用逗号分隔的“全部”。</span><br><span class="line">                                 (例如:——sub-langs en.*，ja 带有<span class="string">&quot;-&quot;</span>的语言代码免除了它</span><br><span class="line">                                 从请求的语言。(如:——子 使用——list-subs 可用语言标记列表</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="格式选择"><a href="#格式选择" class="headerlink" title="格式选择"></a>格式选择</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据文件明细列表选择对应格式的文件id,比如:下载文件id=140的文件</span></span><br><span class="line">yt-dlp -f 140 url</span><br><span class="line">默认情况下，如果您不传递任何选项，yt-dlp 会尝试下载最佳可用质量。</span><br><span class="line">这通常等同于使用-f bestvideo*+bestaudio/best.</span><br><span class="line">但是，如果启用了多个音频流 ( --audio-multistreams)，</span><br><span class="line">则默认格式更改为-f bestvideo+bestaudio/best. </span><br><span class="line">同样，如果 ffmpeg 不可用，或者如果您使用 yt-dlp 流式传输到stdout( -o -)，</span><br><span class="line">则默认值变为-f best/bestvideo+bestaudio.</span><br><span class="line"></span><br><span class="line">all: 选择所有格式</span><br><span class="line">mergeall：选择和合并所有格式（必须与使用--audio-multistreams，--video-multistreams或两者）</span><br><span class="line">b*, best*: 无论是否包含视频或音频，选择最佳质量格式</span><br><span class="line">w*, worst*: 选择质量最差的格式，不管它是否包含视频或音频</span><br><span class="line">b, best: 选择包含视频和音频的最佳质量格式。相当于best*[vcodec!=none][acodec!=none]</span><br><span class="line">w, worst: 选择包含视频和音频的最差质量格式。相当于worst*[vcodec!=none][acodec!=none]</span><br><span class="line">bv, bestvideo: 选择最佳质量的纯视频格式。相当于best*[acodec=none]</span><br><span class="line">wv, worstvideo: 选择质量最差的纯视频格式。相当于worst*[acodec=none]</span><br><span class="line">bv*, bestvideo*: 选择包含视频的最佳质量格式。它还可能包含音频。相当于best*[vcodec!=none]</span><br><span class="line">wv*, worstvideo*: 选择包含视频的最差质量格式。它还可能包含音频。相当于worst*[vcodec!=none]</span><br><span class="line">ba, bestaudio: 选择质量最好的纯音频格式。相当于best*[vcodec=none]</span><br><span class="line">wa, worstaudio: 选择质量最差的纯音频格式。相当于worst*[vcodec=none]</span><br><span class="line">ba*, bestaudio*: 选择包含音频的最佳质量格式。它还可能包含视频。相当于best*[acodec!=none]</span><br><span class="line">wa*, worstaudio*: 选择包含音频的最差质量格式。它还可能包含视频。相当于worst*[acodec!=none]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="格式过滤"><a href="#格式过滤" class="headerlink" title="格式过滤"></a>格式过滤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">可以通过在括号中放置条件来过滤视频格式，如 （或者因为没有选择器的过滤器被解释为 ）。</span><br><span class="line">-f <span class="string">&quot;best[height=720]&quot;</span>-f <span class="string">&quot;[filesize&gt;10M]&quot;</span>best</span><br><span class="line"></span><br><span class="line">以下数值元字段可用于比较 、 、 、 （等于）、（不等于）：&lt;&lt;=&gt;&gt;==!=</span><br><span class="line"></span><br><span class="line">filesize：字节数（如果事先知道）</span><br><span class="line">filesize_approx：字节数的估计值</span><br><span class="line">width：视频的宽度（如果已知）</span><br><span class="line">height：视频的高度（如果已知）</span><br><span class="line">aspect_ratio：视频的宽高比（如果已知）</span><br><span class="line">tbr：音频和视频的平均比特率（以 KBit/s 为单位）</span><br><span class="line">abr：平均音频比特率（以 KBit/s 为单位）</span><br><span class="line">vbr：平均视频比特率（以 KBit/s 为单位）</span><br><span class="line">asr：以赫兹为单位的音频采样率</span><br><span class="line">fps：帧率</span><br><span class="line">audio_channels：音频通道数</span><br><span class="line">stretched_ratio：视频像素的像素，如果不是正方形width:height</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="后处理选项-x"><a href="#后处理选项-x" class="headerlink" title="后处理选项 -x"></a>后处理选项 -x</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">-x, --extract-audio              将视频文件转换为音频文件(需要ffmpeg和ffprobe)</span><br><span class="line">--audio-format FORMAT            指定音频格式以转换音频</span><br><span class="line">                                 当使用-x时。目前支持</span><br><span class="line">                                 格式有:best(默认)或</span><br><span class="line">                                 最好| aac | flac mp3 | | m4a格式|作品| vorbis | wav</span><br><span class="line">--audio-quality QUALITY          指定ffmpeg音频质量，插入一个</span><br><span class="line">                                 值介于0(较好)和9(较差)之间</span><br><span class="line">                                 VBR或特定的比特率，如128K (默认5)</span><br><span class="line">--remux-video FORMAT             将视频重新放入另一个容器，如果 必要的</span><br><span class="line">                                 (目前支持:mp4|mkv|flv | webm | mov avi mp3 | | | mka | m4a格式| ogg |作品)。</span><br><span class="line">                                 如果 目标容器不支持 视频/音频编解码器，重放将失败。你</span><br><span class="line">                                 可以指定多个规则;如。 “aac&gt;m4a/mov&gt;mp4/mkv”将重放aac到 M4a, mov到mp4，其他任何东西到mkv。</span><br><span class="line">--recode-video FORMAT            重新编码成另一种格式，如果 重新编码是必要的。的语法和 支持的格式与——remux-video相同</span><br><span class="line">--postprocessor-args NAME:ARGS   将这些参数给后处理器。</span><br><span class="line">                                 指定后处理器/可执行程序名称</span><br><span class="line">                                 参数由冒号<span class="string">&quot;:&quot;</span>分隔</span><br><span class="line">                                 将参数赋给指定的</span><br><span class="line">                                 后处理程序/可执行。支持页:</span><br><span class="line">                                 合并,ModifyChapters SplitChapters,</span><br><span class="line">                                 ExtractAudio、VideoRemuxer VideoConvertor,</span><br><span class="line">                                 元数据、EmbedSubtitle EmbedThumbnail,</span><br><span class="line">                                 SubtitlesConvertor ThumbnailsConvertor,</span><br><span class="line">                                 FixupStretched、FixupM4a FixupM3u8,</span><br><span class="line">                                 FixupTimestamp FixupDuration。的</span><br><span class="line">                                 支持的可执行文件有:AtomicParsley，</span><br><span class="line">                                 FFmpeg FFprobe。你也可以指定</span><br><span class="line">                                 “PP+EXE:ARGS”给出了论证</span><br><span class="line">                                 仅在使用时指定可执行文件</span><br><span class="line">                                 由指定的后处理程序处理。</span><br><span class="line">                                 此外，对于ffmpeg/ffprobe， <span class="string">&quot;_i&quot;</span>/<span class="string">&quot;_o&quot;</span></span><br><span class="line">                                 可以附加到前缀可选</span><br><span class="line">                                 后面跟着一个数字来传递参数</span><br><span class="line">                                 在指定的输入/输出文件之前。例如:</span><br><span class="line">                                 ——ppa“合并+ ffmpeg_i1: - v安静”。你可以</span><br><span class="line">                                 多次使用这个选项</span><br><span class="line">                                 不同的论点</span><br><span class="line">                                 后处理程序。(别名:——ppa)</span><br><span class="line">-k, --keep-video                 后期处理后将中间视频文件保存在磁盘上</span><br><span class="line">--no-keep-video                  后期处理后删除中间视频文件(默认)</span><br><span class="line">--post-overwrites                覆盖后期处理的文件(默认)</span><br><span class="line">--no-post-overwrites             不覆盖后期处理的文件</span><br><span class="line">--embed-subs                     视频中嵌入字幕(仅mp4, webm和mkv视频)</span><br><span class="line">--no-embed-subs                  不要嵌入字幕(默认)</span><br><span class="line">--embed-thumbnail                嵌入缩略图在视频作为封面艺术</span><br><span class="line">--no-embed-thumbnail             不嵌入缩略图(默认)</span><br><span class="line">--embed-metadata                 在视频文件中嵌入元数据。还增加了</span><br><span class="line">                                 章节文件除非-no-add-章</span><br><span class="line">                                 别名:——add-metadata</span><br><span class="line">--no-embed-metadata              不添加元数据到文件(默认)(别名:——no-add-metadata)</span><br><span class="line">--embed-chapters                 添加章节标记到视频文件(别名:——Add -章)</span><br><span class="line">--no-embed-chapters              不添加章节标记(默认)(别名:——no-add-章)</span><br><span class="line">--parse-metadata FROM:TO         解析其他领域的元数据，如标题/艺术家;详情请参见“修改元数据”</span><br><span class="line">--replace-in-metadata FIELDS REGEX REPLACE 使用给定的正则表达式替换元数据字段中的文本。这个选项可以多次使用</span><br><span class="line">--xattrs                         将元数据写入视频文件的xattrs(使用dublin core和xdg标准)</span><br><span class="line">--fixup POLICY                  自动纠正系统的已知故障</span><br><span class="line">                                文件。一个永远(什么都不做)，警告(只有)</span><br><span class="line">                                发出警告)，detect_or_warn</span><br><span class="line">                                违约;如果可以，修复文件，警告</span><br><span class="line">                                否则)，强制(尝试修复即使文件</span><br><span class="line">                                已经存在</span><br><span class="line">--ffmpeg-location PATH          ffmpeg二进制文件的位置;二进制文件或其包含目录的路径</span><br><span class="line">--<span class="built_in">exec</span> CMD                       在文件上执行命令</span><br><span class="line">                                 下载和后处理。相同</span><br><span class="line">                                 语法作为输出模板可以使用</span><br><span class="line">                                 将任何字段作为参数传递给</span><br><span class="line">                                 命令。附加字段“filepath”</span><br><span class="line">                                 它包含了</span><br><span class="line">                                 下载的文件也可用。如果没有</span><br><span class="line">                                 字段被传递，%(filepath)q被追加</span><br><span class="line">                                 直到命令的最后。这个选项可以</span><br><span class="line">                                 多次使用</span><br><span class="line">--no-exec                        删除任何先前定义的——<span class="built_in">exec</span></span><br><span class="line">--exec-before-download CMD       执行命令之前，实际下载。语法与——<span class="built_in">exec</span>相同</span><br><span class="line">                                 但是“filepath”不可用。这选项可以多次使用</span><br><span class="line">--no-exec-before-download        删除任何以前定义的- execute -before-download</span><br><span class="line">--convert-subs FORMAT            将字幕转换为另一种格式(目前支持:srt|vtt|ass|lrc)(别名:——Convert -副标题)</span><br><span class="line">--convert-thumbnails FORMAT      将缩略图转换为另一种格式(目前支持:jpg|png)</span><br><span class="line">--split-chapters                 将视频分割成多个文件基于</span><br><span class="line">                                 内部章节。“章:”前缀</span><br><span class="line">                                 可以与<span class="string">&quot;——paths&quot;</span>和<span class="string">&quot;——output&quot;</span>一起使用</span><br><span class="line">                                 设置分割的输出文件名</span><br><span class="line">                                 文件。详见“OUTPUT TEMPLATE”</span><br><span class="line">--no-split-chapters              不要基于章节分割视频(默认)</span><br><span class="line">--remove-chapters REGEX          删除标题匹配的章节</span><br><span class="line">                                 给定的正则表达式。时间范围</span><br><span class="line">                                 用“*”作为前缀也可以在适当的地方使用</span><br><span class="line">                                 的章节，以删除指定的范围。</span><br><span class="line">                                 如:remove-chapters“* 10:15-15:00”</span><br><span class="line">                                 ——remove-chapters“介绍”。这个选项可以多次使用</span><br><span class="line">--no-remove-chapters             不要从文件中删除任何章节(默认)</span><br><span class="line">--force-keyframes-at-cuts       强制关键帧围绕章节之前</span><br><span class="line">                                删除/分裂。需要一个</span><br><span class="line">                                重新编码会很慢，但是</span><br><span class="line">                                最终的视频可能有更少的伪影</span><br><span class="line">                                在削减</span><br><span class="line">--no-force-keyframes-at-cuts    当切割/分割章节时，不要强制关键帧(默认)插件的(区分大小写)名称</span><br><span class="line">--use-postprocessor NAME[:ARGS]  启用后处理器，以及 (可选)传递给它的参数，</span><br><span class="line">                                 由冒号<span class="string">&quot;:&quot;</span>分隔。参数是一个</span><br><span class="line">                                 分号<span class="string">&quot;;&quot;</span>分隔的NAME=VALUE列表。</span><br><span class="line">                                 <span class="string">&quot;when&quot;</span>参数决定 后处理程序被调用。它可以是</span><br><span class="line">                                 “pre_process”(提取)后, <span class="string">&quot;before_dl&quot;</span>(视频下载前)，</span><br><span class="line">                                 <span class="string">&quot;post_process&quot;</span>(视频下载后; 或<span class="string">&quot;after_move&quot;</span>(在移动文件后</span><br><span class="line">                                 最终到达目的地)。这个选项可以 可多次使用以添加不同 后处理程序</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="格式排序"><a href="#格式排序" class="headerlink" title="格式排序"></a>格式排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">您可以best使用-S( --format-sort)更改被视为 的标准。这个的一般格式是--format-sort field1,field2....</span><br><span class="line"></span><br><span class="line">可用的字段是：</span><br><span class="line"></span><br><span class="line">hasvid：优先考虑具有视频流的格式</span><br><span class="line">hasaud：优先考虑具有音频流的格式</span><br><span class="line">ie_pref：提取器给出的格式首选项</span><br><span class="line">lang：提取器给出的语言偏好</span><br><span class="line">quality：提取器给出的格式质量</span><br><span class="line"><span class="built_in">source</span>: 提取器给出的来源偏好</span><br><span class="line">proto: 用于下载的协议 ( https/ ftps&gt; http/ ftp&gt; m3u8_native/ m3u8&gt; http_dash_segments&gt; websocket_frag&gt; 其他 &gt; mms/ rtsp&gt; &gt; 未知 &gt; f4f/ f4m)</span><br><span class="line">vcodec：视频编解码器（av01&gt; vp9.2&gt; vp9&gt; h265&gt; h264&gt; vp8&gt; h263&gt; theora&gt;其它&gt;未知）</span><br><span class="line">acodec：音频编解码器（opus&gt; vorbis&gt; aac&gt; mp4a&gt; mp3&gt; ac3&gt; dts&gt;其他&gt;未知）</span><br><span class="line">codec： 相当于 vcodec,acodec</span><br><span class="line">vext: 视频扩展名 ( mp4&gt; webm&gt; flv&gt; 其他 &gt; 未知)。如果--prefer-free-formats使用，webm则首选。</span><br><span class="line">aext：音频扩展（m4a&gt; aac&gt; mp3&gt; ogg&gt; opus&gt; webm&gt; 其他 &gt; 未知）。如果--prefer-free-formats使用，则顺序更改为opus&gt; ogg&gt; webm&gt; m4a&gt; mp3&gt; aac。</span><br><span class="line">ext： 相当于 vext,aext</span><br><span class="line">filesize: 确切的文件大小，如果事先知道的话。这将不适用于 mu38 和 DASH 格式。</span><br><span class="line">fs_approx：根据清单计算的近似文件大小</span><br><span class="line">size: 如果可用，则为精确文件大小，否则为近似文件大小</span><br><span class="line">height: 视频高度</span><br><span class="line">width: 视频宽度</span><br><span class="line">res：视频分辨率，以最小尺寸计算。</span><br><span class="line">fps: 视频帧率</span><br><span class="line">hdr: 视频的动态范围 ( DV&gt; HDR12&gt; HDR10+&gt; HDR10&gt; HLG&gt; SDR)</span><br><span class="line">tbr：以 KBit/s 为单位的总平均比特率</span><br><span class="line">vbr: 以 KBit/s 为单位的平均视频比特率</span><br><span class="line">abr：以 KBit/s 为单位的平均音频比特率</span><br><span class="line">br: 相当于使用 tbr,vbr,abr</span><br><span class="line">asr：以Hz为单位的音频采样率</span><br><span class="line">请注意，在 Windows 上，您可能需要使用双引号而不是单引号。</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载并合并最好的纯视频格式和最好的纯音频格式，</span></span><br><span class="line"><span class="comment">#或者如果纯视频格式不可用，则下载最好的组合格式</span></span><br><span class="line">$ yt-dlp -f <span class="string">&#x27; bv+ba/b &#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="下载播放列表中的多个视频-I"><a href="#下载播放列表中的多个视频-I" class="headerlink" title="下载播放列表中的多个视频 -I"></a>下载播放列表中的多个视频 -I</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. 逗号分隔的playlist_index</span><br><span class="line">2. 要下载的项目。您可以指定一个 范围使用“[START]：[STOP][：STEP]”。向后兼容 也支持。使用负指数 从右数和负数 STEP  以相反的顺序下载。例如“-I</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载第1,3,5个视频</span></span><br><span class="line">yt-dlp -I <span class="string">&quot;1,3,5&quot;</span> url </span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定范围,下载第1~15个视频中每相隔2个,则是1,3,5,7,9,11,13,15</span></span><br><span class="line">yt-dlp <span class="string">&quot;1:15:2&quot;</span> url </span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定范围及顺序,下载第1~5集,从第5~1的顺序下载</span></span><br><span class="line">yt-dlp <span class="string">&quot;1:5:-1&quot;</span> url </span><br></pre></td></tr></table></figure>
+
+<h3 id="文件信息列表排序-S"><a href="#文件信息列表排序-S" class="headerlink" title="文件信息列表排序 -S"></a>文件信息列表排序 -S</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照vbr-平均视频比特率</span></span><br><span class="line">yt-dlp -F -S <span class="string">&quot;vbr&quot;</span> url</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+  <div class="end-slogan" style="text-align:center;font-size:22px;letter-spacing:10px;user-seclect:none;color:#bbb">----------- 本文结束<i class="fa fa-star"></i>感谢阅读-----------</div>		
+</div>
+
+
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/31/Creo10%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/" rel="prev" title="Creo10的安装及配置">
+                  <i class="fa fa-chevron-left"></i> Creo10的安装及配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyaoxin</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<br /> 
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("04/21/2019 15:54:40");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.7/pdfobject.min.js","integrity":"sha256-ph3Dk89VmuTVXG6x/RDzk53SU9LPdAh1tpv0UvnDZ2I="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

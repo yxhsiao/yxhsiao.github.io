@@ -174,13 +174,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -224,6 +224,296 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2024/01/03/yt-dlp-%E4%B8%8B%E8%BD%BD%E9%9F%B3%E8%A7%86%E9%A2%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/03/yt-dlp-%E4%B8%8B%E8%BD%BD%E9%9F%B3%E8%A7%86%E9%A2%91/" class="post-title-link" itemprop="url">yt-dlp 下载音视频</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-03 21:27:53" itemprop="dateCreated datePublished" datetime="2024-01-03T21:27:53+08:00">2024-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-04 12:00:01" itemprop="dateModified" datetime="2024-01-04T12:00:01+08:00">2024-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="yt-dlp"><a href="#yt-dlp" class="headerlink" title="yt-dlp"></a>yt-dlp</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux系统下的安装</span></span><br><span class="line">yay -Sy yt-dlp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">yt-dlp -U</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用pip安装</span></span><br><span class="line">pip install yt-dlp</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp [OPTIONS] [--] URL [URL...]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选项众多,下面只介绍基本的用法</span></span><br></pre></td></tr></table></figure>
+<h4 id="支持的网站"><a href="#支持的网站" class="headerlink" title="支持的网站"></a>支持的网站</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 支持的网站众多,本人常用到的有</span></span><br><span class="line"></span><br><span class="line">youtube</span><br><span class="line">bilibili去</span><br><span class="line">kuwo</span><br><span class="line">网易云音乐</span><br><span class="line">QQ音乐</span><br><span class="line">douyin</span><br><span class="line">cctv</span><br><span class="line">others  see: https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="一般下载"><a href="#一般下载" class="headerlink" title="一般下载"></a>一般下载</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认 720P webm</span></span><br><span class="line">yt-dlp url</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载并转换成为mp4</span></span><br><span class="line">yt-dlp –merge-output-format mp4 url</span><br></pre></td></tr></table></figure>
+<h4 id="查看视频可以下载的所有分辨率"><a href="#查看视频可以下载的所有分辨率" class="headerlink" title="查看视频可以下载的所有分辨率"></a>查看视频可以下载的所有分辨率</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yt-dlp -F url</span><br><span class="line"><span class="comment"># 返回的信息包含:</span></span><br><span class="line">ID              文件ID </span><br><span class="line">EXT             格式 </span><br><span class="line">RESOLUTION      分辨率 </span><br><span class="line">FPS             视频的帧率  </span><br><span class="line">FILESIZE        文件大小 </span><br><span class="line">VCODEC          正在使用的视频编解码器的名称 </span><br><span class="line">ACODEC          正在使用的音频编解码器的名称,像mp4a.40.2（720p）就直接包含了音频</span><br><span class="line">TBR             音频和视频的平均比特率（以 KBit/s 为单位）</span><br><span class="line">VBR             平均视频比特率（以 KBit/s 为单位）</span><br><span class="line">ABR             平均音频比特率（以 KBit/s 为单位） </span><br><span class="line">ASR             以赫兹为单位的音频采样率 </span><br><span class="line">MORE INFO       更多信息  </span><br></pre></td></tr></table></figure>
+<h3 id="视频选择"><a href="#视频选择" class="headerlink" title="视频选择"></a>视频选择</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">--playlist-start NUMBER          播放列表视频开始(默认为1)</span><br><span class="line">--playlist-end NUMBER            播放列表视频结束(默认是最后)</span><br><span class="line">--playlist-items ITEM_SPEC       播放列表视频项目下载。指定</span><br><span class="line">                                 播放列表中视频的索引</span><br><span class="line">                                 用逗号隔开，如:<span class="string">&quot;——playlist-items</span></span><br><span class="line"><span class="string">                                 1 2 5 8英寸，如果你想下载视频</span></span><br><span class="line"><span class="string">                                 在播放列表中索引1,2,5,8。你可以</span></span><br><span class="line"><span class="string">                                 指定范围:”——playlist-items</span></span><br><span class="line"><span class="string">                                 1-3,7,10-13&quot;</span>，它会下载视频</span><br><span class="line">                                 在指数12 3 7 10 11 12和13处</span><br><span class="line">--max-downloads NUMBER           下载NUMBER文件后中止</span><br><span class="line">--min-filesize SIZE              切勿下载任何小于尺寸(如50k或446m)的影片。</span><br><span class="line">--max-filesize SIZE              切勿下载超过大小的影片(例如50k或446m)</span><br><span class="line">--<span class="built_in">date</span> DATE                      只下载在此日期上传的视频。日期可以是“YYYYMMDD”或以下格式<span class="string">&quot;</span></span><br><span class="line"><span class="string">                                 (now l today) [+-][0-9] (day lweek | month l year) (s)?&quot;</span></span><br><span class="line">--datebefore DATE                只下载在此日期或之前上传的视频。接受的日期格式与——<span class="built_in">date</span>相同</span><br><span class="line">--dateafter DATE                 只下载在此日期或之后上传的视频。接受的日期格式与——<span class="built_in">date</span>相同</span><br><span class="line">--match-filter FILTER            通用的视频滤镜。任何领域(见</span><br><span class="line">                                 “输出模板”)可以与</span><br><span class="line">                                 数字或使用运算符的字符串</span><br><span class="line">                                 定义于“过滤格式”。你可以</span><br><span class="line">                                 还可以简单地指定要匹配的字段</span><br><span class="line">                                 Field is present and !字段<span class="string">&quot;来检查是否</span></span><br><span class="line"><span class="string">                                 该字段不存在。此外,</span></span><br><span class="line"><span class="string">                                 Python风格的正则表达式匹配</span></span><br><span class="line"><span class="string">                                 可以使用“~=”和多个</span></span><br><span class="line"><span class="string">                                 过滤器可以用“&amp;”进行检查。使用“\”</span></span><br><span class="line"><span class="string">                                 转义&quot;</span>&amp;<span class="string">&quot;或引号(如果需要)。例如:</span></span><br><span class="line"><span class="string">                                 ——match-filter”!is_live &amp; like_count &gt; ?One hundred.</span></span><br><span class="line"><span class="string">                                 &amp; description~=&#x27;(?i)\bcats \&amp; dogs\b&#x27;&quot;</span></span><br><span class="line">                                 只匹配那些不是直播的视频，有</span><br><span class="line">                                 一个点赞数超过100个(或类似数)</span><br><span class="line">                                 字段不可用)，并具有</span><br><span class="line">                                 包含短语“猫”的描述</span><br><span class="line">                                 &amp;狗”(忽略案例)</span><br><span class="line">--no-match-filter                不要使用通用的视频过滤器(默认)</span><br><span class="line">--no-playlist                    如果URL指的是视频和播放列表，则只下载视频</span><br><span class="line">--yes-playlist                   如果URL是指视频和播放列表，请下载播放列表</span><br><span class="line">--age-limit YEARS                只下载适合特定年龄的视频</span><br><span class="line">--download-archive FILE          只下载档案文件中没有列出的视频。记录所有下载视频的<span class="built_in">id</span></span><br><span class="line">--break-on-existing              当遇到存档中的文件时，停止下载过程</span><br><span class="line">--break-on-reject                当遇到已过滤掉的文件时，停止下载过程</span><br><span class="line">--skip-playlist-after-errors N   允许的失败数，直到跳过播放列表的其余部分</span><br><span class="line">--no-download-archive            不要使用存档文件(默认)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="下载选项"><a href="#下载选项" class="headerlink" title="下载选项"></a>下载选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">-N, --concurrent-fragments N     应该并发下载的dash/ hlnative视频片段数(默认为1)</span><br><span class="line">-r, --limit-rate RATE            最大下载速率(字节/秒)(例如50K或4.2M)</span><br><span class="line">--throttled-rate RATE            最小下载速率(以字节/秒为单位)，低于此速率时将进行节流并重新提取视频数据(例如100K)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-R, --retries RETRIES            重试次数(默认为10)，或“无限”</span><br><span class="line">--fragment-retries RETRIES       一个片段的重试次数(默认为10)，或“无限”(DASH, hLsnative和~ AAAISM)</span><br><span class="line">--skip-unavailable-fragments     跳过DASH hlnative和ISM的不可用片段(默认)</span><br><span class="line">                                 (Alias: --no-abort-on-unavailable-fragment)</span><br><span class="line">--abort-on-unavailable-fragment  如果片段不可用，则中止下载</span><br><span class="line">                                 (Alias: --no-skip-unavailable-fragments)</span><br><span class="line">--keep-fragments                 下载完成后，将下载的片段保存在磁盘上</span><br><span class="line">--no-keep-fragments              下载完成后删除下载的片段(默认)</span><br><span class="line">--buffer-size SIZE               下载缓冲区的大小(例如1024或16K)(默认是1024)</span><br><span class="line">--resize-buffer                  缓冲区大小从初始值——buffer-size(默认值)自动调整</span><br><span class="line">--no-resize-buffer               不自动调整缓冲区大小</span><br><span class="line">--http-chunk-size SIZE           基于块的HTTP下载块的大小(例如10485760或10M)(默认禁用)。</span><br><span class="line">                                 可能对绕过网络服务器施加的带宽节流有用(实验)</span><br><span class="line">--playlist-reverse               按倒序下载播放列表视频</span><br><span class="line">--no-playlist-reverse            按默认顺序下载播放列表视频(默认)</span><br><span class="line">--playlist-random                按随机顺序下载播放列表视频</span><br><span class="line">--xattr-set-filesize             设置文件xattribute ytdl。文件大小与预期的文件大小</span><br><span class="line">--hls-use-mpegts                 对HLS视频使用mpegts容器;允许一些播放器在下载时播放视频，</span><br><span class="line">                                 并减少下载中断时文件损坏的机会。这在默认情况下为实时流启用</span><br><span class="line">--no-hls-use-mpegts              不要在HLS视频中使用mpegts容器。当不下载实时流时，这是默认值</span><br><span class="line">--downloader [PROTO:]NAME        要加载的外部下载程序的名称或路径</span><br><span class="line">                                 使用(可选地)以协议为前缀</span><br><span class="line">                                 (http, ftp, m3u8, dash, rstp, rtmp, mms)到</span><br><span class="line">                                 用它来。目前支持本地,</span><br><span class="line">                                 Aria2c avconv axel curl ffmpeg httpie</span><br><span class="line">                                 wget(推荐:aria2c)。您可以使用</span><br><span class="line">                                 此选项多次设置不同</span><br><span class="line">                                 不同协议的下载程序。为</span><br><span class="line">                                 示例:——downloader aria2c——downloader</span><br><span class="line">                                 <span class="string">&quot;dash,m3u8:native&quot;</span>将使用aria2c</span><br><span class="line">                                 Http /ftp下载，和本机</span><br><span class="line">                                 下载的dash/m3u8下载</span><br><span class="line">                                 (别名:——external-downloader)</span><br><span class="line">--downloader-args NAME:ARGS      把这些论点交给外部</span><br><span class="line">                                 下载器。指定下载器名称和</span><br><span class="line">                                 参数由冒号<span class="string">&quot;:&quot;</span>分隔。为</span><br><span class="line">                                 Ffmpeg，参数可以传递给</span><br><span class="line">                                 不同的位置使用相同的语法</span><br><span class="line">                                 ——postprocessor-args。你可以用这个</span><br><span class="line">                                 选择多次给予不同</span><br><span class="line">                                 不同下载程序的参数</span><br><span class="line">                                 (别名:——external-downloader-args)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="视频格式选项"><a href="#视频格式选项" class="headerlink" title="视频格式选项"></a>视频格式选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-f, --format FORMAT              视频格式代码，详见“格式选择”</span><br><span class="line">-S, --format-sort SORTORDER      根据给定的字段对格式进行排序，详见“格式排序”</span><br><span class="line">--S-force, --format-sort-force   强制用户指定的排序顺序优先于所有字段，详情请参阅“排序格式”</span><br><span class="line">--no-format-sort-force           有些字段优先于用户指定的排序顺序(默认)，请参阅“排序格式”了解更多细节</span><br><span class="line">--video-multistreams             允许多个视频流合并成一个单一的文件</span><br><span class="line">--no-video-multistreams          每个输出文件只下载一个视频流(默认)</span><br><span class="line">--audio-multistreams             允许多个音频流合并成一个单一的文件</span><br><span class="line">--no-audio-multistreams          每个输出文件只下载一个音频流(默认)</span><br><span class="line">--prefer-free-formats            更喜欢带有免费容器的视频格式 而非同等质量的免费产品。使用</span><br><span class="line">                                 与“-S ext”严格偏好免费 集装箱不论质量如何</span><br><span class="line">--no-prefer-free-formats         不要给空闲容器任何特殊的优先级(默认)</span><br><span class="line">--check-formats                  检查所选的格式是否确实可以下载</span><br><span class="line">--no-check-formats               不检查所选的格式实际上是可下载的</span><br><span class="line">-F, --list-formats               列出每个视频的可用格式。模拟除非使用-no- simulation</span><br><span class="line">--merge-output-format FORMAT     如果需要合并(例如，bestvideo+bestaudio)，输出到给定的容器格式。mkv mp4 ogg</span><br><span class="line">                                 webm flv。如果不需要合并，则忽略</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="字母选项"><a href="#字母选项" class="headerlink" title="字母选项"></a>字母选项</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">--write-subs                     编写字幕文件</span><br><span class="line">--no-write-subs                  不写字幕文件(默认)</span><br><span class="line">--write-auto-subs                写自动生成的字幕文件(别名:——Write -automatic-subs)</span><br><span class="line">--no-write-auto-subs             不写自动生成的字幕(默认)(别名:——no-write-automatic-subs)</span><br><span class="line">--list-subs                      列出每个视频可用的字幕。模拟除非使用-no- simulation</span><br><span class="line">--sub-format FORMAT              字幕格式，接受格式优先，例如:“srt”或“ass/srt/best”</span><br><span class="line">--sub-langs LANGS                语言字幕下载(可以是正则表达式)或用逗号分隔的“全部”。</span><br><span class="line">                                 (例如:——sub-langs en.*，ja 带有<span class="string">&quot;-&quot;</span>的语言代码免除了它</span><br><span class="line">                                 从请求的语言。(如:——子 使用——list-subs 可用语言标记列表</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="格式选择"><a href="#格式选择" class="headerlink" title="格式选择"></a>格式选择</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据文件明细列表选择对应格式的文件id,比如:下载文件id=140的文件</span></span><br><span class="line">yt-dlp -f 140 url</span><br><span class="line">默认情况下，如果您不传递任何选项，yt-dlp 会尝试下载最佳可用质量。</span><br><span class="line">这通常等同于使用-f bestvideo*+bestaudio/best.</span><br><span class="line">但是，如果启用了多个音频流 ( --audio-multistreams)，</span><br><span class="line">则默认格式更改为-f bestvideo+bestaudio/best. </span><br><span class="line">同样，如果 ffmpeg 不可用，或者如果您使用 yt-dlp 流式传输到stdout( -o -)，</span><br><span class="line">则默认值变为-f best/bestvideo+bestaudio.</span><br><span class="line"></span><br><span class="line">all: 选择所有格式</span><br><span class="line">mergeall：选择和合并所有格式（必须与使用--audio-multistreams，--video-multistreams或两者）</span><br><span class="line">b*, best*: 无论是否包含视频或音频，选择最佳质量格式</span><br><span class="line">w*, worst*: 选择质量最差的格式，不管它是否包含视频或音频</span><br><span class="line">b, best: 选择包含视频和音频的最佳质量格式。相当于best*[vcodec!=none][acodec!=none]</span><br><span class="line">w, worst: 选择包含视频和音频的最差质量格式。相当于worst*[vcodec!=none][acodec!=none]</span><br><span class="line">bv, bestvideo: 选择最佳质量的纯视频格式。相当于best*[acodec=none]</span><br><span class="line">wv, worstvideo: 选择质量最差的纯视频格式。相当于worst*[acodec=none]</span><br><span class="line">bv*, bestvideo*: 选择包含视频的最佳质量格式。它还可能包含音频。相当于best*[vcodec!=none]</span><br><span class="line">wv*, worstvideo*: 选择包含视频的最差质量格式。它还可能包含音频。相当于worst*[vcodec!=none]</span><br><span class="line">ba, bestaudio: 选择质量最好的纯音频格式。相当于best*[vcodec=none]</span><br><span class="line">wa, worstaudio: 选择质量最差的纯音频格式。相当于worst*[vcodec=none]</span><br><span class="line">ba*, bestaudio*: 选择包含音频的最佳质量格式。它还可能包含视频。相当于best*[acodec!=none]</span><br><span class="line">wa*, worstaudio*: 选择包含音频的最差质量格式。它还可能包含视频。相当于worst*[acodec!=none]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="格式过滤"><a href="#格式过滤" class="headerlink" title="格式过滤"></a>格式过滤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">可以通过在括号中放置条件来过滤视频格式，如 （或者因为没有选择器的过滤器被解释为 ）。</span><br><span class="line">-f <span class="string">&quot;best[height=720]&quot;</span>-f <span class="string">&quot;[filesize&gt;10M]&quot;</span>best</span><br><span class="line"></span><br><span class="line">以下数值元字段可用于比较 、 、 、 （等于）、（不等于）：&lt;&lt;=&gt;&gt;==!=</span><br><span class="line"></span><br><span class="line">filesize：字节数（如果事先知道）</span><br><span class="line">filesize_approx：字节数的估计值</span><br><span class="line">width：视频的宽度（如果已知）</span><br><span class="line">height：视频的高度（如果已知）</span><br><span class="line">aspect_ratio：视频的宽高比（如果已知）</span><br><span class="line">tbr：音频和视频的平均比特率（以 KBit/s 为单位）</span><br><span class="line">abr：平均音频比特率（以 KBit/s 为单位）</span><br><span class="line">vbr：平均视频比特率（以 KBit/s 为单位）</span><br><span class="line">asr：以赫兹为单位的音频采样率</span><br><span class="line">fps：帧率</span><br><span class="line">audio_channels：音频通道数</span><br><span class="line">stretched_ratio：视频像素的像素，如果不是正方形width:height</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="后处理选项-x"><a href="#后处理选项-x" class="headerlink" title="后处理选项 -x"></a>后处理选项 -x</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">-x, --extract-audio              将视频文件转换为音频文件(需要ffmpeg和ffprobe)</span><br><span class="line">--audio-format FORMAT            指定音频格式以转换音频</span><br><span class="line">                                 当使用-x时。目前支持</span><br><span class="line">                                 格式有:best(默认)或</span><br><span class="line">                                 最好| aac | flac mp3 | | m4a格式|作品| vorbis | wav</span><br><span class="line">--audio-quality QUALITY          指定ffmpeg音频质量，插入一个</span><br><span class="line">                                 值介于0(较好)和9(较差)之间</span><br><span class="line">                                 VBR或特定的比特率，如128K (默认5)</span><br><span class="line">--remux-video FORMAT             将视频重新放入另一个容器，如果 必要的</span><br><span class="line">                                 (目前支持:mp4|mkv|flv | webm | mov avi mp3 | | | mka | m4a格式| ogg |作品)。</span><br><span class="line">                                 如果 目标容器不支持 视频/音频编解码器，重放将失败。你</span><br><span class="line">                                 可以指定多个规则;如。 “aac&gt;m4a/mov&gt;mp4/mkv”将重放aac到 M4a, mov到mp4，其他任何东西到mkv。</span><br><span class="line">--recode-video FORMAT            重新编码成另一种格式，如果 重新编码是必要的。的语法和 支持的格式与——remux-video相同</span><br><span class="line">--postprocessor-args NAME:ARGS   将这些参数给后处理器。</span><br><span class="line">                                 指定后处理器/可执行程序名称</span><br><span class="line">                                 参数由冒号<span class="string">&quot;:&quot;</span>分隔</span><br><span class="line">                                 将参数赋给指定的</span><br><span class="line">                                 后处理程序/可执行。支持页:</span><br><span class="line">                                 合并,ModifyChapters SplitChapters,</span><br><span class="line">                                 ExtractAudio、VideoRemuxer VideoConvertor,</span><br><span class="line">                                 元数据、EmbedSubtitle EmbedThumbnail,</span><br><span class="line">                                 SubtitlesConvertor ThumbnailsConvertor,</span><br><span class="line">                                 FixupStretched、FixupM4a FixupM3u8,</span><br><span class="line">                                 FixupTimestamp FixupDuration。的</span><br><span class="line">                                 支持的可执行文件有:AtomicParsley，</span><br><span class="line">                                 FFmpeg FFprobe。你也可以指定</span><br><span class="line">                                 “PP+EXE:ARGS”给出了论证</span><br><span class="line">                                 仅在使用时指定可执行文件</span><br><span class="line">                                 由指定的后处理程序处理。</span><br><span class="line">                                 此外，对于ffmpeg/ffprobe， <span class="string">&quot;_i&quot;</span>/<span class="string">&quot;_o&quot;</span></span><br><span class="line">                                 可以附加到前缀可选</span><br><span class="line">                                 后面跟着一个数字来传递参数</span><br><span class="line">                                 在指定的输入/输出文件之前。例如:</span><br><span class="line">                                 ——ppa“合并+ ffmpeg_i1: - v安静”。你可以</span><br><span class="line">                                 多次使用这个选项</span><br><span class="line">                                 不同的论点</span><br><span class="line">                                 后处理程序。(别名:——ppa)</span><br><span class="line">-k, --keep-video                 后期处理后将中间视频文件保存在磁盘上</span><br><span class="line">--no-keep-video                  后期处理后删除中间视频文件(默认)</span><br><span class="line">--post-overwrites                覆盖后期处理的文件(默认)</span><br><span class="line">--no-post-overwrites             不覆盖后期处理的文件</span><br><span class="line">--embed-subs                     视频中嵌入字幕(仅mp4, webm和mkv视频)</span><br><span class="line">--no-embed-subs                  不要嵌入字幕(默认)</span><br><span class="line">--embed-thumbnail                嵌入缩略图在视频作为封面艺术</span><br><span class="line">--no-embed-thumbnail             不嵌入缩略图(默认)</span><br><span class="line">--embed-metadata                 在视频文件中嵌入元数据。还增加了</span><br><span class="line">                                 章节文件除非-no-add-章</span><br><span class="line">                                 别名:——add-metadata</span><br><span class="line">--no-embed-metadata              不添加元数据到文件(默认)(别名:——no-add-metadata)</span><br><span class="line">--embed-chapters                 添加章节标记到视频文件(别名:——Add -章)</span><br><span class="line">--no-embed-chapters              不添加章节标记(默认)(别名:——no-add-章)</span><br><span class="line">--parse-metadata FROM:TO         解析其他领域的元数据，如标题/艺术家;详情请参见“修改元数据”</span><br><span class="line">--replace-in-metadata FIELDS REGEX REPLACE 使用给定的正则表达式替换元数据字段中的文本。这个选项可以多次使用</span><br><span class="line">--xattrs                         将元数据写入视频文件的xattrs(使用dublin core和xdg标准)</span><br><span class="line">--fixup POLICY                  自动纠正系统的已知故障</span><br><span class="line">                                文件。一个永远(什么都不做)，警告(只有)</span><br><span class="line">                                发出警告)，detect_or_warn</span><br><span class="line">                                违约;如果可以，修复文件，警告</span><br><span class="line">                                否则)，强制(尝试修复即使文件</span><br><span class="line">                                已经存在</span><br><span class="line">--ffmpeg-location PATH          ffmpeg二进制文件的位置;二进制文件或其包含目录的路径</span><br><span class="line">--<span class="built_in">exec</span> CMD                       在文件上执行命令</span><br><span class="line">                                 下载和后处理。相同</span><br><span class="line">                                 语法作为输出模板可以使用</span><br><span class="line">                                 将任何字段作为参数传递给</span><br><span class="line">                                 命令。附加字段“filepath”</span><br><span class="line">                                 它包含了</span><br><span class="line">                                 下载的文件也可用。如果没有</span><br><span class="line">                                 字段被传递，%(filepath)q被追加</span><br><span class="line">                                 直到命令的最后。这个选项可以</span><br><span class="line">                                 多次使用</span><br><span class="line">--no-exec                        删除任何先前定义的——<span class="built_in">exec</span></span><br><span class="line">--exec-before-download CMD       执行命令之前，实际下载。语法与——<span class="built_in">exec</span>相同</span><br><span class="line">                                 但是“filepath”不可用。这选项可以多次使用</span><br><span class="line">--no-exec-before-download        删除任何以前定义的- execute -before-download</span><br><span class="line">--convert-subs FORMAT            将字幕转换为另一种格式(目前支持:srt|vtt|ass|lrc)(别名:——Convert -副标题)</span><br><span class="line">--convert-thumbnails FORMAT      将缩略图转换为另一种格式(目前支持:jpg|png)</span><br><span class="line">--split-chapters                 将视频分割成多个文件基于</span><br><span class="line">                                 内部章节。“章:”前缀</span><br><span class="line">                                 可以与<span class="string">&quot;——paths&quot;</span>和<span class="string">&quot;——output&quot;</span>一起使用</span><br><span class="line">                                 设置分割的输出文件名</span><br><span class="line">                                 文件。详见“OUTPUT TEMPLATE”</span><br><span class="line">--no-split-chapters              不要基于章节分割视频(默认)</span><br><span class="line">--remove-chapters REGEX          删除标题匹配的章节</span><br><span class="line">                                 给定的正则表达式。时间范围</span><br><span class="line">                                 用“*”作为前缀也可以在适当的地方使用</span><br><span class="line">                                 的章节，以删除指定的范围。</span><br><span class="line">                                 如:remove-chapters“* 10:15-15:00”</span><br><span class="line">                                 ——remove-chapters“介绍”。这个选项可以多次使用</span><br><span class="line">--no-remove-chapters             不要从文件中删除任何章节(默认)</span><br><span class="line">--force-keyframes-at-cuts       强制关键帧围绕章节之前</span><br><span class="line">                                删除/分裂。需要一个</span><br><span class="line">                                重新编码会很慢，但是</span><br><span class="line">                                最终的视频可能有更少的伪影</span><br><span class="line">                                在削减</span><br><span class="line">--no-force-keyframes-at-cuts    当切割/分割章节时，不要强制关键帧(默认)插件的(区分大小写)名称</span><br><span class="line">--use-postprocessor NAME[:ARGS]  启用后处理器，以及 (可选)传递给它的参数，</span><br><span class="line">                                 由冒号<span class="string">&quot;:&quot;</span>分隔。参数是一个</span><br><span class="line">                                 分号<span class="string">&quot;;&quot;</span>分隔的NAME=VALUE列表。</span><br><span class="line">                                 <span class="string">&quot;when&quot;</span>参数决定 后处理程序被调用。它可以是</span><br><span class="line">                                 “pre_process”(提取)后, <span class="string">&quot;before_dl&quot;</span>(视频下载前)，</span><br><span class="line">                                 <span class="string">&quot;post_process&quot;</span>(视频下载后; 或<span class="string">&quot;after_move&quot;</span>(在移动文件后</span><br><span class="line">                                 最终到达目的地)。这个选项可以 可多次使用以添加不同 后处理程序</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="格式排序"><a href="#格式排序" class="headerlink" title="格式排序"></a>格式排序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">您可以best使用-S( --format-sort)更改被视为 的标准。这个的一般格式是--format-sort field1,field2....</span><br><span class="line"></span><br><span class="line">可用的字段是：</span><br><span class="line"></span><br><span class="line">hasvid：优先考虑具有视频流的格式</span><br><span class="line">hasaud：优先考虑具有音频流的格式</span><br><span class="line">ie_pref：提取器给出的格式首选项</span><br><span class="line">lang：提取器给出的语言偏好</span><br><span class="line">quality：提取器给出的格式质量</span><br><span class="line"><span class="built_in">source</span>: 提取器给出的来源偏好</span><br><span class="line">proto: 用于下载的协议 ( https/ ftps&gt; http/ ftp&gt; m3u8_native/ m3u8&gt; http_dash_segments&gt; websocket_frag&gt; 其他 &gt; mms/ rtsp&gt; &gt; 未知 &gt; f4f/ f4m)</span><br><span class="line">vcodec：视频编解码器（av01&gt; vp9.2&gt; vp9&gt; h265&gt; h264&gt; vp8&gt; h263&gt; theora&gt;其它&gt;未知）</span><br><span class="line">acodec：音频编解码器（opus&gt; vorbis&gt; aac&gt; mp4a&gt; mp3&gt; ac3&gt; dts&gt;其他&gt;未知）</span><br><span class="line">codec： 相当于 vcodec,acodec</span><br><span class="line">vext: 视频扩展名 ( mp4&gt; webm&gt; flv&gt; 其他 &gt; 未知)。如果--prefer-free-formats使用，webm则首选。</span><br><span class="line">aext：音频扩展（m4a&gt; aac&gt; mp3&gt; ogg&gt; opus&gt; webm&gt; 其他 &gt; 未知）。如果--prefer-free-formats使用，则顺序更改为opus&gt; ogg&gt; webm&gt; m4a&gt; mp3&gt; aac。</span><br><span class="line">ext： 相当于 vext,aext</span><br><span class="line">filesize: 确切的文件大小，如果事先知道的话。这将不适用于 mu38 和 DASH 格式。</span><br><span class="line">fs_approx：根据清单计算的近似文件大小</span><br><span class="line">size: 如果可用，则为精确文件大小，否则为近似文件大小</span><br><span class="line">height: 视频高度</span><br><span class="line">width: 视频宽度</span><br><span class="line">res：视频分辨率，以最小尺寸计算。</span><br><span class="line">fps: 视频帧率</span><br><span class="line">hdr: 视频的动态范围 ( DV&gt; HDR12&gt; HDR10+&gt; HDR10&gt; HLG&gt; SDR)</span><br><span class="line">tbr：以 KBit/s 为单位的总平均比特率</span><br><span class="line">vbr: 以 KBit/s 为单位的平均视频比特率</span><br><span class="line">abr：以 KBit/s 为单位的平均音频比特率</span><br><span class="line">br: 相当于使用 tbr,vbr,abr</span><br><span class="line">asr：以Hz为单位的音频采样率</span><br><span class="line">请注意，在 Windows 上，您可能需要使用双引号而不是单引号。</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载并合并最好的纯视频格式和最好的纯音频格式，</span></span><br><span class="line"><span class="comment">#或者如果纯视频格式不可用，则下载最好的组合格式</span></span><br><span class="line">$ yt-dlp -f <span class="string">&#x27; bv+ba/b &#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="下载播放列表中的多个视频-I"><a href="#下载播放列表中的多个视频-I" class="headerlink" title="下载播放列表中的多个视频 -I"></a>下载播放列表中的多个视频 -I</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. 逗号分隔的playlist_index</span><br><span class="line">2. 要下载的项目。您可以指定一个 范围使用“[START]：[STOP][：STEP]”。向后兼容 也支持。使用负指数 从右数和负数 STEP  以相反的顺序下载。例如“-I</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载第1,3,5个视频</span></span><br><span class="line">yt-dlp -I <span class="string">&quot;1,3,5&quot;</span> url </span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定范围,下载第1~15个视频中每相隔2个,则是1,3,5,7,9,11,13,15</span></span><br><span class="line">yt-dlp <span class="string">&quot;1:15:2&quot;</span> url </span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定范围及顺序,下载第1~5集,从第5~1的顺序下载</span></span><br><span class="line">yt-dlp <span class="string">&quot;1:5:-1&quot;</span> url </span><br></pre></td></tr></table></figure>
+
+<h3 id="文件信息列表排序-S"><a href="#文件信息列表排序-S" class="headerlink" title="文件信息列表排序 -S"></a>文件信息列表排序 -S</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照vbr-平均视频比特率</span></span><br><span class="line">yt-dlp -F -S <span class="string">&quot;vbr&quot;</span> url</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/12/31/Creo10%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/31/Creo10%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Creo10的安装及配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-31 11:13:07" itemprop="dateCreated datePublished" datetime="2023-12-31T11:13:07+08:00">2023-12-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-01 00:45:27" itemprop="dateModified" datetime="2024-01-01T00:45:27+08:00">2024-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Creo/" itemprop="url" rel="index"><span itemprop="name">Creo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="生成许可证文件"><a href="#生成许可证文件" class="headerlink" title="生成许可证文件"></a>生成许可证文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 复制文件目录下的<span class="string">&quot;PTC.LICENSE.WINDOWS.2023-10-31-SSQ&quot;</span>到桌面</span><br><span class="line">2. 运行目录中的<span class="string">&quot;FillLicense.bat&quot;</span>  生成许可证文件 <span class="string">&quot;PTC_D_SSQ.dat&quot;</span></span><br><span class="line">3. 并将生成的许可证文件<span class="string">&quot;PTC_D_SSQ.dat&quot;</span>移动到<span class="string">&quot;D:\Ptc_license\&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. 找到安装文件目录下的PTC Creo 10.0.2.0 Win64.iso 开始安装</span><br><span class="line">2. 指定安装目录<span class="string">&quot;D:\Ptc_creo10.0&quot;</span></span><br><span class="line">3. 复制安装文件目录下的<span class="string">&quot;_SolidSQUAD_\Creo 10.0.2.0 &quot;</span>目录,覆盖安装目录下的同名文件和目录</span><br><span class="line">4. 运行安装文件目录下的<span class="string">&quot;SolidSQUADLoaderEnabler.reg&quot;</span> ，将注册表文件添加到注册表</span><br><span class="line">5. 添加浮动许可证,以管理员身份运行安装目录下的“\Creo 10.0.2.0\Parametric\bin\reconfigure<span class="string">&quot;</span></span><br><span class="line"><span class="string">    - 重新配置现有安装的许可证</span></span><br><span class="line"><span class="string">    - 点击NEXT---&gt;NEXT---&gt;NEXT 直到自定义应用程序界面  进入“命令配置” 选项</span></span><br><span class="line"><span class="string">    - 编辑， 将左侧的可用许可证全部添加到 “启动扩展及浮动选项” 栏内。点确定</span></span><br><span class="line"><span class="string">    - 安装直到完成</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">6. 重启电脑</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置Creo"><a href="#配置Creo" class="headerlink" title="配置Creo"></a>配置Creo</h3><h4 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h4>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/12/31/Manjaro%E5%AE%89%E8%A3%85%E6%9C%AC%E5%9C%B0%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyaoxin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="静水深流">
+      <meta itemprop="description" content="逍遥心">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 静水深流">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/31/Manjaro%E5%AE%89%E8%A3%85%E6%9C%AC%E5%9C%B0%E5%8C%85/" class="post-title-link" itemprop="url">Manjaro安装本地包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-31 00:00:00 / 修改时间：10:49:45" itemprop="dateCreated datePublished" datetime="2023-12-31T00:00:00+08:00">2023-12-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Manjaro安装本地包"><a href="#Manjaro安装本地包" class="headerlink" title="Manjaro安装本地包"></a>Manjaro安装本地包</h2><h3 id="tar-gz-x2F-tar-xz-等格式"><a href="#tar-gz-x2F-tar-xz-等格式" class="headerlink" title="tar.gz&#x2F;tar.xz 等格式"></a>tar.gz&#x2F;tar.xz 等格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 已经下载到本地的</span></span><br><span class="line">sudo pacman -U package_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装远程包,不在软件仓库中的,格式为tar.gz / tar.xz</span></span><br><span class="line"><span class="comment"># 如:url = http://www.example.com/xxx.tar.gz</span></span><br><span class="line">sudo pacman -U url</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="deb-格式"><a href="#deb-格式" class="headerlink" title="deb 格式"></a>deb 格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装转包工具debtap,安装前先查询是否已经安装</span></span><br><span class="line">sudo pacman -Q debtap</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若没有则安装</span></span><br><span class="line">sudo pacman -S yaourt</span><br><span class="line">yaurt -S debtap </span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装后更新,如果更新失败,可能需要换源或走VPN</span></span><br><span class="line">sudo debtap -u</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转包,期间可能需要包名称,自定义即可.要输入License时,填写GPL</span></span><br><span class="line">sudo debtap xxx.deb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装转包成功的包</span></span><br><span class="line">sudo pacman -U xxx.tar.xz</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1537,595 +1827,6 @@ UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0xb0 in position
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/12/17/%E4%BF%AE%E6%94%B9wireguard%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/17/%E4%BF%AE%E6%94%B9wireguard%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">修改或创建wireguard的配置文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-17 22:34:19" itemprop="dateCreated datePublished" datetime="2023-12-17T22:34:19+08:00">2023-12-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="WireGuard连接方式的配置文件"><a href="#WireGuard连接方式的配置文件" class="headerlink" title="WireGuard连接方式的配置文件"></a>WireGuard连接方式的配置文件</h3><h2 id="下载下来的源文件上这样"><a href="#下载下来的源文件上这样" class="headerlink" title="下载下来的源文件上这样"></a>下载下来的源文件上这样</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">#</span></span><br><span class="line"><span class="string"># Use this configuration with WireGuard client</span></span><br><span class="line"><span class="string">#</span></span><br><span class="line"><span class="string">[Interface]</span></span><br><span class="line"><span class="string">Address = 10.14.0.2/16</span></span><br><span class="line"><span class="string">PrivateKey = &lt;insert_your_private_key_here&gt;</span></span><br><span class="line"><span class="string">DNS = 162.252.172.57, 149.154.159.92</span></span><br><span class="line"><span class="string">[Peer]</span></span><br><span class="line"><span class="string">PublicKey = OoFY46j/w4uQFyFu/OQ/h3x+ymJ1DJ4UR1fwGNxOxk0=</span></span><br><span class="line"><span class="string">AllowedIPs = 0.0.0.0/0</span></span><br><span class="line"><span class="string">Endpoint = 103.176.152.200:51820</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 下载的文件需要修改PrivateKey = my_key</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#_python3@windows _#</span></span><br><span class="line"><span class="comment">#_date:2023-12-17_#</span></span><br><span class="line"><span class="comment">#_修改wireguard应用的配置文件_#</span></span><br><span class="line"><span class="comment">#_encoding = utf-8_#</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">modify_wireguard_config</span>():</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    修改VPN_WireGuard连接方式的配置文件。</span></span><br><span class="line"><span class="string">    读取源文件，同时创建新文件</span></span><br><span class="line"><span class="string">    遍历源文件的行,用re.sub(old_word,new_word,str) ,同时逐行写入新文件。</span></span><br><span class="line"><span class="string">    删除源文件，更名新文件名为源文件名</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    fd = <span class="string">r&quot;C:\Users\xiaoyx\Downloads&quot;</span></span><br><span class="line">    files = [<span class="string">f&quot;<span class="subst">&#123;fd&#125;</span>\&#123;i&#125;&quot;</span> <span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(fd) <span class="keyword">if</span> re.search(<span class="string">r&#x27;.conf$&#x27;</span>, i)]</span><br><span class="line">    w1 = <span class="string">&#x27;&lt;insert_your_private_key_here&gt;&#x27;</span></span><br><span class="line">    w2 = <span class="string">&#x27;mKTo/XWQemHxEDJxfDaNvcFwB4R42WQDtV7ZURUitWg=&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(file, <span class="string">&#x27;r&#x27;</span>,</span><br><span class="line">                  encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file1, <span class="built_in">open</span>(<span class="string">f&#x27;<span class="subst">&#123;file&#125;</span>.bak&#x27;</span>,</span><br><span class="line">                                                   <span class="string">&#x27;w&#x27;</span>,</span><br><span class="line">                                                   encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file2:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> file1:</span><br><span class="line">                file2.write(re.sub(w1, w2, line))</span><br><span class="line">        os.remove(file)</span><br><span class="line">        os.rename(<span class="string">f&#x27;<span class="subst">&#123;file&#125;</span>.bak&#x27;</span>, file)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    modify_wireguard_config()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#_python3@linux _#</span></span><br><span class="line"><span class="comment">#_date:2023-12-17_#</span></span><br><span class="line"><span class="comment">#_encoding = utf-8_#</span></span><br><span class="line"><span class="comment">#_修改wireguard应用的配置文件_#</span></span><br><span class="line"><span class="comment">#-----------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os, re, stat</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">writing_wg0_conf</span>(<span class="params">base</span>):</span><br><span class="line">    ext = <span class="string">&#x27;.conf&#x27;</span></span><br><span class="line">    filename = base + ext</span><br><span class="line">    downfold = <span class="string">&#x27;/home/xiaoyx/下载&#x27;</span></span><br><span class="line">    downfile = os.path.join(downfold, filename)</span><br><span class="line">    dct = &#123;&#125;</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(downfile, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">        rows = file.readlines()</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;=&#x27;</span> <span class="keyword">in</span> row:</span><br><span class="line">                ls = row.split(<span class="string">&#x27; = &#x27;</span>, <span class="number">1</span>)</span><br><span class="line">                dct.update(&#123;ls[<span class="number">0</span>]: re.sub(<span class="string">&#x27;\n&#x27;</span>, <span class="string">&#x27;&#x27;</span>, ls[<span class="number">1</span>])&#125;)</span><br><span class="line">    rows1 = [<span class="string">&#x27;[Interface]\n&#x27;</span>, <span class="string">&#x27;ListenPort = 49852\n&#x27;</span>]</span><br><span class="line">    rows2 = [<span class="string">&#x27;[Peer]\n&#x27;</span>, <span class="string">&#x27;PersistentKeepalive = 25\n&#x27;</span>]</span><br><span class="line">    wd1 = <span class="string">&#x27;&lt;insert_your_private_key_here&gt;&#x27;</span></span><br><span class="line">    wd2 = <span class="string">&#x27;mKTo/XWQemHxEDJxfDaNvcFwB4R42WQDtV7ZURUitWg=&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> dct.items():</span><br><span class="line">        <span class="built_in">str</span> = k + <span class="string">&#x27; = &#x27;</span> + v + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> k <span class="keyword">in</span> [<span class="string">&#x27;Address&#x27;</span>, <span class="string">&#x27;PrivateKey&#x27;</span>, <span class="string">&#x27;DNS&#x27;</span>]:</span><br><span class="line">            <span class="built_in">str</span> = re.sub(wd1, wd2, <span class="built_in">str</span>)</span><br><span class="line">            rows1.append(<span class="built_in">str</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            rows2.append(<span class="built_in">str</span>)</span><br><span class="line">    rows = rows1 + rows2</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">r&#x27;/etc/wireguard/wg0.conf&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.writelines(rows)</span><br><span class="line">        </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    base = <span class="built_in">input</span>(<span class="string">&#x27;输⼊下载的配置⽂件名，如 uk-man&#x27;</span>)</span><br><span class="line">    writing_wg0_conf(base)</span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/12/17/Manjaro%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/17/Manjaro%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%8F%8A%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Manjaro系统安装及配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-17 17:52:55" itemprop="dateCreated datePublished" datetime="2023-12-17T17:52:55+08:00">2023-12-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Manjaro-kde-的安装与配置"><a href="#Manjaro-kde-的安装与配置" class="headerlink" title="Manjaro_kde 的安装与配置"></a>Manjaro_kde 的安装与配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="制作安装启动盘"><a href="#制作安装启动盘" class="headerlink" title="制作安装启动盘"></a>制作安装启动盘</h3><ol>
-<li>制作 ventoy 启动盘</li>
-<li>下载最新的 mnjaro-kde 安装包 .iso 格式</li>
-<li>将 manjaro*.iso 拷贝到启动盘</li>
-</ol>
-<h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><ol>
-<li>启动 Pc,按 F12 ，选择 U 盘启动</li>
-<li>选择 manjaro-kde，设置安装界面的语言和安装位置</li>
-<li>设置区域和时间，设置用户名和密码到安装完毕</li>
-</ol>
-<h2 id="系统基本配置"><a href="#系统基本配置" class="headerlink" title="系统基本配置"></a>系统基本配置</h2><h3 id="更换成镜像源"><a href="#更换成镜像源" class="headerlink" title="更换成镜像源"></a>更换成镜像源</h3><ol>
-<li>sudo pacman-mirrors -i -c China -m rank</li>
-<li>弹出对话框后选择一个最快的源，并确认。</li>
-<li>sudo nano &#x2F;etc&#x2F;pacman.conf # 修改 pacman.conf</li>
-<li>末尾添加内容</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustAll</span><br><span class="line">#中科大源</span><br><span class="line">Server = https:<span class="comment">//mirrors.ustc.edu.cn/archlinuxcn/$arch</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#清华源</span><br><span class="line">#Server = https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/archlinuxcn/</span></span><br><span class="line"></span><br><span class="line">$arch</span><br><span class="line"># 阿里源</span><br><span class="line">#Server = https:<span class="comment">//mirrors.aliyun.com/manjaro/$arch</span></span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>安装 archlinuxcn 签名钥匙</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syy</span><br><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>更新库</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syy</span><br></pre></td></tr></table></figure>
-
-<h3 id="更换-pip-的库源"><a href="#更换-pip-的库源" class="headerlink" title="更换 pip 的库源"></a>更换 pip 的库源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mkdir</span> ~/.pip</span><br><span class="line">sudo nano ~/.pip/pip.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建配置文件内容:</span></span><br><span class="line">[global]</span><br><span class="line"><span class="comment">#阿里云</span></span><br><span class="line"><span class="comment">#index-url =  https://mirrors.aliyun.com/pypi/simple/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#中国科技大学</span></span><br><span class="line"><span class="comment">#index-url =  https://pypi.mirrors.ustc.edu.cn/simple/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#清华大学</span></span><br><span class="line">index-url =  https://pypi.tuna.tsinghua.edu.cn/simple/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="更新系统及已经安装的-APP"><a href="#更新系统及已经安装的-APP" class="headerlink" title="更新系统及已经安装的 APP"></a>更新系统及已经安装的 APP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syyu</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装中文输入法-fcitx5-框架-fcitx5-lua"><a href="#安装中文输入法-fcitx5-框架-fcitx5-lua" class="headerlink" title="安装中文输入法 fcitx5 框架 fcitx5-lua"></a>安装中文输入法 fcitx5 框架 fcitx5-lua</h3><ol>
-<li>安装</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全家桶 fcitx5-im，包含了fcitx5,fcits5-qt,fcitx5-gtk,fcitx5-configtool</span></span><br><span class="line">sudo pacman -S fcitx5-im</span><br><span class="line">sudo pacman -S fcitx5-chinese-addons</span><br><span class="line">sudo pacman -S fcitx5-material-color</span><br><span class="line">sudo pacman -S kcm-fcitx5</span><br><span class="line">sudo pacman -S fcitx5-lua</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>配置</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo naao /etc/environment</span><br><span class="line"></span><br><span class="line"><span class="comment"># -----添加内容-----</span></span><br><span class="line">GTK_IM_MODULE DEFAULT=fcitx</span><br><span class="line">QT_IM_MODULE  DEFAULT=fcitx</span><br><span class="line">XMODIFIERS    DEFAULT=@im=fcitx</span><br><span class="line">INPUT_METHOD  DEFAULT=fcitx</span><br><span class="line">SDL_IM_MODULE DEFAULT=fcitx</span><br><span class="line"></span><br><span class="line"><span class="comment">#----重启 Pc-----</span></span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>外观配置</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 ~/.config/fcitx5/conf/classicui.conf</span><br><span class="line">nano ~/.config/fcitx5/conf/classicui.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----添加以下内容到文末-----</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 垂直候选列表</span></span><br><span class="line">Vertical Candidate List=False</span><br><span class="line"><span class="comment"># 按屏幕 DPI 使用</span></span><br><span class="line">PerScreenDPI=True</span><br><span class="line"><span class="comment"># Font (设置成你喜欢的字体)</span></span><br><span class="line">Font=<span class="string">&quot;思源黑体 CN Medium 13&quot;</span></span><br><span class="line"><span class="comment"># 主题</span></span><br><span class="line">Theme=Material-Color-DeepPurple</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装中文字体"><a href="#安装中文字体" class="headerlink" title="安装中文字体"></a>安装中文字体</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 同时安装多个字体</span></span><br><span class="line">sudo pacman -S wqy-bitmapfont wqy-microhei  wqy-zenhei wqy-microhei-lite</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可安装更多选用字体</span></span><br><span class="line">sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts noto-fonts-cjk  noto-fonts noto-fonts-emoji</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="安装常用的软件"><a href="#安装常用的软件" class="headerlink" title="安装常用的软件"></a>安装常用的软件</h2><h3 id="yay-安装工具"><a href="#yay-安装工具" class="headerlink" title="yay 安装工具"></a>yay 安装工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S yay</span><br></pre></td></tr></table></figure>
-
-<h3 id="microsoft-edge"><a href="#microsoft-edge" class="headerlink" title="microsoft-edge"></a>microsoft-edge</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S microsoft-edge-stable-bin</span><br></pre></td></tr></table></figure>
-
-<p>安装后运行并登入同步数据即可正常使用</p>
-<p>卸载系统自带的浏览器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -R firefox</span><br></pre></td></tr></table></figure>
-
-<h3 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h3><ol>
-<li>官网下载 tar.gz 格式的文件 <a target="_blank" rel="noopener" href="https://code.visualstudio.com/Downloads">https://code.visualstudio.com/Downloads</a></li>
-<li>解压缩</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf code-stable*</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>移动到<code>/opt/</code> 目录</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> VSCde-linux-x64 /opt</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>增加执行权</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chomd +x /opt/VSCode-linux-x64/bin/code</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>添加快捷方式</li>
-</ol>
-<ul>
-<li>创建文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/share/applications/vscode.desktop</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>添加内容：</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=Visual Studio Code</span><br><span class="line">Comment=Multi-platform code editor <span class="keyword">for</span> linux</span><br><span class="line">Exec=/opt/VSCode-linux-x64/bin/code</span><br><span class="line">Icon=/usr/share/icons/code.webp</span><br><span class="line">Type=Application</span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br><span class="line">Categories=TextEditor;Development;Utility;</span><br><span class="line">MimeType=text/plain;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>复制图标</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> /opt/VSCode-linux-x64/resources/app/resources/linux/code.webp /usr/share/icons/</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>运行程序，启用同步</li>
-<li>查看当前系统的 python <code>pyhon -V</code></li>
-<li>基本可以正常使用 vscode 了。可能中间会出现 ipykernel 安装报错,报错代码如下：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip3 install ipkernel</span><br><span class="line">error: externally-managed-environment</span><br><span class="line"></span><br><span class="line">× This environment is externally managed</span><br><span class="line">╰─&gt; To install Python packages system-wide, try <span class="string">&#x27;pacman -S</span></span><br><span class="line"><span class="string">    python-xyz&#x27;</span>, <span class="built_in">where</span> xyz is the package you are trying to</span><br><span class="line">    install.</span><br><span class="line"></span><br><span class="line">    If you wish to install a non-Arch-packaged Python package,</span><br><span class="line">    create a virtual environment using <span class="string">&#x27;python -m venv path/to/venv&#x27;</span>.</span><br><span class="line">    Then use path/to/venv/bin/python and path/to/venv/bin/pip.</span><br><span class="line"></span><br><span class="line">    If you wish to install a non-Arch packaged Python application,</span><br><span class="line">    it may be easiest to use <span class="string">&#x27;pipx install xyz&#x27;</span>, <span class="built_in">which</span> will manage a</span><br><span class="line">    virtual environment <span class="keyword">for</span> you. Make sure you have python-pipx</span><br><span class="line">    installed via pacman.</span><br><span class="line"></span><br><span class="line">note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.</span><br><span class="line">hint: See PEP 668 <span class="keyword">for</span> the detailed specification.</span><br></pre></td></tr></table></figure>
-
-<ol start="9">
-<li>解决办法粗暴</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">mv</span> /usr/lib/python3.x/EXTERNALLY-MANAGED /usr/lib/python3.x/EXTERNALLY-MANAGED.bk</span><br><span class="line"><span class="comment"># 将上述代码的3.x替换成python版本号</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="代理工具-wiregual-tools"><a href="#代理工具-wiregual-tools" class="headerlink" title="代理工具 wiregual-tools"></a>代理工具 wiregual-tools</h3><ol>
-<li>安装 wireguard 工具</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S wireguard-tools</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>修改配置文件坐在目录的权限</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chmod</span> 777 /etc/wireguard</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>创建配置文件</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/wireuard/wg0.conf</span><br></pre></td></tr></table></figure>
-
-<p>配置文件内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Interface]</span><br><span class="line">ListenPort = 49852</span><br><span class="line">Address = 10.14.0.2/16</span><br><span class="line">PrivateKey = mKTo/XWQemHxEDJxfDaNvcFwB4R42WQDtV7ZURUitWg=</span><br><span class="line">DNS = 162.252.172.57, 149.154.159.92</span><br><span class="line">[Peer]</span><br><span class="line">PersistentKeepalive = 25</span><br><span class="line">PublicKey = iBJRXLZwXuWWrOZE1ZrAXEKMgV/z0WjG0Tks5rnWLBI=</span><br><span class="line">AllowedIPs = 0.0.0.0/0</span><br><span class="line">Endpoint = 23.230.212.231:51820</span><br><span class="line"><span class="comment"># 以上内容不是固定不变的，</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>运行代理</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wg-quick up wg0</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>查看运行状况</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wg</span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>关闭代理</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wg-quick down wg0</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装网易云音乐"><a href="#安装网易云音乐" class="headerlink" title="安装网易云音乐"></a>安装网易云音乐</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S netease-cloud-music</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装-deepin-微信"><a href="#安装-deepin-微信" class="headerlink" title="安装 deepin 微信"></a>安装 deepin 微信</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S deepin-wine-wechat</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装-deepin-腾讯-QQ"><a href="#安装-deepin-腾讯-QQ" class="headerlink" title="安装 deepin 腾讯 QQ"></a>安装 deepin 腾讯 QQ</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S deepin-wine-qq</span><br></pre></td></tr></table></figure>
-
-<h2 id="KDE-桌面美化"><a href="#KDE-桌面美化" class="headerlink" title="KDE 桌面美化"></a>KDE 桌面美化</h2><ol>
-<li>安装</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qt5-base qt5-svg qt5-declarative qt5-quickcontrols</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>安装 osc-url</p>
-<ul>
-<li><p>下载 <a target="_blank" rel="noopener" href="https://www.opendesktop.org/p/1136805/">https://www.opendesktop.org/p/1136805/</a></p>
-</li>
-<li><p>安装</p>
-</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -U ~/下载/ocs-url-3.1.0-1-x86_64.pkg.tar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 有了osc-url后，点击主题的 install 按钮后，会跳出是否打开 xdg-open，选择打开并安装主题就 OK 了。</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>下载主题</li>
-</ol>
-<h2 id="高效工具的安装配置"><a href="#高效工具的安装配置" class="headerlink" title="高效工具的安装配置"></a>高效工具的安装配置</h2><h3 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh my zsh"></a>oh my zsh</h3><p>manjaro KDE 自带了 zsh，所以可以直接安装 oh my zsh</p>
-<ol>
-<li>下载 需要代理</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)</span>&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>更改 shell 为 zsh</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /usr/bin/zsh</span><br><span class="line">zsh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>下载插件</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 自动补全</span></span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions</span><br><span class="line">​<span class="comment"># 语法高亮</span></span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">​<span class="comment"># zsh-vi-mod</span></span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/jeffreytse/zsh-vi-mode <span class="variable">$ZSH_CUSTOM</span>/plugins/zsh-vi-mode</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>修改配置</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#打开 ~/.zshrc 找到 plugins 将它改成下面这样：</span></span><br><span class="line">plugins=(</span><br><span class="line">    git</span><br><span class="line">    zsh-syntax-highlighting</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">    zsh-vi-mode</span><br><span class="line">    colored-man-pages</span><br><span class="line">)</span><br><span class="line"><span class="comment">#修改主题</span></span><br><span class="line">ZSH_THEME=<span class="string">&quot;bira&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>安装 autojump,终端目录跳转神器</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo git <span class="built_in">clone</span> https://github.com/wting/autojump</span><br><span class="line"><span class="built_in">cd</span> autojump</span><br><span class="line">./install.py</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">sudo <span class="built_in">rm</span> -rf autojump</span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>修改配置</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo nano ~/.zshrc</span><br><span class="line"><span class="comment"># 在文末添加</span></span><br><span class="line">[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] &amp;&amp; . ~/.autojump/etc/profile.d/autojump.sh</span><br><span class="line"><span class="comment"># 配置成功。想在终端跳转到之前的目录时，可直接按 j 和目录名的前缀即可完成跳转</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新配置启用</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装并配置-vim"><a href="#安装并配置-vim" class="headerlink" title="安装并配置 vim"></a>安装并配置 vim</h3><ol>
-<li>安装</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Sy vim</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>安装插件环境</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/chxuan/vimplus.git ~/.vimplus</span><br><span class="line"><span class="built_in">cd</span> ~/.vimplus</span><br><span class="line">./install.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>安装插件管理器</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>修改配置</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 call plug#begin() 和 call plug#end()之间插入以下内容</span></span><br><span class="line"><span class="comment"># 按下 i 键进行 插入 操作，将如下内容粘贴到里面（最好上下留有空行，方便浏览）</span></span><br><span class="line"></span><br><span class="line">Plug <span class="string">&#x27;scrooloose/nerdtree&#x27;</span>, &#123; <span class="string">&#x27;on&#x27;</span>:  <span class="string">&#x27;NERDTreeToggle&#x27;</span> &#125;</span><br><span class="line"><span class="string">&quot;vim 启动的时候 提供一些辅助功能 ，如 显示最近打开的文件，以及一个好看的图标</span></span><br><span class="line"><span class="string">Plug &#x27;mhinz/vim-startify&#x27;</span></span><br><span class="line"><span class="string">&quot;</span>在vim打开文件的时候 侧边展示目前等 ，该插件是必装插件 如果你用 vim作为ide的话</span><br><span class="line">Plug <span class="string">&#x27;mhinz/vim-startify&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;scrooloose/nerdtree&#x27;</span></span><br><span class="line"><span class="string">&quot;这个插件 是 快速搜索文件的 也是必须安装的，比 ctrlp 速度要快</span></span><br><span class="line"><span class="string">Plug &#x27;junegunn/fzf&#x27;, &#123; &#x27;do&#x27;: &#123; -&gt; fzf#install() &#125; &#125;</span></span><br><span class="line"><span class="string">Plug &#x27;junegunn/fzf.vim&#x27;</span></span><br><span class="line"><span class="string">&quot;</span>添加一些分割线 比如你写python的时候 格式对齐 就可以通过这个分割线来 让你很直观的看到</span><br><span class="line">Plugin <span class="string">&#x27;Yggdroot/indentLine&#x27;</span></span><br><span class="line"><span class="string">&quot;自动格式化管理插件, 可根据不同文件类型使用不同的格式化工具</span></span><br><span class="line"><span class="string">Plug &#x27;Chiel92/vim-autoformat&#x27;</span></span><br><span class="line"><span class="string">&quot;</span>Markdown预览</span><br><span class="line">Plug <span class="string">&#x27;iamcco/markdown-preview.nvim&#x27;</span>, &#123;<span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;cd app &amp; yarn install&#x27;</span>&#125;</span><br><span class="line">“YCM 先安装，然后手工编译出库文件 ycm_core.so (以及依赖的 libclang.so) 才可使用. 假设使用 vim-plug 下载的 YouCompleteMe 源码保存在目录 ~/.vim/plugged/YouCompleteMe, 在该目录下执行</span><br><span class="line">Plug <span class="string">&#x27;ycm-core/YouCompleteMe&#x27;</span>`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Plugin <span class="string">&#x27;tpope/vim-fugitive&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;git://git.wincent.com/command-t.git&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;mzlogin/vim-markdown-toc&#x27;</span></span><br><span class="line">Plugin <span class="string">&#x27;zxqfl/tabnine-vim&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6. 安装机器学习语法提示神器</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">cd ~/.vim/plugged/YouCompleteMe</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">python3 ./install.py -all</span><br><span class="line"></span><br><span class="line"># 安装 YouCompleteMe</span><br><span class="line">cd ~/.vim/plugged/YouCompleteMe</span><br><span class="line">./install.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 如果安装完有乱码，那就把终端的字体设置为 DroidSansMono Nerd Font Book</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置-BBR"><a href="#配置-BBR" class="headerlink" title="配置 BBR"></a>配置 BBR</h3><p>与传统的拥塞控制算法相比，BBR 具有几个显着的优势，使其成为增强 Manjaro Linux 系统网络性能的绝佳选择。一些主要好处包括：</p>
-<ol>
-<li>提高吞吐量：BBR 有效地利用了可用带宽，从而显著提高了整体数据传输速率。</li>
-<li>减少延迟：使用 BBR，延迟和数据包丢失被最小化，从而带来响应更灵敏和无缝的浏览体验。</li>
-<li>增强的连接稳定性：BBR 可动态适应网络条件的波动，即使在网络拥塞的情况下也能保持稳定的连接。</li>
-<li>在多个网络流之间实现更好的公平性：BBR 确保带宽在不同用户和应用程序之间公平分配，促进平衡的网络环境。</li>
-</ol>
-<p>通过在 Manjaro Linux 系统上启用 BBR，您可以利用这些优势并优化您的互联网体验。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建并编辑配置文件</span></span><br><span class="line">sudo nano /etc/sysctl.d/80-bbr.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加以下内容</span></span><br><span class="line">net.core.default_qdisc=fq</span><br><span class="line">net.ipv4.tcp_congestion_control=bbr</span><br><span class="line"></span><br><span class="line"><span class="comment">#应用更改.此命令重新加载 sysctl 配置，激活 BBR 拥塞控制算法。</span></span><br><span class="line">sudo sysctl --system</span><br><span class="line"></span><br><span class="line"><span class="comment">#若要验证 BBR 是否处于活动状态，请运行：</span></span><br><span class="line">sudo sysctl net.ipv4.tcp_congestion_control</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出显示如下则表示已经激活</span></span><br><span class="line">net.ipv4.tcp_congestion_control = bbr</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="locate-命令"><a href="#locate-命令" class="headerlink" title="locate 命令"></a>locate 命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装</span></span><br><span class="line">sudo pacman -S locate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用前要更新数据库</span></span><br><span class="line">sudo updatedb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用方法：</span></span><br><span class="line">locate [选项][参数]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Manjaro-系统的常用命令"><a href="#Manjaro-系统的常用命令" class="headerlink" title="Manjaro 系统的常用命令"></a>Manjaro 系统的常用命令</h2><h3 id="pacman"><a href="#pacman" class="headerlink" title="pacman"></a>pacman</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装软件</span></span><br><span class="line">sudo pacman -S package-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先刷新软件库再安装软件</span></span><br><span class="line">sudo pacman -Sy package-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装本地包，支持pkg.tar.gz 或 pkg.tar.xz</span></span><br><span class="line">sudo pacman -U local_package_name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载软件,保留其全部已经安装的依赖关系</span></span><br><span class="line">sudo pacman -R package-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载软件及其全部已经安装的依赖关系</span></span><br><span class="line">sudo pacman -R package-name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索软件含关键字的包</span></span><br><span class="line">sudo pacman -Ss string</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理软件包缓存，未安装的包文件</span></span><br><span class="line">sudo pacman -Sc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理所有的缓存文件</span></span><br><span class="line">sudo pacman -Scc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新软件库</span></span><br><span class="line">sudo pacman -Syy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级软件包</span></span><br><span class="line">sudo pacman -Syu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级系统</span></span><br><span class="line">sudo pacman -Syyu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已经安装的软件</span></span><br><span class="line">sudo pacman -Qs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除系统中无用的包</span></span><br><span class="line">sudo pacman -R</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">pacman -Qdtq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从 AUR 安装软件包 yay 安装命令不需要加 sudo</span></span><br><span class="line">yay -S package</span><br><span class="line"></span><br><span class="line"><span class="comment"># yay删除包</span></span><br><span class="line">yay -Rns package</span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级所有已安装的包</span></span><br><span class="line">yay -Syu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印系统统计信息</span></span><br><span class="line">yay -Ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查安装的版本</span></span><br><span class="line">yay -Qi package</span><br></pre></td></tr></table></figure>
-
-<h3 id="wget-命令"><a href="#wget-命令" class="headerlink" title="wget 命令"></a>wget 命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载到当前目录</span></span><br><span class="line">wget url</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定下载目录 大写参数 -P</span></span><br><span class="line">wget -P 目录 url</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定下载目录以及重命名下载文件</span></span><br><span class="line">wget -o 目录/filename url</span><br></pre></td></tr></table></figure>
-
-<h3 id="pwd-x2F-cd-x2F-ls"><a href="#pwd-x2F-cd-x2F-ls" class="headerlink" title="pwd &#x2F; cd &#x2F; ls"></a>pwd &#x2F; cd &#x2F; ls</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出目录的内容（默认情况下是当前目录），包括文件和其他嵌套目录</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="built_in">ls</span> /usr</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当前目录</span></span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改目录</span></span><br><span class="line"><span class="built_in">cd</span> /home</span><br><span class="line"><span class="built_in">cd</span> ~/下载       <span class="comment"># 切换到当前用户的下载目录 = cd /home/user_name/下载/</span></span><br><span class="line"><span class="built_in">cd</span>              <span class="comment">#切换到当前用户根目录 = cd /homw/user_name/</span></span><br><span class="line"><span class="built_in">cd</span> ..           <span class="comment"># 切换到上一级目录</span></span><br><span class="line"><span class="built_in">cd</span> ./           <span class="comment"># 切换到当前目录</span></span><br></pre></td></tr></table></figure>
-<h3 id="cp-x2F-rm-x2F-mv"><a href="#cp-x2F-rm-x2F-mv" class="headerlink" title="cp &#x2F; rm &#x2F;mv"></a>cp &#x2F; rm &#x2F;mv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制。复制1.txt 到同目录下的 2.txt</span></span><br><span class="line"><span class="built_in">cp</span> 1.txt 2.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归复制。复制整个目录,在Linux中，文件夹以正斜杠 (/)结尾。</span></span><br><span class="line"><span class="built_in">cp</span> -r <span class="built_in">fold</span>/ new_fold/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制fold目录下的所有文件到当前目录</span></span><br><span class="line"><span class="built_in">cp</span> <span class="built_in">fold</span>/* .</span><br><span class="line">```<span class="built_in">export</span> NODEJS_HOME=/usr/local/lib/node/nodejs</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NODEJS_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### rm</span></span><br><span class="line">```bash</span><br><span class="line"><span class="comment"># 删除文件</span></span><br><span class="line"><span class="built_in">rm</span> 1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除空目录</span></span><br><span class="line"><span class="built_in">rm</span> -r <span class="built_in">fold</span>/tar   -tf    /opt/abc.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除非空目录</span></span><br><span class="line"><span class="built_in">rm</span> -rf <span class="built_in">fold</span>/</span><br></pre></td></tr></table></figure>
-<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 移动文件</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt new_fold/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名文件</span></span><br><span class="line"><span class="built_in">mv</span> 1.txt 2.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重命名目录</span></span><br><span class="line"><span class="built_in">mv</span> <span class="built_in">fold</span> fold1</span><br></pre></td></tr></table></figure>
-
-<h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 参数 c:打包（创建新的归档文件）</span></span><br><span class="line"><span class="comment"># 参数 z:使用gzip压缩归档文件</span></span><br><span class="line"><span class="comment"># 参数 j:使用bzip2压缩归档文件</span></span><br><span class="line"><span class="comment"># 参数 v:显示操作信息</span></span><br><span class="line"><span class="comment"># 参数 f:指定归档文件名</span></span><br><span class="line"><span class="comment"># 参数 x:解包（从归档文件中提取文件）</span></span><br><span class="line"><span class="comment"># 参数 C:切换到指定目录</span></span><br><span class="line"><span class="comment"># 参数 t:列出归档文件</span></span><br><span class="line"><span class="comment"># 参数 g:处理GNU格式的归档</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 压缩但不打包 tar cf 归档名 文件名或目录名</span></span><br><span class="line">tar -cf 1.tar 1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment">## 查看归档文件</span></span><br><span class="line">tar -tf 1.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">## 压缩文件成为新文件.将1.txt压缩成2.tar.gz</span></span><br><span class="line">tar -czvf 2.tar.gz 1.txt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## 列出压缩文件的内容</span></span><br><span class="line">tar -tzvg 1.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">## 解压</span></span><br><span class="line">tar -xzvf 1.tar.gz</span><br></pre></td></tr></table></figure>
-<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建目录</span></span><br><span class="line"><span class="built_in">mkdir</span> newfold/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建多级目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p level1/level2/</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Linux-系统其他常用命令"><a href="#Linux-系统其他常用命令" class="headerlink" title="Linux 系统其他常用命令"></a>Linux 系统其他常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清空回收站</span></span><br><span class="line">sudo <span class="built_in">rm</span> -fr <span class="variable">$HOME</span>/.local/share/Trash/files/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 比较文件差异,并排输出</span></span><br><span class="line">diff -y -w 1.txt 2.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改权限 +r 读权限 +w 写权限 +x 执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> +rwx file</span><br><span class="line"></span><br><span class="line"><span class="comment"># htop 进程查看</span></span><br><span class="line">htop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看预览文件</span></span><br><span class="line"><span class="built_in">cat</span> 1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找文件里符合条件的字符串或正则表达式。</span></span><br><span class="line">grep string 1.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在文件夹 dir 中递归查找所有文件中匹配正则表达式 &quot;pattern&quot; 的行，并打印匹配行所在的文件名和行号：</span></span><br><span class="line">grep -r -n pattern <span class="built_in">dir</span>/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在当前目录中，查找后缀有 file 字样的文件中包含 test 字符串的文件，并打印出该字符串的行</span></span><br><span class="line">grep <span class="built_in">test</span> *file</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看系统信息</span></span><br><span class="line">neofetch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示系统当前内存的使用情况</span></span><br><span class="line">free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看占用资源最多的进程，默认cpu占用</span></span><br><span class="line">top</span><br></pre></td></tr></table></figure>
-
-<h2 id="Pdf-文档编辑"><a href="#Pdf-文档编辑" class="headerlink" title="Pdf 文档编辑"></a>Pdf 文档编辑</h2><ol>
-<li>普通的 pdf 内文本编辑直接使用 libreoffice-draw</li>
-<li>查看用 Okular。可以复制文字</li>
-<li>编辑神器 pdftk</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装,安装好的版本是server版 具有pro版的全部功能。</span></span><br><span class="line"></span><br><span class="line">sudo pacman -S pdftk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用方法：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并pdf文件。将1.pdf,2.pdf 合并成 new.pdf</span></span><br><span class="line">pdftk 1.pdf 2.pdf <span class="built_in">cat</span> output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并目录下的所有pdf文件</span></span><br><span class="line">pdftk *.pdf <span class="built_in">cat</span> output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取1-10页为一个新文件</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-10 output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取版连续的页面成为新文件。提取第1-3页，第5页，第7-10页</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-3 5 7-10 output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment">#去除第15-20页</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-14 21-end output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拆分pdf的每一页一个新文件</span></span><br><span class="line">pdftk input.pdf burst output new_%d.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将所有页面旋转180度</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-endsouth output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将第3页顺时针旋转90度</span></span><br><span class="line">pdftk input.pdf <span class="built_in">cat</span> 1-2 3east 4-end output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压pdf页面流，然后可以在文本编辑器中编辑pdf</span></span><br><span class="line">pdftk input.pdf outout doc.unc.pdf uncompress</span><br><span class="line"></span><br><span class="line"><span class="comment"># 压缩pdf</span></span><br><span class="line">pdftk input.pdf output mydoc.clear.pdf compress</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修复破损的pdf</span></span><br><span class="line">pdftk input.pdf output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改pdf目录。分3步完成</span></span><br><span class="line">1. 提取目录信息</span><br><span class="line">pdftk input.pdf dump_date output toc.txt</span><br><span class="line"></span><br><span class="line">2. 用文本编辑器修改</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">3. 把修改后的信息加载回pdf中</span><br><span class="line">pdftk input.pdf update_info toc.txt output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取pdf文件的元数据和书签信息</span></span><br><span class="line">pdftk input.pdf dump_data output toc.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密 密码为 foopass</span></span><br><span class="line">pdftk input.pdf input_pw foopass output new.pdf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 128位加密，保留全部权限 密码为 foopass</span></span><br><span class="line">pdftk input.pdf output new.pdf owner_pw foopass</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="安装和配置-WINE"><a href="#安装和配置-WINE" class="headerlink" title="安装和配置 WINE"></a>安装和配置 WINE</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -----安装wine-----</span></span><br><span class="line">sudo pacman -S wine</span><br><span class="line"></span><br><span class="line"><span class="comment"># -----修改配置文件-----</span></span><br><span class="line">sudo vim ~/.wine/drive_c/windows/win.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加的内容如下：</span></span><br><span class="line">    [Desktop]</span><br><span class="line">    menufontsize=13</span><br><span class="line">    messagefontsize=13</span><br><span class="line">    statusfontsize=13</span><br><span class="line">    IconTitleSize=13</span><br><span class="line"></span><br><span class="line"><span class="comment">#------注册表编辑-----</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 制作注册表文件</span></span><br><span class="line">sudo vim regedit01</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加内容到regedit01</span></span><br><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]</span><br><span class="line"><span class="string">&quot;Lucida Sans Unicode&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Microsoft Sans Serif&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Microsoft YaHei&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;微软雅黑&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;MS Sans Serif&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma Bold&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;SimSun&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial Black&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;宋体&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;新細明體&quot;</span>=<span class="string">&quot;wqy-microhei.ttc&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># wine打开注册表</span></span><br><span class="line">wine regedit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入注册表文件</span></span><br><span class="line">在弹出的窗口中，选择导入注册文件，并选择刚创建的注册表文件</span><br><span class="line"></span><br><span class="line"><span class="comment"># -----修改wine启动器界面-----</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入命令</span></span><br><span class="line">winecfg</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择显示菜单</span></span><br><span class="line">修改屏幕分辨率 96 dpi</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装-libreoffice-系列软件的中文语言包"><a href="#安装-libreoffice-系列软件的中文语言包" class="headerlink" title="安装 libreoffice 系列软件的中文语言包"></a>安装 libreoffice 系列软件的中文语言包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S libreoffice-still-zh-cn</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置-Hexo"><a href="#配置-Hexo" class="headerlink" title="配置 Hexo"></a>配置 Hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">######以下办法失败######以下办法失败######以下办法失败##########</span></span><br><span class="line"><span class="comment"># -----安装 Nodejs----</span></span><br><span class="line">yay -Sy nodejs</span><br><span class="line"><span class="comment"># 测试是否安装成功</span></span><br><span class="line">node -v <span class="comment"># v21.4.0</span></span><br><span class="line">npm -v  <span class="comment"># 10.2.5</span></span><br><span class="line"><span class="comment"># -----安装 hexo-cli-----</span></span><br><span class="line"><span class="comment"># 测试 git 是否成功安装</span></span><br><span class="line">git --version <span class="comment"># gie version 2.43.0</span></span><br><span class="line"><span class="comment"># 安装 hexo-cli ，在走代理的情况下可以成功安装</span></span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"><span class="comment">###此时出现严重问题，报错 npm ERR! code EACCES.....在网上找了n种办法均告失败，通过更改部分运行目录后成功，但是重启后丢失了sudo命令的使用权。导致系统重装。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##------ 今天2023-12-17计划用新方法来安装-----------------------</span></span><br><span class="line"><span class="comment">#首先准备安装nodejs,从nodejs官网下载安装包---&gt;解压缩到指定目录下----&gt;配置</span></span><br><span class="line"><span class="comment"># 下载到 ~/下载</span></span><br><span class="line">wget -P ～/下载 https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩</span></span><br><span class="line"><span class="built_in">cd</span> ~/下载</span><br><span class="line">tar -xzvf node-v20.10.0-linux-x64.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新目录 /usr/local/lib/node</span></span><br><span class="line">sudo <span class="built_in">mkdir</span> /usr/local/lib/node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移动解压缩后的文件夹node-v20.10.0-linux 到/usr/local/lib/node下并重命名为nodejs</span></span><br><span class="line">sudo <span class="built_in">mv</span> ~/下载/node-v20.10.0-linux-x64 /usr/local/lib/node/nodejs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line">sudo vim /etc/profile</span><br><span class="line"><span class="comment"># 添加内容</span></span><br><span class="line"><span class="built_in">export</span> NODEJS_HOME=/usr/local/lib/node/nodejs</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NODEJS_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试是否成功</span></span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line">node -v  <span class="comment"># 10.2.3</span></span><br><span class="line">npm -v   <span class="comment"># v20.10.0</span></span><br><span class="line">以上输出表示安装成功了！</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装hexo,依然报错，从网上继续查找原因和解决办法，主要是全局应用没有使用权限的问题。找到最终的解决办法：改变两个目录的所有者</span></span><br><span class="line">sudo <span class="built_in">chown</span> -R xiaoyx ~/.npm/</span><br><span class="line">sudo coown -R xiaoyx /usr/local/lib/node/</span><br><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测是否安装成功</span></span><br><span class="line">hexo --version</span><br><span class="line"></span><br><span class="line"><span class="comment"># 至此完全搞定个人博客搭建在linux下的应用。这个操作因为npm权限的问题耗费了整整两天的时间。</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="启用github博客"><a href="#启用github博客" class="headerlink" title="启用github博客"></a>启用github博客</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 因为安装的是双系统，之前已经创建了博客，所以在MANJARO下直接使用原来的博客目录。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 挂载windows下的D盘，并切换到博客目录下：</span></span><br><span class="line"><span class="built_in">cd</span> /run/media/xiaoyx/Data/BLOG/yxhsiao/source/_posts</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行hexo d 后报错身份验证错误，解决办法。</span></span><br><span class="line">git config --global user.name <span class="string">&quot;yxhsiao&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;yxhsiao@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 接着将原来win下的c:\\user\\xiaoyx\\.ssh 文件目录全部复制到 ~/</span></span><br><span class="line">sudo <span class="built_in">cp</span> /run/media/xiaoyx/Windows-SSD/Users/xiaoyx/.shh ~/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改该目录的权限</span></span><br><span class="line">sudo <span class="built_in">chmod</span> -R 700 ~/.ssh/                                                                                                                                     2 ↵</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再次运行成功推送</span></span><br><span class="line">hexo clean &amp;&amp; hexo g  &amp;&amp; hexo d</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yxhsiao.github.io/2023/12/05/Deepin%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Xiaoyaoxin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="静水深流">
-      <meta itemprop="description" content="逍遥心">
-    </span>
-    
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 静水深流">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/05/Deepin%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Deepin系统的安装与使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-05 00:00:00" itemprop="dateCreated datePublished" datetime="2023-12-05T00:00:00+08:00">2023-12-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-18 00:30:19" itemprop="dateModified" datetime="2023-12-18T00:30:19+08:00">2023-12-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%BA%94%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">计算机应用</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Deepin-系统"><a href="#Deepin-系统" class="headerlink" title="Deepin 系统"></a>Deepin 系统</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li>Ventoy 制作可启动 U 盘</li>
-<li>将 deepin V20.9 的镜像文件 ISO 格式的拷贝到 U 盘根目录下，可以同时拷贝多个系统安装的镜像文件到根目录下。</li>
-<li>设置电脑的开机顺序优先 U 盘启动</li>
-<li>进入安装程序</li>
-</ol>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="输入法配置，系统自带的输入法框架已经足够。"><a href="#输入法配置，系统自带的输入法框架已经足够。" class="headerlink" title="输入法配置，系统自带的输入法框架已经足够。"></a>输入法配置，系统自带的输入法框架已经足够。</h4><ul>
-<li>只需要将双拼方案选择小鹤双拼，</li>
-<li>保留五笔和地球拼音。</li>
-</ul>
-<h4 id="更新商店"><a href="#更新商店" class="headerlink" title="更新商店"></a>更新商店</h4><ul>
-<li><code>sudo apt-get update</code></li>
-</ul>
-<h4 id="软件的安装与卸载"><a href="#软件的安装与卸载" class="headerlink" title="软件的安装与卸载"></a>软件的安装与卸载</h4><ul>
-<li><code>dpkg -l</code> 查看已经安装的软件</li>
-<li><code>sudo apt-get autoremove name</code> 卸载命令，name 是耀卸载的软件名称</li>
-<li><code>sudo apt-get clean</code> 清理下载文件的存档</li>
-<li><code>sudo apt-get autoclean</code> 清理过时的软件包</li>
-</ul>
-<h4 id="应用商店安装必要的软件"><a href="#应用商店安装必要的软件" class="headerlink" title="应用商店安装必要的软件"></a>应用商店安装必要的软件</h4><ul>
-<li>浏览器 EDGE，登录并同步.卸载系统自带的浏览器 <code>sudo apt purge org.deepin.browser</code></li>
-<li>邮件客户端 Foxmail。下载系统自带的邮箱</li>
-<li>微信</li>
-<li>QQ</li>
-<li>喜马拉雅</li>
-<li>网易云音乐</li>
-<li>Vscode 满足编程和 MarkDown</li>
-</ul>
-<h4 id="重点讲解python的安装"><a href="#重点讲解python的安装" class="headerlink" title="重点讲解python的安装"></a>重点讲解python的安装</h4><ul>
-<li>因为系统中已经包含了python2.7 和 python3.7</li>
-<li>如果直接使用系统自带的python3.7,需要设置两个的优先级别   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分别设置级别伟1和2,数字越大代表优先级越高</span></span><br><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1</span><br><span class="line"></span><br><span class="line">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2</span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
-<li>安装pip &#96;sudo apt install python3-pip</li>
-<li>更新pip <code>sudo pip3 install --upgrade pip</code></li>
-<li>设置pip软件源 &#96;pip3 config set global.index-url <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/pypi/simple/">https://mirrors.aliyun.com/pypi/simple/</a></li>
-<li>安装包：<code>pip3 install 包名称</code></li>
-<li>查看已经安装的包 <code>pip3 list</code></li>
-<li>查看可以更新的包<code>pip3 install --upgrade 包名称</code></li>
-<li>安装指定版本 <code>pip install --upgrade 包名称==版本号</code></li>
-</ul>
-<h3 id="deepin-系统下wireguard-Vpn的配置"><a href="#deepin-系统下wireguard-Vpn的配置" class="headerlink" title="deepin 系统下wireguard Vpn的配置"></a>deepin 系统下wireguard Vpn的配置</h3><ol>
-<li>安装 wireguard-tools</li>
-</ol>
-<ul>
-<li>下载 <code>https://storage.deepin.org/thread/202209290945162120_wireguard-tools_1.0.20210914+r466+g7f3cd52-1_amd64.zip</code></li>
-<li>解压缩</li>
-<li>直接双击安装 deb 包</li>
-</ul>
-<ol start="2">
-<li><p>配置</p>
-<ul>
-<li>更改文件夹的权限伟可读写。<code>chmod -R 777 ./etc/wireguard</code></li>
-<li>创建并编辑配置文件</li>
-<li><code>sudo deepin-editor /etc/wireguard/wg0.conf</code></li>
-<li>或 <code>sudo gedit /etc/wireguard/wg0.conf</code></li>
-<li>添加配置文件内容：</li>
-<li></li>
-</ul>
-</li>
-</ol>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 第1,2,4,7,8行的内容是固定的。其中第4行时自己注册的Vpn的密钥</span><br><span class="line"># 其他行的参数内容来自VPN节点数据。此处是从注册网站下载的数据</span><br><span class="line"># `https://my.shark-china.com/******`</span><br><span class="line">[Interface]</span><br><span class="line">ListenPort = 49815</span><br><span class="line">Address = 10.14.0.2/16</span><br><span class="line">PrivateKey = mKTo/XWQemHxEDJxfDaNvcFwB4R42WQDtV7ZURUitWg=</span><br><span class="line">DNS = 162.252.172.57, 149.154.159.92</span><br><span class="line">[Peer]</span><br><span class="line">PersistentKeepalive = 25</span><br><span class="line">PublicKey = iBJRXLZwXuWWrOZE1ZrAXEKMgV/z0WjG0Tks5rnWLBI=</span><br><span class="line">AllowedIPs = 0.0.0.0/0</span><br><span class="line">Endpoint = 23.230.212.223:51820</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>命令行启动运行</p>
-<ul>
-<li>打开代理 <code>sudo wg-quick up wg0</code></li>
-<li>关闭代理 <code>sudo wg-quick down wg0</code></li>
-</ul>
-</li>
-<li><p>自动从下载的配置文件添加到虚拟网卡配置信息中</p>
-</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># *_2023-12-03_*</span></span><br><span class="line"><span class="comment"># *_python3.7_*</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os,re,stat</span><br><span class="line"></span><br><span class="line">filename = <span class="built_in">input</span>(<span class="string">&#x27;输入下载的配置文件名&#x27;</span>)</span><br><span class="line">filename =filename + <span class="string">&#x27;.conf&#x27;</span></span><br><span class="line">downfold = <span class="string">&#x27;/home/xiaoyx/Downloads&#x27;</span></span><br><span class="line">downfile = os.path.join(downfold,filename)</span><br><span class="line">dct = &#123;&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(downfile, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    rows = file.readlines()</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;=&#x27;</span> <span class="keyword">in</span> row:</span><br><span class="line">            ls = row.split(<span class="string">&#x27; = &#x27;</span>,<span class="number">1</span>)</span><br><span class="line">            dct.update(&#123;ls[<span class="number">0</span>]:re.sub(<span class="string">&#x27;\n&#x27;</span>,<span class="string">&#x27;&#x27;</span>,ls[<span class="number">1</span>])&#125;)</span><br><span class="line">rows1 = [<span class="string">&#x27;[Interface]\n&#x27;</span>,<span class="string">&#x27;ListenPort = 49852\n&#x27;</span>]</span><br><span class="line">rows2 = [<span class="string">&#x27;[Peer]\n&#x27;</span>,<span class="string">&#x27;PersistentKeepalive = 25\n&#x27;</span>]</span><br><span class="line">wd1 = <span class="string">&#x27;&lt;insert_your_private_key_here&gt;&#x27;</span></span><br><span class="line">wd2 = <span class="string">&#x27;mKTo/XWQemHxEDJxfDaNvcFwB4R42WQDtV7ZURUitWg=&#x27;</span></span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> dct.items():</span><br><span class="line">    <span class="built_in">str</span> = k + <span class="string">&#x27; = &#x27;</span>  + v + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> k <span class="keyword">in</span> [<span class="string">&#x27;Address&#x27;</span>, <span class="string">&#x27;PrivateKey&#x27;</span>,<span class="string">&#x27;DNS&#x27;</span>]:</span><br><span class="line">        <span class="built_in">str</span> = re.sub(wd1,wd2,<span class="built_in">str</span>)</span><br><span class="line">        rows1.append(<span class="built_in">str</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        rows2.append(<span class="built_in">str</span>)</span><br><span class="line">rows = rows1 + rows2</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;/etc/wireguard/wg0.conf&#x27;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.writelines(rows)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -2139,7 +1840,7 @@ UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0xb0 in position
 
 <div class="copyright">
   &copy; 2020 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
